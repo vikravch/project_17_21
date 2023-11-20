@@ -16,8 +16,8 @@ const WeatherPage = () => {
     },[]);
 
     return (
-        <div>
-            {(weather!==undefined)?JSON.stringify(weather):<h2>Loading...</h2>}
+        <div >
+            {(weather!==undefined)?JSON.stringify(weather):<h2 >Loading...</h2>}
         </div>
     );
 };
