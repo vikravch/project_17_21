@@ -5,6 +5,8 @@ import {Route, Routes} from "react-router";
 import NavigationRow from "./general/components/navigation/NavigationRow";
 import NewsletterSubscribe from "./general/components/newsletter_subscribe/NewsletterSubscribe";
 import Footer from "./general/components/footer/Footer";
+import CartPage from "./modules/cart/pages/cart-page";
+import CheckoutPage from "./modules/cart/pages/checkout-page";
 
 function App() {
     return (
@@ -13,17 +15,19 @@ function App() {
             flexDirection: "column",
             minHeight: "100vh"
         }}>
-            <NavigationRow/>
+            {/*<NavigationRow/>*/}
             <main style={{
                 flex: 1
             }}>
                 <Routes>
                     <Route path="/" element={<WeatherPage/>}/>
                     <Route element={<WeatherPage/>}/>{/*default route*/}
+                    <Route path="/cart" element={<CartPage/>}/>
+                    <Route path="/cart/checkout" element={<CheckoutPage/>}/>
                 </Routes>
             </main>
-            <NewsletterSubscribe/>
-            <Footer/>
+            {/*<NewsletterSubscribe/>*/}
+            {/*<Footer/>*/}
         </div>
 
     );
