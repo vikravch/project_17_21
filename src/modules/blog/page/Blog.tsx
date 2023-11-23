@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import '../presentation/styles/style.css'
+import './Blog.module.css'
 import {Article, articles} from "../presentation/utils/data";
-import BlogCard from "../presentation/components/BlogCard";
+import BlogCard from "../presentation/components/BlogCard/BlogCard";
 
 const Blog = () =>
 {
