@@ -1,0 +1,41 @@
+.block {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .block {
+        display: block;
+        width: 254px;
+    }
+
+    .categories > p,
+    .price > p {
+        font-size: 16px;
+        font-weight: 600;
+        color: #121212;
+        text-transform: uppercase;
+    }
+
+    .categories > p {
+        margin-bottom: 20px;
+    }
+
+    .price > p {
+        margin: 20px 0;
+    }
+
+    .categories > ul > li,
+    .price > ul > li{
+        cursor: pointer;
+        list-style: none;
+        font-weight: 600;
+        color: #807E7E;
+        margin: 10px 0;
+    }
+
+    .categories > ul > li:hover,
+    .price > ul > li:hover{
+        color: #121212;
+        text-decoration: underline;
+    }
+}
