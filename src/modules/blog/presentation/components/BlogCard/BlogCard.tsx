@@ -1,5 +1,5 @@
 import React from 'react';
-import './BlogCard.module.css'
+import cardStyle from './BlogCard.module.css'
 interface Props
 {
     imgArt: string
@@ -10,12 +10,12 @@ const BlogCard = (props: Props) => {
 
 
             return (
-                <div className={'wrapper'}>
-                    <div className={'articleImg'}>
+                <div className={cardStyle.wrapper}>
+                    <div className={cardStyle.articleImg}>
                         <img alt={"img"} src={props.imgArt }></img>
                     </div>
-                    <div className={'mainField'}><p>{props.text}</p></div>
-                    <div className={'dateField'}><p>{props.date}</p></div>
+                    <div className={cardStyle.mainField}><p>{props.text}</p></div>
+                    <div className={cardStyle.dateField}><p>{props.date}</p></div>
                 </div>
             );
         }
