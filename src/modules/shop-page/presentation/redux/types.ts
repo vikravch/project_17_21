@@ -1,4 +1,4 @@
-import {Product} from "../../domain/model/product";
+import Product from "../../domain/model/product";
 
 export type ShopPageState = {
   products?: Product[],
