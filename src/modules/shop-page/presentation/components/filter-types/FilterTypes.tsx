@@ -3,7 +3,7 @@ import style from "./filterTypes.module.css";
 import {categoriesArray, priceArray} from "../../../domain/model/filterConst";
 import {useDispatch} from "react-redux";
 import {chooseSort, openCloseMenuHandler} from "../../redux/shopPageSlice";
-import {Columns} from "../../../domain/model/product";
+import {Columns} from "../../redux/types";
 
 interface Props {
     columns: Columns;

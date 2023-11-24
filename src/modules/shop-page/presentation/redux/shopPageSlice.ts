@@ -23,20 +23,10 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
     {
         name: 'shopPage',
         initialState: {
-            columns: {
-                countMobile: 2,
-                countDesktop: 3
-            },
             products: testProducts,
             error: 'Any error'
         },
         reducers: {
-            selectMobileStyle(state, action){
-                state.columns.countMobile = action.payload;
-            },
-            selectDesktopStyle(state, action){
-                state.columns.countDesktop = action.payload;
-            },
             openCloseFilterHandler() {
                 // console.log('FILTER HAND')
                 const types = document.getElementById('types');
@@ -91,5 +81,4 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
 );
 
 export default shopPageSlice.reducer;
-export const {selectMobileStyle, selectDesktopStyle} = shopPageSlice.actions;
 export const {openCloseFilterHandler, openCloseMenuHandler, chooseSort} = shopPageSlice.actions;
