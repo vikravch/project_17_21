@@ -14,12 +14,8 @@ const FilterTypes = ({columns}: Props) => {
 
     const chooseSort = (event: any) => {
         const choice: string = event.target.textContent;
-        // const listSort = document.getElementById('listSort');
         const listId = event.target.parentElement;
-        // const sortBy = event.target.parentElement.previousElementSibling;
         const listHead = listId.previousElementSibling;
-        // @ts-ignore
-        // const sortByInput: HTMLInputElement = document.getElementById('sortBy');
         const input: HTMLInputElement = listHead.previousElementSibling;
         input.value = choice;
 
@@ -37,16 +33,14 @@ const FilterTypes = ({columns}: Props) => {
     }
 
     return (
-            <div className={style.typesBlock}
-                 style={columns.countDesktop === 3 ? {display: 'none'} : {}}
+            <div className={`${style.typesBlock} ${columns.countDesktop === 3 ? style.close : ''}`}
                  id={'types'}>
-
                 <div className={style.filterCategories}>
-
                     <p>Categories</p>
                     <input type={'hidden'} name={'filterCateg'} id={'filterCat'}/>
-                    <div className={style.filterCatHead} id={'filterCatHead'} onClick={openCloseMenuHandler}>All
-                        rooms
+                    <div className={style.filterCatHead} id={'filterCatHead'}
+                         onClick={openCloseMenuHandler}>
+                        All rooms
                     </div>
                     <ul className={style.filterCatList} id={'filterCatList'}>
                         {categoriesArray.map(item => {
@@ -56,9 +50,7 @@ const FilterTypes = ({columns}: Props) => {
                     </ul>
                 </div>
 
-
                 <div className={style.filterPrice}>
-
                     <p>Price</p>
                     <input type={'hidden'} name={'filterPrice'} id={'filterPr'}/>
                     <div className={style.filterPriceHead} id={'filterPriceHead'}

@@ -24,7 +24,6 @@ const ShopPage = () => {
     },[])
 
     document.addEventListener('click', event => {
-
         const listSort = document.getElementById('listSort');
         const sortHead = document.getElementById('sortHead');
         // @ts-ignore
@@ -43,15 +42,11 @@ const ShopPage = () => {
 
     const chooseSort = (event: any) => {
         const choice: string = event.target.textContent;
-        // const listSort = document.getElementById('listSort');
         const listId = event.target.parentElement;
-        // const sortBy = event.target.parentElement.previousElementSibling;
         const listHead = listId.previousElementSibling;
-        // @ts-ignore
-        // const sortByInput: HTMLInputElement = document.getElementById('sortBy');
         const input: HTMLInputElement = listHead.previousElementSibling;
-        input.value = choice;
 
+        input.value = choice;
         // @ts-ignore
         listId.childNodes.forEach(item => {
             if (item.textContent === listHead.textContent) {
@@ -67,7 +62,6 @@ const ShopPage = () => {
 
     const openCloseFilterHandler = () => {
         const types = document.getElementById('types');
-        console.log(types)
         // @ts-ignore
         types.classList.toggle(style.open);
     }

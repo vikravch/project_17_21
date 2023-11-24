@@ -12,8 +12,6 @@
 }
 
 .filterCatHead, .filterPriceHead {
-    /*border: #6C7275 solid 2px;*/
-    /*border-radius: 8px;*/
     border: #6C7275 solid 2px;
     border-radius: 8px;
     background-image: url("../../../../../icons/shop_page/arrowDownMini.svg");
@@ -53,7 +51,7 @@
 }
 
 .open {
-    display: block !important;
+    display: block;
 }
 
 .filterCatList > li,
@@ -120,7 +118,6 @@
 
     .filterCatList, .filterPriceList {
         border-radius: 12px;
-        /*box-shadow: 0 19px 48px -7px #0F0F0F1A ;*/
     }
 
     .filterCatList > li,
@@ -136,6 +133,10 @@
     .filterCatList:last-child,
     .filterPriceList:last-child {
         padding-bottom: 0;
+    }
+
+    .close {
+        display: none !important;
     }
 
 }
