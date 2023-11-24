@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import style from './shopPage.module.css';
-import filterIcon from '../../../../icons/shop_page/filter.svg';
 import {sort} from "../../domain/model/filterConst";
 import ViewSelector from "../components/view-selector/ViewSelector";
 import ProductsGallery from "../components/products-gallery/ProductsGallery";
@@ -10,6 +9,7 @@ import FilterTypes from "../components/filter-types/FilterTypes";
 import FilterTypesDesktop from "../components/filter-types-desktop/FilterTypesDesktop";
 import {Columns} from "../redux/types";
 import {getAllProductsAsyncAction} from "../redux/asyncActions";
+import FilterTitle from "../components/filter-title/FilterTitle";
 
 const ShopPage = () => {
 
@@ -60,12 +60,6 @@ const ShopPage = () => {
 
     }
 
-    const openCloseFilterHandler = () => {
-        const types = document.getElementById('types');
-        // @ts-ignore
-        types.classList.toggle(style.open);
-    }
-
     return (
         <div className={style.shopPage}>
             <div className={style.pageHeader}>
@@ -75,27 +69,18 @@ const ShopPage = () => {
                 <p>Let’s design the place you always imagined.</p>
             </div>
             <div className={style.filterSortBlock}>
-                <div className={columns.countDesktop === 3 ? style.showFilterDesktop3 : style.hideFilterDesktop3}>
-                    <img alt={'filter'} src={filterIcon}/>
-                    <p>Filter</p>
-                </div>
-                <div className={style.filterBlock}
-                     onClick={openCloseFilterHandler}>
-                        <img alt={'filter'} src={filterIcon}/>
-                        <p>Filter</p>
-                </div>
+                <FilterTitle columns={columns}/>
                 <FilterTypes columns={columns}/>
                 <div className={style.sortBlock}>
-
                     <div className={style.sortSelect}>
-                            <input type={'hidden'} name={'sort'} id={'sortBy'}/>
-                            <div className={style.sortHead} id={'sortHead'} onClick={openCloseMenuHandler}>Sort by</div>
-                            <ul className={style.sortList} id={'listSort'}>
-                                <li>Sort by</li>
-                                {sort.map(item => {
-                                    return <li className={style.sortItem} onClick={chooseSort} key={item}>{item}</li>
-                                })}
-                            </ul>
+                        <input type={'hidden'} name={'sort'} id={'sortBy'}/>
+                        <div className={style.sortHead} id={'sortHead'} onClick={openCloseMenuHandler}>Sort by</div>
+                        <ul className={style.sortList} id={'listSort'}>
+                            <li>Sort by</li>
+                            {sort.map(item => {
+                                return <li className={style.sortItem} onClick={chooseSort} key={item}>{item}</li>
+                            })}
+                        </ul>
                     </div>
                     <ViewSelector/>
                 </div>
