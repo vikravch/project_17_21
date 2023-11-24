@@ -1,13 +1,13 @@
 .viewSelector{
     display: flex;
     --border: 2px solid #E8ECEF;
+    height: 100%;
 }
 .button{
     border-top: var(--border);
     border-bottom: var(--border);
     border-left: var(--border);
-    width: 24px;
-    height: 24px;
+    aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
