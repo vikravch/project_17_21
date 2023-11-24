@@ -1,0 +1,25 @@
+.wrapper
+{
+    width: 357px;
+    height: 433px;
+}
+
+.articleImg {
+    width: 357px;
+    height: 325px;
+    overflow: hidden;
+}
+
+.articleImg img {
+    height: 100%;
+}
+
+.mainField {
+    font-weight: bold;
+}
+
+.dateField {
+    color: #6C7275;
+}
+
+
