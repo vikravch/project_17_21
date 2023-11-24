@@ -15,11 +15,11 @@ const OrderCompleteInfo = () => {
       </div>
       <div className="order_info_images">
         {items.map((el) => {
-          return (<div className="wrapper">
+          return (<div key={el.id} className="wrapper">
             <div className="product_amount">
               <p className="el_quantity">{el.quantity}</p>
             </div>
-            <img className="order_info_img" src={el.picture} alt={el.name}/>
+            <img className="order_info_img" src={el.picture} alt={el.name} />
           </div>)
         })}
 
