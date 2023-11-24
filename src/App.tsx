@@ -22,7 +22,6 @@ function App() {
             <NavigationRow/>
                 <Routes>
                     <Route path="/" element={<HomePage/>}/>
-                    <Route path="/" element={<WeatherPage/>}/>
                     <Route path="shop" element={<ShopPage/>}/>
                     <Route element={<WeatherPage/>}/>{/*default route*/}
                     <Route path="/cart" element={<CartPage/>}/>
