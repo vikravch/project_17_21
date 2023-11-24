@@ -13,7 +13,6 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    /*height: 308px;*/
     min-height: 308px;
     min-width: 311px;
     background-image: url('../../../../images/shop_page/pageHeader.svg');
@@ -26,9 +25,7 @@
 .pageHeader > h1{
     font-family: Poppins, serif;
     font-weight: 500;
-    /*font-size: 44px;*/
     font-size: 40px;
-
     margin: 0 0 10px 0;
 }
 
@@ -185,7 +182,7 @@
 }
 
 .open {
-    display: block;
+    display: block !important;
 
 }
 
@@ -243,10 +240,11 @@
     font-size: 16px;
 }
 
+.showFilterDesktop3 {
+    display: none;
+}
+
 @media screen and (min-width: 768px) {
-    .shopPage {
-        /*margin: 0 160px;*/
-    }
 
     .pageHeader {
         /*height: 28.5vw;*/
@@ -385,6 +383,19 @@
 
     .display3filterTypes {
         display: flex;
+    }
+
+    .showFilterDesktop3 {
+        display: flex;
+        justify-content: start;
+        margin-top: 40px;
+        border-top: 1px solid #E8ECEF;
+        border-bottom: 1px solid #E8ECEF;
+        cursor: pointer;
+    }
+
+    .hideFilterDesktop3 {
+        display: none;
     }
 }
 

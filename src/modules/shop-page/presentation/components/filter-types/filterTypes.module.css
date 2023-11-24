@@ -1,5 +1,5 @@
 .typesBlock {
-    display: block;
+    display: none;
 }
 
 .filterCategories > p,
@@ -53,8 +53,7 @@
 }
 
 .open {
-    display: block;
-
+    display: block !important;
 }
 
 .filterCatList > li,
@@ -84,10 +83,6 @@
 
 @media screen and (min-width: 768px) {
     .typesBlock {
-        display: flex;
-    }
-
-    .display3filterTypes {
         display: flex;
     }
 
@@ -142,6 +137,7 @@
     .filterPriceList:last-child {
         padding-bottom: 0;
     }
+
 }
 
 @media screen and (min-width: 829px) {
