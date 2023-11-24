@@ -79,7 +79,7 @@ ul{
     display: flex;
     width: 50px;
     height: 28px;
-    padding: 2px 0px 2px 1px;
+    padding: 2px 0 2px 1px;
     justify-content: center;
     align-items: center;
     gap: 5px;
