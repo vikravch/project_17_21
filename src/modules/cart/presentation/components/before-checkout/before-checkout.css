@@ -1,0 +1,216 @@
+.container_before_checkout {
+  padding: 24px 32px 80px;
+}
+
+.coupon_header_item {
+  margin: 0;
+  color:  #141718;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+}
+.coupon_subheader_item {
+  margin-top: 7px;
+  margin-bottom: 0;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  color: #6C7275;
+}
+.coupon_input {
+  margin-top: 16px;
+  margin-bottom: 24px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #6C7275;
+}
+.coupon_code_icon {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.code_input {
+  border: none;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  max-width: 197px;
+  width: 100%;
+}
+.apply_button {
+  color: #141718;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -0.4px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.cart_summary {
+  padding: 16px;
+  border: 1px solid #6C7275;
+  border-radius: 6px;
+}
+.cart_summary_header {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+}
+input[type="radio"] {
+  display: none;
+}
+.custom_radio {
+  display: inline-block;
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #121212;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+input[type="radio"]:checked + .custom_radio::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: black;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+.cart_summary_delivery {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #141718;
+  border-radius: 4px;
+  padding: 13px 16px;
+  margin-bottom: 12px;
+}
+.cart_summary_delivery:last-child {
+  margin-bottom: 0;
+}
+.radio_descr {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+.cart_subtotal {
+  margin-top: 29px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #EAEAEA;
+  display: flex;
+  justify-content: space-between;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+}
+.cart_subtotal>p {
+  margin: 0;
+}
+.cart_total {
+  margin-top: 13px;
+  display: flex;
+  justify-content: space-between;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+}
+.cart_total>p {
+  margin: 0;
+}
+.button_container {
+  margin-top: 24px;
+  padding: 10px 26px;
+  background-color: #141718;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button {
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 177.778% */
+  letter-spacing: -0.4px;
+  color: #FFF;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+@media (min-width: 1120px) {
+  .coupon_container {
+    display: none;
+  }
+  .container_before_checkout {
+    padding: 0;
+    max-width: 413px;
+    width: 100%;
+  }
+  .cart_summary {
+    padding: 24px;
+
+
+  }
+  .cart_summary_header {
+    font-family: Poppins, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    margin: 0 0 16px;
+
+  }
+  .radio_descr {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+  }
+  .cart_subtotal {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    color: #141718;
+  }
+  .subtotal_price {
+    font-weight: 600;
+  }
+  .cart_total {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+  }
+  .coupon_container_wide {
+
+  }
+}
