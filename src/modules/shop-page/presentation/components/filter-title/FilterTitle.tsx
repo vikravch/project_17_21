@@ -21,7 +21,7 @@ const FilterTitle = ({columns}: Props) => {
                 <img alt={'filter'} src={filterIcon}/>
                 <p>Filter</p>
             </div>
-            <div className={style.filterBlock}
+            <div className={`${style.filterBlock} ${style.filterBlockOrigin}`}
                  onClick={openCloseFilterHandler}>
                 <img alt={'filter'} src={filterIcon}/>
                 <p>Filter</p>

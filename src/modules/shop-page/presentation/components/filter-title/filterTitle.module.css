@@ -38,10 +38,18 @@
     .showFilterDesktop3 {
         display: flex;
         justify-content: start;
-        margin-top: 40px;
-        border-top: 1px solid #E8ECEF;
-        border-bottom: 1px solid #E8ECEF;
-        cursor: pointer;
+        margin-top: 0;
+    }
+
+    .showFilterDesktop3 > img {
+        width: 18px;
+        margin-right: 10px;
+    }
+
+    .showFilterDesktop3> p {
+        font-weight: 600;
+        font-size: 20px;
+        margin: 0;
     }
 
     .hideFilterDesktop3 {
