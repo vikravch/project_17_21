@@ -3,12 +3,14 @@ import style from './ProductsGallery.module.css';
 import ProductCard from "../product-card/ProductCard";
 import {useSelector} from "react-redux";
 import {AppStore} from "../../../../../general/redux/types";
-import {ShopPageState} from "../../redux/types";
-
+import {Columns, ShopPageState} from "../../redux/types";
 
 const ProductsGallery = () => {
-    const {products, columns, error} = useSelector<AppStore, ShopPageState>(
+    const {products, error} = useSelector<AppStore, ShopPageState>(
         state => state.shopPage
+    );
+    const columns = useSelector<AppStore, Columns>(
+        state => state.galleriesStyle
     );
 
     const [gridStyles, setGridStyles] = useState({});

@@ -6,16 +6,16 @@ import ViewSelector from "../components/view-selector/ViewSelector";
 import ProductsGallery from "../components/products-gallery/ProductsGallery";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStore} from "../../../../general/redux/types";
-import {ShopPageState} from "../redux/types";
 import FilterTypes from "../components/filter-types/FilterTypes";
 import {chooseSort, openCloseFilterHandler, openCloseMenuHandler} from '../redux/shopPageSlice';
 import FilterTypesDesktop from "../components/filter-types-desktop/FilterTypesDesktop";
+import {Columns} from "../redux/types";
 
 const ShopPage = () => {
 
     const dispatch = useDispatch();
-    const {columns} = useSelector<AppStore, ShopPageState>(
-        state => state.shopPage
+    const columns = useSelector<AppStore, Columns>(
+        state => state.galleriesStyle
     );
 
     document.addEventListener('click', event => {

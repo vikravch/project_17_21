@@ -1,7 +1,8 @@
 import React from 'react';
 import Badge from './badge/Badge';
 import style from './ProductCard.module.css';
-import {Columns, Product} from "../../../domain/model/product";
+import {Product} from "../../../domain/model/product";
+import {Columns} from "../../redux/types";
 
 interface Props {
     product: Product,
