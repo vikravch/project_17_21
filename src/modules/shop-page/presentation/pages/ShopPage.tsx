@@ -10,6 +10,7 @@ import FilterTypesDesktop from "../components/filter-types-desktop/FilterTypesDe
 import {Columns} from "../redux/types";
 import {getAllProductsAsyncAction} from "../redux/asyncActions";
 import FilterTitle from "../components/filter-title/FilterTitle";
+import {chooseSort, openCloseMenuHandler} from "../../const/shopPageConst";
 
 const ShopPage = () => {
 
@@ -35,30 +36,6 @@ const ShopPage = () => {
             listSort.classList.remove(style.open);
         }
     })
-
-    const openCloseMenuHandler = (event: any) => {
-        event.target.nextElementSibling.classList.toggle(style.open);
-    }
-
-    const chooseSort = (event: any) => {
-        const choice: string = event.target.textContent;
-        const listId = event.target.parentElement;
-        const listHead = listId.previousElementSibling;
-        const input: HTMLInputElement = listHead.previousElementSibling;
-
-        input.value = choice;
-        // @ts-ignore
-        listId.childNodes.forEach(item => {
-            if (item.textContent === listHead.textContent) {
-                // @ts-ignore
-                item.classList.remove(style.chosen);
-            }
-        })
-        listHead.textContent = choice;
-        event.target.classList.add(style.chosen);
-        event.target.parentElement.classList.toggle(style.open);
-
-    }
 
     return (
         <div className={style.shopPage}>
