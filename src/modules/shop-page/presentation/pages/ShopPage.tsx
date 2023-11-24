@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import style from './shopPage.module.css';
 import filterIcon from '../../../../icons/shop_page/filter.svg';
 import {sort} from "../../domain/model/filterConst";
@@ -10,6 +10,7 @@ import FilterTypes from "../components/filter-types/FilterTypes";
 import {chooseSort, openCloseFilterHandler, openCloseMenuHandler} from '../redux/shopPageSlice';
 import FilterTypesDesktop from "../components/filter-types-desktop/FilterTypesDesktop";
 import {Columns} from "../redux/types";
+import {getAllProductsAsyncAction} from "../redux/asyncActions";
 
 const ShopPage = () => {
 
@@ -17,6 +18,11 @@ const ShopPage = () => {
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
     );
+
+    useEffect(()=>{
+        // @ts-ignore
+        dispatch(getAllProductsAsyncAction());
+    },[])
 
     document.addEventListener('click', event => {
 

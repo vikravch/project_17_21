@@ -1,8 +1,8 @@
 import React from 'react';
 import Badge from './badge/Badge';
 import style from './ProductCard.module.css';
-import {Product} from "../../../domain/model/product";
 import {Columns} from "../../redux/types";
+import Product from "../../../domain/model/product";
 
 interface Props {
     product: Product,
@@ -22,7 +22,7 @@ const ProductCard = ({columns, product}: Props) => {
             <div className={style.imageBlock}>
                 <img src={product.image} alt={product.name}/>
                 <div className={style.badges}>
-                    {product.new && <Badge type={"new"}/>}
+                    {product.isNew && <Badge type={"new"}/>}
                     {product.sale && <Badge type={"sale"} sale={product.sale}/>}
                 </div>
                 <div className={style.addToCart}>Add to cart</div>

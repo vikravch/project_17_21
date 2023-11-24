@@ -1,29 +1,13 @@
 import {ShopPageState} from "./types";
 import {createSlice, SliceCaseReducers} from "@reduxjs/toolkit";
-import {Product} from "../../domain/model/product";
-import testImage from './testImage.webp'
 import style from "../pages/shopPage.module.css";
-
-let testProducts: Product[] = [];
-for (let i = 0; i < 5; i++) {
-    testProducts.push({
-        id: i,
-        name: 'TestProduct',
-        image: testImage,
-        description: 'Super-soft cushion cover in off-white with a tactile pattern that enhances the different tones in the pile.',
-        actualPrice: 169.99,
-        fullPrice: 199.99,
-        sale: 15,
-        new: true,
-        rating: 4
-    });
-}
+import {getAllProductsAsyncAction} from "./asyncActions";
 
 const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState>>(
     {
         name: 'shopPage',
         initialState: {
-            products: testProducts,
+            products: [],
             error: 'Any error'
         },
         reducers: {
@@ -77,6 +61,27 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
 
             }
         },
+        extraReducers: (builder) => {
+            builder.addCase(
+                (getAllProductsAsyncAction.pending),
+                (state) => {
+                    state.products = undefined;
+                    state.error = 'Загрузка';
+                }
+            )
+                .addCase(
+                    (getAllProductsAsyncAction.rejected),
+                    (state, action) => {
+                        state.error = action.error.message as string;
+                    }
+                )
+                .addCase(
+                    (getAllProductsAsyncAction.fulfilled),
+                    (state, action) => {
+                        state.products = action.payload;
+                    }
+                )
+        }
     }
 );
 
