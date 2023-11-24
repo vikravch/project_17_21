@@ -1,0 +1,223 @@
+/*=======Contacts=======*/
+.contacts_wrapper {
+    background-color: #232627;
+    display: flex;
+    width: 375px;
+    padding: 48px 32px;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+
+.icon_and_navigation {
+    display: flex;
+    width: 318px;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.contacts_icon_title {
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Poppins, serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.contacts_icon_title > span {
+    color: #6C7275;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Poppins, serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+
+}
+
+.rectangle {
+    text-align: center;
+    width: 24px;
+    height: 1px;
+    background-color: #6C7275;
+    margin: auto;
+}
+
+.contacts_subtitle {
+    color: #E8ECEF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    align-self: center;
+    gap: 40px;
+}
+
+.contacts_navigation {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 24px 0;
+}
+
+.contacts_navigation > li {
+    list-style: none;
+    color: #FEFEFE;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    cursor: pointer;
+}
+
+.contacts_bottom {
+    display: flex;
+    width: 311px;
+    /*padding: 24px 0;*/
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    border-top: 0.5px solid #6C7275;
+}
+
+.contacts_icons {
+    padding: 24px 0 24px 0;
+    display: flex;
+    gap: 24px;
+}
+
+.policy_copyright {
+    color: #FEFEFE;
+    display: flex;
+    width: 311px;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+
+}
+
+.policy {
+    color: #FEFEFE;
+    font-family: Poppins, serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.policy > p {
+    cursor: pointer;
+}
+
+.copyright {
+    color: #E8ECEF;
+    font-family: Poppins, serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 166.667% */
+}
+
+/*=======Contacts=======*/
+/*======= 769 - 1280 =======*/
+@media (min-width: 769px) {
+    .contacts_wrapper {
+        /*padding: 50px 32px 32px 32px;*/
+        gap: 49px;
+        width: 100%;
+        /*margin: auto;*/
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .contacts {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 1120px;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        flex-wrap: wrap;
+        /*margin: 0 24px;*/
+    }
+
+    .rectangle {
+        transform: rotate(90deg);
+    }
+
+    .icon_and_navigation{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        /*padding: 0 24px;*/
+    }
+
+    .contacts_top {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .contacts_navigation{
+        flex-direction: row;
+        justify-content: end;
+        width: auto;
+    }
+
+    .contacts_bottom{
+        flex-direction: row-reverse;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .policy_copyright{
+        flex-direction: row-reverse;
+        width: auto;
+        justify-content: space-around;
+
+    }
+
+    .copyright{
+        width: auto;
+    }
+
+    .policy {
+        justify-content: start;
+        width: auto;
+    }
+
+    .policy > p{
+        margin-left: 35px;
+    }
+
+}
+
+
+/*=======Contacts=======*/
+/*======= 1280+ =======*/
+/*@media (min-width: 1281px) {*/
+/*    .contacts_wrapper {*/
+/*        width: 100%;*/
+/*        margin: auto;*/
+/*        padding-left: 0;*/
+/*        padding-right: 0;*/
+/*    }*/
+/*}*/
+

@@ -14,6 +14,7 @@ export type TItem = {
   color: string;
   price: string;
   picture: string;
+  quantity: number
 }
 export type TOrder = {
   orderNumber: string;
@@ -21,8 +22,7 @@ export type TOrder = {
   date: string;
   payment_method: string;
   total_price: string;
-  discount: string
-
+  discount: string;
 }
 export const data: TItem[] = [
   {
@@ -31,6 +31,7 @@ export const data: TItem[] = [
     color: "Black",
     price: "$19.00",
     picture: blackChair,
+    quantity: 1
   },
   {
     id: "2",
@@ -38,6 +39,7 @@ export const data: TItem[] = [
     color: "Red",
     price: "$19.00",
     picture: redChair,
+    quantity: 1
   },
   {
     id: "3",
@@ -45,6 +47,7 @@ export const data: TItem[] = [
     color: "Gray",
     price: "$299.00",
     picture: armChair,
+    quantity: 1
   },
   {
     id: "4",
@@ -52,6 +55,7 @@ export const data: TItem[] = [
     color: "Straw",
     price: "$9.99",
     picture: basket,
+    quantity: 1
   },
   {
     id: "5",
@@ -59,6 +63,7 @@ export const data: TItem[] = [
     color: "Gold",
     price: "$39.00",
     picture: lamp,
+    quantity: 1
   },
   {
     id: "6",
@@ -66,6 +71,7 @@ export const data: TItem[] = [
     color: "White/Wood",
     price: "$39.00",
     picture: lamp2,
+    quantity: 1
   },
   {
     id: "7",
@@ -73,6 +79,7 @@ export const data: TItem[] = [
     color: "White/Gold",
     price: "$19.00",
     picture: lamp3,
+    quantity: 1
   },
   {
     id: "8",
@@ -80,6 +87,7 @@ export const data: TItem[] = [
     color: "Beige",
     price: "$3.99",
     picture: pillow,
+    quantity: 1
   },
   {
     id: "9",
@@ -87,6 +95,7 @@ export const data: TItem[] = [
     color: "White",
     price: "$89.99",
     picture: sideTable,
+    quantity: 1
   },
 ]
 
@@ -99,6 +108,7 @@ export const mockOrder: TOrder = {
       color: "Gray",
       price: "$299.00",
       picture: armChair,
+      quantity: 2
     },
       {
         id: "4",
@@ -106,6 +116,7 @@ export const mockOrder: TOrder = {
         color: "Straw",
         price: "$9.99",
         picture: basket,
+        quantity: 1
       },
     {
       id: "2",
@@ -113,10 +124,28 @@ export const mockOrder: TOrder = {
       color: "Red",
       price: "$19.00",
       picture: redChair,
+      quantity: 2
+    },
+    {
+      id: "9",
+      name: "White Drawer unit",
+      color: "White",
+      price: "$89.99",
+      picture: sideTable,
+      quantity: 2
+    },
+    {
+      id: "7",
+      name: "Table Lamp",
+      color: "White/Gold",
+      price: "$19.00",
+      picture: lamp3,
+      quantity: 1
     },
     ],
   date: "October 19, 2023",
   payment_method: "Credit Card",
   total_price: "???",
-  discount: "$25.00"
+  discount: "$25.00",
+
 }

@@ -1,0 +1,5 @@
+export const sliderImgPlaceholderBig = require('../../modules/home_page/presentation/page/images/placeholderImg.jpg')
+export const sliderImgPlaceholderSmall = require('../../modules/home_page/presentation/page/images/Paste.png')
+// export const sliderBannerGrinImgPlaceholder = require('../../modules/home_page/presentation/page/images/sliderGridPlaceholder.jpg')
+// export const sliderBannerCardImgPlaceholder1 = require('../../modules/home_page/presentation/page/images/cardPlaceholder1.jpg')
+// export const sliderIBannerCardImgPlaceholder2 = require('../../modules/home_page/presentation/page/images/cardPlaceholder2.jpg')

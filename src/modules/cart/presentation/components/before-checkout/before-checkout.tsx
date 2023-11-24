@@ -80,8 +80,8 @@ const BeforeCheckout = () => {
           <p>Total</p>
           <p>${orderTotalPrice}</p>
         </div>
-        <div className="checkout_button_container">
-          <button className="checkout_button" type="submit">Checkout</button>
+        <div className="button_container">
+          <button className="button" type="submit">Checkout</button>
         </div>
       </form>
     </section>

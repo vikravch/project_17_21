@@ -1,0 +1,144 @@
+/*=======Navigation=======*/
+/*======= 0 - 768 =======*/
+/*.wrapper{*/
+/*    width: 100vw;*/
+/*    !*height: 100vh;*!*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+
+/*}*/
+p {
+    margin: 0;
+}
+
+svg {
+    cursor: pointer;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+.navigation_bar_wrapper {
+    text-align: center;
+    width: 375px;
+    padding: 16px 32px;
+
+}
+.navigator_width{
+    display: flex;
+    width: 311px;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.menu_btn {
+    display: flex;
+    width: 102px;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.title_text {
+    margin: 0;
+    color: #000;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Poppins, serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    cursor: pointer;
+}
+
+.header_navigation {
+    display: none;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.header_navigation > li {
+    color: #6C7275;
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* Button/XSmall */
+    font-family: Space Grotesk, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
+    cursor: pointer;
+}
+
+.cart {
+    display: flex;
+    width: 50px;
+    height: 28px;
+    padding: 2px 0 2px 1px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.account_and_search {
+    display: none;
+}
+
+.cart_count_circle {
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: black;
+    cursor: pointer;
+}
+
+.cart_count_text {
+    margin: 1px auto;
+    color: white;
+    z-index: 1;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/*=======Navigation=======*/
+/*======= 769 - 1280 =======*/
+@media (min-width: 769px) {
+    .navigation_bar_wrapper {
+        width: 100%;
+        max-width: 1120px;
+        margin: auto;
+    }
+    .cart{
+        width: 100px;
+    }
+
+    .navigator_width{
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .header_navigation{
+        display: flex;
+    }
+    .account_and_search{
+        display: flex;
+    }
+}
+
+
+
+
+/*=======Navigation=======*/
+/*======= 1280+ =======*/
+@media (min-width: 1281px) {
+    .navigation_bar_wrapper {
+        width: 1280px;
+        margin: auto;
+    }
+}
