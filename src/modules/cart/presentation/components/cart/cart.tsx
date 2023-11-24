@@ -18,7 +18,7 @@ const Cart = ({location}: IProps) => {
       <div className="coupon_container_wide">
         <p className="coupon_header">Have a coupon?</p>
         <p className="coupon_subheader">Add your code for an instant cart discount</p>
-        <div className="coupon_input">
+        <div className="coupon_input_wide">
           <div className="coupon_code_icon">
             <img src={percentIcon} alt="percent icon"/>
             <input type="text" placeholder={"Coupon Code"} className="code_input" />

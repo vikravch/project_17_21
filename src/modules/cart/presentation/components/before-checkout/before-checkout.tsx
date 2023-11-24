@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import percentIcon from '../../../../../icons/ticket-percent.png'
 import {mockOrder} from "../../mock-api/data";
 import './before-checkout.css'
+import {Link} from "react-router-dom";
+
 const BeforeCheckout = () => {
   const [selectedOption, setSelectedOption] = useState('free');
 
@@ -15,6 +17,10 @@ const BeforeCheckout = () => {
     const price = +i.price.replace('$', '')
     return acc += price
   }, 0)
+  const onSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+  }
   return (
     <section className="container_before_checkout">
       <div className="coupon_container">
@@ -81,7 +87,9 @@ const BeforeCheckout = () => {
           <p>${orderTotalPrice}</p>
         </div>
         <div className="button_container">
-          <button className="button" type="submit">Checkout</button>
+          <Link to={"/cart/checkout"}>
+            <button className="button" type="submit" onSubmit={onSubmit}>Checkout</button>
+          </Link>
         </div>
       </form>
     </section>

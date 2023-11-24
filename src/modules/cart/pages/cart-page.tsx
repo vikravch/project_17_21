@@ -5,9 +5,7 @@ const CartPage = () => {
   const location = useLocation();
   return (
     <>
-      <div>Here will be HeaderNavElement</div>
       <Cart location={location.pathname}/>
-      <div>Here will be Footer</div>
     </>
   );
 };
