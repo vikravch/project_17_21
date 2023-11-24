@@ -5,7 +5,8 @@ import minusIcon from '../../../../../icons/minus_icon.png'
 import plusIcon from '../../../../../icons/plus_icon.png'
 import './product-card.css'
 
-const ProductCard = ({id, name, color, price, picture}: TItem) => {
+const ProductCard = ({id, name, color, price, picture, quantity}: TItem) => {
+
   return (
     <div className="product_card">
       <img className="item_img" src={picture} alt="product"/>
@@ -15,7 +16,7 @@ const ProductCard = ({id, name, color, price, picture}: TItem) => {
           <p className="item_color">Color: {color}</p>
           <div className="item_counter">
             <img className="counter_icon" src={minusIcon} alt="minus icon"/>
-            <p className="item_quantity">1</p>
+            <p className="item_quantity">{quantity}</p>
             <img className="counter_icon" src={plusIcon} alt="plus icon"/>
           </div>
         </div>

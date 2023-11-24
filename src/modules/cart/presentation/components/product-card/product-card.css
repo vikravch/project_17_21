@@ -36,6 +36,9 @@
 
 .item_title {
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .item_price {
   margin: 0;

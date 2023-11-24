@@ -7,6 +7,7 @@ import NewsletterSubscribe from "./general/components/newsletter_subscribe/Newsl
 import Footer from "./general/components/footer/Footer";
 import CartPage from "./modules/cart/pages/cart-page";
 import CheckoutPage from "./modules/cart/pages/checkout-page";
+import CompletePage from "./modules/cart/pages/complete-page";
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                     <Route element={<WeatherPage/>}/>{/*default route*/}
                     <Route path="/cart" element={<CartPage/>}/>
                     <Route path="/cart/checkout" element={<CheckoutPage/>}/>
+                    <Route path="/cart/checkout/complete" element={<CompletePage/>}/>
                 </Routes>
             </main>
             {/*<NewsletterSubscribe/>*/}

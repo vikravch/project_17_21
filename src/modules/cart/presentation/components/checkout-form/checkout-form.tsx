@@ -1,5 +1,6 @@
-import React, {FormEvent, useState} from 'react';
+import React, {FormEvent, useRef, useState} from 'react';
 import './checkout-form.css';
+import OrderSummary from "../order-summary/order-summary";
 type TUserOrderInfo = {
   firstName?: string;
   lastName?: string;
@@ -9,9 +10,13 @@ type TUserOrderInfo = {
   country: string;
   city: string;
   state?: string;
-  zipCode?: number
+  zipCode?: string;
+  cardNumber?: string
+  expDate?: string
+  cvc?: string
 }
 const CheckoutForm = () => {
+
   const [selectedOption, setSelectedOption] = useState('');
   const [userOrderInfo, setUserOrderInfo] = useState<TUserOrderInfo>({
     city: "",
@@ -22,7 +27,10 @@ const CheckoutForm = () => {
     phoneNumber: "",
     state: "",
     street: "",
-    zipCode: 0
+    zipCode: "",
+    cardNumber: "",
+    expDate: "",
+    cvc: ""
   })
   const [radioSelected, setRadioSelected] = useState('credit');
 
@@ -41,8 +49,14 @@ const CheckoutForm = () => {
   const onChangeCountry = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(e.target.value);
   }
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log(e)
+    e.preventDefault();
+  }
   return (
-    <form className="form">
+<div className="container_wide">
+  <div className="form_container">
+    <form className="form" onSubmit={handleSubmit}>
       <fieldset className="form_block">
         <p className="form_contact_header">Contact Information</p>
         <div className="form_container_for_narrow_inputs">
@@ -162,40 +176,91 @@ const CheckoutForm = () => {
       </fieldset>
       <fieldset className="form_block">
         <p className="form_payment_header">Payment method</p>
-        <div className="radio_container">
-          <div className="cart_summary_delivery">
-            <div>
-              <label htmlFor="credit" className="radio_descr">
-                <input type="radio"
-                       name="credit"
-                       id="credit"
-                       value="credit"
-                       checked={radioSelected === 'credit'}
-                       onChange={e => {handleRadioChange(e)}}
-                />
-                <span className="custom_radio"></span>
-                Pay by Card Credit</label>
+        <div className="radio_inputs_container">
+          <div className="radio_container">
+            <div className="cart_summary_delivery">
+              <div>
+                <label htmlFor="credit" className="radio_descr">
+                  <input type="radio"
+                         name="credit"
+                         id="credit"
+                         value="credit"
+                         checked={radioSelected === 'credit'}
+                         onChange={e => {handleRadioChange(e)}}
+                  />
+                  <span className="custom_radio"></span>
+                  Pay by Credit Card</label>
+              </div>
+            </div>
+          </div>
+          <div className="radio_container">
+            <div className="cart_summary_delivery">
+              <div>
+                <label htmlFor="paypal" className="radio_descr">
+                  <input type="radio"
+                         name="paypal"
+                         id="paypal"
+                         value="paypal"
+                         checked={radioSelected === 'paypal'}
+                         onChange={e => {handleRadioChange(e)}}
+                  />
+                  <span className="custom_radio"></span>
+                  Paypal</label>
+              </div>
             </div>
           </div>
         </div>
-        <div className="radio_container">
-          <div className="cart_summary_delivery">
-            <div>
-              <label htmlFor="paypal" className="radio_descr">
-                <input type="radio"
-                       name="paypal"
-                       id="paypal"
-                       value="paypal"
-                       checked={radioSelected === 'paypal'}
-                       onChange={e => {handleRadioChange(e)}}
-                />
-                <span className="custom_radio"></span>
-                Paypal</label>
-            </div>
+        <div className="input_container">
+          <label className="form_label" htmlFor="cardNumber">Card Number</label>
+          <input className="wide_input input"
+                 type="number"
+                 id="cardNumber"
+                 placeholder="1234 1234 1234 1234"
+                 onChange={(e) => onChange(e)}
+                 name="cardNumber"
+                 value={userOrderInfo.cardNumber}
+          />
+        </div>
+        <div className="form_container_for_narrow_inputs">
+          <div className="narrow_input_container">
+            <label className="form_label" htmlFor="expDate">Expiration date</label>
+            <input className="narrow_input input"
+                   type="month"
+                   min="2024-01"
+                   max="2030-01"
+                   id="expDate"
+                   placeholder="MM/YY"
+                   onChange={(e) => onChange(e)}
+                   name="expDate"
+                   value={userOrderInfo.expDate}
+            />
+          </div>
+          <div className="narrow_input_container">
+            <label className="form_label" htmlFor="cvc">CVC</label>
+            <input className="narrow_input input"
+                   type="number"
+                   id="cvc"
+                   placeholder="CVC Code"
+                   onChange={(e) => onChange(e)}
+                   name="cvc"
+                   value={userOrderInfo.cvc}
+            />
           </div>
         </div>
       </fieldset>
+      <div className="narrow_screen">
+        <OrderSummary/>
+      </div>
+      <div className="button_container place_order_button">
+        <button type="submit" className="button">Place Order</button>
+      </div>
+
     </form>
+  </div>
+  <div className="wide_screen">
+    <OrderSummary/>
+  </div>
+</div>
   );
 };
 
