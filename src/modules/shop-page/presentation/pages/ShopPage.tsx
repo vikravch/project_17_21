@@ -10,7 +10,7 @@ import FilterTypesDesktop from "../components/filter-types-desktop/FilterTypesDe
 import {Columns} from "../redux/types";
 import {getAllProductsAsyncAction} from "../redux/asyncActions";
 import FilterTitle from "../components/filter-title/FilterTitle";
-import {chooseSort, openCloseMenuHandler} from "../../const/shopPageConst";
+import {chooseSort, openCloseMenuHandler} from "../../utils/const/shopPageConst";
 
 const ShopPage = () => {
 

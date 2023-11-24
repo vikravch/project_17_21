@@ -2,7 +2,7 @@ import React from 'react';
 import style from "./filterTypes.module.css";
 import {categoriesArray, priceArray} from "../../../domain/model/filterConst";
 import {Columns} from "../../redux/types";
-import {chooseSort, openCloseMenuHandler} from "../../../const/shopPageConst";
+import {chooseSort, openCloseMenuHandler} from "../../../utils/const/shopPageConst";
 
 interface Props {
     columns: Columns;

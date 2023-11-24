@@ -1,4 +1,4 @@
-import style from "../presentation/components/filter-types/filterTypes.module.css";
+import style from "../../presentation/components/filter-types/filterTypes.module.css";
 
 export const openCloseMenuHandler = (event: any) => {
     event.target.nextElementSibling.classList.toggle(style.open);
