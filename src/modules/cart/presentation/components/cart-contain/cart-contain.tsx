@@ -24,7 +24,8 @@ const CartContain = () => {
           name={el.name}
           color={el.color}
           price={el.price}
-          picture={el.picture}/>)}
+          picture={el.picture}
+          quantity={el.quantity}/>)}
     </section>
   );
 };

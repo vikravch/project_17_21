@@ -7,7 +7,11 @@ import NewsletterSubscribe from "./general/components/newsletter_subscribe/Newsl
 import Footer from "./general/components/footer/Footer";
 import CartPage from "./modules/cart/pages/cart-page";
 import CheckoutPage from "./modules/cart/pages/checkout-page";
-import HomePage from "./modules/home_page/presentation/page/HomePage";
+
+import CompletePage from "./modules/cart/pages/complete-page";
+import HomePage from './modules/home_page/presentation/page/HomePage';
+
+
 
 function App() {
     return (
@@ -25,6 +29,7 @@ function App() {
                     <Route element={<WeatherPage/>}/>{/*default route*/}
                     <Route path="/cart" element={<CartPage/>}/>
                     <Route path="/cart/checkout" element={<CheckoutPage/>}/>
+                    <Route path="/cart/checkout/complete" element={<CompletePage/>}/>
                 </Routes>
             </main>
             {/*<NewsletterSubscribe/>*/}
