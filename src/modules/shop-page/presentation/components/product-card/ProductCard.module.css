@@ -73,6 +73,13 @@
 }
 
 @media screen and (min-width: 768px){
+    .mobile1 .descriptionBlock .addToCart{
+        display: none;
+        visibility: hidden;
+    }
+    .mobile1 .imageBlock .addToCart{
+        display: block;
+    }
     .addToCart{
         width: Calc(100% - 32px);
         row-gap: 24px;
