@@ -1,5 +1,5 @@
 .typesBlock {
-    display: block;
+    display: none;
 }
 
 .filterCategories > p,
@@ -12,18 +12,12 @@
 }
 
 .filterCatHead, .filterPriceHead {
-    /*border: #6C7275 solid 2px;*/
-    /*border-radius: 8px;*/
     border: #6C7275 solid 2px;
     border-radius: 8px;
     background-image: url("../../../../../icons/shop_page/arrowDownMini.svg");
     background-size: 9px;
     background-position: calc(100% - 15px);
     padding: 10px 0 10px 13px;
-
-}
-
-.filterCatHead, .filterPriceHead {
     cursor: pointer;
     font-family: Inter, serif;
     font-weight: 600;
@@ -54,7 +48,6 @@
 
 .open {
     display: block;
-
 }
 
 .filterCatList > li,
@@ -87,10 +80,6 @@
         display: flex;
     }
 
-    .display3filterTypes {
-        display: flex;
-    }
-
     .filterCategories,
     .filterPrice {
         position: relative;
@@ -110,10 +99,6 @@
         padding: 8px 8px 8px 16px;
         width: 262px;
         margin-right: 10px;
-        /*margin-right: 30px;*/
-    }
-
-    .filterCatHead, .filterPriceHead {
         font-size: 16px;
     }
 
@@ -121,11 +106,7 @@
         position: absolute;
         z-index: 100;
         width: 262px;
-    }
-
-    .filterCatList, .filterPriceList {
         border-radius: 12px;
-        /*box-shadow: 0 19px 48px -7px #0F0F0F1A ;*/
     }
 
     .filterCatList > li,
@@ -142,6 +123,11 @@
     .filterPriceList:last-child {
         padding-bottom: 0;
     }
+
+    .close {
+        display: none !important;
+    }
+
 }
 
 @media screen and (min-width: 829px) {
