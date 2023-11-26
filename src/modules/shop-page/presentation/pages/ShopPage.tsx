@@ -32,6 +32,7 @@ const ShopPage = () => {
         // @ts-ignore
         const withinBoundaries2 = event.composedPath().includes(sortHead);
         if (!withinBoundaries && !withinBoundaries2) {
+            console.log('yes')
             // @ts-ignore
             listSort.classList.remove(style.open);
         }

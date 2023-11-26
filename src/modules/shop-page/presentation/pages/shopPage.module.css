@@ -26,7 +26,7 @@
     font-family: Poppins, serif;
     font-weight: 500;
     font-size: 40px;
-    margin: 0 0 10px 0;
+    margin: 10px 0;
 }
 
 .pageHeader > p {
@@ -38,11 +38,12 @@
 .sortBlock {
     display: flex;
     justify-content: space-between;
-    min-width: 200px;
     align-items: center;
-    margin: 15px 0;
-    border-bottom: 1px solid #E8ECEF;
+    min-width: 311px;
+    height: 43px;
+    margin: 13px 0;
     padding-bottom: 13px;
+    border-bottom: 1px solid #E8ECEF;
 }
 
 .sortSelect {
@@ -59,6 +60,7 @@
 
 .sortHead {
     cursor: pointer;
+    min-width: 110px;
     font-family: Inter, serif;
     font-weight: 600;
     font-size: 16px;
@@ -161,6 +163,7 @@
         display: flex;
         justify-content: space-between;
         align-items: end;
+        height: 80px;
         margin: 30px 0;
     }
 
@@ -173,13 +176,14 @@
         border-bottom: none;
         padding-bottom: 0;
         align-items: center;
+        height: 40px;
         min-width: 160px;
     }
 
     .sortHead {
         background-size: 10px;
         padding-right: 20px;
-        margin-right: 0;
+        margin-right: 40px;
     }
 
     .sortHead {
@@ -217,6 +221,10 @@
 
 @media screen and (min-width: 829px) {
     .sortBlock {
-        min-width: 180px;
+        min-width: 200px;
+    }
+
+    .sortHead {
+        margin-right: 10px;
     }
 }
