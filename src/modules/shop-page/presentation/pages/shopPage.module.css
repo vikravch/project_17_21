@@ -60,7 +60,8 @@
 
 .sortHead {
     cursor: pointer;
-    min-width: 110px;
+    /*min-width: 110px;*/
+    width: max-content;
     font-family: Inter, serif;
     font-weight: 600;
     font-size: 16px;

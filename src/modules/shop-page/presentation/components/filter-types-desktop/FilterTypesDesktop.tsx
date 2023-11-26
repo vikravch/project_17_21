@@ -9,7 +9,6 @@ const FilterTypesDesktop = () => {
         input.forEach(item => {
             // @ts-ignore
             if (item.attributes['checked']) {
-                console.log('oooo')
                 // @ts-ignore
                 item.nextElementSibling.classList.add(style.inputChecked);
             }
@@ -37,7 +36,7 @@ const FilterTypesDesktop = () => {
 
                 {priceArray.map(item =>
                     <label key={'label-' + item.min}>
-                        <input checked={true} type={'checkbox'} id={item.min + '-price'} name={'price'} key={'input-' + item.min}/>
+                        <input type={'checkbox'} id={item.min + '-price'} name={'price'} key={'input-' + item.min}/>
                         <p key={'p-' + item.min}>${item.min} - {item.max}</p>
                         <div key={'type' + item.min} className={style.checkboxCheckmark}></div>
                     </label>
