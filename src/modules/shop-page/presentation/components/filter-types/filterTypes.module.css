@@ -1,0 +1,137 @@
+.typesBlock {
+    display: none;
+}
+
+.filterCategories > p,
+.filterPrice > p {
+    color: #6C7275;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 15px 0 10px 0;
+}
+
+.filterCatHead, .filterPriceHead {
+    border: #6C7275 solid 2px;
+    border-radius: 8px;
+    background-image: url("../../../../../icons/shop_page/arrowDownMini.svg");
+    background-size: 9px;
+    background-position: calc(100% - 15px);
+    padding: 10px 0 10px 13px;
+    cursor: pointer;
+    font-family: Inter, serif;
+    font-weight: 600;
+    font-size: 16px;
+    background-repeat: no-repeat;
+}
+
+.filterCatList, .filterPriceList {
+    display: none;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 20px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background-color: white;
+    border-radius: 12px;
+
+    box-shadow: 0 64px 64px -48px #0F0F0F1A;
+    border: 1.5px solid #F3F5F7;
+
+
+    scrollbar-color: darkgray gray;
+    scrollbar-width: thin;
+    overscroll-behavior: contain;
+}
+
+.open {
+    display: block;
+}
+
+.filterCatList > li,
+.filterPriceList > li {
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+    font-size: 16px;
+    padding: 10px 25px;
+    color: #6C7275;
+}
+
+.chosen {
+    font-weight: 600;
+    color: black !important;
+}
+
+.filterCatList > li:not(:first-child),
+.filterPriceList > li:not(:first-child){
+    padding-top: 20px;
+}
+
+.filterCatList:last-child,
+.filterPriceList:last-child {
+    padding-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .typesBlock {
+        display: flex;
+    }
+
+    .filterCategories,
+    .filterPrice {
+        position: relative;
+    }
+
+    .filterCategories > p,
+    .filterPrice > p {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    .filterCatHead, .filterPriceHead {
+        border: #6C7275 solid 2px;
+        border-radius: 8px;
+        background-size: 9px;
+        background-position: calc(100% - 30px);
+        padding: 8px 8px 8px 16px;
+        width: 262px;
+        margin-right: 10px;
+        font-size: 16px;
+    }
+
+    .filterCatList, .filterPriceList {
+        position: absolute;
+        z-index: 100;
+        width: 262px;
+        border-radius: 12px;
+    }
+
+    .filterCatList > li,
+    .filterPriceList > li {
+        font-size: 16px;
+    }
+
+    .filterCatList > li:not(:first-child),
+    .filterPriceList > li:not(:first-child){
+        padding-top: 20px;
+    }
+
+    .filterCatList:last-child,
+    .filterPriceList:last-child {
+        padding-bottom: 0;
+    }
+
+    .close {
+        display: none !important;
+    }
+
+}
+
+@media screen and (min-width: 829px) {
+    .filterCatHead, .filterPriceHead {
+        margin-right: 30px;
+    }
+}
