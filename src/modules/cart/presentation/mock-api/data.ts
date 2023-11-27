@@ -7,6 +7,7 @@ import lamp2 from "../../../../images/lamp2.png";
 import lamp3 from "../../../../images/lamp3.png";
 import pillow from "../../../../images/pillow.png";
 import sideTable from "../../../../images/side-table.png";
+import {TOption} from "../types";
 
 export type TItem = {
   id: string;
@@ -149,3 +150,25 @@ export const mockOrder: TOrder = {
   discount: "$25.00",
 
 }
+export const options:TOption[] = [
+  {
+    value: 'Israel',
+    label: 'Israel'
+  },
+  {
+    value: 'USA',
+    label: 'USA'
+  },
+  {
+    value: 'France',
+    label: 'France'
+  },
+  {
+    value: 'Ireland',
+    label: 'Ireland'
+  },
+  {
+    value: 'Portugal',
+    label: 'Portugal'
+  }
+]

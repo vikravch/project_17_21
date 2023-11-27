@@ -86,11 +86,11 @@ const BeforeCheckout = () => {
           <p>Total</p>
           <p>${orderTotalPrice}</p>
         </div>
-        <div className="button_container">
-          <Link to={"/cart/checkout"}>
+        <Link to={"/cart/checkout"}>
+          <div className="button_container" >
             <button className="button" type="submit" onSubmit={onSubmit}>Checkout</button>
-          </Link>
-        </div>
+          </div>
+        </Link>
       </form>
     </section>
   );

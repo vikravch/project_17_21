@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import percentIcon from "../../../../../icons/ticket-percent.png";
 import {mockOrder} from "../../mock-api/data";
-import "./order-summary.css"
-import ProductCardCheckout from "../card-checkout/product-card-checkout";
+import "./order-summary.css";
+import ProductCard from "../product-card/product-card";
 
 const OrderSummary = () => {
   const items = mockOrder.items;
@@ -11,7 +11,7 @@ const OrderSummary = () => {
       <div className="order_summary">
         <p className="summary_header">Order summary</p>
         <div className="order_summary_cards">
-          {items.map(el => <ProductCardCheckout
+          {items.map(el => <ProductCard
             key={el.id}
             id={el.id}
             name={el.name}

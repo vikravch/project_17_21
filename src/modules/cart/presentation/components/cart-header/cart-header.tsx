@@ -7,7 +7,7 @@ interface IProps {
   location: string
 }
 const CartHeader = ({location}: IProps) => {
-  const cartHeader = <div>
+  const cartHeader = <div className={styles.header_container}>
     <div className={styles.back_arrow}>
       <img className={styles.arrow_img} src={arrowBack} alt="arrow back"/>
       <p className={styles.back_arrow_text}>back</p>
@@ -67,12 +67,12 @@ const CartHeader = ({location}: IProps) => {
   </div>
 
   const completeHeader = <div className={styles.header_container}>
-    <div className={styles.back_arrow}>
+    <div className={`${styles.back_arrow} ${styles.back_arrow_complete}`}>
       <img className={styles.arrow_img} src={arrowBack} alt="arrow back"/>
       <p className={styles.back_arrow_text}>back to home</p>
     </div>
     <p className={styles.header_cart}>Complete!</p>
-    <div className={styles.subheader_container}>
+    <div className={`${styles.subheader_container} ${styles.subheader_container_complete}`}>
       <div className={styles.step_box_finished}>
         <div className={`${styles.step_circle} ${styles.finished_circle}`}>
           <img src={checkIcon} alt="Check"/>

@@ -12,3 +12,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+:root {
+  /*background-colors-dark: buttons, footer*/
+  /*most headers, active borders neutral-07*/
+  --primary-dark: #141718;
+  /*background-colors-green: homepage, product, shop cart*/
+  --primary-green-theme: #38CB89;
+  /*background-colors-light neutral-02*/
+  --primary-light-theme: #F3F5F7;
+
+  /*typography*/
+
+  --black-text: #000000;
+  /*headers*/
+  --bold-black: #121212;
+  /*neutral-02*/
+  --regular-text: #23262F;
+  --semibold-grey-text: #605F5F;
+  /*neutral-04 text, borders*/
+  --regular-grey: #6C7275;
+  /*neutral-03 text, borders*/
+  --light-grey-primary: #E8ECEF;
+  --light-grey-secondary: #EAEAEA;
+  --light-grey-fade: #CBCBCB;
+  /*neutrals-5*/
+  --inactive-grey: #B1B5C3;
+
+  --darktheme-text-primary: #FFFFFF;
+  /*neutral-01*/
+  --darktheme-text-secondary: #FEFEFE;
+  --darktheme-text-fade: #FCFCFD;
+  --errors-form-text: #d62828;
+  /*fonts*/
+  --font-primary: Inter, sans-serif;
+  --font-secondary: Poppins, sans-serif;
+  /*breakpoints*/
+  --breakpoint-md: 769px;
+  --breakpoint-lg: 1120px;
+}
