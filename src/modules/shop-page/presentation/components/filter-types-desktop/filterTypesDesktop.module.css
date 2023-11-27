@@ -8,24 +8,26 @@
         width: 254px;
     }
 
+    .price {
+        display: flex;
+        flex-direction: column;
+        /*margin-bottom: 1vw;*/
+    }
+
     .categories > p,
     .price > p {
         font-size: 16px;
         font-weight: 600;
         color: #121212;
         text-transform: uppercase;
-    }
-
-    .categories > p {
         margin-bottom: 20px;
     }
 
     .price > p {
-        margin: 20px 0;
+        margin-top: 20px;
     }
 
-    .categories > ul > li,
-    .price > ul > li{
+    .categories > ul > li {
         cursor: pointer;
         list-style: none;
         font-weight: 600;
@@ -33,9 +35,84 @@
         margin: 10px 0;
     }
 
-    .categories > ul > li:hover,
-    .price > ul > li:hover{
+    .categories > ul > li:hover {
         color: #121212;
+        text-decoration: underline;
+    }
+
+    .price > label {
+        cursor: pointer;
+        display: flex;
+        justify-content: start;
+        position: relative;
+        user-select: none;
+        margin: 8px 0;
+    }
+
+    input[type='checkbox'] {
+        opacity: 0;
+        position: absolute;
+        height: 0;
+        width: 0;
+    }
+
+    .checkboxCheckmark {
+        position: absolute;
+        left: 150px; /* 254 */
+        height: 24px;
+        width: 24px;
+        border: 1.5px solid #6C7275;
+        border-radius: 4px;
+    }
+
+    .checkboxCheckmark::after {
+        content: '';
+        position: absolute;
+        left: 7px;
+        top: 2px;
+        width: 6px;
+        height: 11px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        opacity: 0;
+    }
+
+    input[type='checkbox']:checked ~ .checkboxCheckmark {
+        background-color: #121212;
+        border-color: #121212;
+    }
+
+    input[type='checkbox']:checked ~ .checkboxCheckmark::after {
+        opacity: 1;
+    }
+
+    .price > label:hover input[type='checkbox'] ~ .checkboxCheckmark {
+        border-color: #595c60;
+    }
+
+    .price > label:hover input[type='checkbox']:checked ~ .checkboxCheckmark {
+        background-color: #121212;
+        border-color: #121212;
+    }
+
+    .price > label > p {
+        font-size: 16px;
+        font-weight: 600;
+        color: #807E7E;
+    }
+
+    .price > label:hover {
+        color: #121212;
+        text-decoration: underline;
+    }
+
+    .price > label:hover > p {
+        color: #121212;
+    }
+
+    .inputChecked {
+        color: #121212 !important;
         text-decoration: underline;
     }
 }

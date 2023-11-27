@@ -1,7 +1,10 @@
 .filterBlock {
     display: flex;
     justify-content: start;
+    align-items: center;
     margin-top: 40px;
+    height: 56px;
+    min-width: 311px;
     border-top: 1px solid #E8ECEF;
     border-bottom: 1px solid #E8ECEF;
     cursor: pointer;
