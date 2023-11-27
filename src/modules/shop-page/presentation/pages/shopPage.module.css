@@ -40,8 +40,8 @@
     justify-content: space-between;
     align-items: center;
     min-width: 311px;
-    height: 43px;
-    margin: 13px 0;
+    height: 54px;
+    margin: 8px 0;
     padding-bottom: 13px;
     border-bottom: 1px solid #E8ECEF;
 }
@@ -164,8 +164,7 @@
         display: flex;
         justify-content: space-between;
         align-items: end;
-        height: 80px;
-        margin: 30px 0;
+        margin: 50px 0 40px 0;
     }
 
     .filterBlock {
@@ -176,19 +175,18 @@
         margin: 0;
         border-bottom: none;
         padding-bottom: 0;
-        align-items: center;
-        height: 40px;
-        min-width: 160px;
+        flex-direction: column;
+        align-items: start;
+        height: 80px;
+        min-width: 120px;
+        max-width: 120px;
     }
 
     .sortHead {
         background-size: 10px;
         padding-right: 20px;
-        margin-right: 40px;
-    }
-
-    .sortHead {
         font-size: 16px;
+        margin: 10px 0;
     }
 
     .sortList {
@@ -220,12 +218,52 @@
     }
 }
 
-@media screen and (min-width: 829px) {
+@media screen and (min-width: 900px) {
+
     .sortBlock {
-        min-width: 200px;
+        justify-content: start;
+        flex-direction: row;
+        align-items: center;
+        height: 40px;
+        /*width: 0;*/
+        min-width: 240px;
+        max-width: 0;
+
     }
 
     .sortHead {
-        margin-right: 10px;
+        background-size: 10px;
+        padding-right: 20px;
+        margin: 0 10px 0 0;
+        font-size: 16px;
     }
 }
+
+/*@media screen and (min-width: 829px) {*/
+/*    .sortBlock {*/
+/*        min-width: 200px;*/
+/*    }*/
+
+/*    .sortHead {*/
+/*        margin-right: 10px;*/
+/*    }*/
+/*}*/
+
+
+
+/*.sortBlock {*/
+/*    margin: 0;*/
+/*    border-bottom: none;*/
+/*    padding-bottom: 0;*/
+/*    align-items: center;*/
+/*    height: 40px;*/
+/*    width: 0;*/
+/*    min-width: 160px;*/
+/*}*/
+
+/*.sortHead {*/
+/*    background-size: 10px;*/
+/*    padding-right: 20px;*/
+/*    margin-right: 10px;*/
+/*    font-size: 16px;*/
+/*}*/

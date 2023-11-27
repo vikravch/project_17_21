@@ -28,17 +28,18 @@ const FilterTypesDesktop = () => {
             </div>
             <div className={style.price}>
                 <p>Price</p>
-                {/*<ul>*/}
-                {/*    {priceArray.map(item =>*/}
-                {/*        <li key={item.min}>${item.min} - {item.max}</li>*/}
-                {/*    )}*/}
-                {/*</ul>*/}
+
+                <label key={'label-all-price'}>
+                    <input type={'checkbox'} id={'all-price'} name={'price'} key={'input-all-price'}/>
+                    <p key={'p-all-price'}>All price</p>
+                    <div key={'checkbox-all-price'} className={style.checkboxCheckmark}></div>
+                </label>
 
                 {priceArray.map(item =>
                     <label key={'label-' + item.min}>
                         <input type={'checkbox'} id={item.min + '-price'} name={'price'} key={'input-' + item.min}/>
                         <p key={'p-' + item.min}>${item.min} - {item.max}</p>
-                        <div key={'type' + item.min} className={style.checkboxCheckmark}></div>
+                        <div key={'checkbox-' + item.min} className={style.checkboxCheckmark}></div>
                     </label>
                 )}
 
