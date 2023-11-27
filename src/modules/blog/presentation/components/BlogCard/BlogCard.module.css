@@ -7,6 +7,7 @@
 .articleImg {
     width: 357px;
     height: 325px;
+    margin-bottom: 15px;
     overflow: hidden;
 }
 
@@ -16,6 +17,7 @@
 
 .mainField {
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .dateField {

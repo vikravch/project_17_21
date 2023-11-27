@@ -1,16 +1,17 @@
 .blogWrapper {
     width: 1440px;
-    padding: 40px 160px 80px 160px;
     gap: 80px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
+    padding: 40px 0 40px 0;
 }
 
 .wrapper
 {
     width: 357px;
     height: 433px;
+    cursor: pointer;
 }
 
 .wrapperBtn
@@ -33,6 +34,11 @@
     font-weight: bold;
     cursor: pointer;
 }
+a
+{
+    text-decoration: none;
+    color: black;
+}
 
 @media (max-width: 769px)
 {
@@ -44,4 +50,5 @@
     .blogWrapper {
         width: 50%;
     }
+
 }

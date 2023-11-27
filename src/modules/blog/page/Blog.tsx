@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import blogStyle from './Blog.module.css';
 import {Article, articles} from "../presentation/utils/data";
 import BlogCard from "../presentation/components/BlogCard/BlogCard";
+import {Link} from "react-router-dom";
 
 const Blog = () =>
 {
@@ -12,7 +13,7 @@ let temp: Article[] = count<array.length? array.slice(0, count): array.slice(0, 
 
 
     return (<div className={blogStyle.blogWrapper}>
-        {temp.map((item) =><div className={blogStyle.wrapper}><BlogCard imgArt={item.src} text={item.text} date={item.date}></BlogCard></div>)}
+        {temp.map((item) =><div className={blogStyle.wrapper}><Link className={blogStyle.wrapper} to={"/blog/article"}><BlogCard imgArt={item.src} text={item.text} date={item.date} ></BlogCard></Link></div>)}
     <div className={blogStyle.wrapperBtn}><button className={blogStyle.btnMore} onClick={() => setCount(count + 3)}>Show more</button></div>
     </div>);
 };
