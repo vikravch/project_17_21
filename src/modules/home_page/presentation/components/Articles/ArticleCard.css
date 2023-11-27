@@ -25,7 +25,7 @@
 
 
 
-.readMoreButton
+.read_more_button
 {
     color: #141718;
     font-feature-settings: 'clig' off, 'liga' off;
@@ -68,7 +68,7 @@
         font-weight: 500;
         line-height: 28px; /* 140% */
     }
-    .readMoreButton
+    .read_more_button
     {
 
 

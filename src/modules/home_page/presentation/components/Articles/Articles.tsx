@@ -38,7 +38,7 @@ const Articles = () => {
         <div className={'articles_section'}>
             <div className={'title_section'}>
                 <h6 className={'articles_title'}>Articles</h6>
-                <button className={'readMoreButton'}>More Articles <Arrow color='#141718'/></button>
+                <button className={'read_more_button'}>More Articles <Arrow color='#141718'/></button>
             </div>
             <div className={'cards_block'}>
                 {articles.map((article, index) => (

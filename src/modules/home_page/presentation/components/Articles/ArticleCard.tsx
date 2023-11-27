@@ -19,7 +19,7 @@ const ArticleCard= (props: ArticleProps) =>
             </div>
             <div className={'img-info'}>
             <h3 className={'article_title'}>{props.title}</h3>
-            <button onClick={props.onClick} className={'readMoreButton'}>
+            <button onClick={props.onClick} className={'read_more_button'}>
                 Read more <Arrow color='#141718'/>
             </button>
             </div>
