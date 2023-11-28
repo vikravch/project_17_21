@@ -10,7 +10,6 @@ import FilterTypesDesktop from "../components/filter-types-desktop/FilterTypesDe
 import {Columns} from "../redux/types";
 import {getAllProductsAsyncAction} from "../redux/asyncActions";
 import FilterTitle from "../components/filter-title/FilterTitle";
-import {chooseSort, openCloseMenuHandler} from "../../utils/const/shopPageConst";
 
 const ShopPage = () => {
 
@@ -25,18 +24,52 @@ const ShopPage = () => {
     },[])
 
     document.addEventListener('click', event => {
-        const listSort = document.getElementById('listSort');
-        const sortHead = document.getElementById('sortHead');
-        // @ts-ignore
-        const withinBoundaries = event.composedPath().includes(listSort);
-        // @ts-ignore
-        const withinBoundaries2 = event.composedPath().includes(sortHead);
-        if (!withinBoundaries && !withinBoundaries2) {
-            console.log('yes')
+        // const listSort = document.getElementById('listSort');
+        // const sortHead = document.getElementById('sortHead');
+        const listener = document.querySelectorAll('.listener');
+        const listenerHead = document.querySelectorAll('.listenerHead');
+
+        console.log(listener);
+        listener.forEach((item, index) => {
             // @ts-ignore
-            listSort.classList.remove(style.open);
-        }
+            if (!event.composedPath().includes(item) && !event.composedPath().includes(listenerHead[index]) ) {
+                console.log('yes')
+                item.classList.remove(style.open);
+            }
+        })
+        // @ts-ignore
+        // const withinBoundaries = event.composedPath().includes(listSort);
+        // // @ts-ignore
+        // // const withinBoundaries2 = event.composedPath().includes(sortHead);
+        // if (!withinBoundaries && !withinBoundaries2) {
+        //     // @ts-ignore
+        //     listSort.classList.remove(style.open);
+        // }
     })
+
+    const openCloseMenuHandler = (event: any) => {
+        event.target.nextElementSibling.classList.toggle(style.open);
+    }
+
+    const chooseSort = (event: any) => {
+        const choice: string = event.target.textContent;
+        const listId = event.target.parentElement;
+        const listHead = listId.previousElementSibling;
+        const input: HTMLInputElement = listHead.previousElementSibling;
+        input.value = choice;
+
+        // @ts-ignore
+        listId.childNodes.forEach(item => {
+            if (item.textContent === listHead.textContent) {
+                // @ts-ignore
+                item.classList.remove(style.chosen);
+            }
+        })
+        listHead.textContent = choice;
+        event.target.classList.add(style.chosen);
+        event.target.parentElement.classList.toggle(style.open);
+
+    }
 
     return (
         <div className={style.shopPage}>
@@ -48,12 +81,14 @@ const ShopPage = () => {
             </div>
             <div className={style.filterSortBlock}>
                 <FilterTitle columns={columns}/>
-                <FilterTypes columns={columns}/>
+                <FilterTypes columns={columns}
+                             openCloseMenuHandler={openCloseMenuHandler}
+                             chooseSort={chooseSort}/>
                 <div className={style.sortBlock}>
                     <div className={style.sortSelect}>
                         <input type={'hidden'} name={'sort'} id={'sortBy'}/>
-                        <div className={style.sortHead} id={'sortHead'} onClick={openCloseMenuHandler}>Sort by</div>
-                        <ul className={style.sortList} id={'listSort'}>
+                        <div className={`${style.sortHead} listenerHead`} id={'sortHead'} onClick={openCloseMenuHandler}>Sort by</div>
+                        <ul className={`${style.sortList} listener`} id={'listSort'}>
                             <li>Sort by</li>
                             {sort.map(item => {
                                 return <li className={style.sortItem} onClick={chooseSort} key={item}>{item}</li>

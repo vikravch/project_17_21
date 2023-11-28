@@ -30,7 +30,7 @@ const FilterTypesDesktop = () => {
                 <p>Price</p>
 
                 <label key={'label-all-price'}>
-                    <input type={'checkbox'} id={'all-price'} name={'price'} key={'input-all-price'}/>
+                    <input checked={true} type={'checkbox'} id={'all-price'} name={'price'} key={'input-all-price'}/>
                     <p key={'p-all-price'}>All price</p>
                     <div key={'checkbox-all-price'} className={style.checkboxCheckmark}></div>
                 </label>

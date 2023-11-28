@@ -24,13 +24,14 @@
     }
 
     .price > p {
-        margin-top: 20px;
+        margin: 30px 0 12px 0;
     }
 
     .categories > ul > li {
         cursor: pointer;
         list-style: none;
         font-weight: 600;
+        font-size: 14px;
         color: #807E7E;
         margin: 10px 0;
     }
@@ -38,6 +39,7 @@
     .categories > ul > li:hover {
         color: #121212;
         text-decoration: underline;
+        text-underline-offset: 5px;
     }
 
     .price > label {
@@ -97,7 +99,7 @@
     }
 
     .price > label > p {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 600;
         color: #807E7E;
     }
@@ -105,6 +107,7 @@
     .price > label:hover {
         color: #121212;
         text-decoration: underline;
+        text-underline-offset: 5px;
     }
 
     .price > label:hover > p {
@@ -114,5 +117,6 @@
     .inputChecked {
         color: #121212 !important;
         text-decoration: underline;
+        text-underline-offset: 5px;
     }
 }
