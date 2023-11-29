@@ -1,12 +1,13 @@
 .viewSelector{
     display: flex;
     --border: 2px solid #E8ECEF;
-    height: 100%;
+    height: 65%;
 }
 .button{
     border-top: var(--border);
     border-bottom: var(--border);
     border-left: var(--border);
+    height: 100%;
     aspect-ratio: 1;
     display: flex;
     align-items: center;
@@ -43,5 +44,10 @@
     }
     .mobile{
         display: none;
+    }
+}
+@media screen and (min-width: 900px) {
+    .viewSelector{
+        height: 100% !important;
     }
 }
