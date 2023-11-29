@@ -14,26 +14,35 @@ const ProductsGallery = () => {
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
     );
-    const rows = 4;
+    const mobileRows = 4;
+    const desktopRows = 3;
     const [device, setDevice] = useState<Devices>();
     const [gridStyles, setGridStyles] = useState({});
     const [visibleProducts, setVisibleProducts] = useState<number>(0);
+
+    if (window.innerWidth >= 768){
+        if (device!=='desktop')
+        setDevice('desktop');
+    }else{
+        if (device!=='mobile')
+        setDevice('mobile');
+    }
 
     useEffect(() => {
         const handleResize = () => {
             setGridStyles({
                 gridTemplateColumns: `repeat(${window.innerWidth >= 768 ? columns.countDesktop : columns.countMobile}, 1fr)`,
             });
+            window.innerWidth >= 768 ? setDevice('desktop') : setDevice('mobile');
         };
         handleResize();
         window.addEventListener('resize', handleResize);
-        window.innerWidth >= 768 ? setDevice('desktop') : setDevice('mobile');
         return () => {
             window.removeEventListener('resize', handleResize);
         };
     }, [columns]);
     useEffect(()=>{
-        setVisibleProducts(prevState => prevState + rows * (device === 'desktop' ? columns.countDesktop : columns.countMobile))
+        setVisibleProducts((device === 'desktop' ? desktopRows * columns.countDesktop : mobileRows * columns.countMobile));
     },[null])
 
     return (
@@ -52,7 +61,7 @@ const ProductsGallery = () => {
                 }
             </div>
             {products && products.length > visibleProducts
-                && <button className={style.showMore} onClick={()=>{setVisibleProducts(prevState => prevState + rows * (device === 'desktop' ? columns.countDesktop : columns.countMobile))}}>Show more</button>}
+                && <button className={style.showMore} onClick={()=>{setVisibleProducts(prevState => prevState +  (device === 'desktop' ? desktopRows * columns.countDesktop : mobileRows * columns.countMobile))}}>Show more</button>}
         </div>
     );
 };
