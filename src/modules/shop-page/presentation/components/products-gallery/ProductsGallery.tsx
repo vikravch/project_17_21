@@ -46,7 +46,7 @@ const ProductsGallery = () => {
     },[null])
 
     return (
-        <div className={style.wrapper}>
+        <div className={style.wrapper  + " " + style['desktop' + columns.countDesktop]}>
             <div className={style.productGallery} style={gridStyles}>
                 {
                     products ?
