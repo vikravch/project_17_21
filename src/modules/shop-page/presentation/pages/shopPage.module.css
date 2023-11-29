@@ -22,7 +22,7 @@
     background-size: 100%;
 }
 
-.pageHeader > h1{
+.pageHeader > h1 {
     font-family: Poppins, serif;
     font-weight: 500;
     font-size: 40px;
@@ -41,8 +41,6 @@
     align-items: center;
     min-width: 311px;
     height: 54px;
-    margin: 8px 0;
-    padding-bottom: 13px;
     border-bottom: 1px solid #E8ECEF;
 }
 
@@ -172,14 +170,15 @@
     }
 
     .sortBlock {
-        margin: 0;
         border-bottom: none;
-        padding-bottom: 0;
         flex-direction: column;
         align-items: start;
         height: 80px;
-        min-width: 120px;
-        max-width: 120px;
+        min-width: auto;
+    }
+
+    .sortBlock > div {
+        height: 50%;
     }
 
     .sortHead {
@@ -225,10 +224,6 @@
         flex-direction: row;
         align-items: center;
         height: 40px;
-        /*width: 0;*/
-        min-width: 240px;
-        max-width: 0;
-
     }
 
     .sortHead {
@@ -248,7 +243,6 @@
 /*        margin-right: 10px;*/
 /*    }*/
 /*}*/
-
 
 
 /*.sortBlock {*/
