@@ -38,7 +38,7 @@ const FilterTypesDesktop = () => {
                 {priceArray.map(item =>
                     <label key={'label-' + item.min}>
                         <input type={'checkbox'} id={item.min + '-price'} name={'price'} key={'input-' + item.min}/>
-                        <p key={'p-' + item.min}>${item.min} - {item.max}</p>
+                        <p key={'p-' + item.min}>${item.max !== null ? item.min + '.00 - ' + item.max : item.min + '.00+'}</p>
                         <div key={'checkbox-' + item.min} className={style.checkboxCheckmark}></div>
                     </label>
                 )}

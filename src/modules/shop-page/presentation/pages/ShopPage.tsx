@@ -41,7 +41,7 @@ const ShopPage = () => {
         event.target.nextElementSibling.classList.toggle(style.open);
     }
 
-    const chooseSort = (event: any) => {
+    const chooseSortOrFiltration = (event: any) => {
         const choice: string = event.target.textContent;
         const listId = event.target.parentElement;
         const listHead = listId.previousElementSibling;
@@ -73,7 +73,7 @@ const ShopPage = () => {
                 <FilterTitle columns={columns}/>
                 <FilterTypes columns={columns}
                              openCloseMenuHandler={openCloseMenuHandler}
-                             chooseSort={chooseSort}/>
+                             chooseSortOrFiltration={chooseSortOrFiltration}/>
                 <div className={style.sortBlock}>
                     <div className={style.sortSelect}>
                         <input type={'hidden'} name={'sort'}/>
@@ -81,7 +81,7 @@ const ShopPage = () => {
                         <ul className={`${style.sortList} listener`}>
                             <li>Sort by</li>
                             {sort.map(item => {
-                                return <li className={style.sortItem} onClick={chooseSort} key={item}>{item}</li>
+                                return <li className={style.sortItem} onClick={chooseSortOrFiltration} key={item}>{item}</li>
                             })}
                         </ul>
                     </div>

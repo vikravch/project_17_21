@@ -6,10 +6,10 @@ import {Columns} from "../../redux/types";
 interface Props {
     columns: Columns;
     openCloseMenuHandler: (event: any) => void;
-    chooseSort: (event: any) => void;
+    chooseSortOrFiltration: (event: any) => void;
 
 }
-const FilterTypes = ({columns, openCloseMenuHandler, chooseSort}: Props) => {
+const FilterTypes = ({columns, openCloseMenuHandler, chooseSortOrFiltration}: Props) => {
 
     return (
             <div className={`${style.typesBlock} ${columns.countDesktop === 3 ? style.close : ''}`}
@@ -23,7 +23,7 @@ const FilterTypes = ({columns, openCloseMenuHandler, chooseSort}: Props) => {
                     </div>
                     <ul className={`${style.filterCatList} listener`} id={'filterCatList'}>
                         {categoriesArray.map(item => {
-                            return <li className={style.filterCatItem} onClick={chooseSort}
+                            return <li className={style.filterCatItem} onClick={chooseSortOrFiltration}
                                        key={item}>{item}</li>
                         })}
                     </ul>
@@ -37,9 +37,9 @@ const FilterTypes = ({columns, openCloseMenuHandler, chooseSort}: Props) => {
                         All prices
                     </div>
                     <ul className={`${style.filterPriceList} listener`} id={'filterPrList'}>
-                        <li onClick={chooseSort}>All prices</li>
+                        <li onClick={chooseSortOrFiltration}>All prices</li>
                         {priceArray.map(item => {
-                            return <li className={style.filterPriceItem} onClick={chooseSort}
+                            return <li className={style.filterPriceItem} onClick={chooseSortOrFiltration}
                                        key={item.min}>${item.min} - {item.max}</li>
                         })}
                     </ul>
