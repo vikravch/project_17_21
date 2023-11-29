@@ -6,6 +6,7 @@
     .block {
         display: block;
         width: 254px;
+        padding-right: 30px;
     }
 
     .price {
@@ -83,7 +84,7 @@
 
     .checkboxCheckmark {
         position: absolute;
-        left: 150px; /* 254 */
+        left: 200px;
         height: 24px;
         width: 24px;
         border: 2px solid #969fa1;
