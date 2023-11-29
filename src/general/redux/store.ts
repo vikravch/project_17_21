@@ -1,13 +1,19 @@
 import {Action, configureStore, ThunkAction} from '@reduxjs/toolkit';
 import logger from 'redux-logger'
+import weatherReducer from '../../modules/weather/presentation/redux/weatherSlice';
+import shopPageReducer from '../../modules/shop-page/presentation/redux/shopPageSlice';
+import galleriesStyleReducer from '../../modules/shop-page/presentation/redux/galleriesStyleSlice';
 import flyMenu from './slices/openFlyMenuSlice'
 import changePicture from './slices/changePictureSlice'
-
 
 export const store = configureStore(
     {
         reducer: {
-            flyMenu,changePicture
+            weather: weatherReducer,
+            shopPage: shopPageReducer,
+            galleriesStyle: galleriesStyleReducer,
+            fluMenu: flyMenu,
+            changePicture: changePicture
         },
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
         devTools: process.env.NODE_ENV !== 'production',

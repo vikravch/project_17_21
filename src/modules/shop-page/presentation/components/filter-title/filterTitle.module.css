@@ -1,0 +1,66 @@
+.filterBlock {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 40px;
+    height: 56px;
+    min-width: 311px;
+    border-top: 1px solid #E8ECEF;
+    border-bottom: 1px solid #E8ECEF;
+    cursor: pointer;
+}
+
+.filterBlock > img {
+    width: 16px;
+    margin-right: 10px;
+}
+
+.filterBlock > p {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+.openFilter {
+    display: block ;
+/*    !important */
+}
+
+.showFilterDesktop3 {
+    display: none;
+}
+
+.hideFilterDesktop3 {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .filterBlock {
+        display: none;
+    }
+
+    .showFilterDesktop3 {
+        display: flex;
+        justify-content: start;
+        margin-top: 0;
+    }
+
+    .showFilterDesktop3 > img {
+        width: 18px;
+        margin-right: 10px;
+    }
+
+    .openFilter {
+        display: none;
+    }
+
+    .showFilterDesktop3> p {
+        font-weight: 600;
+        font-size: 20px;
+        margin: 0;
+    }
+
+    .hideFilterDesktop3 {
+        display: none;
+    }
+}

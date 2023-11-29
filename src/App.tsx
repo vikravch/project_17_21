@@ -5,6 +5,7 @@ import {Route, Routes, useLocation} from "react-router";
 import NavigationRow from "./general/components/navigation/NavigationRow";
 import NewsletterSubscribe from "./general/components/newsletter_subscribe/NewsletterSubscribe";
 import Footer from "./general/components/footer/Footer";
+import ShopPage from "./modules/shop-page/presentation/pages/ShopPage";
 import Blog from "./modules/blog/page/Blog";
 import CartPage from "./modules/cart/pages/cart-page";
 import CheckoutPage from "./modules/cart/pages/checkout-page";
@@ -22,7 +23,7 @@ function App() {
             <NavigationRow/>
                 <Routes>
                     <Route path="/home" element={<HomePage/>}/>
-                    <Route element={<WeatherPage/>}/>{/*default route*/}
+                    <Route path="/shop" element={<ShopPage/>}/>
                     <Route path="/cart" element={<CartPage/>}/>
                     <Route path="/cart/checkout" element={<CheckoutPage/>}/>
                     <Route path="/cart/checkout/complete" element={<CompletePage/>}/>
