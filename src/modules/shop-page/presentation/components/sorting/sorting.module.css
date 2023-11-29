@@ -46,7 +46,7 @@
     border-radius: 12px;
 
     box-shadow: 0 64px 64px -48px #0F0F0F1A;
-    border: 1.5px solid #F3F5F7;
+    border: 1px solid #F3F5F7;
 
 }
 
@@ -90,6 +90,13 @@
         min-width: auto;
     }
 
+    .sortBlockDisplay3 {
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        height: 40px;
+    }
+
     .sortBlock > div {
         height: 50%;
     }
@@ -99,6 +106,13 @@
         padding-right: 20px;
         font-size: 16px;
         margin: 10px 0;
+    }
+
+    .sortHeaDisplay3 {
+        background-size: 10px;
+        padding-right: 20px;
+        margin: 0  27px 0 0;
+        font-size: 16px;
     }
 
     .sortList {
