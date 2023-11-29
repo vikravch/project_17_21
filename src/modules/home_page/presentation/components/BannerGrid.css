@@ -1,0 +1,116 @@
+/*=======Banner grid=======*/
+/*======= 0 - 768 =======*/
+.banner_grid_wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.banner_grid_section{
+    padding: 0 32px;
+}
+
+
+.banner_grid_img_placeholder {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    /*background-image: url("images/sliderGridPlaceholder.png");*/
+    background-size: contain;
+    flex-shrink: 0;
+}
+.banner_grid_img_placeholder > img{
+    width: 100%;
+    position: relative;
+}
+
+.banner_grid_texts {
+    margin: 32px 32px auto 32px;
+    position: absolute;
+}
+
+.shop_now_link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 1px solid #141718;
+    width: fit-content;
+}
+
+.shop_now_btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.banner_grid_title {
+    color: #141718;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Poppins, serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 34px; /* 121.429% */
+    letter-spacing: -0.6px;
+    margin: 0 0 8px 0;
+}
+
+.banner_grid_cards {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+}
+
+
+.banner_grid_cards_card1, .banner_grid_cards_card2 {
+    margin-bottom: 16px;
+    position: relative;
+}
+.banner_grid_cards_card1 > img, .banner_grid_cards_card2 > img {
+    width: 100%;
+}
+.banner_grid_texts_cards {
+    position: absolute;
+    z-index: 1;
+    bottom: 40px;
+    left: 32px;
+}
+
+
+/*=======Banner grid=======*/
+/*======= 769 + =======*/
+@media (min-width: 769px) {
+    .banner_grid_wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+    .banner_grid_section{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 24px;
+    }
+    .banner_grid_img_placeholder {
+        width: 50%;
+    }
+
+    .banner_grid_cards {
+        width: 100%;
+        justify-content: space-between;
+        align-self: stretch;
+
+        margin: 0;
+    }
+
+    .banner_grid_cards_card1, .banner_grid_cards_card2 {
+        width: 100%;
+
+        margin: 0;
+    }
+
+
+}

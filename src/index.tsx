@@ -8,6 +8,7 @@ import {initLocatorRepository} from "./general/di/service_locator";
 import {Provider} from "react-redux";
 import {store} from "./general/redux/store";
 import {BrowserRouter} from "react-router-dom";
+import ScrollToTop from "./general/utils/ScrollToTop";
 
 initLocatorRepository();
 
@@ -17,6 +18,7 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <BrowserRouter>
+            <ScrollToTop/>
             <Provider store={store}>
                 <App/>
             </Provider>

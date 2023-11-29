@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import WeatherPage from "./modules/weather/presentation/pages/WeatherPage";
-import {Route, Routes, useLocation, useParams} from "react-router";
+import {Route, Routes, useLocation} from "react-router";
 import NavigationRow from "./general/components/navigation/NavigationRow";
 import NewsletterSubscribe from "./general/components/newsletter_subscribe/NewsletterSubscribe";
 import Footer from "./general/components/footer/Footer";
@@ -19,17 +19,18 @@ function App() {
 
     return (
         <div className={"wrapper"}>
-            {/*<NavigationRow/>*/}
+            <NavigationRow/>
                 <Routes>
-                    <Route path="/" element={<HomePage/>}/>
+                    <Route path="/home" element={<HomePage/>}/>
                     <Route element={<WeatherPage/>}/>{/*default route*/}
                     <Route path="/cart" element={<CartPage/>}/>
                     <Route path="/cart/checkout" element={<CheckoutPage/>}/>
                     <Route path="/cart/checkout/complete" element={<CompletePage/>}/>
                     <Route path="/blog" element={<Blog/>}/>
+                    <Route path="*" element={<HomePage/>}/>
                 </Routes>
             {!pathname.includes('cart') && <NewsletterSubscribe/>}
-            {/*<Footer/>*/}
+            <Footer/>
         </div>
     );
 }
