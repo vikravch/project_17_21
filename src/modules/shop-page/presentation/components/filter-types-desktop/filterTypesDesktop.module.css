@@ -27,6 +27,29 @@
         margin: 30px 0 12px 0;
     }
 
+    .categories > ul {
+        height: 150px;
+        overflow-y: scroll;
+
+        /*overflow-x: hidden;*/
+        /*overflow-y: auto;*/
+
+        scrollbar-color: darkgray gray;
+        scrollbar-width: thin;
+        overscroll-behavior: contain;
+    }
+
+    .categories > ul::-webkit-scrollbar {
+        width: 7px;
+        background-color: #F8F9FA;
+        padding: 5px;
+    }
+
+    .categories > ul::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #D9D9D9;
+    }
+
     .categories > ul > li {
         cursor: pointer;
         list-style: none;

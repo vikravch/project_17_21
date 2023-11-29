@@ -1,7 +1,5 @@
 import React, {useEffect} from 'react';
 import style from './shopPage.module.css';
-import {sort} from "../../domain/model/filterConst";
-import ViewSelector from "../components/view-selector/ViewSelector";
 import ProductsGallery from "../components/products-gallery/ProductsGallery";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStore} from "../../../../general/redux/types";
@@ -10,6 +8,7 @@ import FilterTypesDesktop from "../components/filter-types-desktop/FilterTypesDe
 import {Columns} from "../redux/types";
 import {getAllProductsAsyncAction} from "../redux/asyncActions";
 import FilterTitle from "../components/filter-title/FilterTitle";
+import Sorting from "../components/sorting/Sorting";
 
 const ShopPage = () => {
 
@@ -74,19 +73,8 @@ const ShopPage = () => {
                 <FilterTypes columns={columns}
                              openCloseMenuHandler={openCloseMenuHandler}
                              chooseSortOrFiltration={chooseSortOrFiltration}/>
-                <div className={style.sortBlock}>
-                    <div className={style.sortSelect}>
-                        <input type={'hidden'} name={'sort'}/>
-                        <div className={`${style.sortHead} listenerHead`} onClick={openCloseMenuHandler}>Sort by</div>
-                        <ul className={`${style.sortList} listener`}>
-                            <li>Sort by</li>
-                            {sort.map(item => {
-                                return <li className={style.sortItem} onClick={chooseSortOrFiltration} key={item}>{item}</li>
-                            })}
-                        </ul>
-                    </div>
-                    <ViewSelector/>
-                </div>
+                <Sorting openCloseMenuHandler={openCloseMenuHandler}
+                         chooseSortOrFiltration={chooseSortOrFiltration}/>
             </div>
             <div className={style.categoryName}>
                 <p>All rooms</p>
