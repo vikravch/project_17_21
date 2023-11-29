@@ -24,8 +24,6 @@ const ShopPage = () => {
     },[])
 
     document.addEventListener('click', event => {
-        // const listSort = document.getElementById('listSort');
-        // const sortHead = document.getElementById('sortHead');
         const listener = document.querySelectorAll('.listener');
         const listenerHead = document.querySelectorAll('.listenerHead');
 
@@ -37,14 +35,6 @@ const ShopPage = () => {
                 item.classList.remove(style.open);
             }
         })
-        // @ts-ignore
-        // const withinBoundaries = event.composedPath().includes(listSort);
-        // // @ts-ignore
-        // // const withinBoundaries2 = event.composedPath().includes(sortHead);
-        // if (!withinBoundaries && !withinBoundaries2) {
-        //     // @ts-ignore
-        //     listSort.classList.remove(style.open);
-        // }
     })
 
     const openCloseMenuHandler = (event: any) => {
@@ -86,9 +76,9 @@ const ShopPage = () => {
                              chooseSort={chooseSort}/>
                 <div className={style.sortBlock}>
                     <div className={style.sortSelect}>
-                        <input type={'hidden'} name={'sort'} id={'sortBy'}/>
-                        <div className={`${style.sortHead} listenerHead`} id={'sortHead'} onClick={openCloseMenuHandler}>Sort by</div>
-                        <ul className={`${style.sortList} listener`} id={'listSort'}>
+                        <input type={'hidden'} name={'sort'}/>
+                        <div className={`${style.sortHead} listenerHead`} onClick={openCloseMenuHandler}>Sort by</div>
+                        <ul className={`${style.sortList} listener`}>
                             <li>Sort by</li>
                             {sort.map(item => {
                                 return <li className={style.sortItem} onClick={chooseSort} key={item}>{item}</li>

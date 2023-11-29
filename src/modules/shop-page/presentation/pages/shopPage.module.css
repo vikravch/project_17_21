@@ -226,15 +226,13 @@
     }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 940px) {
 
     .sortBlock {
-        justify-content: start;
         flex-direction: row;
+        justify-content: end;
         align-items: center;
         height: 40px;
-        min-width: 240px;
-        max-width: 0;
 
     }
 
