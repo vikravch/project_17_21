@@ -14,10 +14,11 @@ const ProductsGallery = () => {
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
     );
-
+    const rows = 4;
     const [device, setDevice] = useState<Devices>();
-    const [rows, setRows] = useState(3);
     const [gridStyles, setGridStyles] = useState({});
+    const [visibleProducts, setVisibleProducts] = useState<number>(0);
+
     useEffect(() => {
         const handleResize = () => {
             setGridStyles({
@@ -31,13 +32,16 @@ const ProductsGallery = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, [columns]);
+    useEffect(()=>{
+        setVisibleProducts(prevState => prevState + rows * (device === 'desktop' ? columns.countDesktop : columns.countMobile))
+    },[null])
 
     return (
         <div className={style.wrapper}>
             <div className={style.productGallery} style={gridStyles}>
                 {
                     products ?
-                        products.slice(0, device === 'desktop' ? columns.countDesktop * rows : columns.countMobile * rows)
+                        products.slice(0, visibleProducts)
                             .map((product, index) => (
                             <ProductCard product={product}
                                          columns={columns}
@@ -47,8 +51,8 @@ const ProductsGallery = () => {
                         <p>{error}</p>
                 }
             </div>
-            {products && products.length > (device === 'desktop' ? columns.countDesktop * rows : columns.countMobile * rows)
-                && <button className={style.showMore} onClick={()=>{setRows(prevState => prevState + 3)}}>Show more</button>}
+            {products && products.length > visibleProducts
+                && <button className={style.showMore} onClick={()=>{setVisibleProducts(prevState => prevState + rows * (device === 'desktop' ? columns.countDesktop : columns.countMobile))}}>Show more</button>}
         </div>
     );
 };
