@@ -25,6 +25,10 @@ export type TOrder = {
   total_price: string;
   discount: string;
 }
+export interface IBonus {
+  [name: string]: string,
+}
+
 export const data: TItem[] = [
   {
     id: "1",
@@ -172,3 +176,10 @@ export const options:TOption[] = [
     label: 'Portugal'
   }
 ]
+export const codes:IBonus =
+  {
+    BONUS25: '-$25.00',
+    BONUS10: '-$10.00',
+    BONUS5: '-$5.00'
+  }
+
