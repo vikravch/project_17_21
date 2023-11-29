@@ -1,6 +1,16 @@
 .App {
   text-align: center;
 }
+.wrapper {
+  /*border: #282c34 solid 3px;*/
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+
+}
 
 .wrapper {
   display: flex;
@@ -11,7 +21,14 @@
   margin: 0 auto;
 
 }
-
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
