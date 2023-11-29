@@ -1,0 +1,222 @@
+.back_arrow {
+  padding-left: 23px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 16px;
+}
+.back_arrow_complete {
+  padding-left: 0;
+}
+.link_style {
+  text-decoration: none;
+}
+.back_arrow_text {
+  margin: 0 0 0 4px;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--semibold-grey-text);
+}
+.arrow_img {
+  width: 12px;
+  height: 12px;
+}
+.header_cart {
+  font-size: 40px;
+  margin: 32px 0 20px;
+  text-align: center;
+  font-family: var(--font-secondary);
+  font-weight: 500;
+  line-height: 44px; /* 110% */
+  letter-spacing: -0.4px;
+  color: var(--black-text)
+}
+.subheader_container {
+  padding-left: 23px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /*margin-bottom: 26px;*/
+  gap: 32px;
+}
+.subheader_container_complete {
+  padding-left: 0;
+}
+
+.first_step_circle {
+  width: 42px;
+  height: 42px;
+  background-color: var(--regular-text);
+  color: var(--darktheme-text-fade);
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.subheader_box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 256px;
+  width: 100%;
+  padding-bottom: 26px;
+  border-bottom: 2px solid var(--primary-dark);
+}
+
+.subheader_step1 {
+  margin: 0 0 0 17px;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+}
+.subheader_box_inactive {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 256px;
+  /*width: 100%;*/
+  padding-bottom: 26px;
+}
+.subheader_complete {
+  margin: 0 0 0 17px;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  color: var(--inactive-grey);
+}
+.step_box_finished {
+  display: none;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 256px;
+  width: 100%;
+  padding-bottom: 26px;
+  border-bottom: 2px solid var(--primary-green-theme);
+}
+
+.step_circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  /*background-color: #B1B5C3;*/
+  /*color: #FCFCFD;*/
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  border-radius: 50%;
+  /*margin-left: 32px;*/
+}
+.active_circle {
+  background-color: var(--regular-text);
+  color: var(--darktheme-text-fade);
+}
+.inactive_circle {
+  background-color: var(--inactive-grey);
+  color: var(--darktheme-text-fade);
+}
+.finished_circle {
+  background-color: var(--primary-green-theme);
+  color: var(--darktheme-text-fade);
+}
+.finished_subheader {
+  margin: 0 0 0 17px;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  color: var(--primary-green-theme);
+}
+.subheader_order_complete {
+  display: none;
+}
+
+.subheader_step2 {
+  margin: 0 0 0 17px;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  color: var(--inactive-grey);
+}
+.subheader2 {
+  display: none;
+}
+
+.circle3 {
+  display: none;
+}
+.subheader3 {
+  display: none;
+}
+.header_container {
+  padding: 16px 0 40px;
+}
+
+@media (min-width: 650px) {
+
+  .subheader2 {
+    display: block;
+  }
+  .subheader_order_complete {
+    display: block;
+  }
+}
+@media (min-width: 710px) {
+  .circle3 {
+    display: flex;
+  }
+  .subheader_box_inactive {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) {
+  .back_arrow {
+    display: none;
+  }
+  .header_cart {
+    font-size: 54px;
+    margin: 72px 0 36px;
+  }
+  .step_box_finished.is_active  {
+    display: flex;
+  }
+}
+@media (min-width: 900px) {
+  .subheader3 {
+    display: block;
+  }
+  .subheader_box_inactive2 {
+    width: 100%;
+  }
+
+  .subheader_container {
+    max-width: 832px;
+    width: 100%;
+    margin: 0 auto 26px;
+    justify-content: space-between;
+    padding-left: 0;
+  }
+  .step_box_finished {
+    display: flex;
+  }
+}
