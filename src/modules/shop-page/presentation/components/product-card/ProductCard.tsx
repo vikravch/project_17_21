@@ -20,6 +20,7 @@ const ProductCard = ({columns, product}: Props) => {
     return (
         <div className={style.productCard + " " + style['desktop' + columns.countDesktop] + " " + style['mobile' + columns.countMobile]}>
             <div className={style.imageBlock}>
+                {/*<div style={{backgroundImage: `url(${product.image})`, width: '100%', height: '100%'}} className={style.img}></div>*/}
                 <img src={product.image} alt={product.name}/>
                 <div className={style.badges}>
                     {product.isNew && <Badge type={"new"}/>}
