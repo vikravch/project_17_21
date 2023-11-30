@@ -75,6 +75,7 @@
 
 .sortList > li:first-child {
     background-color: #E8ECEF;
+    border-radius: 12px 12px 0 0;
 }
 
 .sortList:last-child {

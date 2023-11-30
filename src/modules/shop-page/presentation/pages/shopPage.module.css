@@ -40,6 +40,12 @@
 
 }
 
+.categoryName {
+    height: 56px;
+    display: flex;
+    align-items: center;
+}
+
 .categoryName > p {
     font-weight: 600;
     font-size: 16px;
