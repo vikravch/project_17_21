@@ -1,18 +1,22 @@
+.errors_coupon {
+  color: var(--errors-form-text);
+}
+
 .order_summary {
   padding: 14px;
-  border: 1px solid #6C7275;
+  border: 1px solid var(--regular-grey);
   border-radius: 4px;
   display: flex;
   flex-direction: column;
 }
 .summary_header {
   margin: 0;
-  font-family: Poppins, sans-serif;
+  font-family: var(--font-secondary);
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: 28px;
-  color: #141718;
+  color: var(--primary-dark);
 }
 .order_summary_cards {
   margin-bottom: 24px;
@@ -26,14 +30,14 @@
 .promo_code_text {
   flex: 2;
   padding: 13px 16px;
-  border: 1px solid #CBCBCB;
+  border: 1px solid var(--light-grey-fade);
   border-radius: 6px;
-  font-family: Inter, sans-serif;
+  font-family: var(--font-primary);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 26px;
-  color: #605F5F;
+  color: var(--semibold-grey-text);
   width: 100%;
 }
 .discount_button {
@@ -47,7 +51,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 13px 0;
-  border-bottom: 1px solid #E8ECEF;
+  border-bottom: 1px solid var(--light-grey-primary);
 }
 .percent_icon {
   width: 24px;
@@ -56,12 +60,12 @@
 .discount_code_text {
   margin: 0;
   width: 90px;
-  font-family: Inter, sans-serif;
+  font-family: var(--font-primary);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 26px;
-  color: #141718;
+  color: var(--primary-dark);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -72,12 +76,12 @@
   gap: 8px;
 }
 .discount_typography {
-  font-family: Inter, sans-serif;
+  font-family: var(--font-primary);
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 26px;
-  color: #38CB89;
+  color: var(--primary-green-theme);
 }
 .discount_amount_text {
   margin: 0;
@@ -85,38 +89,38 @@
 .remove_discount {
   padding: 0;
   border: none;
-  background-color: #FFF;
+  background-color: var(--darktheme-text-primary);
   cursor: pointer;
 }
 .order_contain_info {
   margin: 0;
-  font-family: Inter, sans-serif;
+  font-family: var(--font-primary);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 26px;
-  color: #141718;
+  color: var(--primary-dark);
 }
 .order_contain_price{
   margin: 0;
-  font-family: Inter, sans-serif;
+  font-family: var(--font-primary);
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 26px;
-  color: #141718;
+  color: var(--primary-dark);
 }
 .total_price {
   border-bottom: none;
 }
 .order_total {
   margin: 0;
-  font-family: Poppins, sans-serif;
+  font-family: var(--font-secondary);
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: 28px;
-  color: #141718;
+  color: var(--primary-dark);
 }
 .place_order_button {
   margin: 0;
