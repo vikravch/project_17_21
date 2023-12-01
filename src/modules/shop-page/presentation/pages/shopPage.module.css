@@ -40,6 +40,12 @@
 
 }
 
+.categoryName {
+    height: 56px;
+    display: flex;
+    align-items: center;
+}
+
 .categoryName > p {
     font-weight: 600;
     font-size: 16px;
@@ -69,10 +75,6 @@
         justify-content: space-between;
         align-items: end;
         margin: 50px 0 40px 0;
-    }
-
-    .filterBlock {
-        display: none;
     }
 
     .categoryName > p {

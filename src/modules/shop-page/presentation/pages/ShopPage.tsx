@@ -26,11 +26,9 @@ const ShopPage = () => {
         const listener = document.querySelectorAll('.listener');
         const listenerHead = document.querySelectorAll('.listenerHead');
 
-        console.log(listener);
         listener.forEach((item, index) => {
             // @ts-ignore
             if (!event.composedPath().includes(item) && !event.composedPath().includes(listenerHead[index]) ) {
-                console.log('yes')
                 item.classList.remove(style.open);
             }
         })
@@ -73,7 +71,8 @@ const ShopPage = () => {
                 <FilterTypes columns={columns}
                              openCloseMenuHandler={openCloseMenuHandler}
                              chooseSortOrFiltration={chooseSortOrFiltration}/>
-                <Sorting openCloseMenuHandler={openCloseMenuHandler}
+                <Sorting columns={columns}
+                         openCloseMenuHandler={openCloseMenuHandler}
                          chooseSortOrFiltration={chooseSortOrFiltration}/>
             </div>
             <div className={style.categoryName}>
