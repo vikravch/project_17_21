@@ -45,8 +45,6 @@
     .mobile{
         display: none;
     }
-}
-@media screen and (min-width: 957px) {
     .viewSelector{
         height: 100% !important;
     }
