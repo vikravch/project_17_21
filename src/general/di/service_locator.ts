@@ -8,7 +8,7 @@ import ProductsRepository from "../../modules/shop-page/domain/repository/produc
 import ProductsFakeRepository from "../../modules/shop-page/data/repository/productsFaceRepository";
 import {ProductsUseCases} from "../../modules/shop-page/domain/use_case/use_cases";
 import GetAllProducts from "../../modules/shop-page/domain/use_case/getAllProducts";
-
+// Dependency injection - Service locator
 type LocatorRepository = {
   weatherRepository: WeatherRepository
   cacheRepository: CacheRepository

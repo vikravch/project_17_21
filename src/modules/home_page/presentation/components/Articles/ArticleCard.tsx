@@ -1,7 +1,6 @@
 import React from 'react';
-import "../../page/HomePage.css";
 import "./ArticleCard.css";
-import Arrow from "../../icons/Arrow";
+import SliderArrowRight from "../../icons/SliderArrowRight";
 
 interface ArticleProps {
     img: string;
@@ -20,7 +19,7 @@ const ArticleCard= (props: ArticleProps) =>
             <div className={'img-info'}>
             <h3 className={'article_title'}>{props.title}</h3>
             <button onClick={props.onClick} className={'read_more_button'}>
-                Read more <Arrow color='#141718'/>
+                Read more <SliderArrowRight/>
             </button>
             </div>
         </div>
