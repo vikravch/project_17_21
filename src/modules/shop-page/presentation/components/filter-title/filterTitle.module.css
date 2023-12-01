@@ -21,8 +21,9 @@
     margin: 15px 0;
 }
 
-.open {
-    display: block !important;
+.openFilter {
+    display: block ;
+/*    !important */
 }
 
 .showFilterDesktop3 {
@@ -47,6 +48,10 @@
     .showFilterDesktop3 > img {
         width: 18px;
         margin-right: 10px;
+    }
+
+    .openFilter {
+        display: none;
     }
 
     .showFilterDesktop3> p {

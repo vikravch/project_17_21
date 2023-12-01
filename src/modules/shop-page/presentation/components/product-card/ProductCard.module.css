@@ -1,11 +1,15 @@
 .imageBlock{
     position: relative;
     min-height: 203px;
-    min-width: 152px;
 }
 .imageBlock img{
     width: 100%;
 }
+/*.img{*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    content: '';*/
+/*}*/
 .badges{
     position: absolute;
     top: 16px;
@@ -101,20 +105,26 @@
         display: none;
     }
     .desktop2 .rating{
-        margin-bottom: 16px;
+        margin-bottom: 0;
+    }
+    .desktop2 .description{
+        margin: 5px 0 5px !important;
+    }
+    .descriptionBlock{
+        font-size: 14px;
     }
     .desktop2 .descriptionBlock{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        font-size: 14px;
         box-sizing: border-box;
         width: 50%;
         padding: 1vw;
     }
-    .desktop2 .name, .desktop2 .rating{
+    .name, .rating{
         font-size: 16px;
     }
+
     .desktop2 .descriptionBlock .addToCart{
         width: 100%;
         position: relative;
@@ -130,8 +140,14 @@
         margin: 16px 0 24px;
     }
 }
-@media screen and (min-width: 883px){
+@media screen and (min-width: 1000px){
     .desktop2 .descriptionBlock{
         padding: 24px;
+    }
+    .desktop2 .rating{
+        margin-bottom: 16px;
+    }
+    .desktop2 .description{
+        margin: 16px 0 24px !important;
     }
 }

@@ -13,7 +13,6 @@ import CheckoutPage from "./modules/cart/pages/checkout-page";
 
 import CompletePage from "./modules/cart/pages/complete-page";
 import HomePage from './modules/home_page/presentation/page/HomePage';
-import Article from "./modules/blog/presentation/components/Article/Article";
 
 
 
@@ -29,7 +28,6 @@ function App() {
                     <Route path="/cart/checkout" element={<CheckoutPage/>}/>
                     <Route path="/cart/checkout/complete" element={<CompletePage/>}/>
                     <Route path="/blog" element={<Blog/>}/>
-                    <Route path="/blog/article" element={<Article/>}/>
                 </Routes>
             <NewsletterSubscribe/>
             <Footer/>

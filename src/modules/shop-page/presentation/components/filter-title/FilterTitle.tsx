@@ -12,7 +12,7 @@ const FilterTitle = ({columns}: Props) => {
     const openCloseFilterHandler = () => {
         const types = document.getElementById('types');
         // @ts-ignore
-        types.classList.toggle(style.open);
+        types.classList.toggle(style.openFilter);
     }
 
     return (

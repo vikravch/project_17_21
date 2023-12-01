@@ -1,0 +1,165 @@
+.fly_mobile_wrapper {
+    border: 1px solid #6C7275;
+    width: 100%;
+    /*display: none;*/
+    position: fixed;
+    z-index: 2;
+    background-color: grey;
+}
+
+.fly_mobile_section {
+    width: 75%;
+    height: 724px;
+    background-color: #FEFEFE;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fly_header_and_cross {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title_text_small {
+    color: #000;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Poppins, serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+}
+
+.title_text_small > span {
+    color: #6C7275;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Poppins, serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.fly_mobile_search_input {
+    padding-left: 40px;
+    width: 100%;
+    height: 46px;
+    border: 1px solid #6C7275;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    background-image: url('../../../../general/components/navigation/icons/search 02.svg');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    color: #6C7275;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.fly_mobile_navigation {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.fly_mobile_select {
+    width: 100%;
+    color: #141718;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    border: none;
+
+}
+.fly_mobile_select > option {
+    text-align: start;
+    width: 100%;
+}
+
+
+
+.fly_mobile_navigation > li {
+    color: #141718;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 32px;
+    border-bottom: 1px solid #E8ECEF;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.fly_mobile_navigation > li > a {
+    text-decoration: none;
+}
+
+.fly_mobile_navigation > li > a:visited {
+    color: #141718;
+}
+
+.Fly_Mobile_SignIn_Btn {
+    padding: 0;
+    width: 100%;
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter, serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: -0.4px;
+    background-color: #141718;
+    border-radius: 6px;
+    margin: 24px 0;
+}
+
+.fly_mobile_icons {
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fly_mobile_count_circle {
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: black;
+    cursor: pointer;
+}
+
+.fly_mobile_count_text {
+    margin: 5px auto;
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter, serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 10px;
+
+}
