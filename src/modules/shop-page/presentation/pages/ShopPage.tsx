@@ -9,16 +9,16 @@ import {Columns} from "../redux/types";
 import {getAllProductsAsyncAction} from "../redux/asyncActions";
 import FilterTitle from "../components/filter-title/FilterTitle";
 import Sorting from "../components/sorting/Sorting";
+import {AppDispatch} from "../../../../general/redux/store";
 
 const ShopPage = () => {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
     );
 
     useEffect(()=>{
-        // @ts-ignore
         dispatch(getAllProductsAsyncAction());
     },[])
 
