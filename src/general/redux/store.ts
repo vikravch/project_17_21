@@ -12,7 +12,7 @@ export const store = configureStore(
             weather: weatherReducer,
             shopPage: shopPageReducer,
             galleriesStyle: galleriesStyleReducer,
-            fluMenu: flyMenu,
+            flyMenu: flyMenu,
             changePicture: changePicture
         },
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
