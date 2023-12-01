@@ -5,14 +5,13 @@
 @media screen and (min-width: 768px) {
     .block {
         display: block;
-        width: 254px;
+        width: 262px;
         padding-right: 30px;
     }
 
     .price {
         display: flex;
         flex-direction: column;
-        /*margin-bottom: 1vw;*/
     }
 
     .categories > p,
@@ -25,30 +24,28 @@
     }
 
     .price > p {
-        margin: 30px 0 12px 0;
+        margin-top: 30px;
     }
 
     .categories > ul {
-        height: 150px;
+        padding: 0;
+        height: 226px;
         overflow-y: scroll;
-
-        /*overflow-x: hidden;*/
-        /*overflow-y: auto;*/
-
-        scrollbar-color: darkgray gray;
-        scrollbar-width: thin;
-        overscroll-behavior: contain;
     }
 
     .categories > ul::-webkit-scrollbar {
-        width: 7px;
-        background-color: #F8F9FA;
-        padding: 5px;
+        width: 8px;
+        padding: 8px;
+    }
+
+    .categories > ul::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: #EAEAEA;
     }
 
     .categories > ul::-webkit-scrollbar-thumb {
         border-radius: 10px;
-        background-color: #D9D9D9;
+        background-color: #6C7275;
     }
 
     .categories > ul > li {
@@ -57,7 +54,11 @@
         font-weight: 600;
         font-size: 14px;
         color: #807E7E;
-        margin: 10px 0;
+        margin: 20px 0;
+    }
+
+    .categories > ul> li:first-child {
+        margin-top: 0;
     }
 
     .categories > ul > li:hover {
@@ -72,7 +73,7 @@
         justify-content: start;
         position: relative;
         user-select: none;
-        margin: 8px 0;
+        margin: 0 0 20px 0;
     }
 
     input[type='checkbox'] {
@@ -84,7 +85,7 @@
 
     .checkboxCheckmark {
         position: absolute;
-        left: 200px;
+        left: 220px;
         height: 24px;
         width: 24px;
         border: 2px solid #969fa1;
@@ -94,8 +95,8 @@
     .checkboxCheckmark::after {
         content: '';
         position: absolute;
-        left: 7px;
-        top: 2px;
+        left: 8px;
+        top: 3px;
         width: 6px;
         height: 11px;
         border: solid white;
@@ -123,6 +124,7 @@
     }
 
     .price > label > p {
+        margin: 0;
         font-size: 14px;
         font-weight: 600;
         color: #807E7E;
