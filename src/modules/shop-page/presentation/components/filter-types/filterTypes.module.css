@@ -1,5 +1,6 @@
 .typesBlock {
     display: none;
+    margin-bottom: 20px;
 }
 
 .filterCategories > p,
@@ -84,6 +85,7 @@
 @media screen and (min-width: 768px) {
     .typesBlock {
         display: flex !important;
+        margin-bottom: 0;
     }
 
     .filterCategories,

@@ -67,7 +67,13 @@ const ShopPage = () => {
                 <p>Let’s design the place you always imagined.</p>
             </div>
             <div className={style.filterSortBlock}>
-                <FilterTitle columns={columns}/>
+                <div className={`${style.filterAndNameDisplay3} ${columns.countDesktop !== 3 && style.filterAndNameHide}`}>
+                    <FilterTitle columns={columns}/>
+                    {columns.countDesktop === 3 &&
+                        <div className={style.categoryNameDesktop3}>
+                            <p>All rooms</p>
+                        </div>}
+                </div>
                 <FilterTypes columns={columns}
                              openCloseMenuHandler={openCloseMenuHandler}
                              chooseSortOrFiltration={chooseSortOrFiltration}/>

@@ -34,8 +34,12 @@
 
 }
 
+.categoryNameDesktop3 {
+    display: none;
+}
+
 .categoryName {
-    height: 56px;
+    height: 58px;
     display: flex;
     align-items: center;
 }
@@ -68,14 +72,41 @@
         display: flex;
         justify-content: space-between;
         align-items: end;
-        margin: 50px 0 40px 0;
+        margin: 30px 0 20px 0;
     }
 
-    .categoryName > p {
+    .filterAndNameDisplay3 {
+        display: flex;
+        height: 40px;
+        align-items: center;
+    }
+
+    .filterAndNameHide {
+        display: none;
+    }
+
+    .categoryNameDesktop3 {
+        display: block;
+    }
+
+    .categoryNameDesktop3 > p {
+        font-size: 20px;
+        font-weight: 600;
+        color: #000000;
+        margin: 0;
+    }
+
+    .categoryName {
         display: none;
     }
 
     .display3filterTypes {
         display: flex;
+    }
+}
+
+@media screen and (min-width: 957px) {
+    .filterSortBlock {
+        margin: 50px 0 40px 0;
     }
 }
