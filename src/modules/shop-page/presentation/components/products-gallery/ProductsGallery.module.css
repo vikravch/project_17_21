@@ -26,9 +26,6 @@
     background-color: #d9d9d9;
 }
 @media screen and (min-width: 768px){
-    .wrapper{
-        width: Calc(100%);
-    }
     .wrapper.desktop3{
         width: Calc(100% - 254px);
     }
