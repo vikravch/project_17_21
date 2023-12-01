@@ -14,7 +14,8 @@ const GetWeather = (
     }
     return res;
   } catch (e) {
-    return Weather.fromJson('{}');
+    const lastWeather = await cacheRepository.getLastWeather() ?? '{}'
+    return Weather.fromJson(lastWeather);
   }
 }
 

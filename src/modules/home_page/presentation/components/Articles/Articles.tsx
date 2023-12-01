@@ -1,11 +1,10 @@
 import React from 'react';
-import "../../page/HomePage.css"
 import "./Articles.css"
 import ArticleCard from "./ArticleCard";
 import image1 from "../../page/images/article1.png";
 import image2 from "../../page/images/article2.png";
 import image3 from "../../page/images/article3.png";
-import Arrow from "../../icons/Arrow";
+import SliderArrowRight from "../../icons/SliderArrowRight";
 
 const Articles = () => {
 
@@ -38,7 +37,8 @@ const Articles = () => {
         <div className={'articles_section'}>
             <div className={'title_section'}>
                 <h6 className={'articles_title'}>Articles</h6>
-                <button className={'read_more_button'}>More Articles <Arrow color='#141718'/></button>
+                <button className={'read_more_button'}>More Articles
+                    <SliderArrowRight/></button>
             </div>
             <div className={'cards_block'}>
                 {articles.map((article, index) => (

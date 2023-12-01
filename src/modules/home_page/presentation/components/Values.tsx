@@ -1,5 +1,4 @@
 import React from 'react';
-import "../page/HomePage.css"
 import "./Values.css"
 import Shipping_icon from "../icons/Values_icons/Shipping_icon";
 import Payment_icon from "../icons/Values_icons/Payment_icon";
