@@ -12,7 +12,7 @@ interface ArticleProps {
 const ArticleCard= (props: ArticleProps) =>
 {
     return (
-        <div className={'wrapper'}>
+        <div className={'article-card-wrapper'}>
             <div className={'articles_image'} style={{background: `url(${props.img}) lightgray 50% / cover no-repeat`}}>
 
             </div>

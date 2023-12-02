@@ -1,4 +1,4 @@
-.wrapper
+.article-card-wrapper
 {
     display: flex;
     flex-direction: column;
@@ -46,10 +46,10 @@
 }
 @media (min-width: 769px)
 {
-    .wrapper
+    .article-card-wrapper
     {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: flex-start;
     }
     .articles_image
