@@ -1,11 +1,11 @@
 .values_section {
     display: flex;
-    width: 375px;
+    width: 100%;
     padding: 32px;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: flex-start;
     gap: 24px;
-    background-color: #FFF;
 }
 
 .value_card {
@@ -47,7 +47,7 @@
 {
         .values_section
         {
-            max-width: 1440px;
+            width: 100%;
             padding: 48px 160px;
             align-items: flex-start;
             gap: 24px;
