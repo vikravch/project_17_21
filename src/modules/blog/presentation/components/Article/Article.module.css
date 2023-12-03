@@ -3,13 +3,18 @@ h2
     font-size: 3em;
     margin: 0;
 }
+img
+{
+    width: 100%;
+}
 .articleWrapper
 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 40px;
-    padding: 16px 160px 80px 160px;
+    padding: 16px 10px 80px 10px;
+    max-width: 1121px;
 }
 
 
@@ -41,4 +46,33 @@ h2
     flex-direction: column;
     align-items: center;
     width: 80%;
+}
+.authorName
+{
+    display: flex;
+}
+.userIco
+{
+    margin-right: 3px;
+}
+
+
+@media (max-width: 769px)
+{
+    .articleWrapper
+    {
+        width: 311px;
+    }
+    h2
+    {
+        font-size: 28px;
+    }
+    .articleHead
+    {
+        width: 311px;
+    }
+    img
+    {
+        width: 311px;
+    }
 }

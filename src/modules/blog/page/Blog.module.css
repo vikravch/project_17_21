@@ -1,17 +1,19 @@
 .blogWrapper {
-    width: 1440px;
+    max-width: 1440px;
     gap: 50px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     padding: 0 0 40px 0;
+    overflow-x: hidden;
 }
 
 .wrapper
 {
-    width: 357px;
+    width: 327px;
     height: 433px;
     cursor: pointer;
+    padding: 5px;
 }
 
 .wrapperBtn
@@ -76,14 +78,24 @@ font-weight: bold;
 {
     display: none;
 }
+.blogCol2
+{
+    display: flex;
+    width: 45%;
+    height: 433px;
+    cursor: pointer;
+}
+.viewStyle
+{
+    height: 40px;
+}
 @media (max-width: 769px)
 {
     .wrapper {
-        width: 100%;
-        height: 433px;
+        width: 357px;
     }
     .blogWrapper {
-        width: 100%;
+        width: 357px;
         justify-content: start;
         gap: 30px;
         margin-left: 10px;

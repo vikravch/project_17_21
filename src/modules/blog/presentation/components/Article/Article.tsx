@@ -1,7 +1,9 @@
 import React from 'react';
 import articleStyle from './Article.module.css';
-import {articles, img2, img3} from "../../utils/data";
+import {img2, img3, img5} from "../../utils/data";
 import BlogAlso from "../BlogAlso/BlogAlso";
+import UserIcon from "../../utils/icons/UserIcon";
+import CalendarIco from "../../utils/icons/CalendarIco";
 
 
 const Article = () => {
@@ -10,12 +12,12 @@ const Article = () => {
             <div className={articleStyle.articleHead}>
                 <h2>'Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
                 <div className={articleStyle.authorArt}>
-                    <span>Henrik Annemark</span>
-                    <span>October 16, 2023</span>
+                    <span className={articleStyle.authorName}><div className={articleStyle.userIco}><UserIcon/></div>Henrik Annemark</span>
+                    <span className={articleStyle.authorName}><div className={articleStyle.userIco}><CalendarIco/></div>October 16, 2023</span>
                 </div>
             </div>
 
-              <img alt={'img'} src={articles[0].src}></img>
+              <img alt={'img'} src={img5}></img>
             <div>
                 <p> Your bathroom serves a string of busy functions on a daily basis. See how you can make all of them work, and still have room for comfort and relaxation. </p>
                 <h3>A cleaning hub with built-in ventilation</h3>

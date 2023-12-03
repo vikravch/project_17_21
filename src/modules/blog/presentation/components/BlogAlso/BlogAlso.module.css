@@ -26,6 +26,9 @@
 }
 .moreAlso
 {
+    display: flex;
+    justify-content: start;
+    align-items: center;
     color: #121212;
     font-feature-settings: 'clig' off, 'liga' off;
     font-size: 16px;
@@ -40,4 +43,22 @@
     align-items: flex-start;
     gap: 25px;
     margin: 0;
+}
+.arrow
+{
+display: flex;
+    align-items: end;
+    margin-left: 3px;
+}
+@media (max-width: 769px)
+{
+    .headerAlso
+    {
+        flex-direction: column;
+        align-items: start;
+    }
+    .cardsAlso
+    {
+        flex-direction: column;
+}
 }

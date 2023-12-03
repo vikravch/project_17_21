@@ -4,6 +4,7 @@ import {Article, articles} from "../../utils/data";
 import blogStyle from "../../../page/Blog.module.css";
 import {Link} from "react-router-dom";
 import BlogCard from "../BlogCard/BlogCard";
+import ArrowArt from "../../utils/icons/ArrowArt";
 
 const BlogAlso = () => {
 
@@ -16,7 +17,7 @@ const BlogAlso = () => {
         <div className={alsoStyle.wrapperAlso}>
             <div className={alsoStyle.headerAlso}>
                 <p className={alsoStyle.alsoMain}>You might also like</p>
-                <Link to={"/blog"} className={alsoStyle.moreAlso}>More articles</Link>
+                <Link to={"/blog"} className={alsoStyle.moreAlso}><div>More articles</div> <div className={alsoStyle.arrow}><ArrowArt/></div></Link>
             </div>
             <div className={alsoStyle.cardsAlso}>
                 {tempMore.map((item) =><div className={blogStyle.wrapper}><Link className={blogStyle.wrapper} to={"/blog/article"}><BlogCard imgArt={item.src} text={item.text} date={item.date} ></BlogCard></Link></div>)}

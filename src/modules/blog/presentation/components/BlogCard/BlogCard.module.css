@@ -1,17 +1,18 @@
 .wrapper
 {
-    width: 357px;
+    width: 327px;
     height: 433px;
 }
 
 .articleImg {
-    width: 357px;
+    width: 327px;
     height: 325px;
     margin-bottom: 15px;
     overflow: hidden;
 }
 
 .articleImg img {
+width: auto;
     height: 100%;
 }
 

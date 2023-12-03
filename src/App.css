@@ -2,26 +2,6 @@
   text-align: center;
 }
 .wrapper {
-  /*border: #282c34 solid 3px;*/
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
-
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
-
-}
-.wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
