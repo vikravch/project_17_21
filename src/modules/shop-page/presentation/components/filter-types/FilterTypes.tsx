@@ -40,7 +40,7 @@ const FilterTypes = ({columns, openCloseMenuHandler, chooseSortOrFiltration}: Pr
                         <li onClick={chooseSortOrFiltration}>All prices</li>
                         {priceArray.map(item => {
                             return <li className={style.filterPriceItem} onClick={chooseSortOrFiltration}
-                                       key={item.min}>${item.min} - {item.max}</li>
+                                       key={item.min}>${item.max !== null ? item.min + '.00 - ' + item.max : item.min + '.00+'}</li>
                         })}
                     </ul>
                 </div>

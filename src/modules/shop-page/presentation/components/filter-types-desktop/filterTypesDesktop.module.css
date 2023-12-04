@@ -5,8 +5,10 @@
 @media screen and (min-width: 768px) {
     .block {
         display: block;
-        width: 262px;
+        width: 30%;
         padding-right: 30px;
+        min-width: 160px;
+        max-width: 262px;
     }
 
     .price {
@@ -85,7 +87,9 @@
 
     .checkboxCheckmark {
         position: absolute;
-        left: 220px;
+        /*left: 220px;*/
+        left: calc(100% - 24px);
+        top: -5px;
         height: 24px;
         width: 24px;
         border: 2px solid #969fa1;

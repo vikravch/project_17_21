@@ -1,6 +1,7 @@
 .typesBlock {
     display: none;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .filterCategories > p,
@@ -24,6 +25,7 @@
     font-weight: 600;
     font-size: 16px;
     background-repeat: no-repeat;
+    width: calc(100% - 16px);
 }
 
 .filterCatList, .filterPriceList {
@@ -85,12 +87,21 @@
 @media screen and (min-width: 768px) {
     .typesBlock {
         display: flex !important;
+        justify-content: space-between;
         margin-bottom: 0;
+        width: calc(50% - 15px);
+        /*min-width: 350px;*/
+    }
+
+    .typesBlock {
+        min-width: 440px;
     }
 
     .filterCategories,
     .filterPrice {
         position: relative;
+        width: 47%;
+        min-width: 180px;
     }
 
     .filterCategories > p,
@@ -100,14 +111,20 @@
     }
 
     .filterCatHead, .filterPriceHead {
+        /*background: none;*/
+        /*width: calc(100% - 41px);*/
         border: #6C7275 solid 2px;
         border-radius: 8px;
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+
+    .filterCatHead, .filterPriceHead {
+        background-image: url("../../../../../icons/shop_page/arrowDownMini.svg");
         background-size: 9px;
         background-position: calc(100% - 30px);
-        padding: 8px 8px 8px 16px;
-        width: 200px;
-        margin-right: 30px;
-        font-size: 16px;
+        background-repeat: no-repeat;
+        width: calc(100% - 16px);
     }
 
     .filterCatList, .filterPriceList {
@@ -138,9 +155,17 @@
 
 }
 
-@media screen and (min-width: 957px) {
+/*@media screen and (min-width: 1080px) {*/
 
-    .filterCatHead, .filterPriceHead {
-        width: 262px;
-    }
-}
+/*    .typesBlock {*/
+/*        min-width: 440px;*/
+/*    }*/
+
+/*    .filterCatHead, .filterPriceHead {*/
+/*        background-image: url("../../../../../icons/shop_page/arrowDownMini.svg");*/
+/*        background-size: 9px;*/
+/*        background-position: calc(100% - 30px);*/
+/*        background-repeat: no-repeat;*/
+/*        width: calc(100% - 16px);*/
+/*    }*/
+/*}*/

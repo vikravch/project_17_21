@@ -41,8 +41,9 @@
     .showFilterDesktop3 {
         display: flex;
         justify-content: start;
-        width: 292px;
         margin-top: 0;
+        width: 60%;
+        /*width: 292px;*/
     }
 
     .showFilterDesktop3 > img {
@@ -62,5 +63,11 @@
 
     .hideFilterDesktop3 {
         display: none;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    .showFilterDesktop3 {
+        width: 292px;
     }
 }
