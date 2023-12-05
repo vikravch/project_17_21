@@ -24,7 +24,7 @@ const ProductCard = ({columns, product}: Props) => {
                 <img src={product.image} alt={product.name}/>
                 <div className={style.badges}>
                     {product.isNew && <Badge type={"new"}/>}
-                    {product.sale && <Badge type={"sale"} sale={product.sale}/>}
+                    {product.actualPrice && <Badge type={"sale"} sale={product.sale}/>}
                 </div>
                 <div className={style.addToCart} aria-label={'Add to card'}>Add to cart</div>
             </div>
