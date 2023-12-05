@@ -18,3 +18,22 @@ export type TOption = {
 value: string;
 label: string;
 }
+export type TItem = {
+  id: string;
+  name: string;
+  color: string;
+  price: string;
+  picture: string;
+  quantity: number
+}
+export type TOrder = {
+  orderNumber: string;
+  items: TItem[];
+  date: string;
+  payment_method: string;
+  total_price: string;
+  discount: string;
+}
+export interface IBonus {
+  [name: string]: string,
+}

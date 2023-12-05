@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import percentIcon from '../../../../../icons/ticket-percent.png'
 import {mockOrder} from "../../mock-api/data";
 import './before-checkout.css'
 import {Link} from "react-router-dom";
+import CartCoupon from "../cart-coupon/cart-coupon";
 
 const BeforeCheckout = () => {
   const [selectedOption, setSelectedOption] = useState('free');
@@ -23,16 +23,8 @@ const BeforeCheckout = () => {
   }
   return (
     <section className="container_before_checkout">
-      <div className="coupon_container">
-        <p className="coupon_header_item">Have a coupon?</p>
-        <p className="coupon_subheader_item">Add your code for an instant cart discount</p>
-        <div className="coupon_input">
-          <div className="coupon_code_icon">
-            <img src={percentIcon} alt="percent icon"/>
-            <input type="text" placeholder={"Coupon Code"} className="code_input" />
-          </div>
-          <button type="submit" className="apply_button">Apply</button>
-        </div>
+      <div className="isShow">
+        <CartCoupon/>
       </div>
       <form className="cart_summary">
         <p className="cart_summary_header">Cart summary</p>
@@ -62,7 +54,7 @@ const BeforeCheckout = () => {
             <span className="custom_radio"></span>
             Express shipping</label>
           </div>
-          <p className="radio_descr">+$15.00</p>
+          <p className="radio_descr">$15.00</p>
         </div >
         <div className="cart_summary_delivery">
           <div>
@@ -92,7 +84,9 @@ const BeforeCheckout = () => {
           </div>
         </Link>
       </form>
+
     </section>
+
   );
 };
 

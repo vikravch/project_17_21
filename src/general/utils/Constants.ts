@@ -20,3 +20,4 @@ export const sliderImgTestArr =[
     require('../../modules/home_page/presentation/page/images/test3.jpg'),
     require('../../modules/home_page/presentation/page/images/test4.png')
 ] ;
+

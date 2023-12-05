@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {mockOrder, TItem} from "../../mock-api/data";
+import {mockOrder} from "../../mock-api/data";
 import closeIcon from '../../../../../icons/close_icon.png'
 import minusIcon from '../../../../../icons/minus_icon.png'
 import plusIcon from '../../../../../icons/plus_icon.png'
 import './product-card.css'
 import {useLocation} from "react-router";
+import {TItem} from "../../types";
 
 const ProductCard = ({id, name, color, price, picture, quantity}: TItem) => {
 const location = useLocation();
@@ -30,7 +31,6 @@ const minusItem = () => {
     setNewValues(item);
   }
 }
-
 
 const productCard = <div className="product_card">
   <img className="item_img item_hide_900" src={picture} alt="product"/>

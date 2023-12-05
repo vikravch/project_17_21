@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import percentIcon from "../../../../../icons/ticket-percent.png";
-import {codes, IBonus, mockOrder} from "../../mock-api/data";
+import {codes, mockOrder} from "../../mock-api/data";
 import "./order-summary.css";
 import ProductCard from "../product-card/product-card";
-import {useForm} from "react-hook-form";
 
 const OrderSummary = () => {
 

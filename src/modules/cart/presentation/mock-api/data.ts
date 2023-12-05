@@ -7,27 +7,9 @@ import lamp2 from "../../../../images/lamp2.png";
 import lamp3 from "../../../../images/lamp3.png";
 import pillow from "../../../../images/pillow.png";
 import sideTable from "../../../../images/side-table.png";
-import {TOption} from "../types";
+import {IBonus, TItem, TOption, TOrder} from "../types";
 
-export type TItem = {
-  id: string;
-  name: string;
-  color: string;
-  price: string;
-  picture: string;
-  quantity: number
-}
-export type TOrder = {
-  orderNumber: string;
-  items: TItem[];
-  date: string;
-  payment_method: string;
-  total_price: string;
-  discount: string;
-}
-export interface IBonus {
-  [name: string]: string,
-}
+
 
 export const data: TItem[] = [
   {
