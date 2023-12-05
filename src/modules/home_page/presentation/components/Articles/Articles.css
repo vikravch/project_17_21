@@ -1,0 +1,66 @@
+.articles_section
+{
+    display: flex;
+    width: 375px;
+    padding: 40px 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    background: #FFF;;
+}
+.articles_title
+{
+    color: #000;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Headline 5 */
+    font-family: Poppins;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 38px; /* 111.765% */
+    letter-spacing: -0.6px;
+}
+.title_section
+{
+    display: flex;
+    width: 311px;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.cards_block {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+@media (min-width: 769px)
+{
+    .articles_section
+    {
+        display: flex;
+        width: 1440px;
+        padding: 80px 160px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+
+    }
+
+    .title_section
+    {
+
+        display: flex;
+        width: 1121px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .cards_block
+    {
+        display: flex;
+        flex-direction: row;
+        gap: 25px;
+        width: 1121px;
+    }
+
+}
