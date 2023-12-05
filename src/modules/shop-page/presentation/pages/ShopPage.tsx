@@ -3,13 +3,14 @@ import style from './shopPage.module.css';
 import ProductsGallery from "../components/products-gallery/ProductsGallery";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStore} from "../../../../general/redux/types";
-import FilterTypes from "../components/filter-types/FilterTypes";
-import FilterTypesDesktop from "../components/filter-types-desktop/FilterTypesDesktop";
+import FilterTypes from "../components/filtres/filter-types/FilterTypes";
+import FilterTypesDesktop from "../components/filtres/filter-types-desktop/FilterTypesDesktop";
 import {Columns} from "../redux/types";
 import {getAllProductsAsyncAction} from "../redux/asyncActions";
-import FilterTitle from "../components/filter-title/FilterTitle";
+import FilterTitle from "../components/filtres/filter-title/FilterTitle";
 import Sorting from "../components/sorting/Sorting";
 import {AppDispatch} from "../../../../general/redux/store";
+import {useUseCases} from "../../../../general/di/service_locator";
 
 const ShopPage = () => {
 
@@ -22,6 +23,7 @@ const ShopPage = () => {
         dispatch(getAllProductsAsyncAction());
     },[])
 
+    useUseCases().getAllProducts().then()
     document.addEventListener('click', event => {
         const listener = document.querySelectorAll('.listener');
         const listenerHead = document.querySelectorAll('.listenerHead');
@@ -60,13 +62,13 @@ const ShopPage = () => {
 
     return (
         <div className={style.shopPage}>
-            <div className={style.pageHeader}>
+            <section className={style.pageHeader}>
                 {/*<BreadCrumbs>*/}
                 <p style={{fontSize: '14px', color: 'red'}}>Bread crumbs</p>
                 <h1>Shop Page</h1>
                 <p>Let’s design the place you always imagined.</p>
-            </div>
-            <div className={style.filterSortBlock}>
+            </section>
+            <section className={style.filterSortBlock}>
                 <div className={`${style.filterAndNameDisplay3} ${columns.countDesktop !== 3 && style.filterAndNameHide}`}>
                     <FilterTitle columns={columns}/>
                     {columns.countDesktop === 3 &&
@@ -80,15 +82,15 @@ const ShopPage = () => {
                 <Sorting columns={columns}
                          openCloseMenuHandler={openCloseMenuHandler}
                          chooseSortOrFiltration={chooseSortOrFiltration}/>
-            </div>
+            </section>
             <div className={style.categoryName}>
                 <p>All rooms</p>
             </div>
-            <div className={columns.countDesktop === 3 ? style.display3filterTypes : ''}>
+            <section className={columns.countDesktop === 3 ? style.display3filterTypes : ''}>
                 {columns.countDesktop === 3 &&
                     <FilterTypesDesktop/>}
                 <ProductsGallery/>
-            </div>
+            </section>
         </div>
     );
 };
