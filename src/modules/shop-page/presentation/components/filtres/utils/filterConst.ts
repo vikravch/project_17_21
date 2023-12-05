@@ -1,4 +1,4 @@
-import {Price} from "./filterInterface";
+import {Price} from "./filterInterfaces";
 
 export const categoriesArray: string[] = [
     'All rooms',

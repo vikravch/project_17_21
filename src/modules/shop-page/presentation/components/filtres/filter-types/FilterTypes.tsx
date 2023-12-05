@@ -1,7 +1,7 @@
 import React from 'react';
 import style from "./filterTypes.module.css";
-import {categoriesArray, priceArray} from "../../../domain/model/filterConst";
-import {Columns} from "../../redux/types";
+import {categoriesArray, priceArray} from "../utils/filterConst";
+import {Columns} from "../../../redux/types";
 
 interface Props {
     columns: Columns;

@@ -16,7 +16,7 @@
 .filterCatHead, .filterPriceHead {
     border: #6C7275 solid 2px;
     border-radius: 8px;
-    background-image: url("../../../../../icons/shop_page/arrowDownMini.svg");
+    background-image: url("../../../../../../icons/shop_page/arrowDownMini.svg");
     background-size: 9px;
     background-position: calc(100% - 15px);
     padding: 10px 0 10px 13px;
@@ -120,7 +120,7 @@
     }
 
     .filterCatHead, .filterPriceHead {
-        background-image: url("../../../../../icons/shop_page/arrowDownMini.svg");
+        background-image: url("../../../../../../icons/shop_page/arrowDownMini.svg");
         background-size: 9px;
         background-position: calc(100% - 30px);
         background-repeat: no-repeat;

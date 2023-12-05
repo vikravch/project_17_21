@@ -1,7 +1,7 @@
 import React from 'react';
-import filterIcon from "../../../../../icons/shop_page/filter.svg";
+import filterIcon from "../../../../../../icons/shop_page/filter.svg";
 import style from './filterTitle.module.css';
-import {Columns} from "../../redux/types";
+import {Columns} from "../../../redux/types";
 
 interface Props {
     columns: Columns;

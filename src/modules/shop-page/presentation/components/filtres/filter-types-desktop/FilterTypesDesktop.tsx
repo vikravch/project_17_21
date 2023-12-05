@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import style from './filterTypesDesktop.module.css'
-import {categoriesArray, priceArray} from "../../../domain/model/filterConst";
+import {categoriesArray, priceArray} from "../utils/filterConst";
 
 const FilterTypesDesktop = () => {
 
