@@ -1,5 +1,5 @@
 import React from 'react';
-import {sort} from "../../../domain/model/filterConst";
+import {sort} from "../filtres/utils/filterConst";
 import ViewSelector from "../view-selector/ViewSelector";
 import style from './sorting.module.css';
 import {Columns} from "../../redux/types";
