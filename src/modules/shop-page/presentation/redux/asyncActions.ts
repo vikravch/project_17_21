@@ -15,7 +15,7 @@ export const getAllProductsAsyncAction = createAsyncThunk<ProductForGalleries[]>
     }
 );
 
-export const getProductsAsyncAction = createAsyncThunk<ProductForGalleries[], string>(
+export const getProductsAsyncAction = createAsyncThunk<ProductForGalleries[], RequestProducts>(
     'shop-page/getProducts',
     async (requestObject: RequestProducts, thunkAPI) => {
         const {getProducts} = useUseCases();
