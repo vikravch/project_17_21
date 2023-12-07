@@ -10,8 +10,7 @@ interface Props {
 const FilterTitle = ({columns}: Props) => {
 
     const openCloseFilterHandler = () => {
-        const types = document.getElementById('types');
-        // @ts-ignore
+        const types = document.getElementById('types') as HTMLElement;
         types.classList.toggle(style.openFilter);
     }
 

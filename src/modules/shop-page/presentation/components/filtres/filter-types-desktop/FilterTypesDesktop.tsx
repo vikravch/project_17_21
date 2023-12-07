@@ -1,19 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import style from './filterTypesDesktop.module.css'
 import {categoriesArray, priceArray} from "../utils/filterConst";
 
 const FilterTypesDesktop = () => {
-
-    useEffect(() => {
-        const input = document.getElementsByName('price');
-        input.forEach(item => {
-            // @ts-ignore
-            if (item.attributes['checked']) {
-                // @ts-ignore
-                item.nextElementSibling.classList.add(style.inputChecked);
-            }
-        })
-    }, [])
 
     return (
         <div className={style.block}>
@@ -24,25 +13,24 @@ const FilterTypesDesktop = () => {
                     <li key={item}>{item}</li>
                 )}
                 </ul>
-
             </div>
             <div className={style.price}>
                 <p>Price</p>
 
                 <label key={'label-all-price'}>
-                    <input type={'checkbox'} id={'all-price'} name={'price'} key={'input-all-price'}/>
+                    <input type={'radio'} id={'all-price'} name={'price'} key={'input-all-price'}/>
                     <p key={'p-all-price'}>All price</p>
                     <div key={'checkbox-all-price'} className={style.checkboxCheckmark}></div>
                 </label>
 
                 {priceArray.map(item =>
                     <label key={'label-' + item.min}>
-                        <input type={'checkbox'} id={item.min + '-price'} name={'price'} key={'input-' + item.min}/>
+                        <input type={'radio'} value={item.min} id={item.min + '-price'} name={'price'}
+                               key={'input-' + item.min}/>
                         <p key={'p-' + item.min}>${item.max !== null ? item.min + '.00 - ' + item.max : item.min + '.00+'}</p>
                         <div key={'checkbox-' + item.min} className={style.checkboxCheckmark}></div>
                     </label>
                 )}
-
             </div>
         </div>
     );

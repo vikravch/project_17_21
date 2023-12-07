@@ -29,7 +29,6 @@ const ShopPage = () => {
         const listenerHead = document.querySelectorAll('.listenerHead');
 
         listener.forEach((item, index) => {
-            // @ts-ignore
             if (!event.composedPath().includes(item) && !event.composedPath().includes(listenerHead[index]) ) {
                 item.classList.remove(style.open);
             }
@@ -47,10 +46,9 @@ const ShopPage = () => {
         const input: HTMLInputElement = listHead.previousElementSibling;
         input.value = choice;
 
-        // @ts-ignore
-        listId.childNodes.forEach(item => {
+        listId.childNodes.forEach((item: HTMLElement) => {
             if (item.textContent === listHead.textContent) {
-                // @ts-ignore
+
                 item.classList.remove(style.chosen);
             }
         })

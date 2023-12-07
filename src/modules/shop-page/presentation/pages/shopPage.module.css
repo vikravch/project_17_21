@@ -54,9 +54,7 @@
     .pageHeader {
         background-image: url("../../../../images/shop_page/pageHeader-x2.svg");
         background-size: cover;
-        /*width: 100%;*/
         height: 392px;
-        /*max-height: 392px;*/
     }
 
     .pageHeader > h1 {
@@ -105,12 +103,5 @@
     .display3filterTypes {
         display: flex;
         justify-content: space-between;
-        /*width: 500px;*/
     }
 }
-
-/*@media screen and (min-width: 1080px) {*/
-/*    .filterAndNameDisplay3 {*/
-/*        width: max-content;*/
-/*    }*/
-/*}*/
