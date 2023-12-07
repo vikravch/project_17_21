@@ -21,9 +21,9 @@ const ShopPage = () => {
     const dispatch = useDispatch<AppDispatch>();
     const location = useLocation();
     const [requestObject, setRequestObject]= useState<RequestProducts>({
-        category: null,
-        price: null,
-        sorting: null,
+        category: "All Rooms",
+        price: "All Prices",
+        sorting: "Default",
         page: 1
     });
     const searchParams = new URLSearchParams(location.search);

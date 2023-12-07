@@ -1,8 +1,8 @@
 export default class RequestProducts {
     constructor (
-        public category: null | string,
-        public price: null | string,
-        public sorting: null | string,
+        public category: string,
+        public price: string,
+        public sorting: string,
         public page: number
     ) {}
 }
