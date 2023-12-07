@@ -32,13 +32,12 @@ const ShopPage = () => {
     }
 
     const chooseSortOrFiltration = (event: React.MouseEvent<HTMLElement>) => {
-        const eventTarget: Element = event.target as Element;
-        const parentElement = eventTarget.parentElement as HTMLElement;
-        const choice = eventTarget.textContent;
-        const listId = eventTarget.parentElement as HTMLElement;
-        const listHead = listId.previousElementSibling as HTMLElement;
+        const eventTarget = event.target as HTMLElement;
+        const choice = eventTarget.textContent as string;
+        const listId = eventTarget.parentElement as HTMLDivElement;
+        const listHead = listId.previousElementSibling as HTMLDivElement;
         const input = listHead.previousElementSibling as HTMLInputElement;
-        input.value = choice as string;
+        input.value = choice;
 
         listId.childNodes.forEach((item: ChildNode) => {
             if (item.textContent === listHead.textContent) {
@@ -46,9 +45,12 @@ const ShopPage = () => {
                 element.classList.remove(style.chosen);
             }
         })
-        listHead.textContent = choice;
+
+        // listHead.textContent = choice === 'Default' ? 'Sort by' : choice;
+        // filterAndSortingObject[input.name  as keyof FilerAndSorting] = choice;
+
         eventTarget.classList.add(style.chosen);
-        parentElement.classList.toggle(style.open);
+        listId.classList.toggle(style.open);
 
     }
 
@@ -70,10 +72,15 @@ const ShopPage = () => {
                 </div>
                 <FilterTypes columns={columns}
                              openCloseMenuHandler={openCloseMenuHandler}
-                             chooseSortOrFiltration={chooseSortOrFiltration}/>
+                             chooseSortOrFiltration={chooseSortOrFiltration}
+                             // rooms={filterAndSortingObject.filterCateg}
+                             // price={filterAndSortingObject.filterPrice}
+                />
                 <Sorting columns={columns}
                          openCloseMenuHandler={openCloseMenuHandler}
-                         chooseSortOrFiltration={chooseSortOrFiltration}/>
+                         chooseSortOrFiltration={chooseSortOrFiltration}
+                         // sorting={filterAndSortingObject.sort}
+                />
             </section>
             <div className={style.categoryName}>
                 <p>All rooms</p>
