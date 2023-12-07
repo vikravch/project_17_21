@@ -16,7 +16,8 @@ const Sorting = ({columns, openCloseMenuHandler, chooseSortOrFiltration}: Props)
         <div className={`${style.sortBlock} ${columns.countDesktop === 3 && style.sortBlockDisplay3}`}>
             <div className={style.sortSelect}>
                 <input type={'hidden'} name={'sort'}/>
-                <div className={`${style.sortHead} ${columns.countDesktop === 3 && style.sortHeaDisplay3} listenerHead`} onClick={openCloseMenuHandler}>Sort by</div>
+                <div className={`${style.sortHead} ${columns.countDesktop === 3 && style.sortHeaDisplay3} listenerHead`}
+                     onClick={openCloseMenuHandler}>Sort by</div>
                 <ul className={`${style.sortList} listener`}>
                     <li>Sort by</li>
                     {sort.map(item => {

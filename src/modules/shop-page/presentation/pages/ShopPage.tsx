@@ -48,7 +48,6 @@ const ShopPage = () => {
 
         listId.childNodes.forEach((item: HTMLElement) => {
             if (item.textContent === listHead.textContent) {
-
                 item.classList.remove(style.chosen);
             }
         })

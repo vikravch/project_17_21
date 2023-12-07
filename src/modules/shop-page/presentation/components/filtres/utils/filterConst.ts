@@ -37,6 +37,7 @@ export const priceArray: Price[] = [
 ];
 
 export const sort: string[] = [
+    'Default',
     'Price up',
     'Price down',
     'New first'

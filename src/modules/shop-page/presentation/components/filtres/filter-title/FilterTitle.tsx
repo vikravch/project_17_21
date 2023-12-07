@@ -3,11 +3,7 @@ import filterIcon from "../../../../../../icons/shop_page/filter.svg";
 import style from './filterTitle.module.css';
 import {Columns} from "../../../redux/types";
 
-interface Props {
-    columns: Columns;
-}
-
-const FilterTitle = ({columns}: Props) => {
+const FilterTitle = ({columns}: {columns: Columns}) => {
 
     const openCloseFilterHandler = () => {
         const types = document.getElementById('types') as HTMLElement;
