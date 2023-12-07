@@ -1,5 +1,7 @@
-import Product from "../model/product";
+import ProductForGalleries from "../model/productForGalleries";
+import RequestProducts from "../model/requestProducts";
 
 export default interface ProductsRepository {
-    getAllProducts: () => Promise<Product[]>
+    getAllProducts: () => Promise<ProductForGalleries[]>
+    getProducts: (requestObject: RequestProducts) => Promise<ProductForGalleries[]>
 }

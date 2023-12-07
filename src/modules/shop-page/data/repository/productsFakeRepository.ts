@@ -1,9 +1,10 @@
 import ProductsRepository from "../../domain/repository/productsRepository";
-import Product from "../../domain/model/product";
 import testImage from './testImage.webp'
+import ProductForGalleries from "../../domain/model/productForGalleries";
+import RequestProducts from "../../domain/model/requestProducts";
 
-let testProducts: Product[] = [];
-for (let i = 0; i < 16; i++) {
+let testProducts: ProductForGalleries[] = [];
+for (let i = 0; i < 12; i++) {
     testProducts.push({
         id: i,
         name: 'TestProduct',
@@ -18,7 +19,10 @@ for (let i = 0; i < 16; i++) {
 }
 
 export default class ProductsFakeRepository implements ProductsRepository {
-    async getAllProducts(): Promise<Product[]> {
+    async getAllProducts(): Promise<ProductForGalleries[]> {
+        return await Promise.resolve(testProducts)
+    }
+    async getProducts(requestObject: RequestProducts): Promise<ProductForGalleries[]> {
         return await Promise.resolve(testProducts)
     }
 }

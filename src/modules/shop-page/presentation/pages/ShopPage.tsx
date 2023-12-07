@@ -1,29 +1,19 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import style from './shopPage.module.css';
 import ProductsGallery from "../components/products-gallery/ProductsGallery";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {AppStore} from "../../../../general/redux/types";
 import FilterTypes from "../components/filtres/filter-types/FilterTypes";
 import FilterTypesDesktop from "../components/filtres/filter-types-desktop/FilterTypesDesktop";
 import {Columns} from "../redux/types";
-import {getAllProductsAsyncAction} from "../redux/asyncActions";
 import FilterTitle from "../components/filtres/filter-title/FilterTitle";
 import Sorting from "../components/sorting/Sorting";
-import {AppDispatch} from "../../../../general/redux/store";
-import {useUseCases} from "../../../../general/di/service_locator";
 
 const ShopPage = () => {
-
-    const dispatch = useDispatch<AppDispatch>();
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
     );
 
-    useEffect(()=>{
-        dispatch(getAllProductsAsyncAction());
-    },[])
-
-    useUseCases().getAllProducts().then()
     document.addEventListener('click', event => {
         const listener = document.querySelectorAll('.listener');
         const listenerHead = document.querySelectorAll('.listenerHead');
@@ -42,7 +32,7 @@ const ShopPage = () => {
     }
 
     const chooseSortOrFiltration = (event: React.MouseEvent<HTMLElement>) => {
-        const eventTarget = event.target as Element;
+        const eventTarget: Element = event.target as Element;
         const parentElement = eventTarget.parentElement as HTMLElement;
         const choice = eventTarget.textContent;
         const listId = eventTarget.parentElement as HTMLElement;

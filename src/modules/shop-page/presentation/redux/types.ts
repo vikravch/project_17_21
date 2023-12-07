@@ -1,7 +1,7 @@
-import Product from "../../domain/model/product";
+import ProductForGalleries from "../../domain/model/productForGalleries";
 
 export type ShopPageState = {
-  products?: Product[],
+  products?: ProductForGalleries[],
   error: string
 }
 export type Columns = {
