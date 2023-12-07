@@ -3,7 +3,7 @@ import Product from "../../domain/model/product";
 import testImage from './testImage.webp'
 
 let testProducts: Product[] = [];
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 16; i++) {
     testProducts.push({
         id: i,
         name: 'TestProduct',
