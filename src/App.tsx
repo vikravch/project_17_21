@@ -6,7 +6,7 @@ import NewsletterSubscribe from "./general/components/newsletter_subscribe/Newsl
 import Footer from "./general/components/footer/Footer";
 import ShopPage from "./modules/shop-page/presentation/pages/ShopPage";
 import Blog from "./modules/blog/page/Blog";
-
+import { AuthPage } from './modules/sign-in/auth-page';
 import CartPage from "./modules/cart/pages/cart-page";
 import CheckoutPage from "./modules/cart/pages/checkout-page";
 
@@ -22,7 +22,13 @@ function App() {
     }, [pathname]);
     return (
         <div className={"wrapper"}>
-            {<NavigationRow/>}
+            {(isAuthModule(pathname))?
+                <Routes>
+                    <Route path="/signin" element={<AuthPage/>}/>
+                </Routes> :
+                <>   
+        
+            <NavigationRow/>
                 <Routes>
                     <Route path="/home" element={<HomePage/>}/>
                     <Route path="/shop" element={<ShopPage/>}/>
@@ -35,8 +41,9 @@ function App() {
                     <Route path="/account*" element={<Account/>}/>
                 </Routes>
 
-            {!pathname.includes('cart') && <NewsletterSubscribe/>}
+             {!pathname.includes('cart') && <NewsletterSubscribe/>}
             <Footer/>
+            } 
         </div>
     );
 }
