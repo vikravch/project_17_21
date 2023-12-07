@@ -18,7 +18,8 @@ const FilterTypesDesktop = () => {
                 <p>Price</p>
 
                 <label key={'label-all-price'}>
-                    <input type={'radio'} id={'all-price'} name={'price'} key={'input-all-price'}/>
+                    <input type={'radio'} id={'all-price'} name={'price'} key={'input-all-price'}
+                           defaultChecked={true}/>
                     <p key={'p-all-price'}>All price</p>
                     <div key={'checkbox-all-price'} className={style.checkboxCheckmark}></div>
                 </label>

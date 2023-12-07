@@ -35,25 +35,30 @@ const ShopPage = () => {
         })
     })
 
-    const openCloseMenuHandler = (event: any) => {
-        event.target.nextElementSibling.classList.toggle(style.open);
+    const openCloseMenuHandler = (event: React.MouseEvent<HTMLElement>) => {
+        const eventTarget = event.target as Element;
+        const nextSibling = eventTarget.nextElementSibling as Element;
+        nextSibling.classList.toggle(style.open);
     }
 
-    const chooseSortOrFiltration = (event: any) => {
-        const choice: string = event.target.textContent;
-        const listId = event.target.parentElement;
-        const listHead = listId.previousElementSibling;
-        const input: HTMLInputElement = listHead.previousElementSibling;
-        input.value = choice;
+    const chooseSortOrFiltration = (event: React.MouseEvent<HTMLElement>) => {
+        const eventTarget = event.target as Element;
+        const parentElement = eventTarget.parentElement as HTMLElement;
+        const choice = eventTarget.textContent;
+        const listId = eventTarget.parentElement as HTMLElement;
+        const listHead = listId.previousElementSibling as HTMLElement;
+        const input = listHead.previousElementSibling as HTMLInputElement;
+        input.value = choice as string;
 
-        listId.childNodes.forEach((item: HTMLElement) => {
+        listId.childNodes.forEach((item: ChildNode) => {
             if (item.textContent === listHead.textContent) {
-                item.classList.remove(style.chosen);
+                let element = item as HTMLElement;
+                element.classList.remove(style.chosen);
             }
         })
         listHead.textContent = choice;
-        event.target.classList.add(style.chosen);
-        event.target.parentElement.classList.toggle(style.open);
+        eventTarget.classList.add(style.chosen);
+        parentElement.classList.toggle(style.open);
 
     }
 
