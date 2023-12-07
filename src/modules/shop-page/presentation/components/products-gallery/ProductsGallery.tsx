@@ -81,10 +81,9 @@ const ProductsGallery = () => {
                         <p>{error}</p>
                 }
             </div>
-            {products && products.length > requestObject.page * countProducts
-                && <button className={style.showMore} onClick={() => {
+            <button className={style.showMore} onClick={() => {
                     setRequestObject(prevState => ({...prevState, page: ++requestObject.page}))
-                }}>Show more</button>}
+                }}>Show more</button>
         </div>
     );
 };
