@@ -13,6 +13,7 @@ import CheckoutPage from "./modules/cart/pages/checkout-page";
 import CompletePage from "./modules/cart/pages/complete-page";
 import HomePage from './modules/home_page/presentation/page/HomePage';
 import Article from "./modules/blog/presentation/components/Article/Article";
+import Account from "./modules/account/pages/Account";
 
 function App() {
     const { pathname } = useLocation();
@@ -21,11 +22,10 @@ function App() {
     }, [pathname]);
     return (
         <div className={"wrapper"}>
-            {/*<NavigationRow/>*/}
+            {<NavigationRow/>}
                 <Routes>
                     <Route path="/home" element={<HomePage/>}/>
                     <Route path="/shop" element={<ShopPage/>}/>
-                    <Route element={<WeatherPage/>}/>{/*default route*/}
                     <Route path="/cart" element={<CartPage/>}/>
                     <Route path="/cart/checkout" element={<CheckoutPage/>}/>
                     <Route path="/cart/checkout/complete" element={<CompletePage/>}/>
@@ -36,7 +36,6 @@ function App() {
                 </Routes>
 
             {!pathname.includes('cart') && <NewsletterSubscribe/>}
-            <NewsletterSubscribe/>
             <Footer/>
         </div>
     );
