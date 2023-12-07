@@ -1,4 +1,4 @@
-import ProductsFakeRepository from "../../data/repository/productsFaceRepository";
+import ProductsFakeRepository from "../../data/repository/productsFakeRepository";
 import Product from "../model/product";
 
 const GetAllProducts = (

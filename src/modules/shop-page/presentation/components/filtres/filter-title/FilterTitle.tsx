@@ -6,7 +6,7 @@ import {Columns} from "../../../redux/types";
 const FilterTitle = ({columns}: {columns: Columns}) => {
 
     const openCloseFilterHandler = () => {
-        const types = document.getElementById('types') as HTMLElement;
+        const types = document.getElementById('types') as HTMLDivElement;
         types.classList.toggle(style.openFilter);
     }
 

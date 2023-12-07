@@ -8,7 +8,6 @@ interface Props {
     columns: Columns;
     openCloseMenuHandler: (event: any) => void;
     chooseSortOrFiltration: (event: any) => void;
-
 }
 
 const Sorting = ({columns, openCloseMenuHandler, chooseSortOrFiltration}: Props) => {

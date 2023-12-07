@@ -5,7 +5,7 @@ import CacheLocalStoreRepository from "../../modules/weather/data/repository/cac
 import {WeatherUseCases} from "../../modules/weather/domain/use_case/use_cases";
 import GetWeather from "../../modules/weather/domain/use_case/GetWeather";
 import ProductsRepository from "../../modules/shop-page/domain/repository/productsRepository";
-import ProductsFakeRepository from "../../modules/shop-page/data/repository/productsFaceRepository";
+import ProductsFakeRepository from "../../modules/shop-page/data/repository/productsFakeRepository";
 import {ProductsUseCases} from "../../modules/shop-page/domain/use_case/use_cases";
 import GetAllProducts from "../../modules/shop-page/domain/use_case/getAllProducts";
 // Dependency injection - Service locator
