@@ -67,7 +67,7 @@ font-weight: bold;
 .blocSelector p
 {
     cursor: pointer;
-    color: #121212;
+    color: #807E7E;
     font-feature-settings: 'clig' off, 'liga' off;
     font-size: 16px;
     font-style: normal;
@@ -88,6 +88,10 @@ font-weight: bold;
 .viewStyle
 {
     height: 40px;
+}
+.activeBlock
+{
+    border-bottom: 1px solid #121212;
 }
 @media (max-width: 769px)
 {

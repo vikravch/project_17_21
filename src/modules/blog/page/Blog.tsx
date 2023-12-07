@@ -12,13 +12,16 @@ import HeaderBlog from "../presentation/components/OurBlog/HeaderBlog";
 
 const Blog = () =>
 {
+    const [count, setCount] = useState(9);
+    let allCard = document.getElementsByClassName(blogStyle.wrapper);
+    let cards = document.getElementsByClassName(cardStyle.wrapper);
 
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
     );
-    const [count, setCount] = useState(9);
-    let allCard = document.getElementsByClassName(blogStyle.wrapper);
-    let cards = document.getElementsByClassName(cardStyle.wrapper);
+
+
+
 let array: Article[] = articles;
 let temp: Article[] = count<array.length? array.slice(0, count): array.slice(0, array.length);
 
@@ -38,12 +41,11 @@ let temp: Article[] = count<array.length? array.slice(0, count): array.slice(0, 
             }
             else if(columns.countDesktop===4)
             {
-                allCard[i].setAttribute('style', 'width: 300px')
-                cards[i].setAttribute('style', 'width: 327px')
+                allCard[i].setAttribute('style', 'width: 240px')
+                cards[i].setAttribute('style', 'width: 240px')
             }
         }
             })
-
 
     return <div className={blogStyle.blogWrapper}>
         <HeaderBlog/>
@@ -53,7 +55,7 @@ let temp: Article[] = count<array.length? array.slice(0, count): array.slice(0, 
                 <option>Featured</option>
             </select>
         </div>
-        <div className={blogStyle.blogSelector}><div className={blogStyle.blocSelector}><p>All blog</p><p>Featured</p></div>
+        <div className={blogStyle.blogSelector}><div className={blogStyle.blocSelector}><p id={"allBlog"} className={blogStyle.activeBlock}>All blog</p><p id={"featured"}>Featured</p></div>
             <div className={blogStyle.blocSelector}><div ><span>Sort by</span><select></select></div><div className={blogStyle.viewStyle}><ViewSelector/></div></div></div>
         <div className={blogStyle.blogWrapper}>
         {temp.map((item) =><Link className={blogStyle.wrapper} to={"/blog/article"}><BlogCard imgArt={item.src} text={item.text} date={item.date} ></BlogCard></Link>)}

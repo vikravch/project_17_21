@@ -1,11 +1,10 @@
 .wrapper
 {
-    width: 327px;
+    width: 300px;
     height: 433px;
 }
 
 .articleImg {
-    width: 327px;
     height: 325px;
     margin-bottom: 15px;
     overflow: hidden;

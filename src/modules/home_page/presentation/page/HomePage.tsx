@@ -6,13 +6,14 @@ import Values from "../components/Values";
 import Discount from "../components/Discount";
 
 
+
 const HomePage = () => {
     return (
         <div>
             <SliderSection/>
             <BannerGrid/>
-            <Values/>
-            <Discount/>
+            {/*<Values/>*/}
+            {/*<Discount/>*/}
         </div>
     );
 };
