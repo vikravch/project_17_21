@@ -2,10 +2,10 @@ import React from 'react';
 import Badge from './badge/Badge';
 import style from './ProductCard.module.css';
 import {Columns} from "../../redux/types";
-import Product from "../../../domain/model/product";
+import ProductForGalleries from "../../../domain/model/productForGalleries";
 
 interface Props {
-    product: Product,
+    product: ProductForGalleries,
     columns: Columns
 }
 
