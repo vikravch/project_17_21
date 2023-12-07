@@ -1,18 +1,53 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import style from './shopPage.module.css';
 import ProductsGallery from "../components/products-gallery/ProductsGallery";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {AppStore} from "../../../../general/redux/types";
 import FilterTypes from "../components/filtres/filter-types/FilterTypes";
 import FilterTypesDesktop from "../components/filtres/filter-types-desktop/FilterTypesDesktop";
 import {Columns} from "../redux/types";
 import FilterTitle from "../components/filtres/filter-title/FilterTitle";
 import Sorting from "../components/sorting/Sorting";
+import {useLocation} from "react-router-dom";
+import {AppDispatch} from "../../../../general/redux/store";
+import RequestProducts from "../../domain/model/requestProducts";
+import {getProductsAsyncAction} from "../redux/asyncActions";
 
 const ShopPage = () => {
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
     );
+    //hooks
+    const dispatch = useDispatch<AppDispatch>();
+    const location = useLocation();
+    const [requestObject, setRequestObject]= useState<RequestProducts>({
+        category: null,
+        price: null,
+        sorting: null,
+        page: 1
+    });
+    const searchParams = new URLSearchParams(location.search);
+
+    useEffect(() => {
+        let updatedRequestObject: RequestProducts = { ...requestObject };
+        searchParams.forEach((value, key) => {
+            if (Object.prototype.hasOwnProperty.call(requestObject, key)) {
+                if (updatedRequestObject[key as keyof RequestProducts] !== value) {
+                    (updatedRequestObject as any)[key] = value;
+                    setRequestObject(updatedRequestObject);
+                }
+            }
+        });
+        console.log(updatedRequestObject);
+        dispatch(getProductsAsyncAction(updatedRequestObject));
+    }, [location]);
+
+    useEffect(()=>{
+        if (requestObject.page !== 1){
+            console.log(requestObject);
+            dispatch(getProductsAsyncAction(requestObject));
+        }
+    }, [requestObject.page])
 
     document.addEventListener('click', event => {
         const listener = document.querySelectorAll('.listener');
@@ -88,7 +123,7 @@ const ShopPage = () => {
             <section className={columns.countDesktop === 3 ? style.display3filterTypes : ''}>
                 {columns.countDesktop === 3 &&
                     <FilterTypesDesktop/>}
-                <ProductsGallery/>
+                <ProductsGallery requestObject={requestObject} setRequestObject={setRequestObject}/>
             </section>
         </div>
     );

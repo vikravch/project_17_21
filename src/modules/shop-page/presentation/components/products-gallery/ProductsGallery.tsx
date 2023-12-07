@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import style from './ProductsGallery.module.css';
 import ProductCard from "../product-card/ProductCard";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {AppStore} from "../../../../../general/redux/types";
 import {Columns, ShopPageState} from "../../redux/types";
-import {useLocation} from "react-router-dom";
-import {getProductsAsyncAction} from "../../redux/asyncActions";
-import {AppDispatch} from "../../../../../general/redux/store";
 import RequestProducts from "../../../domain/model/requestProducts";
 
-const ProductsGallery = () => {
-    //hooks
-    const dispatch = useDispatch<AppDispatch>();
-    const location = useLocation();
+interface Props {
+    requestObject: RequestProducts,
+    setRequestObject: React.Dispatch<React.SetStateAction<RequestProducts>>
+}
+
+const ProductsGallery = ({requestObject, setRequestObject}: Props) => {
+
     //styles
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
@@ -20,17 +20,11 @@ const ProductsGallery = () => {
     const [gridStyles, setGridStyles] = useState({});
     //products
     const countProducts = 12;
-    const [requestObject, setRequestObject]= useState<RequestProducts>({
-        category: null,
-        price: null,
-        sorting: null,
-        page: 1
-    });
+
     const {products, error} = useSelector<AppStore, ShopPageState>(
         state => state.shopPage
     );
-    //link
-    const searchParams = new URLSearchParams(location.search);
+
 
     useEffect(() => {
         const handleResize = () => {
@@ -44,27 +38,6 @@ const ProductsGallery = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, [columns]);
-
-    useEffect(() => {
-        let updatedRequestObject: RequestProducts = { ...requestObject };
-        searchParams.forEach((value, key) => {
-            if (Object.prototype.hasOwnProperty.call(requestObject, key)) {
-                if (updatedRequestObject[key as keyof RequestProducts] !== value) {
-                    (updatedRequestObject as any)[key] = value;
-                    setRequestObject(updatedRequestObject);
-                }
-            }
-        });
-        console.log(updatedRequestObject);
-        dispatch(getProductsAsyncAction(updatedRequestObject));
-    }, [location]);
-
-    useEffect(()=>{
-        if (requestObject.page !== 1){
-            console.log(requestObject);
-            dispatch(getProductsAsyncAction(requestObject));
-        }
-    }, [requestObject.page])
 
     return (
         <div className={style.wrapper + " " + style['desktop' + columns.countDesktop]}>
@@ -82,8 +55,9 @@ const ProductsGallery = () => {
                 }
             </div>
             <button className={style.showMore} onClick={() => {
-                    setRequestObject(prevState => ({...prevState, page: ++requestObject.page}))
-                }}>Show more</button>
+                setRequestObject(prevState => ({...prevState, page: ++requestObject.page}))
+            }}>Show more
+            </button>
         </div>
     );
 };
