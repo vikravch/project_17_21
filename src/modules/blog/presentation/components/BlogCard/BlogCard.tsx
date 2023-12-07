@@ -1,12 +1,12 @@
 import React from 'react';
 import cardStyle from './BlogCard.module.css'
-interface Props
+interface PropsArt
 {
     imgArt: string
     text: string
     date: string
 }
-const BlogCard = (props: Props) => {
+const BlogCard = (props: PropsArt) => {
 
 
             return (

@@ -8,6 +8,7 @@ import Discount from "../components/Discount";
 import NewArrivals from "../components/NewArrivals";
 
 
+
 const HomePage = () => {
     return (
         <div>
