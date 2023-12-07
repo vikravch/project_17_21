@@ -10,8 +10,8 @@ for (let i = 0; i < 10; i++) {
         image: testImage,
         description: 'Super-soft cushion cover in off-white with a tactile pattern that enhances the different tones in the pile.',
         actualPrice: 169.99,
-        fullPrice: 199.99,
         sale: 15,
+        fullPrice: 199.99,
         isNew: true,
         rating: 4
     });

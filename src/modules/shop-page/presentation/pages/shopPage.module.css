@@ -34,6 +34,16 @@
 
 }
 
+.categoryNameDesktop3 {
+    display: none;
+}
+
+.categoryName {
+    height: 58px;
+    display: flex;
+    align-items: center;
+}
+
 .categoryName > p {
     font-weight: 600;
     font-size: 16px;
@@ -41,12 +51,10 @@
 
 @media screen and (min-width: 768px) {
 
-    .shopPage {
-        margin: 0 60px;
-    }
-
     .pageHeader {
         background-image: url("../../../../images/shop_page/pageHeader-x2.svg");
+        background-size: cover;
+        height: 392px;
     }
 
     .pageHeader > h1 {
@@ -62,18 +70,38 @@
         display: flex;
         justify-content: space-between;
         align-items: end;
-        margin: 50px 0 40px 0;
+        margin: 30px 0 20px 0;
     }
 
-    .filterBlock {
+    .filterAndNameDisplay3 {
+        display: flex;
+        justify-content: start;
+        height: 40px;
+        width: 50%;
+        align-items: center;
+    }
+
+    .filterAndNameHide {
         display: none;
     }
 
-    .categoryName > p {
+    .categoryNameDesktop3 {
+        display: block;
+    }
+
+    .categoryNameDesktop3 > p {
+        font-size: 20px;
+        font-weight: 600;
+        color: #000000;
+        margin: 0;
+    }
+
+    .categoryName {
         display: none;
     }
 
     .display3filterTypes {
         display: flex;
+        justify-content: space-between;
     }
 }
