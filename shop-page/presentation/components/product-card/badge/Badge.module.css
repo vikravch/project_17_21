@@ -1,0 +1,18 @@
+.badge{
+    width: min-content;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+.badge p{
+    font-size: 16px;
+    padding: 4px 14px;
+    margin: 0;
+}
+.new{
+    color: black;
+    background-color: white;
+}
+.sale{
+    color: white;
+    background-color: var(--primary-green-theme);
+}

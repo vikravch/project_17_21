@@ -1,0 +1,154 @@
+.sortBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 311px;
+    height: 56px;
+    border-bottom: 1px solid #E8ECEF;
+    border-top: 1px solid #E8ECEF;
+}
+
+.sortSelect {
+    position: relative;
+    display: block;
+}
+
+.sortHead {
+    background-image: url("../../../../../icons/shop_page/arrowDown.svg");
+    background-size: 10px;
+    padding-right: 20px;
+    background-position: right;
+}
+
+.sortHead {
+    cursor: pointer;
+    /*min-width: 110px;*/
+    width: max-content;
+    font-family: Inter, serif;
+    font-weight: 600;
+    font-size: 16px;
+    background-repeat: no-repeat;
+}
+
+.sortList {
+    position: absolute;
+    width: max-content;
+    top: 40%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: none;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 64px 64px -48px #0F0F0F1A;
+    border: 1px solid #F3F5F7;
+
+}
+
+.sortList > li {
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+    font-size: 16px;
+    padding: 10px 25px;
+    color: #6C7275;
+}
+
+.sortList  > li:hover {
+    color: #141718;
+    font-weight: 600;
+}
+
+.chosen {
+    font-weight: 600;
+    color: black !important;
+}
+
+.sortList > li:not(:first-child) {
+    padding-top: 20px;
+}
+
+.sortList > li:first-child {
+    background-color: #E8ECEF;
+    border-radius: 12px 12px 0 0;
+}
+
+
+.sortList > li:first-child:hover {
+    cursor: unset;
+    font-weight: 400;
+    color: #6C7275;
+}
+
+.sortList:last-child {
+    padding-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .sortBlock {
+        border-top: none;
+        border-bottom: none;
+        flex-direction: column;
+        align-items: start;
+        height: 80px;
+        min-width: min-content;
+    }
+
+    .sortBlockDisplay3 {
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        height: 40px;
+    }
+
+    .sortHead {
+        background-size: 10px;
+        padding-right: 20px;
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    .sortHeaDisplay3 {
+        background-size: 10px;
+        padding-right: 20px;
+        margin: 0  27px 0 0;
+        font-size: 16px;
+    }
+
+    .sortList {
+        border-radius: 12px;
+    }
+
+    .sortList > li {
+        font-size: 16px;
+    }
+
+    .sortList > li:not(:first-child) {
+        padding-top: 20px;
+    }
+
+    .sortList:last-child {
+        padding-bottom: 0;
+    }
+}
+
+@media screen and (min-width: 817px) {
+
+    .sortBlock {
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        height: 40px;
+
+    }
+
+    .sortHead {
+        background-size: 10px;
+        padding-right: 20px;
+        margin: 0  27px 0 0;
+        font-size: 16px;
+    }
+}
