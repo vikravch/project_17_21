@@ -1,0 +1,86 @@
+.content{
+    display: flex;
+    padding: 0 160px 80px 160px;
+    flex-direction: column;
+    align-items: center;
+    background: #FFF;
+}
+.title {
+    display: flex;
+    padding: 80px 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    color: #000;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: var(--font-secondary);
+    font-size: 54px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 58px; /* 107.407% */
+    letter-spacing: -1px;
+}
+
+.accountSection{
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+}
+.profileSection{
+    display: flex;
+    padding: 40px 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    border-radius: 8px;
+    background: var(--primary-light-theme);
+}
+.avatar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+.avatarElements{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 190px;
+}
+.avatar p{
+    color: #000;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter,serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+}
+.sideMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.navLink{
+    text-decoration: none;
+    color: #6C7275;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 26px;
+    word-wrap: break-word
+}
+.navLinkActive {
+    color: #141718;
+}
+
+.sideMenuEl{
+   color: #6C7275;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 26px;
+    word-wrap: break-word
+}
+

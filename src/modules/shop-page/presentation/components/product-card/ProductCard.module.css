@@ -1,15 +1,9 @@
 .imageBlock{
     position: relative;
-    min-height: 203px;
 }
 .imageBlock img{
     width: 100%;
 }
-/*.img{*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    content: '';*/
-/*}*/
 .badges{
     position: absolute;
     top: 16px;
@@ -30,6 +24,13 @@
     border-radius: 4px;
     cursor: pointer;
     transition: opacity 0.5s ease, visibility 0.5s ease;
+    border: none;
+}
+.addToCart:hover{
+    background-color: #3b3e3f;
+}
+.addToCart:active{
+    background-color: #6C7275;
 }
 .descriptionBlock .addToCart{
     display: none;
@@ -44,8 +45,11 @@
 }
 .name{
     margin: 4px 0;
-    font-size: 14px;
-    line-height: 22px
+    font-size: 1rem;
+    line-height: 1.4rem
+}
+.mobile2 .name{
+    font-size: 0.85rem;
 }
 .fullPrice{
     margin-left: 12px;
@@ -57,7 +61,10 @@
 }
 .mobile1 .descriptionBlock{
     padding: 12px;
-    font-size: 12px;
+    font-size: 0.95rem;
+}
+.mobile2 .descriptionBlock{
+    font-size: 0.85rem;
 }
 .mobile1 .descriptionBlock .name{
     margin: 15px 0 11px;
@@ -111,7 +118,7 @@
         margin: 5px 0 5px !important;
     }
     .descriptionBlock{
-        font-size: 14px;
+        font-size: 0.85rem;
     }
     .desktop2 .descriptionBlock{
         display: flex;
@@ -122,7 +129,7 @@
         padding: 1vw;
     }
     .name, .rating{
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .desktop2 .descriptionBlock .addToCart{
@@ -133,7 +140,7 @@
         opacity: 1;
         bottom: auto;
         margin: 16px 0 0;
-        line-height: 24px;
+        line-height: 1.4rem;
     }
     .desktop2 .description{
         display: block;
