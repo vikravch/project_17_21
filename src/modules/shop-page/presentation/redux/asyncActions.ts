@@ -1,9 +1,9 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {useUseCases} from "../../../../general/di/service_locator";
-import ProductForGalleries from "../../domain/model/productForGalleries";
 import RequestProducts from "../../domain/model/requestProducts";
+import Product from "../../domain/model/product";
 
-export const getAllProductsAsyncAction = createAsyncThunk<ProductForGalleries[]>(
+export const getAllProductsAsyncAction = createAsyncThunk<Product[]>(
     'shop-page/getAllProducts',
     async () => {
         const {getAllProducts} = useUseCases();
@@ -15,7 +15,7 @@ export const getAllProductsAsyncAction = createAsyncThunk<ProductForGalleries[]>
     }
 );
 
-export const getProductsAsyncAction = createAsyncThunk<ProductForGalleries[], RequestProducts>(
+export const getProductsAsyncAction = createAsyncThunk<Product[], RequestProducts>(
     'shop-page/getProducts',
     async (requestObject: RequestProducts, thunkAPI) => {
         const {getProducts} = useUseCases();

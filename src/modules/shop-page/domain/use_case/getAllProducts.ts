@@ -1,9 +1,9 @@
 import ProductsFakeRepository from "../../data/repository/productsFakeRepository";
-import ProductForGalleries from "../model/productForGalleries";
+import Product from "../model/product";
 
 const GetAllProducts = (
     productsFakeRepository: ProductsFakeRepository
-) => async (): Promise<ProductForGalleries[]> => {
+) => async (): Promise<Product[]> => {
     try {
         const products = await productsFakeRepository.getAllProducts();
         return products || [];

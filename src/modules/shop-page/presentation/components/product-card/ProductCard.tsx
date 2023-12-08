@@ -2,13 +2,13 @@ import React from 'react';
 import Badge from './badge/Badge';
 import style from './ProductCard.module.css';
 import {Columns} from "../../redux/types";
-import ProductForGalleries from "../../../domain/model/productForGalleries";
 import {useAppDispatch} from "../../../../../general/redux/hooks";
 import {addItemCart} from "../../../../cart/presentation/redux/cartSlice";
+import Product from "../../../domain/model/product";
 
 
 interface Props {
-    product: ProductForGalleries,
+    product: Product,
     columns: Columns
 }
 
