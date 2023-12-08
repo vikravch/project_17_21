@@ -20,7 +20,7 @@ function App() {
 
     return (
         <div className={"wrapper"}>
-            {/*<NavigationRow/>*/}
+            <NavigationRow/>
                 <Routes>
                     {/*<Route path="/home" element={<HomePage/>}/>*/}
                     <Route path="/shop" element={<ShopPage/>}/>

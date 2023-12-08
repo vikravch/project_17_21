@@ -4,7 +4,7 @@ import './cart-contain.css'
 import {useAppSelector} from "../../../../../general/redux/hooks";
 const CartContain = () => {
   const {items} = useAppSelector(state => state.cart);
-
+  console.log(items)
   return (
     <section className="container">
       <div className="table_header">
@@ -26,7 +26,8 @@ const CartContain = () => {
           color={el.color}
           price={el.price}
           picture={el.picture}
-          quantity={el.quantity}/>)}
+          subtotal={el.subtotal}
+          amount={el.amount}/>)}
     </section>
   );
 };

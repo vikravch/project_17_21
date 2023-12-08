@@ -22,9 +22,11 @@ export type TItem = {
   id: string;
   name: string;
   color: string;
-  price: string;
+  price: number;
+  subtotal?: number
   picture: string;
-  quantity: number
+  amount: number;
+
 }
 export type TOrder = {
   orderNumber: string;

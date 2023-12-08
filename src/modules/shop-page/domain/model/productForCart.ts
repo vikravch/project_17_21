@@ -6,7 +6,7 @@ export default class ProductForCart extends Product {
         public readonly image: string,
         public readonly price: number,
         public readonly color: string,
-        public readonly quantity: number,
+        public quantity: number,
     ) {
         super(id);
         this.name = name;

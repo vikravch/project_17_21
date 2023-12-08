@@ -1,22 +1,18 @@
 import React, {useState} from 'react';
-import {mockOrder} from "../../mock-api/data";
 import './before-checkout.css'
 import {Link} from "react-router-dom";
 import CartCoupon from "../cart-coupon/cart-coupon";
+import {useAppSelector} from "../../../../../general/redux/hooks";
 
 const BeforeCheckout = () => {
   const [selectedOption, setSelectedOption] = useState('free');
-
+  const {totalPrice, subtotalPrice} = useAppSelector(state => state.cart);
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if(event.target) {
       setSelectedOption(event.target.value);
     }
   }
-  const orderItems = mockOrder.items;
-  const orderTotalPrice = orderItems.reduce((acc: number, i) => {
-    const price = +i.price.replace('$', '')
-    return acc += price
-  }, 0)
+
   const onSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
@@ -72,11 +68,11 @@ const BeforeCheckout = () => {
         </div>
         <div className="cart_subtotal">
           <p>Subtotal</p>
-          <p className="subtotal_price">${orderTotalPrice}</p>
+          <p className="subtotal_price">{`$${subtotalPrice}`}</p>
         </div>
         <div className="cart_total">
           <p>Total</p>
-          <p>${orderTotalPrice}</p>
+          <p>{`$${totalPrice}`}</p>
         </div>
         <Link to={"/cart/checkout"}>
           <div className="button_container" >
