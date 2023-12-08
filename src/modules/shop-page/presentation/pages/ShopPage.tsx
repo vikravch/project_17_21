@@ -1,89 +1,130 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import style from './shopPage.module.css';
 import ProductsGallery from "../components/products-gallery/ProductsGallery";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStore} from "../../../../general/redux/types";
-import FilterTypes from "../components/filter-types/FilterTypes";
-import FilterTypesDesktop from "../components/filter-types-desktop/FilterTypesDesktop";
+import FilterTypes from "../components/filtres/filter-types/FilterTypes";
+import FilterTypesDesktop from "../components/filtres/filter-types-desktop/FilterTypesDesktop";
 import {Columns} from "../redux/types";
-import {getAllProductsAsyncAction} from "../redux/asyncActions";
-import FilterTitle from "../components/filter-title/FilterTitle";
+import FilterTitle from "../components/filtres/filter-title/FilterTitle";
 import Sorting from "../components/sorting/Sorting";
+import {useLocation} from "react-router-dom";
 import {AppDispatch} from "../../../../general/redux/store";
+import RequestProducts from "../../domain/model/requestProducts";
+import {getProductsAsyncAction} from "../redux/asyncActions";
 
 const ShopPage = () => {
-
-    const dispatch = useDispatch<AppDispatch>();
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
     );
+    //hooks
+    const dispatch = useDispatch<AppDispatch>();
+    const location = useLocation();
+    const [requestObject, setRequestObject]= useState<RequestProducts>({
+        category: "All Rooms",
+        price: "All Prices",
+        sorting: "Default",
+        page: 1
+    });
+    const searchParams = new URLSearchParams(location.search);
+
+    useEffect(() => {
+        let updatedRequestObject: RequestProducts = { ...requestObject };
+        searchParams.forEach((value, key) => {
+            if (Object.prototype.hasOwnProperty.call(requestObject, key)) {
+                if (updatedRequestObject[key as keyof RequestProducts] !== value) {
+                    (updatedRequestObject as any)[key] = value;
+                    setRequestObject(updatedRequestObject);
+                }
+            }
+        });
+        console.log(updatedRequestObject);
+        dispatch(getProductsAsyncAction(updatedRequestObject));
+    }, [location]);
 
     useEffect(()=>{
-        dispatch(getAllProductsAsyncAction());
-    },[])
+        if (requestObject.page !== 1){
+            console.log(requestObject);
+            dispatch(getProductsAsyncAction(requestObject));
+        }
+    }, [requestObject.page])
 
     document.addEventListener('click', event => {
         const listener = document.querySelectorAll('.listener');
         const listenerHead = document.querySelectorAll('.listenerHead');
 
-        console.log(listener);
         listener.forEach((item, index) => {
-            // @ts-ignore
             if (!event.composedPath().includes(item) && !event.composedPath().includes(listenerHead[index]) ) {
-                console.log('yes')
                 item.classList.remove(style.open);
             }
         })
     })
 
-    const openCloseMenuHandler = (event: any) => {
-        event.target.nextElementSibling.classList.toggle(style.open);
+    const openCloseMenuHandler = (event: React.MouseEvent<HTMLElement>) => {
+        const eventTarget = event.target as Element;
+        const nextSibling = eventTarget.nextElementSibling as Element;
+        nextSibling.classList.toggle(style.open);
     }
 
-    const chooseSortOrFiltration = (event: any) => {
-        const choice: string = event.target.textContent;
-        const listId = event.target.parentElement;
-        const listHead = listId.previousElementSibling;
-        const input: HTMLInputElement = listHead.previousElementSibling;
+    const chooseSortOrFiltration = (event: React.MouseEvent<HTMLElement>) => {
+        const eventTarget = event.target as HTMLElement;
+        const choice = eventTarget.textContent as string;
+        const listId = eventTarget.parentElement as HTMLDivElement;
+        const listHead = listId.previousElementSibling as HTMLDivElement;
+        const input = listHead.previousElementSibling as HTMLInputElement;
         input.value = choice;
 
-        // @ts-ignore
-        listId.childNodes.forEach(item => {
+        listId.childNodes.forEach((item: ChildNode) => {
             if (item.textContent === listHead.textContent) {
-                // @ts-ignore
-                item.classList.remove(style.chosen);
+                let element = item as HTMLElement;
+                element.classList.remove(style.chosen);
             }
         })
-        listHead.textContent = choice;
-        event.target.classList.add(style.chosen);
-        event.target.parentElement.classList.toggle(style.open);
+
+        // listHead.textContent = choice === 'Default' ? 'Sort by' : choice;
+        // filterAndSortingObject[input.name  as keyof FilerAndSorting] = choice;
+
+        eventTarget.classList.add(style.chosen);
+        listId.classList.toggle(style.open);
 
     }
 
     return (
         <div className={style.shopPage}>
-            <div className={style.pageHeader}>
+            <section className={style.pageHeader}>
                 {/*<BreadCrumbs>*/}
                 <p style={{fontSize: '14px', color: 'red'}}>Bread crumbs</p>
                 <h1>Shop Page</h1>
                 <p>Let’s design the place you always imagined.</p>
-            </div>
-            <div className={style.filterSortBlock}>
-                <FilterTitle columns={columns}/>
+            </section>
+            <section className={style.filterSortBlock}>
+                <div className={`${style.filterAndNameDisplay3} ${columns.countDesktop !== 3 && style.filterAndNameHide}`}>
+                    <FilterTitle columns={columns}/>
+                    {columns.countDesktop === 3 &&
+                        <div className={style.categoryNameDesktop3}>
+                            <p>All rooms</p>
+                        </div>}
+                </div>
                 <FilterTypes columns={columns}
                              openCloseMenuHandler={openCloseMenuHandler}
-                             chooseSortOrFiltration={chooseSortOrFiltration}/>
-                <Sorting openCloseMenuHandler={openCloseMenuHandler}
-                         chooseSortOrFiltration={chooseSortOrFiltration}/>
-            </div>
+                             chooseSortOrFiltration={chooseSortOrFiltration}
+                             // rooms={filterAndSortingObject.filterCateg}
+                             // price={filterAndSortingObject.filterPrice}
+                />
+                <Sorting columns={columns}
+                         openCloseMenuHandler={openCloseMenuHandler}
+                         chooseSortOrFiltration={chooseSortOrFiltration}
+                         // sorting={filterAndSortingObject.sort}
+                />
+            </section>
             <div className={style.categoryName}>
                 <p>All rooms</p>
             </div>
-            <div className={columns.countDesktop === 3 ? style.display3filterTypes : ''}>
+            <section className={columns.countDesktop === 3 ? style.display3filterTypes : ''}>
                 {columns.countDesktop === 3 &&
                     <FilterTypesDesktop/>}
-                <ProductsGallery/>
-            </div>
+                <ProductsGallery requestObject={requestObject} setRequestObject={setRequestObject}/>
+            </section>
         </div>
     );
 };

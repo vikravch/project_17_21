@@ -1,9 +1,11 @@
 .viewSelector{
     display: flex;
     --border: 2px solid #E8ECEF;
-    height: 65%;
+    height: 40px;
+    box-sizing: border-box;
 }
 .button{
+    box-sizing: border-box;
     border-top: var(--border);
     border-bottom: var(--border);
     border-left: var(--border);
@@ -44,10 +46,5 @@
     }
     .mobile{
         display: none;
-    }
-}
-@media screen and (min-width: 940px) {
-    .viewSelector{
-        height: 100% !important;
     }
 }
