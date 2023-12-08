@@ -1,7 +1,7 @@
 import Product from "./product";
 export default class ProductForCart extends Product {
     constructor(
-        public readonly id: number,
+        public readonly id: string,
         public readonly name: string,
         public readonly image: string,
         public readonly price: number,

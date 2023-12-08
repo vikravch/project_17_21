@@ -6,7 +6,7 @@ import RequestProducts from "../../domain/model/requestProducts";
 let testProducts: ProductForGalleries[] = [];
 for (let i = 0; i < 12; i++) {
     testProducts.push({
-        id: i,
+        id: '' + i,
         name: 'TestProduct',
         image: testImage,
         description: 'Super-soft cushion cover in off-white with a tactile pattern that enhances the different tones in the pile.',
@@ -14,7 +14,8 @@ for (let i = 0; i < 12; i++) {
         sale: 15,
         fullPrice: 199.99,
         isNew: true,
-        rating: 4
+        rating: 4,
+        color: 'white'
     });
 }
 

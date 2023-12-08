@@ -4,7 +4,7 @@ const millisecondsInMonth = 30 * 24 * 60 * 60 * 1000;
 
 export default class ProductForGalleries extends Product {
     constructor(
-        public readonly id: number,
+        public readonly id: string,
         public readonly name: string,
         public readonly image: string,
         public readonly actualPrice: number | null,
@@ -13,6 +13,7 @@ export default class ProductForGalleries extends Product {
         public readonly description: string,
         public readonly isNew: boolean,
         public readonly rating: number,
+        public readonly color: string,
     ) {
         super(id);
         this.name = name;
@@ -23,13 +24,14 @@ export default class ProductForGalleries extends Product {
         this.description = description;
         this.isNew = isNew;
         this.rating = rating;
+        this.color = color;
     }
     static fromJson (json: string): ProductForGalleries {
         const obj = JSON.parse(json)
         const actualPrice = obj.discount === 0 ? null :  obj.price - (obj.price * obj.discount / 100);
         const currentData = new Date();
         const isNew = currentData.getTime() - obj.date.getTime() < millisecondsInMonth;
-        return new ProductForGalleries(obj.productId, obj.productName, obj.image, actualPrice, obj.price, obj.discount, obj.description, isNew, obj.rating)
+        return new ProductForGalleries(obj.productId, obj.productName, obj.image, actualPrice, obj.price, obj.discount, obj.description, isNew, obj.rating, obj.color);
     }
 }
 

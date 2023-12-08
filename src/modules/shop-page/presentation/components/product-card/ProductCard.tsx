@@ -11,6 +11,7 @@ interface Props {
     product: ProductForGalleries,
     columns: Columns
 }
+
 const ProductCard = ({columns, product}: Props) => {
 
     const dispatch = useAppDispatch();
@@ -22,20 +23,21 @@ const ProductCard = ({columns, product}: Props) => {
         ratingIcons.push('☆');
     }
     const addToCart = () => {
-        console.log('hello')
+        console.log(`"I was added to cart!" (C) Any product`);
         const item = {
-        id: product.id,
-        color: 'red',
-        name: product.name,
-        picture: product.image,
-        price: product.actualPrice,
-        amount: 1,
+            id: product.id,
+            color: 'red',
+            name: product.name,
+            picture: product.image,
+            price: product.actualPrice,
+            amount: 1,
             subtotal: product.actualPrice,
-    }
-    dispatch(addItemCart(item));
+        }
+        dispatch(addItemCart(item));
     }
     return (
-        <div className={style.productCard + " " + style['desktop' + columns.countDesktop] + " " + style['mobile' + columns.countMobile]}>
+        <div
+            className={style.productCard + " " + style['desktop' + columns.countDesktop] + " " + style['mobile' + columns.countMobile]}>
             <div className={style.imageBlock}>
                 {/*<div style={{backgroundImage: `url(${product.image})`, width: '100%', height: '100%'}} className={style.img}></div>*/}
                 <img src={product.image} alt={product.name}/>
@@ -57,7 +59,8 @@ const ProductCard = ({columns, product}: Props) => {
                     <span className={style.actualPrice}>${product.actualPrice}</span>
                     {product.sale && <span className={style.fullPrice}>${product.fullPrice}</span>}
                     <div className={style.description}>{product.description}</div>
-                    <button onClick={addToCart} className={style.addToCart} aria-label={'Add to card'}>Add to cart</button>
+                    <button onClick={addToCart} className={style.addToCart} aria-label={'Add to card'}>Add to cart
+                    </button>
                 </div>
             </div>
         </div>

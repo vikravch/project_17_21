@@ -1,6 +1,6 @@
 export default class Product {
     constructor (
-        public readonly id: number,
+        public readonly id: string,
     ) {}
 
     static fromJson (json: string): Product {
