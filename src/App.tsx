@@ -7,9 +7,9 @@ import NewsletterSubscribe from "./general/components/newsletter_subscribe/Newsl
 import Footer from "./general/components/footer/Footer";
 import ShopPage from "./modules/shop-page/presentation/pages/ShopPage";
 import Blog from "./modules/blog/page/Blog";
-import CartPage from "./modules/cart/pages/cart-page";
-import CheckoutPage from "./modules/cart/pages/checkout-page";
-import CompletePage from "./modules/cart/pages/complete-page";
+import CartPage from "./modules/cart/presentation/pages/cart-page";
+import CheckoutPage from "./modules/cart/presentation/pages/checkout-page";
+import CompletePage from "./modules/cart/presentation/pages/complete-page";
 import HomePage from './modules/home_page/presentation/page/HomePage';
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
         <div className={"wrapper"}>
             <NavigationRow/>
                 <Routes>
-                    <Route path="/home" element={<HomePage/>}/>
+                    {/*<Route path="/home" element={<HomePage/>}/>*/}
                     <Route path="/shop" element={<ShopPage/>}/>
                     <Route path="/shop/?:filter" element={<ShopPage/>}/>
                     <Route path="/cart" element={<CartPage/>}/>
@@ -31,8 +31,8 @@ function App() {
                     <Route path="/blog" element={<Blog/>}/>
                     <Route path="*" element={<HomePage/>}/>
                 </Routes>
-            {!pathname.includes('cart') && <NewsletterSubscribe/>}
-            <Footer/>
+            {/*{!pathname.includes('cart') && <NewsletterSubscribe/>}*/}
+            {/*<Footer/>*/}
         </div>
     );
 }
