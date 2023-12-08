@@ -1,10 +1,10 @@
 import React from 'react';
 import ProductCard from "../product-card/product-card";
-import {mockOrder} from "../../mock-api/data";
 import './cart-contain.css'
-import {TItem} from "../../types";
+import {useAppSelector} from "../../../../../general/redux/hooks";
 const CartContain = () => {
-  const items: TItem[] = mockOrder.items;
+  const {items} = useAppSelector(state => state.cart);
+
   return (
     <section className="container">
       <div className="table_header">

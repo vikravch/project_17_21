@@ -8,7 +8,6 @@ interface Props {
     product: Product,
     columns: Columns
 }
-
 const ProductCard = ({columns, product}: Props) => {
     let ratingIcons: string[] = [];
     for (let i = 0; i < product.rating; i++) {

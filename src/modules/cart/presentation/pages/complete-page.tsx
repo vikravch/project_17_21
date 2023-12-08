@@ -1,7 +1,7 @@
 import React from 'react';
 import {useLocation} from "react-router";
-import CartHeader from "../presentation/components/cart-header/cart-header";
-import OrderCompleteInfo from "../presentation/components/order-complete-info/order-complete_info";
+import CartHeader from "../components/cart-header/cart-header";
+import OrderCompleteInfo from "../components/order-complete-info/order-complete_info";
 import styles from './pages_style.module.css'
 
 const CompletePage = () => {

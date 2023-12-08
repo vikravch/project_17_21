@@ -5,6 +5,7 @@ import shopPageReducer from '../../modules/shop-page/presentation/redux/shopPage
 import galleriesStyleReducer from '../../modules/shop-page/presentation/redux/galleriesStyleSlice';
 import flyMenu from './slices/openFlyMenuSlice'
 import changePicture from './slices/changePictureSlice'
+import cartSlice from "../../modules/cart/presentation/redux/cartSlice";
 
 export const store = configureStore(
     {
@@ -13,7 +14,8 @@ export const store = configureStore(
             shopPage: shopPageReducer,
             galleriesStyle: galleriesStyleReducer,
             flyMenu: flyMenu,
-            changePicture: changePicture
+            changePicture: changePicture,
+            cart: cartSlice,
         },
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
         devTools: process.env.NODE_ENV !== 'production',

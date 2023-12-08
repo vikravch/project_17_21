@@ -6,12 +6,20 @@ import plusIcon from '../../../../../icons/plus_icon.png'
 import './product-card.css'
 import {useLocation} from "react-router";
 import {TItem} from "../../types";
+import {useDispatch} from "react-redux";
+import {useAppDispatch} from "../../../../../general/redux/hooks";
+import {deleteItemCart} from "../../redux/cartSlice";
 
 const ProductCard = ({id, name, color, price, picture, quantity}: TItem) => {
 const location = useLocation();
 const [itemQuantity, setItemQuantity] = useState(quantity);
 const numberPrice = Number(price.replace('$', ''));
 const [itemPrice, setItemPrice] = useState(numberPrice * itemQuantity);
+const dispatch = useAppDispatch();
+
+const removeItem = () => {
+  dispatch(deleteItemCart(id));
+}
 
 const setNewValues = (item:TItem) => {
   setItemQuantity(item.quantity);
@@ -54,7 +62,7 @@ const productCard = <div className="product_card">
     <div className="item_info_wide">
       <p className="item_title_wide">{name}</p>
       <p className="item_color_wide">Color: {color}</p>
-      <div className="item_remove">
+      <div onClick={removeItem} className="item_remove">
         <img className="item_closeIcon" src={closeIcon} alt="close icon"/>
         <p className="text_remove">Remove</p>
       </div>
