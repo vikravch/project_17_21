@@ -13,6 +13,7 @@ import {AppDispatch} from "../../../../general/redux/store";
 import RequestProducts from "../../domain/model/requestProducts";
 import {getProductsAsyncAction} from "../redux/asyncActions";
 import arrow from '../../../../images/shop_page/breadCrumbs.svg';
+import {closeClickFunction} from "./utils/const";
 
 const ShopPage = () => {
     const columns = useSelector<AppStore, Columns>(
@@ -22,8 +23,8 @@ const ShopPage = () => {
     const dispatch = useDispatch<AppDispatch>();
     const location = useLocation();
     const [requestObject, setRequestObject] = useState<RequestProducts>({
-        category: "All Rooms",
-        price: "All Prices",
+        category: "All rooms",
+        price: "All prices",
         sorting: "Default",
         page: 1
     });
@@ -50,53 +51,17 @@ const ShopPage = () => {
         }
     }, [requestObject.page])
 
-    document.addEventListener('click', event => {
-        const listener = document.querySelectorAll('.listener');
-        const listenerHead = document.querySelectorAll('.listenerHead');
-
-        listener.forEach((item, index) => {
-            if (!event.composedPath().includes(item) && !event.composedPath().includes(listenerHead[index]) ) {
-                item.classList.remove(style.open);
-            }
-        })
-    })
-
-    const openCloseMenuHandler = (event: React.MouseEvent<HTMLElement>) => {
-        const eventTarget = event.target as Element;
-        const nextSibling = eventTarget.nextElementSibling as Element;
-        nextSibling.classList.toggle(style.open);
-    }
-
-    const chooseSortOrFiltration = (event: React.MouseEvent<HTMLElement>) => {
-        const eventTarget = event.target as HTMLElement;
-        const choice = eventTarget.textContent as string;
-        const listId = eventTarget.parentElement as HTMLDivElement;
-        const listHead = listId.previousElementSibling as HTMLDivElement;
-        const input = listHead.previousElementSibling as HTMLInputElement;
-        input.value = choice;
-
-        listId.childNodes.forEach((item: ChildNode) => {
-            if (item.textContent === listHead.textContent) {
-                let element = item as HTMLElement;
-                element.classList.remove(style.chosen);
-            }
-        })
-
-        eventTarget.classList.add(style.chosen);
-        listId.classList.toggle(style.open);
-
-    }
+    document.addEventListener('click', closeClickFunction);
+    useEffect(() => () => document.removeEventListener('click', closeClickFunction))
 
     return (
         <div className={style.shopPage}>
             <section className={style.pageHeader}>
-                {/*<BreadCrumbs>*/}
                 <div>
                     <Link to={'/home'}>Home</Link>
                     <img src={arrow} alt={'arrow'}/>
                     <p>Shop</p>
                 </div>
-                {/*<p style={{fontSize: '14px', color: 'red'}}>Bread crumbs</p>*/}
                 <h1>Shop Page</h1>
                 <p>Let’s design the place you always imagined.</p>
             </section>
@@ -108,12 +73,8 @@ const ShopPage = () => {
                             <p>All rooms</p>
                         </div>}
                 </div>
-                <FilterTypes columns={columns}
-                             openCloseMenuHandler={openCloseMenuHandler}
-                             chooseSortOrFiltration={chooseSortOrFiltration}/>
-                <Sorting columns={columns}
-                         openCloseMenuHandler={openCloseMenuHandler}
-                         chooseSortOrFiltration={chooseSortOrFiltration}/>
+                <FilterTypes columns={columns}/>
+                <Sorting columns={columns}/>
             </section>
             <div className={style.categoryName}>
                 <p>All rooms</p>

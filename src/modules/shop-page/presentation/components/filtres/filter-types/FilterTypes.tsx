@@ -2,14 +2,13 @@ import React from 'react';
 import style from "./filterTypes.module.css";
 import {categoriesArray, priceArray} from "../utils/filterConst";
 import {Columns} from "../../../redux/types";
+import {chooseSortOrFiltration, openCloseMenuHandler} from "../../../pages/utils/const";
 
 interface Props {
     columns: Columns;
-    openCloseMenuHandler: (event: React.MouseEvent<HTMLElement>) => void;
-    chooseSortOrFiltration: (event: React.MouseEvent<HTMLElement>) => void;
 
 }
-const FilterTypes = ({columns, openCloseMenuHandler, chooseSortOrFiltration}: Props) => {
+const FilterTypes = ({columns}: Props) => {
 
     return (
             <div className={`${style.typesBlock} ${columns.countDesktop === 3 ? style.close : ''}`}

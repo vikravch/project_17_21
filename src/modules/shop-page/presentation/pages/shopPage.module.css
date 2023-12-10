@@ -63,10 +63,9 @@
     margin: 0 10px;
 }
 
-.open {
-    display: block !important;
-
-}
+/*.open {*/
+/*    display: block !important;*/
+/*}*/
 
 .categoryNameDesktop3 {
     display: none;

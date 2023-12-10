@@ -3,14 +3,13 @@ import {sort} from "../filtres/utils/filterConst";
 import ViewSelector from "../view-selector/ViewSelector";
 import style from './sorting.module.css';
 import {Columns} from "../../redux/types";
+import {chooseSortOrFiltration, openCloseMenuHandler} from "../../pages/utils/const";
 
 interface Props {
     columns: Columns;
-    openCloseMenuHandler: (event: React.MouseEvent<HTMLElement>) => void;
-    chooseSortOrFiltration: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
-const Sorting = ({columns, openCloseMenuHandler, chooseSortOrFiltration}: Props) => {
+const Sorting = ({columns}: Props) => {
     return (
         <div className={`${style.sortBlock} ${columns.countDesktop === 3 && style.sortBlockDisplay3}`}>
             <div className={style.sortSelect}>

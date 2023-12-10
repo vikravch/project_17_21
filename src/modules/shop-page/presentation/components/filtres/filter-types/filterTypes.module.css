@@ -69,11 +69,6 @@
     font-weight: 600;
 }
 
-.chosen {
-    font-weight: 600;
-    color: black !important;
-}
-
 .filterCatList > li:not(:first-child),
 .filterPriceList > li:not(:first-child){
     padding-top: 20px;
