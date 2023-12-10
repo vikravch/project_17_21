@@ -6,6 +6,7 @@ import galleriesStyleReducer from '../../modules/shop-page/presentation/redux/ga
 import flyMenu from './slices/openFlyMenuSlice'
 import changePicture from './slices/changePictureSlice'
 import cartSlice from "../../modules/cart/presentation/redux/cartSlice";
+import filterAndSortingReducer from "../../modules/shop-page/presentation/redux/filterAndSortingSlice";
 
 export const store = configureStore(
     {
@@ -13,6 +14,7 @@ export const store = configureStore(
             weather: weatherReducer,
             shopPage: shopPageReducer,
             galleriesStyle: galleriesStyleReducer,
+            filterAndSort: filterAndSortingReducer,
             flyMenu: flyMenu,
             changePicture: changePicture,
             cart: cartSlice,
