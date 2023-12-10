@@ -29,12 +29,13 @@ export const chooseSortOrFiltration = (event: React.MouseEvent<HTMLElement>) => 
 
     input.value = choice;
     listId.childNodes.forEach((item: ChildNode) => {
-        if (item.textContent === listHead.textContent) {
+        if (item.textContent === listHead.textContent || item.textContent === 'Default') {
             let element = item as HTMLDivElement;
             element.classList.remove(style.chosen);
         }
     })
 
+    listHead.textContent = choice === 'Default' ? 'Sort by' : choice;
     eventTarget.classList.add(style.chosen);
     listId.classList.toggle(style.open);
 

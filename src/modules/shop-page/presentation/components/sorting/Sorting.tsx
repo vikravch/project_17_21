@@ -15,12 +15,13 @@ const Sorting = ({columns, sorting}: Props) => {
         <div className={`${style.sortBlock} ${columns.countDesktop === 3 && style.sortBlockDisplay3}`}>
             <div className={style.sortSelect}>
                 <input type={'hidden'} name={'sort'} value={'Default'}/>
-                <div className={`${style.sortHead} ${columns.countDesktop === 3 && style.sortHeaDisplay3} listenerHead`}
+                <div className={`${style.sortHead} 
+                ${columns.countDesktop === 3 && style.sortHeaDisplay3} listenerHead`}
                      onClick={openCloseMenuHandler}>{sorting === "Default" ? "Sort by" : sorting}</div>
                 <ul className={`${style.sortList} listener`} id={'sortingList'}>
                     <li>Sort by</li>
                     {sort.map(item => {
-                        return <li className={style.sortItem} key={item}
+                        return <li className={`${style.sortItem} ${sorting === item && style.chosen}`} key={item}
                                    onClick={chooseSortOrFiltration}>{item}</li>
                     })}
                 </ul>

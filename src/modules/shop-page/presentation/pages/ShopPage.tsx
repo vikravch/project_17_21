@@ -14,6 +14,7 @@ import RequestProducts from "../../domain/model/requestProducts";
 import {getProductsAsyncAction} from "../redux/asyncActions";
 import arrow from '../../../../images/shop_page/breadCrumbs.svg';
 import {closeClickFunction} from "./utils/const";
+import {priceArray} from "../components/filtres/utils/filterConst";
 
 const ShopPage = () => {
     const columns = useSelector<AppStore, Columns>(
@@ -24,7 +25,7 @@ const ShopPage = () => {
     const location = useLocation();
     const [requestObject, setRequestObject] = useState<RequestProducts>({
         category: "All rooms",
-        price: "All prices",
+        price: priceArray[0].title as string,
         sorting: "Default",
         page: 1
     });
