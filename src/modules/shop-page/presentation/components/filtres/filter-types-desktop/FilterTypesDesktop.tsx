@@ -1,8 +1,14 @@
 import React from 'react';
 import style from './filterTypesDesktop.module.css'
 import {categoriesArray, priceArray} from "../utils/filterConst";
+import {Columns} from "../../../redux/types";
 
-const FilterTypesDesktop = () => {
+interface Props {
+    category: string,
+    price: string
+}
+
+const FilterTypesDesktop = ({category, price}: Props) => {
 
     return (
         <div className={style.block}>

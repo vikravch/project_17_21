@@ -6,23 +6,24 @@ import {chooseSortOrFiltration, openCloseMenuHandler} from "../../../pages/utils
 
 interface Props {
     columns: Columns;
-
+    category: string,
+    price: string
 }
-const FilterTypes = ({columns}: Props) => {
+const FilterTypes = ({columns, category, price}: Props) => {
 
     return (
             <div className={`${style.typesBlock} ${columns.countDesktop === 3 ? style.close : ''}`}
                  id={'types'}>
                 <div className={style.filterCategories}>
                     <p>Categories</p>
-                    <input type={'hidden'} name={'filterCateg'} id={'filterCat'} value={'All rooms'}/>
+                    <input type={'hidden'} name={'filterCateg'} id={'filterCat'} value={category}/>
                     <div className={`${style.filterCatHead} listenerHead`} id={'filterCatHead'}
                          onClick={openCloseMenuHandler}>
-                        All rooms
+                        {category}
                     </div>
                     <ul className={`${style.filterCatList} listener`} id={'filterCatList'}>
                         {categoriesArray.map(item => {
-                            return <li className={style.filterCatItem} onClick={chooseSortOrFiltration}
+                            return <li onClick={chooseSortOrFiltration}
                                        key={item}>{item}</li>
                         })}
                     </ul>
@@ -30,15 +31,15 @@ const FilterTypes = ({columns}: Props) => {
 
                 <div className={style.filterPrice}>
                     <p>Price</p>
-                    <input type={'hidden'} name={'filterPrice'} id={'filterPr'} value={'All price'}/>
+                    <input type={'hidden'} name={'filterPrice'} id={'filterPr'} value={price}/>
                     <div className={`${style.filterPriceHead} listenerHead`} id={'filterPriceHead'}
                          onClick={openCloseMenuHandler}>
-                        All prices
+                        {price}
                     </div>
                     <ul className={`${style.filterPriceList} listener`} id={'filterPrList'}>
                         <li onClick={chooseSortOrFiltration}>All prices</li>
                         {priceArray.map(item => {
-                            return <li className={style.filterPriceItem} onClick={chooseSortOrFiltration}
+                            return <li onClick={chooseSortOrFiltration}
                                        key={item.min}>${item.max !== null ? item.min + '.00 - ' + item.max : item.min + '.00+'}</li>
                         })}
                     </ul>

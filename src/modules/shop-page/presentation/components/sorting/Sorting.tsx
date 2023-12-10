@@ -7,15 +7,16 @@ import {chooseSortOrFiltration, openCloseMenuHandler} from "../../pages/utils/co
 
 interface Props {
     columns: Columns;
+    sorting: string;
 }
 
-const Sorting = ({columns}: Props) => {
+const Sorting = ({columns, sorting}: Props) => {
     return (
         <div className={`${style.sortBlock} ${columns.countDesktop === 3 && style.sortBlockDisplay3}`}>
             <div className={style.sortSelect}>
                 <input type={'hidden'} name={'sort'} value={'Default'}/>
                 <div className={`${style.sortHead} ${columns.countDesktop === 3 && style.sortHeaDisplay3} listenerHead`}
-                     onClick={openCloseMenuHandler}>Sort by</div>
+                     onClick={openCloseMenuHandler}>{sorting === "Default" ? "Sort by" : sorting}</div>
                 <ul className={`${style.sortList} listener`} id={'sortingList'}>
                     <li>Sort by</li>
                     {sort.map(item => {

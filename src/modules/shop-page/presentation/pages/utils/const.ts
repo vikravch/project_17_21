@@ -26,16 +26,17 @@ export const chooseSortOrFiltration = (event: React.MouseEvent<HTMLElement>) => 
     const listId = eventTarget.parentElement as HTMLDivElement;
     const listHead = listId.previousElementSibling as HTMLDivElement;
     const input = listHead.previousElementSibling as HTMLInputElement;
-    input.value = choice;
 
+    input.value = choice;
     listId.childNodes.forEach((item: ChildNode) => {
         if (item.textContent === listHead.textContent) {
-            let element = item as HTMLElement;
+            let element = item as HTMLDivElement;
             element.classList.remove(style.chosen);
         }
     })
 
     eventTarget.classList.add(style.chosen);
     listId.classList.toggle(style.open);
+
 
 }

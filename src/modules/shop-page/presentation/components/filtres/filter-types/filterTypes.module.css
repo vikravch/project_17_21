@@ -49,10 +49,6 @@
     overscroll-behavior: contain;
 }
 
-/*.open {*/
-/*    display: block;*/
-/*}*/
-
 .filterCatList > li,
 .filterPriceList > li {
     position: relative;

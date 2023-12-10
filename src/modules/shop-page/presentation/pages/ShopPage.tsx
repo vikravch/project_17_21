@@ -52,8 +52,8 @@ const ShopPage = () => {
     }, [requestObject.page])
 
     useEffect(() => {
-        document.addEventListener('click', (event) =>  closeClickFunction(event));
-        return () => document.removeEventListener('click', (event) =>  closeClickFunction(event));
+        document.addEventListener('click', closeClickFunction);
+        return () => document.removeEventListener('click', closeClickFunction);
     })
 
     return (
@@ -75,15 +75,19 @@ const ShopPage = () => {
                             <p>All rooms</p>
                         </div>}
                 </div>
-                <FilterTypes columns={columns}/>
-                <Sorting columns={columns}/>
+                <FilterTypes columns={columns}
+                             category={requestObject.category}
+                             price={requestObject.price}/>
+                <Sorting columns={columns}
+                         sorting={requestObject.sorting}/>
             </section>
             <div className={style.categoryName}>
                 <p>All rooms</p>
             </div>
             <section className={columns.countDesktop === 3 ? style.display3filterTypes : ''}>
                 {columns.countDesktop === 3 &&
-                    <FilterTypesDesktop/>}
+                    <FilterTypesDesktop category={requestObject.category}
+                                        price={requestObject.price}/>}
                 <ProductsGallery requestObject={requestObject} setRequestObject={setRequestObject}/>
             </section>
         </div>
