@@ -3,7 +3,7 @@ import {useUseCases} from "../../../../general/di/service_locator";
 import Product from "../../domain/model/product";
 
 export const getAllProductsAsyncAction = createAsyncThunk<Product[]>(
-    'weather/getWeather',
+    'shop-page/getAllProducts',
     async () => {
         const {getAllProducts} = useUseCases();
         try {

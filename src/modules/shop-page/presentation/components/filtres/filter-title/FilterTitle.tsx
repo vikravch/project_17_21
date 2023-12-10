@@ -1,17 +1,12 @@
 import React from 'react';
-import filterIcon from "../../../../../icons/shop_page/filter.svg";
+import filterIcon from "../../../../../../icons/shop_page/filter.svg";
 import style from './filterTitle.module.css';
-import {Columns} from "../../redux/types";
+import {Columns} from "../../../redux/types";
 
-interface Props {
-    columns: Columns;
-}
-
-const FilterTitle = ({columns}: Props) => {
+const FilterTitle = ({columns}: {columns: Columns}) => {
 
     const openCloseFilterHandler = () => {
-        const types = document.getElementById('types');
-        // @ts-ignore
+        const types = document.getElementById('types') as HTMLDivElement;
         types.classList.toggle(style.openFilter);
     }
 
@@ -21,7 +16,7 @@ const FilterTitle = ({columns}: Props) => {
                 <img alt={'filter'} src={filterIcon}/>
                 <p>Filter</p>
             </div>
-            <div className={`${style.filterBlock} ${style.filterBlockOrigin}`}
+            <div className={style.filterBlock}
                  onClick={openCloseFilterHandler}>
                 <img alt={'filter'} src={filterIcon}/>
                 <p>Filter</p>

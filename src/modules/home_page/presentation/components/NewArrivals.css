@@ -1,0 +1,152 @@
+.new_arrivals_section
+{
+    background: #FFF;
+    display: flex;
+    width: 100%;
+    padding: 32px 0px 32px 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+}
+.new_arrivals_title
+{
+    color: #000;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Headline 5 */
+    font-family: Poppins;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 38px; /* 111.765% */
+    letter-spacing: -0.6px;
+}
+.btnMoreProducts
+{color: #141718;
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* Button XS */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
+}
+.button_mobile
+{
+    display: block;
+}
+.button_desktop
+{
+    display: none;
+}
+.product_scrolling_bar
+{
+    display: flex;
+    width: 100%;
+    padding: 0px 0px 32px 32px;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.product_images img
+{
+    width: 231px;
+    height: 392px;
+    flex-shrink: 0;
+}
+
+.scrollIndicator
+{
+    /*position: absolute;*/
+    /*left: 0;*/
+    width: 198px;
+    height: 4px;
+    flex-shrink: 0;
+    border-radius: 80px;
+   /* background: #343839;*/
+
+}
+
+
+@media (min-width: 769px)
+{
+    .new_arrivals_section
+    {
+        display: flex;
+        width: 100%;
+        padding: 48px 0px 0px 160px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 48px;
+    }
+    .new_arrivals_header
+    {
+        display: flex;
+        width: 1120px;
+        justify-content: space-between;
+        align-items: flex-end;
+
+    }
+    .new_arrivals_title
+    {
+        color: #000;
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: Poppins;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 44px; /* 110% */
+        letter-spacing: -0.4px;
+
+    }
+    .btnMoreProducts
+    {color: #141718;
+        font-feature-settings: 'clig' off, 'liga' off;
+
+        /* Button S */
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 28px; /* 175% */
+        letter-spacing: -0.4px;
+    }
+    .button_mobile
+    {
+        display: none;
+    }
+
+    .button_desktop
+    {
+        display: block;
+    }
+
+    .product_scrolling_bar
+    {
+        display: flex;
+        width: 100%;
+        padding: 32px 0px 32px 32px;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 40px;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .product_images img
+    {
+        width: 262px;
+        height: 349px;
+        flex-shrink: 0;
+    }
+    .scrollIndicator {
+        width: 198px;
+        height: 4px;
+        flex-shrink: 0;
+        border-radius: 80px;
+        /* background: #343839;*/
+    }
+
+}

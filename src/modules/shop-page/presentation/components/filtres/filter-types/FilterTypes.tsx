@@ -1,12 +1,12 @@
 import React from 'react';
 import style from "./filterTypes.module.css";
-import {categoriesArray, priceArray} from "../../../domain/model/filterConst";
-import {Columns} from "../../redux/types";
+import {categoriesArray, priceArray} from "../utils/filterConst";
+import {Columns} from "../../../redux/types";
 
 interface Props {
     columns: Columns;
-    openCloseMenuHandler: (event: any) => void;
-    chooseSortOrFiltration: (event: any) => void;
+    openCloseMenuHandler: (event: React.MouseEvent<HTMLElement>) => void;
+    chooseSortOrFiltration: (event: React.MouseEvent<HTMLElement>) => void;
 
 }
 const FilterTypes = ({columns, openCloseMenuHandler, chooseSortOrFiltration}: Props) => {
@@ -16,7 +16,7 @@ const FilterTypes = ({columns, openCloseMenuHandler, chooseSortOrFiltration}: Pr
                  id={'types'}>
                 <div className={style.filterCategories}>
                     <p>Categories</p>
-                    <input type={'hidden'} name={'filterCateg'} id={'filterCat'}/>
+                    <input type={'hidden'} name={'filterCateg'} id={'filterCat'} value={'All rooms'}/>
                     <div className={`${style.filterCatHead} listenerHead`} id={'filterCatHead'}
                          onClick={openCloseMenuHandler}>
                         All rooms
@@ -31,7 +31,7 @@ const FilterTypes = ({columns, openCloseMenuHandler, chooseSortOrFiltration}: Pr
 
                 <div className={style.filterPrice}>
                     <p>Price</p>
-                    <input type={'hidden'} name={'filterPrice'} id={'filterPr'}/>
+                    <input type={'hidden'} name={'filterPrice'} id={'filterPr'} value={'All price'}/>
                     <div className={`${style.filterPriceHead} listenerHead`} id={'filterPriceHead'}
                          onClick={openCloseMenuHandler}>
                         All prices
@@ -40,7 +40,7 @@ const FilterTypes = ({columns, openCloseMenuHandler, chooseSortOrFiltration}: Pr
                         <li onClick={chooseSortOrFiltration}>All prices</li>
                         {priceArray.map(item => {
                             return <li className={style.filterPriceItem} onClick={chooseSortOrFiltration}
-                                       key={item.min}>${item.min} - {item.max}</li>
+                                       key={item.min}>${item.max !== null ? item.min + '.00 - ' + item.max : item.min + '.00+'}</li>
                         })}
                     </ul>
                 </div>

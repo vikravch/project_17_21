@@ -14,5 +14,5 @@
 }
 .sale{
     color: white;
-    background-color: #38CB89;
+    background-color: var(--primary-green-theme);
 }
