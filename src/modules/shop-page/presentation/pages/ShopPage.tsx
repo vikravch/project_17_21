@@ -8,10 +8,11 @@ import FilterTypesDesktop from "../components/filtres/filter-types-desktop/Filte
 import {Columns} from "../redux/types";
 import FilterTitle from "../components/filtres/filter-title/FilterTitle";
 import Sorting from "../components/sorting/Sorting";
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {AppDispatch} from "../../../../general/redux/store";
 import RequestProducts from "../../domain/model/requestProducts";
 import {getProductsAsyncAction} from "../redux/asyncActions";
+import arrow from '../../../../images/shop_page/breadCrumbs.svg';
 
 const ShopPage = () => {
     const columns = useSelector<AppStore, Columns>(
@@ -20,7 +21,7 @@ const ShopPage = () => {
     //hooks
     const dispatch = useDispatch<AppDispatch>();
     const location = useLocation();
-    const [requestObject, setRequestObject]= useState<RequestProducts>({
+    const [requestObject, setRequestObject] = useState<RequestProducts>({
         category: "All Rooms",
         price: "All Prices",
         sorting: "Default",
@@ -81,9 +82,6 @@ const ShopPage = () => {
             }
         })
 
-        // listHead.textContent = choice === 'Default' ? 'Sort by' : choice;
-        // filterAndSortingObject[input.name  as keyof FilerAndSorting] = choice;
-
         eventTarget.classList.add(style.chosen);
         listId.classList.toggle(style.open);
 
@@ -93,7 +91,12 @@ const ShopPage = () => {
         <div className={style.shopPage}>
             <section className={style.pageHeader}>
                 {/*<BreadCrumbs>*/}
-                <p style={{fontSize: '14px', color: 'red'}}>Bread crumbs</p>
+                <div>
+                    <Link to={'/home'}>Home</Link>
+                    <img src={arrow} alt={'arrow'}/>
+                    <p>Shop</p>
+                </div>
+                {/*<p style={{fontSize: '14px', color: 'red'}}>Bread crumbs</p>*/}
                 <h1>Shop Page</h1>
                 <p>Let’s design the place you always imagined.</p>
             </section>
@@ -107,15 +110,10 @@ const ShopPage = () => {
                 </div>
                 <FilterTypes columns={columns}
                              openCloseMenuHandler={openCloseMenuHandler}
-                             chooseSortOrFiltration={chooseSortOrFiltration}
-                             // rooms={filterAndSortingObject.filterCateg}
-                             // price={filterAndSortingObject.filterPrice}
-                />
+                             chooseSortOrFiltration={chooseSortOrFiltration}/>
                 <Sorting columns={columns}
                          openCloseMenuHandler={openCloseMenuHandler}
-                         chooseSortOrFiltration={chooseSortOrFiltration}
-                         // sorting={filterAndSortingObject.sort}
-                />
+                         chooseSortOrFiltration={chooseSortOrFiltration}/>
             </section>
             <div className={style.categoryName}>
                 <p>All rooms</p>
