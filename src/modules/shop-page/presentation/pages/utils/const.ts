@@ -29,8 +29,8 @@ export const chooseSortOrFiltration = (event: React.MouseEvent<HTMLElement>) => 
 
     input.value = choice;
     listId.childNodes.forEach((item: ChildNode) => {
-        if (item.textContent === listHead.textContent || item.textContent === 'Default') {
-            let element = item as HTMLDivElement;
+        let element = item as HTMLDivElement;
+        if (element.classList.contains(style.chosen)) {
             element.classList.remove(style.chosen);
         }
     })

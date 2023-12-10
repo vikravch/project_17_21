@@ -75,6 +75,11 @@
     padding-bottom: 10px;
 }
 
+.checked {
+    font-weight: 600;
+    color: black !important;
+}
+
 @media screen and (min-width: 768px) {
     .typesBlock {
         display: flex !important;
@@ -145,18 +150,3 @@
     }
 
 }
-
-/*@media screen and (min-width: 1080px) {*/
-
-/*    .typesBlock {*/
-/*        min-width: 440px;*/
-/*    }*/
-
-/*    .filterCatHead, .filterPriceHead {*/
-/*        background-image: url("../../../../../icons/shop_page/arrowDownMini.svg");*/
-/*        background-size: 9px;*/
-/*        background-position: calc(100% - 30px);*/
-/*        background-repeat: no-repeat;*/
-/*        width: calc(100% - 16px);*/
-/*    }*/
-/*}*/
