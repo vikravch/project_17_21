@@ -1,13 +1,13 @@
 import React from "react";
 import style from './const.module.css';
 
-export const closeClickFunction = (event: any) => {
+export const closeClickFunction = (event: MouseEvent) => {
 
     const listener = document.querySelectorAll('.listener');
     const listenerHead = document.querySelectorAll('.listenerHead');
 
     listener.forEach((item, index) => {
-        if (!event.composedPath().includes(item) && !event.composedPath().includes(listenerHead[index]) ) {
+        if (event.target !== item && event.target !== listenerHead[index]) {
             item.classList.remove(style.open);
         }
     })

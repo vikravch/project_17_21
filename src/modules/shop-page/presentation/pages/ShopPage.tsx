@@ -51,8 +51,10 @@ const ShopPage = () => {
         }
     }, [requestObject.page])
 
-    document.addEventListener('click', closeClickFunction);
-    useEffect(() => () => document.removeEventListener('click', closeClickFunction))
+    useEffect(() => {
+        document.addEventListener('click', (event) =>  closeClickFunction(event));
+        return () => document.removeEventListener('click', (event) =>  closeClickFunction(event));
+    })
 
     return (
         <div className={style.shopPage}>
