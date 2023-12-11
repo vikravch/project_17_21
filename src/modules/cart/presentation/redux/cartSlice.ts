@@ -18,9 +18,19 @@ const cartSlice = createSlice(
   initialState,
     reducers: {
     addItemCart: (state, action) => {
-      state.items = [...state.items, action.payload];
-      state.totalPrice = state.totalPrice + action.payload.price
-      state.subtotalPrice = state.subtotalPrice + action.payload.price
+      const id = action.payload.id;
+      const element = state.items.find(el => el.id === id);
+      if(element){
+        element.amount += 1;
+        element.subtotal! += element.price;
+        state.totalPrice = state.totalPrice + element.price
+        state.subtotalPrice = state.subtotalPrice + element.price
+      } else {
+        state.items = [...state.items, action.payload];
+        state.totalPrice = state.totalPrice + action.payload.price
+        state.subtotalPrice = state.subtotalPrice + action.payload.price
+      }
+
     },
     deleteItemCart: (state, action) => {
       state.items = state.items.filter((el) => el.id !== action.payload);
@@ -39,7 +49,7 @@ const cartSlice = createSlice(
     },
       decreaseAmount: (state, action) => {
         const index = state.items.findIndex(el => el.id === action.payload);
-        if(state.items[index].amount >= 1) {
+        if(state.items[index].amount > 1) {
           state.items[index].amount -= 1;
           state.items[index].subtotal = +(state.items[index].amount * state.items[index].price).toFixed(2);
           state.totalPrice = state.totalPrice - state.items[index].price;
