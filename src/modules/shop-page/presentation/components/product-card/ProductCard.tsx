@@ -23,7 +23,6 @@ const ProductCard = ({columns, product}: Props) => {
         ratingIcons.push('☆');
     }
     const addToCart = () => {
-        console.log(`"I was added to cart!" (C) Any product`);
         dispatch(addItemCart({
             product: product,
             quantity: 1
@@ -39,7 +38,7 @@ const ProductCard = ({columns, product}: Props) => {
                     {product.isNew && <Badge type={"new"}/>}
                     {product.actualPrice && <Badge type={"sale"} sale={product.sale}/>}
                 </div>
-                <div className={style.addToCart} aria-label={'Add to card'}>Add to cart</div>
+                <div className={style.addToCart} aria-label={'Add to card'} onClick={addToCart}>Add to cart</div>
             </div>
             <div className={style.descriptionBlock}>
                 <div className={style.rating}>
