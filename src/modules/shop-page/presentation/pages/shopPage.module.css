@@ -16,6 +16,40 @@
     background-size: 100%;
 }
 
+.pageHeader > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 107px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.pageHeader > div > a {
+    text-decoration: none;
+    color: #605F5F;
+}
+
+.pageHeader > div > a:visited {
+    color: #605F5F;
+}
+
+.pageHeader > div > a:hover {
+    color: #605F5F;
+}
+
+.pageHeader > div > a:focus {
+    color: #605F5F;
+}
+
+.pageHeader > div > img {
+    height: 8px;
+}
+
+.pageHeader > div > p {
+    margin: 0;
+}
+
 .pageHeader > h1 {
     font-family: Poppins, serif;
     font-weight: 500;
@@ -29,10 +63,9 @@
     margin: 0 10px;
 }
 
-.open {
-    display: block !important;
-
-}
+/*.open {*/
+/*    display: block !important;*/
+/*}*/
 
 .categoryNameDesktop3 {
     display: none;

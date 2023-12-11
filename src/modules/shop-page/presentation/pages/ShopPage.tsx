@@ -8,10 +8,13 @@ import FilterTypesDesktop from "../components/filtres/filter-types-desktop/Filte
 import {Columns} from "../redux/types";
 import FilterTitle from "../components/filtres/filter-title/FilterTitle";
 import Sorting from "../components/sorting/Sorting";
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {AppDispatch} from "../../../../general/redux/store";
 import RequestProducts from "../../domain/model/requestProducts";
 import {getProductsAsyncAction} from "../redux/asyncActions";
+import arrow from '../../../../images/shop_page/breadCrumbs.svg';
+import {closeClickFunction} from "./utils/const";
+import {priceArray} from "../components/filtres/utils/filterConst";
 
 const ShopPage = () => {
     const columns = useSelector<AppStore, Columns>(
@@ -20,9 +23,9 @@ const ShopPage = () => {
     //hooks
     const dispatch = useDispatch<AppDispatch>();
     const location = useLocation();
-    const [requestObject, setRequestObject]= useState<RequestProducts>({
-        category: "All Rooms",
-        price: "All Prices",
+    const [requestObject, setRequestObject] = useState<RequestProducts>({
+        category: "All rooms",
+        price: priceArray[0].title as string,
         sorting: "Default",
         page: 1
     });
@@ -38,7 +41,6 @@ const ShopPage = () => {
                 }
             }
         });
-        updatedRequestObject.page = 1;
         console.log(updatedRequestObject);
         dispatch(getProductsAsyncAction(updatedRequestObject));
     }, [location]);
@@ -51,54 +53,18 @@ const ShopPage = () => {
     }, [requestObject.page])
 
     useEffect(() => {
-        document.addEventListener('click', event => {
-            const listener = document.querySelectorAll('.listener');
-            const listenerHead = document.querySelectorAll('.listenerHead');
-
-            listener.forEach((item, index) => {
-                if (!event.composedPath().includes(item) && !event.composedPath().includes(listenerHead[index]) ) {
-                    item.classList.remove(style.open);
-                }
-            })
-        })
-    }, []);
-
-
-
-    const openCloseMenuHandler = (event: React.MouseEvent<HTMLElement>) => {
-        const eventTarget = event.target as Element;
-        const nextSibling = eventTarget.nextElementSibling as Element;
-        nextSibling.classList.toggle(style.open);
-    }
-
-    const chooseSortOrFiltration = (event: React.MouseEvent<HTMLElement>) => {
-        const eventTarget = event.target as HTMLElement;
-        const choice = eventTarget.textContent as string;
-        const listId = eventTarget.parentElement as HTMLDivElement;
-        const listHead = listId.previousElementSibling as HTMLDivElement;
-        const input = listHead.previousElementSibling as HTMLInputElement;
-        input.value = choice;
-
-        listId.childNodes.forEach((item: ChildNode) => {
-            if (item.textContent === listHead.textContent) {
-                let element = item as HTMLElement;
-                element.classList.remove(style.chosen);
-            }
-        })
-
-        // listHead.textContent = choice === 'Default' ? 'Sort by' : choice;
-        // filterAndSortingObject[input.name  as keyof FilerAndSorting] = choice;
-
-        eventTarget.classList.add(style.chosen);
-        listId.classList.toggle(style.open);
-
-    }
+        document.addEventListener('click', closeClickFunction);
+        return () => document.removeEventListener('click', closeClickFunction);
+    })
 
     return (
         <div className={style.shopPage}>
             <section className={style.pageHeader}>
-                {/*<BreadCrumbs>*/}
-                <p style={{fontSize: '14px', color: 'red'}}>Bread crumbs</p>
+                <div>
+                    <Link to={'/home'}>Home</Link>
+                    <img src={arrow} alt={'arrow'}/>
+                    <p>Shop</p>
+                </div>
                 <h1>Shop Page</h1>
                 <p>Let’s design the place you always imagined.</p>
             </section>
@@ -111,23 +77,18 @@ const ShopPage = () => {
                         </div>}
                 </div>
                 <FilterTypes columns={columns}
-                             openCloseMenuHandler={openCloseMenuHandler}
-                             chooseSortOrFiltration={chooseSortOrFiltration}
-                             // rooms={filterAndSortingObject.filterCateg}
-                             // price={filterAndSortingObject.filterPrice}
-                />
+                             category={requestObject.category}
+                             price={requestObject.price}/>
                 <Sorting columns={columns}
-                         openCloseMenuHandler={openCloseMenuHandler}
-                         chooseSortOrFiltration={chooseSortOrFiltration}
-                         // sorting={filterAndSortingObject.sort}
-                />
+                         sorting={requestObject.sorting}/>
             </section>
             <div className={style.categoryName}>
                 <p>All rooms</p>
             </div>
             <section className={columns.countDesktop === 3 ? style.display3filterTypes : ''}>
                 {columns.countDesktop === 3 &&
-                    <FilterTypesDesktop/>}
+                    <FilterTypesDesktop category={requestObject.category}
+                                        price={requestObject.price}/>}
                 <ProductsGallery requestObject={requestObject} setRequestObject={setRequestObject}/>
             </section>
         </div>

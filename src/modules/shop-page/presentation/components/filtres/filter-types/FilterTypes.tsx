@@ -2,28 +2,28 @@ import React from 'react';
 import style from "./filterTypes.module.css";
 import {categoriesArray, priceArray} from "../utils/filterConst";
 import {Columns} from "../../../redux/types";
+import {chooseSortOrFiltration, openCloseMenuHandler} from "../../../pages/utils/const";
 
 interface Props {
     columns: Columns;
-    openCloseMenuHandler: (event: React.MouseEvent<HTMLElement>) => void;
-    chooseSortOrFiltration: (event: React.MouseEvent<HTMLElement>) => void;
-
+    category: string,
+    price: string
 }
-const FilterTypes = ({columns, openCloseMenuHandler, chooseSortOrFiltration}: Props) => {
+const FilterTypes = ({columns, category, price}: Props) => {
 
     return (
             <div className={`${style.typesBlock} ${columns.countDesktop === 3 ? style.close : ''}`}
                  id={'types'}>
                 <div className={style.filterCategories}>
                     <p>Categories</p>
-                    <input type={'hidden'} name={'filterCateg'} id={'filterCat'} value={'All rooms'}/>
+                    <input type={'hidden'} name={'filterCateg'} id={'filterCat'} value={category}/>
                     <div className={`${style.filterCatHead} listenerHead`} id={'filterCatHead'}
                          onClick={openCloseMenuHandler}>
-                        All rooms
+                        {category}
                     </div>
                     <ul className={`${style.filterCatList} listener`} id={'filterCatList'}>
                         {categoriesArray.map(item => {
-                            return <li className={style.filterCatItem} onClick={chooseSortOrFiltration}
+                            return <li className={`${category === item && style.checked}`} onClick={chooseSortOrFiltration}
                                        key={item}>{item}</li>
                         })}
                     </ul>
@@ -31,16 +31,16 @@ const FilterTypes = ({columns, openCloseMenuHandler, chooseSortOrFiltration}: Pr
 
                 <div className={style.filterPrice}>
                     <p>Price</p>
-                    <input type={'hidden'} name={'filterPrice'} id={'filterPr'} value={'All price'}/>
+                    <input type={'hidden'} name={'filterPrice'} id={'filterPr'} value={price}/>
                     <div className={`${style.filterPriceHead} listenerHead`} id={'filterPriceHead'}
                          onClick={openCloseMenuHandler}>
-                        All prices
+                        {price}
                     </div>
                     <ul className={`${style.filterPriceList} listener`} id={'filterPrList'}>
-                        <li onClick={chooseSortOrFiltration}>All prices</li>
                         {priceArray.map(item => {
-                            return <li className={style.filterPriceItem} onClick={chooseSortOrFiltration}
-                                       key={item.min}>${item.max !== null ? item.min + '.00 - ' + item.max : item.min + '.00+'}</li>
+                            return <li className={`${price === item.title && style.checked}`}
+                                       onClick={chooseSortOrFiltration}
+                                       key={item.title}>{item.max !== null && '$'}{item.title + (item.title !== priceArray[priceArray.length - 1].title ? '' : '+')}</li>
                         })}
                     </ul>
                 </div>
