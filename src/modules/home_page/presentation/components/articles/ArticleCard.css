@@ -46,12 +46,11 @@
 }
 @media (min-width: 769px)
 {
-    /*.wrapper*/
-    /*{*/
-    /*    display: flex;*/
-    /*    flex-direction: row;*/
-    /*    align-items: flex-start;*/
-    /*}*/
+    .article-card-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
     .articles_image
     {
         width: 357px;
