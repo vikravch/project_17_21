@@ -38,6 +38,7 @@ const ShopPage = () => {
                 }
             }
         });
+        updatedRequestObject.page = 1;
         console.log(updatedRequestObject);
         dispatch(getProductsAsyncAction(updatedRequestObject));
     }, [location]);
@@ -49,16 +50,20 @@ const ShopPage = () => {
         }
     }, [requestObject.page])
 
-    document.addEventListener('click', event => {
-        const listener = document.querySelectorAll('.listener');
-        const listenerHead = document.querySelectorAll('.listenerHead');
+    useEffect(() => {
+        document.addEventListener('click', event => {
+            const listener = document.querySelectorAll('.listener');
+            const listenerHead = document.querySelectorAll('.listenerHead');
 
-        listener.forEach((item, index) => {
-            if (!event.composedPath().includes(item) && !event.composedPath().includes(listenerHead[index]) ) {
-                item.classList.remove(style.open);
-            }
+            listener.forEach((item, index) => {
+                if (!event.composedPath().includes(item) && !event.composedPath().includes(listenerHead[index]) ) {
+                    item.classList.remove(style.open);
+                }
+            })
         })
-    })
+    }, []);
+
+
 
     const openCloseMenuHandler = (event: React.MouseEvent<HTMLElement>) => {
         const eventTarget = event.target as Element;

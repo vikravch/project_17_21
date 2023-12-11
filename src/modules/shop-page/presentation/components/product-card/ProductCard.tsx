@@ -24,16 +24,10 @@ const ProductCard = ({columns, product}: Props) => {
     }
     const addToCart = () => {
         console.log(`"I was added to cart!" (C) Any product`);
-        const item = {
-            id: product.id,
-            color: 'red',
-            name: product.name,
-            picture: product.image,
-            price: product.actualPrice,
-            amount: 1,
-            subtotal: product.actualPrice,
-        }
-        dispatch(addItemCart(item));
+        dispatch(addItemCart({
+            product: product,
+            quantity: 1
+        }));
     }
     return (
         <div
