@@ -21,8 +21,8 @@ const Sorting = ({columns, sorting}: Props) => {
                 <ul className={`${style.sortList} listener`} id={'sortingList'}>
                     <li>Sort by</li>
                     {sort.map(item => {
-                        return <li className={`${style.sortItem} ${(sorting === item ) && style.chosen}`} key={item}
-                                   onClick={chooseSortOrFiltration}>{item}</li>
+                        return <li className={`${style.sortItem} ${(sorting === item.title ) && style.chosen}`} key={item.id}
+                                   onClick={chooseSortOrFiltration}>{item.title}</li>
                     })}
                 </ul>
             </div>

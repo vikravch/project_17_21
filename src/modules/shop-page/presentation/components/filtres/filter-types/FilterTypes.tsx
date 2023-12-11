@@ -3,8 +3,6 @@ import style from "./filterTypes.module.css";
 import {categoriesArray, priceArray} from "../utils/filterConst";
 import {Columns} from "../../../redux/types";
 import {chooseSortOrFiltration, openCloseMenuHandler} from "../../../pages/utils/const";
-import {useDispatch} from "react-redux";
-import {setCategory} from "../../../redux/filterAndSortingSlice";
 
 interface Props {
     columns: Columns;
@@ -12,8 +10,6 @@ interface Props {
     price: string
 }
 const FilterTypes = ({columns, category, price}: Props) => {
-
-    const dispatch = useDispatch();
 
     return (
             <div className={`${style.typesBlock} ${columns.countDesktop === 3 ? style.close : ''}`}
@@ -27,12 +23,9 @@ const FilterTypes = ({columns, category, price}: Props) => {
                     </div>
                     <ul className={`${style.filterCatList} listener`} id={'filterCatList'}>
                         {categoriesArray.map(item => {
-                            return <li className={`${category === item && style.checked}`}
-                                       onClick={(event) => {
-                                           chooseSortOrFiltration(event);
-                                           dispatch(setCategory(item));
-                                       }}
-                                       key={item}>{item}</li>
+                            return <li className={`${category === item.title && style.checked}`}
+                                       onClick={(event) => chooseSortOrFiltration(event)}
+                                       key={item.id}>{item.title}</li>
                         })}
                     </ul>
                 </div>
@@ -46,9 +39,10 @@ const FilterTypes = ({columns, category, price}: Props) => {
                     </div>
                     <ul className={`${style.filterPriceList} listener`} id={'filterPrList'}>
                         {priceArray.map(item => {
-                            return <li className={`${price === item.title && style.checked}`}
+                            return <li
+                                // className={`${price === item.title && style.checked}`}
                                        onClick={chooseSortOrFiltration}
-                                       key={item.title}>{item.max !== null && '$'}{item.title + (item.title !== priceArray[priceArray.length - 1].title ? '' : '+')}</li>
+                                       key={item.id}>{(item.min === null && 'All prices') || '$' + item.min + (item.max === null ? '+' : '-' + item.max)}</li>
                         })}
                     </ul>
                 </div>

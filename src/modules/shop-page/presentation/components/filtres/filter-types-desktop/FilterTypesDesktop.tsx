@@ -15,18 +15,18 @@ const FilterTypesDesktop = ({category, price}: Props) => {
                 <p>Categories</p>
                 <ul>
                 {categoriesArray.map(item =>
-                    <li className={`${item === category && style.checked}`} key={item}>{item}</li>
+                    <li className={`${item.title === category && style.checked}`} key={item.title}>{item.title}</li>
                 )}
                 </ul>
             </div>
             <div className={style.price}>
                 <p>Price</p>
                 {priceArray.map(item =>
-                    <label key={'label-' + item.title}>
-                        <input type={'radio'} value={item.min} id={item.title + '-price'} name={'price'}
-                               key={'input-' + item.title} defaultChecked={price === item.title} />
-                        <p key={'p-' + item.title}>{item.max !== null && '$'}{item.title + (item.title !== priceArray[priceArray.length - 1].title ? '' : '+')}</p>
-                        <div key={'checkbox-' + item.title} className={style.checkboxCheckmark}></div>
+                    <label key={'label-' + item.id}>
+                        <input type={'radio'} value={item.id} id={item.id + '-price'} name={'price'}
+                               key={'input-' + item.id} defaultChecked={price === "All prices"} />
+                        <p key={'p-' + item.id}>{(item.min === null && 'All prices') || '$' + item.min + (item.max === null ? '+' : '-' + item.max)}</p>
+                        <div key={'checkbox-' + item.id} className={style.checkboxCheckmark}></div>
                     </label>
                 )}
             </div>
