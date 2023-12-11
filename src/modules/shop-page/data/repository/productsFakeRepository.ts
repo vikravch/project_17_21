@@ -16,7 +16,7 @@ for (let i = 0; i < 12; i++) {
         isNew: true,
         rating: 4,
         color: 'white',
-        quantity: 10
+        amount: 10
     });
 }
 

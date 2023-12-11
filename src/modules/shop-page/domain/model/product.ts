@@ -12,7 +12,7 @@ export default class Product{
         public readonly isNew: boolean,
         public readonly rating: number,
         public readonly color: string,
-        public quantity: number,
+        public readonly amount: number,
     ) {
         this.id = id;
         this.name = name;
@@ -24,14 +24,14 @@ export default class Product{
         this.isNew = isNew;
         this.rating = rating;
         this.color = color;
-        this.quantity = quantity;
+        this.amount = amount;
     }
     static fromJson (json: string): Product {
         const obj = JSON.parse(json)
         const actualPrice = obj.discount === 0 ? null :  obj.price - (obj.price * obj.discount / 100);
         const currentData = new Date();
         const isNew = currentData.getTime() - obj.date.getTime() < millisecondsInMonth;
-        return new Product(obj.productId, obj.productName, obj.image, actualPrice, obj.price, obj.discount, obj.description, isNew, obj.rating, obj.color, obj.quantity);
+        return new Product(obj.productId, obj.productName, obj.image, actualPrice, obj.price, obj.discount, obj.description, isNew, obj.rating, obj.color, obj.amount);
     }
 }
 
