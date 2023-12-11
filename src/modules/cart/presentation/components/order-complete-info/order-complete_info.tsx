@@ -4,7 +4,7 @@ import {mockOrder} from "../../mock-api/data";
 const OrderCompleteInfo = () => {
   const items = mockOrder.items
   const orderTotalPrice = items.reduce((acc: number, i) => {
-    const price = +i.price * i.amount
+    const price = +i.price * i.quantity
     return acc += price
   }, 0)
   return (
@@ -17,7 +17,7 @@ const OrderCompleteInfo = () => {
         {items.map((el) => {
           return (<div key={el.id} className="img_wrapper">
             <div className="product_amount">
-              <p className="el_quantity">{el.amount}</p>
+              <p className="el_quantity">{el.quantity}</p>
             </div>
             <img className="order_info_img" src={el.picture} alt={el.name} />
           </div>)

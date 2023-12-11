@@ -18,7 +18,7 @@ export const data: TItem[] = [
     color: "Black",
     price: 19.00,
     picture: blackChair,
-    amount: 1
+    quantity: 1
   },
   {
     id: "2",
@@ -26,7 +26,7 @@ export const data: TItem[] = [
     color: "Red",
     price: 19.00,
     picture: redChair,
-    amount: 1
+    quantity: 1
   },
   {
     id: "3",
@@ -34,7 +34,7 @@ export const data: TItem[] = [
     color: "Gray",
     price: 299.00,
     picture: armChair,
-    amount: 1
+    quantity: 1
   },
   {
     id: "4",
@@ -42,7 +42,7 @@ export const data: TItem[] = [
     color: "Straw",
     price: 9.99,
     picture: basket,
-    amount: 1
+    quantity: 1
   },
   {
     id: "5",
@@ -50,7 +50,7 @@ export const data: TItem[] = [
     color: "Gold",
     price: 39.00,
     picture: lamp,
-    amount: 1
+    quantity: 1
   },
   {
     id: "6",
@@ -58,7 +58,7 @@ export const data: TItem[] = [
     color: "White/Wood",
     price: 39.00,
     picture: lamp2,
-    amount: 1
+    quantity: 1
   },
   {
     id: "7",
@@ -66,7 +66,7 @@ export const data: TItem[] = [
     color: "White/Gold",
     price: 19.00,
     picture: lamp3,
-    amount: 1
+    quantity: 1
   },
   {
     id: "8",
@@ -74,7 +74,7 @@ export const data: TItem[] = [
     color: "Beige",
     price: 3.99,
     picture: pillow,
-    amount: 1
+    quantity: 1
   },
   {
     id: "9",
@@ -82,7 +82,7 @@ export const data: TItem[] = [
     color: "White",
     price: 89.9,
     picture: sideTable,
-    amount: 1
+    quantity: 1
   },
 ]
 
@@ -95,7 +95,7 @@ export const mockOrder: TOrder = {
       color: "Gray",
       price: 299.00,
       picture: armChair,
-      amount: 1,
+      quantity: 1,
       subtotal: 299.00
     },
       {
@@ -104,7 +104,7 @@ export const mockOrder: TOrder = {
         color: "Straw",
         price: 9.99,
         picture: basket,
-        amount: 1,
+        quantity: 1,
         subtotal: 9.99
       },
     {
@@ -113,7 +113,7 @@ export const mockOrder: TOrder = {
       color: "Red",
       price: 19.00,
       picture: redChair,
-      amount: 1,
+      quantity: 1,
       subtotal: 19.00
     },
     {
@@ -122,7 +122,7 @@ export const mockOrder: TOrder = {
       color: "White",
       price: 89.99,
       picture: sideTable,
-      amount: 1,
+      quantity: 1,
       subtotal: 89.99
     },
     {
@@ -131,7 +131,7 @@ export const mockOrder: TOrder = {
       color: "White/Gold",
       price: 19.00,
       picture: lamp3,
-      amount: 1,
+      quantity: 1,
       subtotal: 19.00
     },
     ],

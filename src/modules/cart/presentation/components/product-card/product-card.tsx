@@ -8,7 +8,7 @@ import {TItem} from "../../types";
 import {useAppDispatch} from "../../../../../general/redux/hooks";
 import {decreaseAmount, deleteItemCart, increaseAmount} from "../../redux/cartSlice";
 
-const ProductCard = ({id, name, color, price, picture, amount, subtotal}: TItem) => {
+const ProductCard = ({id, name, color, price, picture, quantity, subtotal}: TItem) => {
 const location = useLocation();
 const dispatch = useAppDispatch();
 const removeItem = () => {
@@ -29,7 +29,7 @@ const productCard = <div className="product_card">
       <p className="item_color">Color: {color}</p>
       <div className="item_counter">
         <img onClick={minusItem} className="counter_icon" src={minusIcon} alt="minus icon"/>
-        <p className="item_quantity">{amount}</p>
+        <p className="item_quantity">{quantity}</p>
         <img onClick={plusItem} className="counter_icon" src={plusIcon} alt="plus icon"/>
       </div>
     </div>
@@ -52,7 +52,7 @@ const productCard = <div className="product_card">
   <div className="item_info2_wide">
     <div className="item_counter">
       <img onClick={minusItem} className="counter_icon" src={minusIcon} alt="minus icon"/>
-      <p className="item_quantity">{amount}</p>
+      <p className="item_quantity">{quantity}</p>
       <img onClick={plusItem} className="counter_icon" src={plusIcon} alt="plus icon"/>
     </div>
     <p className="price_wide">{`$${price}`}</p>
@@ -68,7 +68,7 @@ const productCard = <div className="product_card">
         <p className="item_color">Color: {color}</p>
         <div className="item_counter">
           <img onClick={minusItem} className="counter_icon" src={minusIcon} alt="minus icon"/>
-          <p className="item_quantity">{amount}</p>
+          <p className="item_quantity">{quantity}</p>
           <img onClick={plusItem} className="counter_icon" src={plusIcon} alt="plus icon"/>
         </div>
       </div>

@@ -28,7 +28,7 @@ const CartContain = () => {
             price={el.price}
             picture={el.picture}
             subtotal={el.subtotal}
-            amount={el.amount}/>)
+            quantity={el.quantity}/>)
       }
     </section>
   );

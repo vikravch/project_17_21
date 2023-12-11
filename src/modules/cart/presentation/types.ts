@@ -25,7 +25,7 @@ export type TItem = {
   price: number;
   subtotal?: number
   picture: string;
-  amount: number;
+  quantity: number;
 
 }
 export type TOrder = {

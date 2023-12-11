@@ -39,7 +39,7 @@ const OrderSummary = () => {
             color={el.color}
             price={el.price}
             picture={el.picture}
-            amount={el.amount}/>)}
+            quantity={el.quantity}/>)}
         </div>
         <div className="promo_input">
           <input className="promo_code_text"
