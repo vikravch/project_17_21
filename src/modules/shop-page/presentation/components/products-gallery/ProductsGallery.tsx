@@ -4,36 +4,33 @@ import ProductCard from "../product-card/ProductCard";
 import {useSelector} from "react-redux";
 import {AppStore} from "../../../../../general/redux/types";
 import {Columns, ShopPageState} from "../../redux/types";
+import RequestProducts from "../../../domain/model/requestProducts";
 
-type Devices = 'desktop' | 'mobile';
+interface Props {
+    requestObject: RequestProducts,
+    setRequestObject: React.Dispatch<React.SetStateAction<RequestProducts>>
+}
 
-const ProductsGallery = () => {
-    const {products, error} = useSelector<AppStore, ShopPageState>(
-        state => state.shopPage
-    );
+const ProductsGallery = ({requestObject, setRequestObject}: Props) => {
+
+    //styles
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
     );
-    const mobileRows = 4;
-    const desktopRows = 3;
-    const [device, setDevice] = useState<Devices>();
     const [gridStyles, setGridStyles] = useState({});
-    const [visibleProducts, setVisibleProducts] = useState<number>(0);
+    //products
+    const countProducts = 12;
 
-    if (window.innerWidth >= 768){
-        if (device!=='desktop')
-        setDevice('desktop');
-    }else{
-        if (device!=='mobile')
-        setDevice('mobile');
-    }
+    const {products, error} = useSelector<AppStore, ShopPageState>(
+        state => state.shopPage
+    );
+
 
     useEffect(() => {
         const handleResize = () => {
             setGridStyles({
                 gridTemplateColumns: `repeat(${window.innerWidth >= 768 ? columns.countDesktop : columns.countMobile}, 1fr)`,
             });
-            window.innerWidth >= 768 ? setDevice('desktop') : setDevice('mobile');
         };
         handleResize();
         window.addEventListener('resize', handleResize);
@@ -41,27 +38,26 @@ const ProductsGallery = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, [columns]);
-    useEffect(()=>{
-        setVisibleProducts((device === 'desktop' ? desktopRows * columns.countDesktop : mobileRows * columns.countMobile));
-    },[null])
 
     return (
-        <div className={style.wrapper  + " " + style['desktop' + columns.countDesktop]}>
+        <div className={style.wrapper + " " + style['desktop' + columns.countDesktop]}>
             <div className={style.productGallery} style={gridStyles}>
                 {
                     products ?
-                        products.slice(0, visibleProducts)
+                        products.slice(0, requestObject.page * countProducts) //mb remove countProducts!
                             .map((product, index) => (
-                            <ProductCard product={product}
-                                         columns={columns}
-                                         key={`product_${index}_${product.name}`}
-                            />
-                        )) :
+                                <ProductCard product={product}
+                                             columns={columns}
+                                             key={`product_${index}_${product.name}`}
+                                />
+                            )) :
                         <p>{error}</p>
                 }
             </div>
-            {products && products.length > visibleProducts
-                && <button className={style.showMore} onClick={()=>{setVisibleProducts(prevState => prevState +  (device === 'desktop' ? desktopRows * columns.countDesktop : mobileRows * columns.countMobile))}}>Show more</button>}
+            <button className={style.showMore} onClick={() => {
+                setRequestObject(prevState => ({...prevState, page: ++requestObject.page}))
+            }}>Show more
+            </button>
         </div>
     );
 };

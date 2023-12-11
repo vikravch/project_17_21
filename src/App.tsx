@@ -6,11 +6,10 @@ import NewsletterSubscribe from "./general/components/newsletter_subscribe/Newsl
 import Footer from "./general/components/footer/Footer";
 import ShopPage from "./modules/shop-page/presentation/pages/ShopPage";
 import Blog from "./modules/blog/page/Blog";
+import CartPage from "./modules/cart/presentation/pages/cart-page";
+import CheckoutPage from "./modules/cart/presentation/pages/checkout-page";
+import CompletePage from "./modules/cart/presentation/pages/complete-page";
 
-import CartPage from "./modules/cart/pages/cart-page";
-import CheckoutPage from "./modules/cart/pages/checkout-page";
-
-import CompletePage from "./modules/cart/pages/complete-page";
 import HomePage from './modules/home_page/presentation/page/HomePage';
 import Article from "./modules/blog/presentation/components/Article/Article";
 import Account from "./modules/account/pages/Account";
@@ -26,6 +25,7 @@ function App() {
                 <Routes>
                     <Route path="/home" element={<HomePage/>}/>
                     <Route path="/shop" element={<ShopPage/>}/>
+                    <Route path="/shop/?:filter" element={<ShopPage/>}/>
                     <Route path="/cart" element={<CartPage/>}/>
                     <Route path="/cart/checkout" element={<CheckoutPage/>}/>
                     <Route path="/cart/checkout/complete" element={<CompletePage/>}/>

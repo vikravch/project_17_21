@@ -1,5 +1,6 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {useUseCases} from "../../../../general/di/service_locator";
+import RequestProducts from "../../domain/model/requestProducts";
 import Product from "../../domain/model/product";
 
 export const getAllProductsAsyncAction = createAsyncThunk<Product[]>(
@@ -10,6 +11,18 @@ export const getAllProductsAsyncAction = createAsyncThunk<Product[]>(
             return await getAllProducts();
         } catch (error) {
             throw error;
+        }
+    }
+);
+
+export const getProductsAsyncAction = createAsyncThunk<Product[], RequestProducts>(
+    'shop-page/getProducts',
+    async (requestObject: RequestProducts, thunkAPI) => {
+        const {getProducts} = useUseCases();
+        try {
+            return await getProducts(requestObject);
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error);
         }
     }
 );

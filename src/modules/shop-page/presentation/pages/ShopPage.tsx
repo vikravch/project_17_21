@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import style from './shopPage.module.css';
 import ProductsGallery from "../components/products-gallery/ProductsGallery";
 import {useDispatch, useSelector} from "react-redux";
@@ -6,67 +6,65 @@ import {AppStore} from "../../../../general/redux/types";
 import FilterTypes from "../components/filtres/filter-types/FilterTypes";
 import FilterTypesDesktop from "../components/filtres/filter-types-desktop/FilterTypesDesktop";
 import {Columns} from "../redux/types";
-import {getAllProductsAsyncAction} from "../redux/asyncActions";
 import FilterTitle from "../components/filtres/filter-title/FilterTitle";
 import Sorting from "../components/sorting/Sorting";
+import {Link, useLocation} from "react-router-dom";
 import {AppDispatch} from "../../../../general/redux/store";
-import {useUseCases} from "../../../../general/di/service_locator";
+import RequestProducts from "../../domain/model/requestProducts";
+import {getProductsAsyncAction} from "../redux/asyncActions";
+import arrow from '../../../../images/shop_page/breadCrumbs.svg';
+import {closeClickFunction} from "./utils/const";
+import {priceArray} from "../components/filtres/utils/filterConst";
 
 const ShopPage = () => {
-
-    const dispatch = useDispatch<AppDispatch>();
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
     );
+    //hooks
+    const dispatch = useDispatch<AppDispatch>();
+    const location = useLocation();
+    const [requestObject, setRequestObject] = useState<RequestProducts>({
+        category: "All rooms",
+        price: priceArray[0].title as string,
+        sorting: "Default",
+        page: 1
+    });
+    const searchParams = new URLSearchParams(location.search);
+
+    useEffect(() => {
+        let updatedRequestObject: RequestProducts = { ...requestObject };
+        searchParams.forEach((value, key) => {
+            if (Object.prototype.hasOwnProperty.call(requestObject, key)) {
+                if (updatedRequestObject[key as keyof RequestProducts] !== value) {
+                    (updatedRequestObject as any)[key] = value;
+                    setRequestObject(updatedRequestObject);
+                }
+            }
+        });
+        console.log(updatedRequestObject);
+        dispatch(getProductsAsyncAction(updatedRequestObject));
+    }, [location]);
 
     useEffect(()=>{
-        dispatch(getAllProductsAsyncAction());
-    },[])
+        if (requestObject.page !== 1){
+            console.log(requestObject);
+            dispatch(getProductsAsyncAction(requestObject));
+        }
+    }, [requestObject.page])
 
-    useUseCases().getAllProducts().then()
-    document.addEventListener('click', event => {
-        const listener = document.querySelectorAll('.listener');
-        const listenerHead = document.querySelectorAll('.listenerHead');
-
-        listener.forEach((item, index) => {
-            if (!event.composedPath().includes(item) && !event.composedPath().includes(listenerHead[index]) ) {
-                item.classList.remove(style.open);
-            }
-        })
+    useEffect(() => {
+        document.addEventListener('click', closeClickFunction);
+        return () => document.removeEventListener('click', closeClickFunction);
     })
-
-    const openCloseMenuHandler = (event: React.MouseEvent<HTMLElement>) => {
-        const eventTarget = event.target as Element;
-        const nextSibling = eventTarget.nextElementSibling as Element;
-        nextSibling.classList.toggle(style.open);
-    }
-
-    const chooseSortOrFiltration = (event: React.MouseEvent<HTMLElement>) => {
-        const eventTarget = event.target as Element;
-        const parentElement = eventTarget.parentElement as HTMLElement;
-        const choice = eventTarget.textContent;
-        const listId = eventTarget.parentElement as HTMLElement;
-        const listHead = listId.previousElementSibling as HTMLElement;
-        const input = listHead.previousElementSibling as HTMLInputElement;
-        input.value = choice as string;
-
-        listId.childNodes.forEach((item: ChildNode) => {
-            if (item.textContent === listHead.textContent) {
-                let element = item as HTMLElement;
-                element.classList.remove(style.chosen);
-            }
-        })
-        listHead.textContent = choice;
-        eventTarget.classList.add(style.chosen);
-        parentElement.classList.toggle(style.open);
-
-    }
 
     return (
         <div className={style.shopPage}>
             <section className={style.pageHeader}>
-                {/*<BreadCrumbs>*/}
-                <p style={{fontSize: '14px', color: 'red'}}>Bread crumbs</p>
+                <div>
+                    <Link to={'/home'}>Home</Link>
+                    <img src={arrow} alt={'arrow'}/>
+                    <p>Shop</p>
+                </div>
                 <h1>Shop Page</h1>
                 <p>Let’s design the place you always imagined.</p>
             </section>
@@ -79,19 +77,19 @@ const ShopPage = () => {
                         </div>}
                 </div>
                 <FilterTypes columns={columns}
-                             openCloseMenuHandler={openCloseMenuHandler}
-                             chooseSortOrFiltration={chooseSortOrFiltration}/>
+                             category={requestObject.category}
+                             price={requestObject.price}/>
                 <Sorting columns={columns}
-                         openCloseMenuHandler={openCloseMenuHandler}
-                         chooseSortOrFiltration={chooseSortOrFiltration}/>
+                         sorting={requestObject.sorting}/>
             </section>
             <div className={style.categoryName}>
                 <p>All rooms</p>
             </div>
             <section className={columns.countDesktop === 3 ? style.display3filterTypes : ''}>
                 {columns.countDesktop === 3 &&
-                    <FilterTypesDesktop/>}
-                <ProductsGallery/>
+                    <FilterTypesDesktop category={requestObject.category}
+                                        price={requestObject.price}/>}
+                <ProductsGallery requestObject={requestObject} setRequestObject={setRequestObject}/>
             </section>
         </div>
     );

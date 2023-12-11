@@ -1,38 +1,26 @@
 import React, {useState} from 'react';
-import percentIcon from '../../../../../icons/ticket-percent.png'
-import {mockOrder} from "../../mock-api/data";
 import './before-checkout.css'
 import {Link} from "react-router-dom";
+import CartCoupon from "../cart-coupon/cart-coupon";
+import {useAppSelector} from "../../../../../general/redux/hooks";
 
 const BeforeCheckout = () => {
   const [selectedOption, setSelectedOption] = useState('free');
-
+  const {totalPrice, subtotalPrice} = useAppSelector(state => state.cart);
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if(event.target) {
       setSelectedOption(event.target.value);
     }
   }
-  const orderItems = mockOrder.items;
-  const orderTotalPrice = orderItems.reduce((acc: number, i) => {
-    const price = +i.price.replace('$', '')
-    return acc += price
-  }, 0)
+
   const onSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
   }
   return (
     <section className="container_before_checkout">
-      <div className="coupon_container">
-        <p className="coupon_header_item">Have a coupon?</p>
-        <p className="coupon_subheader_item">Add your code for an instant cart discount</p>
-        <div className="coupon_input">
-          <div className="coupon_code_icon">
-            <img src={percentIcon} alt="percent icon"/>
-            <input type="text" placeholder={"Coupon Code"} className="code_input" />
-          </div>
-          <button type="submit" className="apply_button">Apply</button>
-        </div>
+      <div className="isShow">
+        <CartCoupon/>
       </div>
       <form className="cart_summary">
         <p className="cart_summary_header">Cart summary</p>
@@ -62,7 +50,7 @@ const BeforeCheckout = () => {
             <span className="custom_radio"></span>
             Express shipping</label>
           </div>
-          <p className="radio_descr">+$15.00</p>
+          <p className="radio_descr">$15.00</p>
         </div >
         <div className="cart_summary_delivery">
           <div>
@@ -80,11 +68,11 @@ const BeforeCheckout = () => {
         </div>
         <div className="cart_subtotal">
           <p>Subtotal</p>
-          <p className="subtotal_price">${orderTotalPrice}</p>
+          <p className="subtotal_price">{`$${subtotalPrice}`}</p>
         </div>
         <div className="cart_total">
           <p>Total</p>
-          <p>${orderTotalPrice}</p>
+          <p>{`$${totalPrice}`}</p>
         </div>
         <Link to={"/cart/checkout"}>
           <div className="button_container" >
@@ -92,7 +80,9 @@ const BeforeCheckout = () => {
           </div>
         </Link>
       </form>
+
     </section>
+
   );
 };
 
