@@ -1,93 +1,71 @@
-.article-card-wrapper
-{
+.article-card-wrapper {
+    margin-bottom: 16px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: wrap;
 }
-.articles_image
-{
-    width: 311px;
-    height: 283px;
-    flex-shrink: 0;
+
+.articles_image {
+    width: 100%;
 }
-.article_title
-{
-    width: 311px;
-    color: #23262F;
-    font-feature-settings: 'clig' off, 'liga' off;
-    /* Body 2 (Semi) */
-    font-family: Inter;
-    font-size: 16px;
+
+.article_title {
+    width: 100%;
+    color: var(--regular-text);
+    font-family: var(--font-primary);
+    font-size: 1rem;
     font-style: normal;
     font-weight: 600;
-    line-height: 26px; /* 162.5% */
+    line-height: 1.6rem;
 }
 
 
+.shop_now_link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 1px solid var(--primary-dark);
+    width: fit-content;
+}
 
-.read_more_button
-{
-    color: #141718;
-    font-feature-settings: 'clig' off, 'liga' off;
-    /* Button XS */
-    font-family: Inter;
-    font-size: 14px;
+.shop_now_btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 24px; /* 171.429% */
+    line-height: 1.5rem;
+    letter-spacing: -0.4px;
 }
-.img-info
-{
+
+.img-info {
     display: flex;
-    width: 311px;
+    width: 100%;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
 }
-@media (min-width: 769px)
-{
-    .article-card-wrapper
-    {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+
+@media (min-width: 769px) {
+    .article-card-wrapper {
+        margin-left: 25px;
     }
-    .articles_image
-    {
-        width: 357px;
-        height: 325px;
-        flex-shrink: 0;
-    }
-    .article_title
-    {
-        width: 352px;
-        /* Headline 7 */
-        font-family: Poppins;
-        font-size: 20px;
+
+    .article_title {
+        width: 100%;
+        font-family: var(--font-secondary);
+        font-size: 1.25rem;
         font-style: normal;
         font-weight: 500;
-        line-height: 28px; /* 140% */
+        line-height: 1.75rem;
     }
-    .read_more_button
-    {
 
+    .shop_now_btn {
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
 
-        /* Button S */
-        font-family: Inter;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 28px; /* 175% */
-        letter-spacing: -0.4px;
-    }
-    .img-info
-    {
-        display: flex;
-        width: 352px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
 }
 
 

@@ -15,8 +15,8 @@ const SliderSection = () => {
         <div className={'slider_section_wrapper'}>
             <div className={'slider_section'}>
                 <div className={'image_slider'}>
-                    <img className={'slider_img_big'} src={sliderImgTestArr[pictureIndex]} alt="big slider image"/>
-                    <img className={'slider_img_small'} src={sliderImgPlaceholderSmall} alt="small slider image"/>
+                    <img className={'slider_img_big'} src={sliderImgTestArr[pictureIndex]} alt={"big slider image"}/>
+                    <img className={'slider_img_small'} src={sliderImgPlaceholderSmall} alt={"small slider image"}/>
                     <button className={'img_slider_btn_left'} onClick={()=>dispatch(changePicture((pictureIndex > 0 ? pictureIndex-1 : sliderImgTestArr.length-1)))}>
                         <SliderArrowLeft />
                     </button>
@@ -25,7 +25,7 @@ const SliderSection = () => {
                     </button>
                     <div className={'navigation_dots'}>
                         {sliderImgTestArr.map((item, index) =>
-                            index != pictureIndex? <div className={'dot'}></div>:<div className={'current_dot'}></div>
+                            index != pictureIndex? <div key={index} className={'dot'}></div>:<div  key={index} className={'current_dot'}></div>
                         )}
                     </div>
                 </div>
