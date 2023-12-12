@@ -10,79 +10,132 @@ import sideTable from "../../../../images/side-table.png";
 import {IBonus, TItem, TOption, TOrder} from "../types";
 
 
-
 export const data: TItem[] = [
   {
     id: "1",
     name: "Tray Table",
     color: "Black",
-    price: 19.00,
-    picture: blackChair,
-    quantity: 1
+    actualPrice: 19.00,
+    image: blackChair,
+    quantity: 1,
+    fullPrice: 0,
+    sale: 0,
+    isNew: false,
+    rating: 0,
+    description: '',
+    amount: 0
   },
   {
     id: "2",
     name: "Tray Table",
     color: "Red",
-    price: 19.00,
-    picture: redChair,
-    quantity: 1
+    actualPrice: 19.00,
+    image: redChair,
+    quantity: 1,
+    fullPrice: 0,
+    sale: 0,
+    isNew: false,
+    rating: 0,
+    description: '',
+    amount: 0
   },
   {
     id: "3",
     name: "Luxury Sofa",
     color: "Gray",
-    price: 299.00,
-    picture: armChair,
-    quantity: 1
+    actualPrice: 299.00,
+    image: armChair,
+    quantity: 1,
+    fullPrice: 0,
+    sale: 0,
+    isNew: false,
+    rating: 0,
+    description: '',
+    amount: 0
   },
   {
     id: "4",
     name: "Bamboo Basket",
     color: "Straw",
-    price: 9.99,
-    picture: basket,
-    quantity: 1
+    actualPrice: 9.99,
+    image: basket,
+    quantity: 1,
+    fullPrice: 0,
+    sale: 0,
+    isNew: false,
+    rating: 0,
+    description: '',
+    amount: 0
   },
   {
     id: "5",
     name: "Table Lamp",
     color: "Gold",
-    price: 39.00,
-    picture: lamp,
-    quantity: 1
+    actualPrice: 39.00,
+    image: lamp,
+    quantity: 1,
+    fullPrice: 0,
+    sale: 0,
+    isNew: false,
+    rating: 0,
+    description: '',
+    amount: 0
   },
   {
     id: "6",
     name: "Lamp",
     color: "White/Wood",
-    price: 39.00,
-    picture: lamp2,
-    quantity: 1
+    actualPrice: 39.00,
+    image: lamp2,
+    quantity: 1,
+    fullPrice: 0,
+    sale: 0,
+    isNew: false,
+    rating: 0,
+    description: '',
+    amount: 0
   },
   {
     id: "7",
     name: "Table Lamp",
     color: "White/Gold",
-    price: 19.00,
-    picture: lamp3,
-    quantity: 1
+    actualPrice: 19.00,
+    image: lamp3,
+    quantity: 1,
+    fullPrice: 0,
+    sale: 0,
+    isNew: false,
+    rating: 0,
+    description: '',
+    amount: 0
   },
   {
     id: "8",
     name: "Light Beige Pillow",
     color: "Beige",
-    price: 3.99,
-    picture: pillow,
-    quantity: 1
+    actualPrice: 3.99,
+    image: pillow,
+    quantity: 1,
+    fullPrice: 0,
+    sale: 0,
+    isNew: false,
+    rating: 0,
+    description: '',
+    amount: 0
   },
   {
     id: "9",
     name: "White Drawer unit",
     color: "White",
-    price: 89.9,
-    picture: sideTable,
-    quantity: 1
+    actualPrice: 89.9,
+    image: sideTable,
+    quantity: 1,
+    fullPrice: 0,
+    sale: 0,
+    isNew: false,
+    rating: 0,
+    description: '',
+    amount: 0
   },
 ]
 
@@ -93,46 +146,76 @@ export const mockOrder: TOrder = {
       id: "3",
       name: "Luxury Sofa",
       color: "Gray",
-      price: 299.00,
-      picture: armChair,
+      actualPrice: 299.00,
+      image: armChair,
       quantity: 1,
-      subtotal: 299.00
+      subtotal: 299.00,
+      fullPrice: 0,
+      sale: 0,
+      isNew: false,
+      rating: 0,
+      description: '',
+      amount: 0
     },
       {
         id: "4",
         name: "Bamboo Basket",
         color: "Straw",
-        price: 9.99,
-        picture: basket,
+        actualPrice: 9.99,
+        image: basket,
         quantity: 1,
-        subtotal: 9.99
+        subtotal: 9.99,
+        fullPrice: 0,
+        sale: 0,
+        isNew: false,
+        rating: 0,
+        description: '',
+        amount: 0
       },
     {
       id: "2",
       name: "Tray Table",
       color: "Red",
-      price: 19.00,
-      picture: redChair,
+      actualPrice: 19.00,
+      image: redChair,
       quantity: 1,
-      subtotal: 19.00
+      subtotal: 19.00,
+      fullPrice: 0,
+      sale: 0,
+      isNew: false,
+      rating: 0,
+      description: '',
+      amount: 0
     },
     {
       id: "9",
       name: "White Drawer unit",
       color: "White",
-      price: 89.99,
-      picture: sideTable,
+      actualPrice: 89.99,
+      image: sideTable,
       quantity: 1,
-      subtotal: 89.99
+      subtotal: 89.99,
+      fullPrice: 0,
+      sale: 0,
+      isNew: false,
+      rating: 0,
+      description: '',
+      amount: 0
     },
     {
       id: "7",
       name: "Table Lamp",
       color: "White/Gold",
-      price: 19.00,
-      picture: lamp3,
+      actualPrice: 19.00,
+      image: lamp3,
       quantity: 1,
-      subtotal: 19.00
+      subtotal: 19.00,
+      fullPrice: 0,
+      sale: 0,
+      isNew: false,
+      rating: 0,
+      description: '',
+      amount: 0
     },
     ],
   date: "October 19, 2023",

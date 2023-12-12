@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import percentIcon from "../../../../../icons/ticket-percent.png";
 import {codes, mockOrder} from "../../mock-api/data";
 import "./order-summary.css";
-import ProductCard from "../product-card/product-card";
+import CartProductCard from "../cart-product-card/cart-product-card";
 
 const OrderSummary = () => {
 
@@ -32,14 +32,21 @@ const OrderSummary = () => {
       <div className="order_summary">
         <p className="summary_header">Order summary</p>
         <div className="order_summary_cards">
-          {items.map(el => <ProductCard
+          {items.map(el => <CartProductCard
             key={el.id}
             id={el.id}
             name={el.name}
             color={el.color}
-            price={el.price}
-            picture={el.picture}
-            quantity={el.quantity}/>)}
+            actualPrice={el.actualPrice}
+            image={el.image}
+            subtotal={el.subtotal}
+            quantity={el.quantity}
+            amount={el.amount}
+            description={el.description}
+            fullPrice={el.fullPrice}
+            isNew={el.isNew}
+            rating={el.rating}
+            sale={el.sale}/>)}
         </div>
         <div className="promo_input">
           <input className="promo_code_text"

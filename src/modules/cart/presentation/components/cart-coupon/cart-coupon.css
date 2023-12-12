@@ -28,6 +28,10 @@
   justify-content: space-between;
   border: 1px solid var(--regular-grey);
 }
+/*.coupon_icon_wrapper {*/
+/*  width: 24px;*/
+/*  height: 24px;*/
+/*}*/
 .coupon_code_icon {
   display: flex;
   gap: 8px;

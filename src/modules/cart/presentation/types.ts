@@ -21,13 +21,29 @@ label: string;
 export type TItem = {
   id: string;
   name: string;
+  image: string;
+  actualPrice: number;
+  fullPrice: number;
+  sale: number;
+  description: string;
+  isNew: boolean;
+  rating: number;
   color: string;
-  price: number;
+  amount: number;
   subtotal?: number
-  picture: string;
   quantity: number;
-
 }
+// public readonly id: string,
+//   public readonly name: string,
+//   public readonly image: string,
+//   public readonly actualPrice: number | null,
+//   public readonly fullPrice: number,
+//   public readonly sale: number,
+//   public readonly description: string,
+//   public readonly isNew: boolean,
+//   public readonly rating: number,
+//   public readonly color: string,
+//   public readonly amount: number,
 export type TOrder = {
   orderNumber: string;
   items: TItem[];

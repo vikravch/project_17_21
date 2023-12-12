@@ -2,13 +2,13 @@ import React from 'react';
 import closeIcon from '../../../../../icons/close_icon.png'
 import minusIcon from '../../../../../icons/minus_icon.png'
 import plusIcon from '../../../../../icons/plus_icon.png'
-import './product-card.css'
+import './cart-product-card.css'
 import {useLocation} from "react-router";
 import {TItem} from "../../types";
 import {useAppDispatch} from "../../../../../general/redux/hooks";
 import {decreaseAmount, deleteItemCart, increaseAmount} from "../../redux/cartSlice";
 
-const ProductCard = ({id, name, color, price, picture, quantity, subtotal}: TItem) => {
+const CartProductCard = ({id, name, color, actualPrice, image, quantity, subtotal}: TItem) => {
 const location = useLocation();
 const dispatch = useAppDispatch();
 const removeItem = () => {
@@ -22,7 +22,7 @@ const minusItem = () => {
 }
 
 const productCard = <div className="product_card">
-  <img className="item_img item_hide_900" src={picture} alt="product"/>
+  <img className="item_img item_hide_900" src={image} alt="product"/>
   <div className="item_description item_hide_900">
     <div className="item_info1">
       <p className="item_title">{name}</p>
@@ -34,12 +34,12 @@ const productCard = <div className="product_card">
       </div>
     </div>
     <div className="item_info2">
-      <p className="item_price">{`$${price}`}</p>
+      <p className="item_price">{`$${actualPrice}`}</p>
       <img className="item_closeIcon" src={closeIcon} alt="close icon"/>
     </div>
   </div>
   <div className="item_image_descr_wide">
-    <img className="item_img_wide" src={picture} alt="product"/>
+    <img className="item_img_wide" src={image} alt="product"/>
     <div className="item_info_wide">
       <p className="item_title_wide">{name}</p>
       <p className="item_color_wide">Color: {color}</p>
@@ -55,13 +55,13 @@ const productCard = <div className="product_card">
       <p className="item_quantity">{quantity}</p>
       <img onClick={plusItem} className="counter_icon" src={plusIcon} alt="plus icon"/>
     </div>
-    <p className="price_wide">{`$${price}`}</p>
+    <p className="price_wide">{`$${actualPrice}`}</p>
     <p className="subtotal_wide">{`$${subtotal}`}</p>
   </div>
 </div>
 
   const productCardCheckout = <div className="product_card">
-    <img className="item_img" src={picture} alt="product"/>
+    <img className="item_img" src={image} alt="product"/>
     <div className="item_description">
       <div className="item_info1">
         <p className="item_title">{name}</p>
@@ -73,7 +73,7 @@ const productCard = <div className="product_card">
         </div>
       </div>
     </div>
-    <p className="product_price">{`$${price}`}</p>
+    <p className="product_price">{`$${actualPrice}`}</p>
   </div>
 
   if(location.pathname === '/cart')
@@ -84,7 +84,7 @@ const productCard = <div className="product_card">
     return null;
 };
 
-export default ProductCard;
+export default CartProductCard;
 
 // <div className="product_card">
 //   <img className="item_img" src={picture} alt="image of a product"/>
