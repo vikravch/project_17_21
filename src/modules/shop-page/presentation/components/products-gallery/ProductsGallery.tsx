@@ -44,7 +44,7 @@ const ProductsGallery = ({requestObject, setRequestObject}: Props) => {
             <div className={style.productGallery} style={gridStyles}>
                 {
                     products ?
-                        products.slice(0, requestObject.page * countProducts)
+                        products.slice(0, requestObject.page * countProducts) //mb remove countProducts!
                             .map((product, index) => (
                                 <ProductCard product={product}
                                              columns={columns}

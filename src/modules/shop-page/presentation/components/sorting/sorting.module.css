@@ -62,11 +62,6 @@
     font-weight: 600;
 }
 
-.chosen {
-    font-weight: 600;
-    color: black !important;
-}
-
 .sortList > li:not(:first-child) {
     padding-top: 20px;
 }
@@ -123,7 +118,7 @@
     }
 
     .sortList > li {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .sortList > li:not(:first-child) {
@@ -133,6 +128,11 @@
     .sortList:last-child {
         padding-bottom: 0;
     }
+}
+
+.chosen {
+    font-weight: 600;
+    color: black !important;
 }
 
 @media screen and (min-width: 817px) {

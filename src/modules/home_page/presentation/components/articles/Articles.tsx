@@ -37,8 +37,7 @@ const Articles = () => {
         <div className={'articles_section'}>
             <div className={'title_section'}>
                 <h6 className={'articles_title'}>Articles</h6>
-                <button className={'read_more_button'}>More Articles
-                    <SliderArrowRight/></button>
+                <button className={'read_more_button'}>More Articles <SliderArrowRight /></button>
             </div>
             <div className={'cards_block'}>
                 {articles.map((article, index) => (

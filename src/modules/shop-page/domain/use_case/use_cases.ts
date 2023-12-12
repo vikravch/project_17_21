@@ -1,7 +1,7 @@
-import ProductForGalleries from "../model/productForGalleries";
 import RequestProducts from "../model/requestProducts";
+import Product from "../model/product";
 
 export type ProductsUseCases = {
-    getAllProducts: () => Promise<ProductForGalleries[]>,
-    getProducts: (requestObject: RequestProducts) => Promise<ProductForGalleries[]>
+    getAllProducts: () => Promise<Product[]>,
+    getProducts: (requestObject: RequestProducts) => Promise<Product[]>
 }
