@@ -6,8 +6,8 @@ import {chooseSortOrFiltration, openCloseMenuHandler} from "../../../pages/utils
 
 interface Props {
     columns: Columns;
-    category: string,
-    price: string
+    category: string | null,
+    price: string | null
 }
 const FilterTypes = ({columns, category, price}: Props) => {
 
@@ -16,10 +16,10 @@ const FilterTypes = ({columns, category, price}: Props) => {
                  id={'types'}>
                 <div className={style.filterCategories}>
                     <p>Categories</p>
-                    <input type={'hidden'} name={'filterCateg'} id={'filterCat'} value={category}/>
+                    <input type={'hidden'} name={'filterCateg'} id={'filterCat'} value={category === null ? categoriesArray[0].title : category}/>
                     <div className={`${style.filterCatHead} listenerHead`} id={'filterCatHead'}
                          onClick={openCloseMenuHandler}>
-                        {category}
+                        {category === null ? categoriesArray[0].title : category}
                     </div>
                     <ul className={`${style.filterCatList} listener`} id={'filterCatList'}>
                         {categoriesArray.map(item => {
@@ -32,10 +32,10 @@ const FilterTypes = ({columns, category, price}: Props) => {
 
                 <div className={style.filterPrice}>
                     <p>Price</p>
-                    <input type={'hidden'} name={'filterPrice'} id={'filterPr'} value={price}/>
+                    <input type={'hidden'} name={'filterPrice'} id={'filterPr'} value={price === null ? priceArray[0].id : price}/>
                     <div className={`${style.filterPriceHead} listenerHead`} id={'filterPriceHead'}
                          onClick={openCloseMenuHandler}>
-                        {price}
+                        {price === null ? priceArray[0].id : price}
                     </div>
                     <ul className={`${style.filterPriceList} listener`} id={'filterPrList'}>
                         {priceArray.map(item => {

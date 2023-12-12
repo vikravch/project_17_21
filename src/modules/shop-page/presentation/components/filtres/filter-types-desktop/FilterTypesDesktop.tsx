@@ -3,8 +3,8 @@ import style from './filterTypesDesktop.module.css'
 import {categoriesArray, priceArray} from "../utils/filterConst";
 
 interface Props {
-    category: string,
-    price: string
+    category: string | null,
+    price: string | null
 }
 
 const FilterTypesDesktop = ({category, price}: Props) => {
@@ -15,7 +15,7 @@ const FilterTypesDesktop = ({category, price}: Props) => {
                 <p>Categories</p>
                 <ul>
                 {categoriesArray.map(item =>
-                    <li className={`${item.title === category && style.checked}`} key={item.title}>{item.title}</li>
+                    <li className={`${((item.title === category) || (category === null && item.id === 0))  && style.checked}`} key={item.title}>{item.title}</li>
                 )}
                 </ul>
             </div>
