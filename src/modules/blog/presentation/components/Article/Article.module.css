@@ -1,9 +1,9 @@
-h2
+.h2
 {
     font-size: 3em;
     margin: 0;
 }
-img
+.images
 {
     width: 100%;
 }
@@ -63,7 +63,7 @@ img
     {
         width: 311px;
     }
-    h2
+    .h2
     {
         font-size: 28px;
     }
@@ -71,7 +71,7 @@ img
     {
         width: 311px;
     }
-    img
+    .images
     {
         width: 311px;
     }
