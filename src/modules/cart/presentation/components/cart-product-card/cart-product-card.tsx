@@ -35,7 +35,7 @@ const productCard = <div className="product_card">
     </div>
     <div className="item_info2">
       <p className="item_price">{`$${actualPrice}`}</p>
-      <img className="item_closeIcon" src={closeIcon} alt="close icon"/>
+      <img onClick={removeItem} className="item_closeIcon" src={closeIcon} alt="close icon"/>
     </div>
   </div>
   <div className="item_image_descr_wide">
