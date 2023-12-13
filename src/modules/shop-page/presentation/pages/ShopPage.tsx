@@ -29,9 +29,9 @@ const ShopPage = () => {
         sorting: "Default",
         page: 1
     });
-    const searchParams = new URLSearchParams(location.search);
 
     useEffect(() => {
+        const searchParams = new URLSearchParams(location.search);
         let updatedRequestObject: RequestProducts = { ...requestObject };
         searchParams.forEach((value, key) => {
             if (Object.prototype.hasOwnProperty.call(requestObject, key)) {

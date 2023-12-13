@@ -1,6 +1,6 @@
 import React from 'react';
 import Badge from './badge/Badge';
-import style from './ProductCard.module.css';
+import style from './ShopProductCard.module.css';
 import {Columns} from "../../redux/types";
 import {useAppDispatch} from "../../../../../general/redux/hooks";
 import {addItemCart} from "../../../../cart/presentation/redux/cartSlice";
@@ -12,7 +12,7 @@ interface Props {
     columns: Columns
 }
 
-const ProductCard = ({columns, product}: Props) => {
+const ShopProductCard = ({columns, product}: Props) => {
 
     const dispatch = useAppDispatch();
     let ratingIcons: string[] = [];
@@ -60,4 +60,4 @@ const ProductCard = ({columns, product}: Props) => {
     );
 };
 
-export default ProductCard;
+export default ShopProductCard;
