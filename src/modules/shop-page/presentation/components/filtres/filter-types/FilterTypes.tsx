@@ -41,7 +41,7 @@ const FilterTypes = ({columns, category, price}: Props) => {
                     <input type={'hidden'} name={'filterPrice'} id={'filterPr'} value={price === null ? priceArray[0].id : price}/>
                     <div className={`${style.filterPriceHead} listenerHead`} id={'filterPriceHead'}
                          onClick={openCloseMenuHandler}>
-                        {price === null ? priceArray[0].id : price}
+                        {price === null ? 'All prices' : price}
                     </div>
                     <ul className={`${style.filterPriceList} listener`} id={'filterPrList'}>
                         {priceArray.map(item => {
