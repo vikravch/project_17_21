@@ -54,7 +54,7 @@
     cursor: pointer;
     list-style: none;
     font-size: 16px;
-    padding: 15px 15px;
+    padding: 15px;
     color: #6C7275;
 }
 
@@ -63,7 +63,7 @@
     color: #141718;
     font-weight: 600;
     background-color: #F3F5F7;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .checked {
@@ -117,11 +117,6 @@
         z-index: 100;
         width: 262px;
         border-radius: 12px;
-    }
-
-    .filterCatList > li,
-    .filterPriceList > li {
-        font-size: 16px;
     }
 
     .close {
