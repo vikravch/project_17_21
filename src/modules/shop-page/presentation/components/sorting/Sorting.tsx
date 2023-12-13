@@ -13,20 +13,21 @@ interface Props {
 const Sorting = ({columns, sorting}: Props) => {
     return (
         <div className={`${style.sortBlock} ${columns.countDesktop === 3 && style.sortBlockDisplay3}`}>
-            <div className={style.sortSelect}>
-                <input type={'hidden'} name={'sort'} value={sorting === null ? sort[0].id : sorting}/>
-                <div className={`${style.sortHead} 
+                <div className={style.sortSelect}>
+                    <input type={'hidden'} name={'sort'} value={sorting === null ? sort[0].id : sorting}/>
+                    <div className={`${style.sortHead} 
                 ${columns.countDesktop === 3 && style.sortHeaDisplay3} listenerHead`}
-                     onClick={openCloseMenuHandler}>{(sorting === null && null) || (sorting === "Default" ? "Sort by" : sorting)}</div>
-                <ul className={`${style.sortList} listener`} id={'sortingList'}>
-                    <li>Sort by</li>
-                    {sort.map(item => {
-                        return <li className={`${style.sortItem} ${(sorting === item.title ) && style.chosen}`} key={item.id}
-                                   onClick={chooseSortOrFiltration}>{item.title}</li>
-                    })}
-                </ul>
-            </div>
-            <ViewSelector/>
+                         onClick={openCloseMenuHandler}>{(sorting === null && null) || (sorting === "Default" ? "Sort by" : sorting)}</div>
+                    <ul className={`${style.sortList} listener`} id={'sortingList'}>
+                        <li>Sort by</li>
+                        {sort.map(item => {
+                            return <li className={`${style.sortItem} ${(sorting === item.title) && style.chosen}`}
+                                       key={item.id}
+                                       onClick={chooseSortOrFiltration}>{item.title}</li>
+                        })}
+                    </ul>
+                </div>
+                <ViewSelector/>
         </div>
     );
 };

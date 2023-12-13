@@ -30,9 +30,8 @@
 
 .filterCatList, .filterPriceList {
     display: none;
-    padding-left: 0;
+    padding: 10px;
     list-style: none;
-    margin-top: 20px;
 
     overflow-x: hidden;
     overflow-y: auto;
@@ -55,7 +54,7 @@
     cursor: pointer;
     list-style: none;
     font-size: 16px;
-    padding: 10px 25px;
+    padding: 15px 15px;
     color: #6C7275;
 }
 
@@ -63,16 +62,8 @@
 .filterPriceList > li:hover {
     color: #141718;
     font-weight: 600;
-}
-
-.filterCatList > li:not(:first-child),
-.filterPriceList > li:not(:first-child){
-    padding-top: 20px;
-}
-
-.filterCatList:last-child,
-.filterPriceList:last-child {
-    padding-bottom: 10px;
+    background-color: #F3F5F7;
+    border-radius: 10px;
 }
 
 .checked {
@@ -107,8 +98,6 @@
     }
 
     .filterCatHead, .filterPriceHead {
-        /*background: none;*/
-        /*width: calc(100% - 41px);*/
         border: #6C7275 solid 2px;
         border-radius: 8px;
         padding: 8px 16px;
@@ -133,16 +122,6 @@
     .filterCatList > li,
     .filterPriceList > li {
         font-size: 16px;
-    }
-
-    .filterCatList > li:not(:first-child),
-    .filterPriceList > li:not(:first-child){
-        padding-top: 20px;
-    }
-
-    .filterCatList:last-child,
-    .filterPriceList:last-child {
-        padding-bottom: 0;
     }
 
     .close {

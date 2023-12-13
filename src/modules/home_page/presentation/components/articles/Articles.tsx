@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Articles.css"
-import ArticleCard from "./ArticleCard";
+// import ArticleCard from "./ArticleCard";
 import image1 from "../../page/images/article1.png";
 import image2 from "../../page/images/article2.png";
 import image3 from "../../page/images/article3.png";
@@ -39,17 +39,17 @@ const Articles = () => {
                 <h6 className={'articles_title'}>Articles</h6>
                 <button className={'read_more_button'}>More Articles <SliderArrowRight /></button>
             </div>
-            <div className={'cards_block'}>
-                {articles.map((article, index) => (
-                    <ArticleCard
-                        key={index}
-                        img={article.img}
-                        title={article.title}
-                        text={article.text}
-                        onClick={() => handleReadMoreClick(article.text)}
-                    />
-                ))}
-            </div>
+            {/*<div className={'cards_block'}>*/}
+            {/*    {articles.map((article, index) => (*/}
+            {/*        <ArticleCard*/}
+            {/*            key={index}*/}
+            {/*            img={article.img}*/}
+            {/*            title={article.title}*/}
+            {/*            text={article.text}*/}
+            {/*            onClick={() => handleReadMoreClick(article.text)}*/}
+            {/*        />*/}
+            {/*    ))}*/}
+            {/*</div>*/}
         </div>
     );
 };

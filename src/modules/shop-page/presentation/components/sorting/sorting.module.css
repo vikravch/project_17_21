@@ -10,7 +10,7 @@
 
 .sortSelect {
     position: relative;
-    display: block;
+    display: block !important;
 }
 
 .sortHead {

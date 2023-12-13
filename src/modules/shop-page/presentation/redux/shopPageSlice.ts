@@ -1,23 +1,25 @@
 import {ShopPageState} from "./types";
 import {createSlice, SliceCaseReducers} from "@reduxjs/toolkit";
-import {getAllProductsAsyncAction, getProductsAsyncAction} from "./asyncActions";
+import {getAllCategoriesAsyncAction, getAllProductsAsyncAction, getProductsAsyncAction} from "./asyncActions";
 
 const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState>>(
     {
         name: 'shopPage',
         initialState: {
             products: [],
+            categories: [],
             error: 'Any error'
         },
         reducers: {},
         extraReducers: (builder) => {
-            builder.addCase(
+            builder
+                .addCase(
                 (getAllProductsAsyncAction.pending),
                 (state) => {
                     state.products = undefined;
                     state.error = 'Загрузка';
                 }
-            )
+                )
                 .addCase(
                     (getAllProductsAsyncAction.rejected),
                     (state, action) => {
@@ -46,6 +48,28 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
                     (getProductsAsyncAction.fulfilled),
                     (state, action) => {
                         state.products = state.products?.concat(action.payload);
+                    }
+                )
+
+
+                .addCase(getAllCategoriesAsyncAction.pending,
+                    (state) => {
+                        state.categories = undefined;
+                        console.log('PEND')
+                        state.error = 'Загрузка';
+                    }
+                )
+
+                .addCase(getAllCategoriesAsyncAction.rejected,
+                    (state, action) => {
+                        console.log('REJECT')
+                        state.error = action.error.message as string;
+                    }
+                )
+                .addCase(getAllCategoriesAsyncAction.fulfilled,
+                    (state, action) => {
+                        console.log('fulfilled')
+                        state.categories = action.payload;
                     }
                 )
         }

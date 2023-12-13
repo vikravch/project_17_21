@@ -1,42 +1,5 @@
-import {Category, Price, Sort} from "./filterInterfaces";
+import {Price, Sort} from "./filterInterfaces";
 
-export const categoriesArray: Category[] = [
-
-    {
-        id: 0,
-        title: 'All rooms'
-    },
-
-    {
-        id: 2,
-        title: 'Living room'
-    },
-
-    {
-        id: 3,
-        title: 'Bedroom'
-    },
-
-    {
-        id: 4,
-        title: 'Kitchen'
-    },
-
-    {
-        id: 5,
-        title: 'Bathroom'
-    },
-
-    {
-        id: 6,
-        title: 'Dinning',
-    },
-
-    {
-        id: 7,
-        title: 'Outdoor'
-    }
-];
 export const priceArray: Price[] = [
     {
         id: 0,

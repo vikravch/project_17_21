@@ -1,8 +1,10 @@
 import React from 'react';
 import style from "./filterTypes.module.css";
-import {categoriesArray, priceArray} from "../utils/filterConst";
-import {Columns} from "../../../redux/types";
+import {priceArray} from "../utils/filterConst";
+import {Columns, ShopPageState} from "../../../redux/types";
 import {chooseSortOrFiltration, openCloseMenuHandler} from "../../../pages/utils/const";
+import {useSelector} from "react-redux";
+import {AppStore} from "../../../../../../general/redux/types";
 
 interface Props {
     columns: Columns;
@@ -11,24 +13,28 @@ interface Props {
 }
 const FilterTypes = ({columns, category, price}: Props) => {
 
+    const {categories, error} = useSelector<AppStore, ShopPageState>(state => state.shopPage);
+
     return (
             <div className={`${style.typesBlock} ${columns.countDesktop === 3 ? style.close : ''}`}
                  id={'types'}>
+                {categories && categories.length !== 0 ?
                 <div className={style.filterCategories}>
                     <p>Categories</p>
-                    <input type={'hidden'} name={'filterCateg'} id={'filterCat'} value={category === null ? categoriesArray[0].title : category}/>
+                    <input type={'hidden'} name={'filterCateg'} id={'filterCat'} value={category === null ? categories[0].title : category}/>
                     <div className={`${style.filterCatHead} listenerHead`} id={'filterCatHead'}
                          onClick={openCloseMenuHandler}>
-                        {category === null ? categoriesArray[0].title : category}
+                        {category === null ? categories[0].title : category}
                     </div>
                     <ul className={`${style.filterCatList} listener`} id={'filterCatList'}>
-                        {categoriesArray.map(item => {
+                        {categories.map(item => {
                             return <li className={`${category === item.title && style.checked}`}
                                        onClick={(event) => chooseSortOrFiltration(event)}
                                        key={item.id}>{item.title}</li>
                         })}
                     </ul>
                 </div>
+                    : <div>{error}</div>}
 
                 <div className={style.filterPrice}>
                     <p>Price</p>

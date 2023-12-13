@@ -1,6 +1,9 @@
 import React from 'react';
 import style from './filterTypesDesktop.module.css'
-import {categoriesArray, priceArray} from "../utils/filterConst";
+import {priceArray} from "../utils/filterConst";
+import {useSelector} from "react-redux";
+import {AppStore} from "../../../../../../general/redux/types";
+import {ShopPageState} from "../../../redux/types";
 
 interface Props {
     category: string | null,
@@ -9,16 +12,20 @@ interface Props {
 
 const FilterTypesDesktop = ({category, price}: Props) => {
 
+    const {categories, error} = useSelector<AppStore, ShopPageState>(state => state.shopPage);
+
     return (
         <div className={style.block}>
+            {categories ?
             <div className={style.categories}>
                 <p>Categories</p>
                 <ul>
-                {categoriesArray.map(item =>
+                {categories.map(item =>
                     <li className={`${((item.title === category) || (category === null && item.id === 0))  && style.checked}`} key={item.title}>{item.title}</li>
                 )}
                 </ul>
             </div>
+                : <div>{error}</div>}
             <div className={style.price}>
                 <p>Price</p>
                 {priceArray.map(item =>
