@@ -1,11 +1,11 @@
 import ProductsFakeRepository from "../../data/repository/productsFakeRepository";
-import {AllFilteringInterface} from "../model/interfaces";
+import AllFiltering from "../model/allFiltering";
 
-const GetAllFiltering = (productsFakeRepository: ProductsFakeRepository) => async (): Promise<AllFilteringInterface> => {
+const GetAllFiltering = (productsFakeRepository: ProductsFakeRepository) => async (): Promise<AllFiltering> => {
 
     try {
-        const allFiltering = await productsFakeRepository.getAllFiltering();
-        return allFiltering || {};
+        const allFilteringObj = await productsFakeRepository.getAllFiltering();
+        return allFilteringObj || {};
     } catch (error) {
         throw error;
     }

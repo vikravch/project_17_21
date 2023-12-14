@@ -1,13 +1,12 @@
 import Product from "../../domain/model/product";
-import Category from "../../domain/model/category";
 import Price from "../../domain/model/price";
-import Sort from "../../domain/model/sorting";
+import {CategoryAndSort} from "../../domain/model/interfaces";
 
 export type ShopPageState = {
   products?: Product[],
-  categories?: Category[],
+  categories?: CategoryAndSort[],
   prices?: Price[],
-  sort?: Sort[],
+  sort?: CategoryAndSort[],
   error: string
 }
 export type Columns = {

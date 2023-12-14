@@ -8,7 +8,7 @@ import {AppStore} from "../../../../../general/redux/types";
 
 interface Props {
     columns: Columns;
-    sorting: string | null;
+    sorting: number | null;
 }
 
 const Sorting = ({columns, sorting}: Props) => {
@@ -23,11 +23,11 @@ const Sorting = ({columns, sorting}: Props) => {
                     <div className={`${style.sortHead}
                         ${columns.countDesktop === 3 && style.sortHeaDisplay3} listenerHead`}
                          onClick={openCloseMenuHandler}>
-                        {(sorting === null && 'Sort by') || (sorting === "Default" ? "Sort by" : sorting)}
+                        {(sorting === null || sorting === 0) ? 'Sort by' : sort?.find(obj => obj.id === 1)?.title}
                     </div>
                     <ul className={`${style.sortList} listener`} id={'sortingList'}>
                         {sort.map(item => {
-                            return <li className={`${style.sortItem} ${(sorting === item.title) && style.chosen}`}
+                            return <li className={`${style.sortItem} ${(sorting === item.id) && style.chosen}`}
                                        key={item.id}
                                        onClick={chooseSortOrFiltration}>{item.title}</li>
                         })}

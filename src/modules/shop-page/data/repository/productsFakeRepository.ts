@@ -1,10 +1,9 @@
 import ProductsRepository from "../../domain/repository/productsRepository";
 import testImage from './testImage.webp'
 import Product from "../../domain/model/product";
-import Category from "../../domain/model/category";
 import Price from "../../domain/model/price";
-import Sorting from "../../domain/model/sorting";
-import {AllFilteringInterface} from "../../domain/model/interfaces";
+import {CategoryAndSort} from "../../domain/model/interfaces";
+import AllFiltering from "../../domain/model/allFiltering";
 import {RequestProducts} from "../../presentation/redux/types";
 
 let testProducts: Product[] = [];
@@ -24,7 +23,7 @@ for (let i = 0; i < 12; i++) {
     });
 }
 
-let testCategories: Category[] = [
+let testCategories: CategoryAndSort[] = [
     {
         id: 0,
         title: 'All rooms'
@@ -61,7 +60,7 @@ let testCategories: Category[] = [
     }
 ];
 
-let testPrices: Price[] = [
+const testPrices: Price[] = [
     new Price(0, null, null),
     new Price(1, 0.00, 99.99),
     new Price(2, 100.00, 199.99),
@@ -70,7 +69,7 @@ let testPrices: Price[] = [
     new Price(5, 400.00, null)
 ];
 
-let testSorting: Sorting[] = [
+const testSorting: CategoryAndSort[] = [
     {
         id: 0,
         title: 'Default',
@@ -97,11 +96,7 @@ let testSorting: Sorting[] = [
     }
 ];
 
-let testAllFiltering: AllFilteringInterface = {
-    categories: testCategories,
-    prices: testPrices,
-    sorting: testSorting
-}
+const testAllFiltering: AllFiltering = new AllFiltering(testCategories, testPrices, testSorting);
 
 export default class ProductsFakeRepository implements ProductsRepository {
     async getAllProducts(): Promise<Product[]> {
@@ -110,7 +105,7 @@ export default class ProductsFakeRepository implements ProductsRepository {
     async getProducts(requestObject: RequestProducts): Promise<Product[]> {
         return await Promise.resolve(testProducts)
     }
-    async getAllFiltering(): Promise<AllFilteringInterface> {
+    async getAllFiltering(): Promise<AllFiltering> {
         return await Promise.resolve(testAllFiltering);
     }
 }

@@ -59,7 +59,7 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
                         state.categories = undefined;
                         state.prices = undefined;
                         state.sort = undefined;
-                        state.error = 'Загрузка';
+                        state.error = 'Loading...';
                     }
                 )
 

@@ -26,7 +26,7 @@ const ShopPage = () => {
         filtering: {
             category: null,
             price: null,
-            sorting: null,
+            sorting: 4,
         },
         page: 1
     });
