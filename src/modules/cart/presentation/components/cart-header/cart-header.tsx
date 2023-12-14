@@ -48,7 +48,7 @@ const CartHeader = ({location}: IProps) => {
         <div className={`${styles.step_circle} ${styles.finished_circle}`}>
           <img src={checkIcon} alt="Check"/>
         </div>
-        <p className={`${styles.finished_subheader} ${styles.subheader_order_complete}`}>Shopping cart</p>
+        <Link to={"/cart"}><p className={`${styles.finished_subheader} ${styles.subheader_order_complete}`}>Shopping cart</p></Link>
       </div>
       <div className={styles.subheader_box}>
         <div className={`${styles.step_circle} ${styles.active_circle}`}>
