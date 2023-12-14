@@ -8,7 +8,7 @@ import {TItem} from "../../types";
 import {useAppDispatch} from "../../../../../general/redux/hooks";
 import {decreaseAmount, deleteItemCart, increaseAmount} from "../../redux/cartSlice";
 
-const CartProductCard = ({id, name, color, actualPrice, image, quantity, subtotal}: TItem) => {
+const CartProductCard:React.FC<TItem> = ({id, name, color, actualPrice, image, quantity, subtotal}: TItem) => {
 const location = useLocation();
 const dispatch = useAppDispatch();
 const removeItem = () => {
