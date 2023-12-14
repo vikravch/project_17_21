@@ -98,6 +98,7 @@ const testSorting: CategoryAndSort[] = [
 
 const testAllFiltering: AllFiltering = new AllFiltering(testCategories, testPrices, testSorting);
 
+
 export default class ProductsFakeRepository implements ProductsRepository {
     async getAllProducts(): Promise<Product[]> {
         return await Promise.resolve(testProducts)

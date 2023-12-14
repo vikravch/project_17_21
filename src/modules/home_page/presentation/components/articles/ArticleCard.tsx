@@ -1,6 +1,6 @@
 import React from 'react';
 import "./ArticleCard.css";
-import SliderArrowRight from "../../icons/SliderArrowRight";
+import ShopNowArrow from "../../icons/ShopNowArrow";
 
 interface ArticleProps {
     img: string;
@@ -9,18 +9,18 @@ interface ArticleProps {
     onClick: () => void;
 }
 
-const ArticleCard= (props: ArticleProps) =>
-{
+const ArticleCard = (props: ArticleProps) => {
     return (
         <div className={'article-card-wrapper'}>
-            <div className={'articles_image'} style={{background: `url(${props.img}) lightgray 50% / cover no-repeat`}}>
-
+            <div className={'articles_image'}>
+                <img src={`${props.img}`} alt={'Article image'}/>
             </div>
             <div className={'img-info'}>
-            <h3 className={'article_title'}>{props.title}</h3>
-            <button onClick={props.onClick} className={'read_more_button'}>
-                Read more <SliderArrowRight/>
-            </button>
+                <h3 className={'article_title'}>{props.title}</h3>
+                <div className={'shop_now_link'}>
+                    <button onClick={props.onClick} className={'shop_now_btn'}>Read more</button>
+                    <ShopNowArrow color="#141718"/>
+                </div>
             </div>
         </div>
     );
