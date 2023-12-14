@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import style from "./filterTypes.module.css";
 import {Columns, ShopPageState} from "../../../redux/types";
 import {chooseSortOrFiltration, openCloseMenuHandler} from "../../../pages/utils/const";
@@ -13,19 +13,6 @@ interface Props {
 const FilterTypes = ({columns, category, price}: Props) => {
 
     const {categories, prices, error} = useSelector<AppStore, ShopPageState>(state => state.shopPage);
-
-    useEffect(() => {
-        const filter = document.getElementsByName('filter') as NodeListOf<HTMLInputElement>;
-        const li = document.getElementsByClassName('filterLi') as any;
-
-        filter.forEach(item => {
-            li.forEach((list: { textContent: string; classList: { add: (arg0: string) => void; }; }) => {
-                if (item.value === list.textContent) {
-                    list.classList.add(style.checked);
-                }
-            })
-        })
-    }, [category, price])
 
     return (
             <div className={`${style.typesBlock} ${columns.countDesktop === 3 ? style.close : ''}`}
