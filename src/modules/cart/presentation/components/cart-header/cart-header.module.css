@@ -190,9 +190,7 @@
 }
 
 @media (min-width: 769px) {
-  .back_arrow {
-    display: none;
-  }
+
   .header_cart {
     font-size: 54px;
     margin: 72px 0 36px;
@@ -202,6 +200,9 @@
   }
 }
 @media (min-width: 900px) {
+  .back_arrow {
+    display: none;
+  }
   .subheader3 {
     display: block;
   }

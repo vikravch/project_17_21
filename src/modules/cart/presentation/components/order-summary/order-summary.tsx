@@ -3,10 +3,11 @@ import percentIcon from "../../../../../icons/ticket-percent.png";
 import {codes, mockOrder} from "../../mock-api/data";
 import "./order-summary.css";
 import CartProductCard from "../cart-product-card/cart-product-card";
+import {useAppSelector} from "../../../../../general/redux/hooks";
 
 const OrderSummary = () => {
 
-  const items = mockOrder.items;
+  const {items, totalPrice, subtotalPrice} = useAppSelector(state => state.cart);
   const [discountCode, setDiscountCode] = useState('');
   const [bonus, setBonus] = useState('');
   const [bonusToRender, setBonusToRender] = useState('')
@@ -75,11 +76,11 @@ const OrderSummary = () => {
         </div>
         <div className="order_info_container">
           <p className="order_contain_info">Subtotal</p>
-          <p className="order_contain_price">$99.00</p>
+          <p className="order_contain_price">{`$${subtotalPrice}`}</p>
         </div>
         <div className="order_info_container total_price">
           <p className="order_total">Total</p>
-          <p className="order_total">$234.00</p>
+          <p className="order_total">{`$${totalPrice}`}</p>
         </div>
       </div>
   );
