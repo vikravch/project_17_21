@@ -17,6 +17,7 @@ for (let i = 0; i < 10; i++) {
     });
 }
 
+
 export default class ProductsFakeRepository implements ProductsRepository {
     async getAllProducts(): Promise<Product[]> {
         return await Promise.resolve(testProducts)

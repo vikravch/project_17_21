@@ -4,8 +4,8 @@ import weatherReducer from '../../modules/weather/presentation/redux/weatherSlic
 import shopPageReducer from '../../modules/shop-page/presentation/redux/shopPageSlice';
 import galleriesStyleReducer from '../../modules/shop-page/presentation/redux/galleriesStyleSlice';
 import flyMenu from './slices/openFlyMenuSlice'
-import changePicture from './slices/changePictureSlice'
-
+import changePictureReducer from '../../modules/home_page/presentation/redux/changePictureSlice';
+import getAllPicturesReducer from '../../modules/home_page/presentation/redux/getSliderImagesSlice';
 export const store = configureStore(
     {
         reducer: {
@@ -13,7 +13,8 @@ export const store = configureStore(
             shopPage: shopPageReducer,
             galleriesStyle: galleriesStyleReducer,
             flyMenu: flyMenu,
-            changePicture: changePicture
+            changePicture: changePictureReducer,
+            sliderImagesGallery: getAllPicturesReducer
         },
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
         devTools: process.env.NODE_ENV !== 'production',
