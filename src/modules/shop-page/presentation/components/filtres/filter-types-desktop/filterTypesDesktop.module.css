@@ -150,4 +150,10 @@
         color: #121212;
     }
 
+    .checked {
+        color: #121212 !important;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+    }
+
 }

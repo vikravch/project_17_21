@@ -1,36 +1,25 @@
-import React, {useEffect, useState} from 'react';
-import {mockOrder, TItem} from "../../mock-api/data";
+import React from 'react';
 import closeIcon from '../../../../../icons/close_icon.png'
 import minusIcon from '../../../../../icons/minus_icon.png'
 import plusIcon from '../../../../../icons/plus_icon.png'
 import './product-card.css'
 import {useLocation} from "react-router";
+import {TItem} from "../../types";
+import {useAppDispatch} from "../../../../../general/redux/hooks";
+import {decreaseAmount, deleteItemCart, increaseAmount} from "../../redux/cartSlice";
 
-const ProductCard = ({id, name, color, price, picture, quantity}: TItem) => {
+const ProductCard = ({id, name, color, price, picture, amount, subtotal}: TItem) => {
 const location = useLocation();
-const [itemQuantity, setItemQuantity] = useState(quantity);
-const numberPrice = Number(price.replace('$', ''));
-const [itemPrice, setItemPrice] = useState(numberPrice * itemQuantity);
-
-const setNewValues = (item:TItem) => {
-  setItemQuantity(item.quantity);
-  setItemPrice(+(item.quantity * numberPrice).toFixed(2));
+const dispatch = useAppDispatch();
+const removeItem = () => {
+  dispatch(deleteItemCart(id));
 }
 const plusItem = () => {
-  const item = mockOrder.items.find(el => el.id === id);
-  if(item && item.quantity >= 0) {
-    item.quantity += 1;
-    setNewValues(item);
-  }
+  dispatch(increaseAmount(id));
 }
 const minusItem = () => {
-  const item = mockOrder.items.find(el => el.id === id);
-  if(item && item.quantity >= 1) {
-    item.quantity -= 1;
-    setNewValues(item);
-  }
+  dispatch(decreaseAmount(id));
 }
-
 
 const productCard = <div className="product_card">
   <img className="item_img item_hide_900" src={picture} alt="product"/>
@@ -40,12 +29,12 @@ const productCard = <div className="product_card">
       <p className="item_color">Color: {color}</p>
       <div className="item_counter">
         <img onClick={minusItem} className="counter_icon" src={minusIcon} alt="minus icon"/>
-        <p className="item_quantity">{itemQuantity}</p>
+        <p className="item_quantity">{amount}</p>
         <img onClick={plusItem} className="counter_icon" src={plusIcon} alt="plus icon"/>
       </div>
     </div>
     <div className="item_info2">
-      <p className="item_price">{`$${itemPrice}`}</p>
+      <p className="item_price">{`$${price}`}</p>
       <img className="item_closeIcon" src={closeIcon} alt="close icon"/>
     </div>
   </div>
@@ -54,7 +43,7 @@ const productCard = <div className="product_card">
     <div className="item_info_wide">
       <p className="item_title_wide">{name}</p>
       <p className="item_color_wide">Color: {color}</p>
-      <div className="item_remove">
+      <div onClick={removeItem} className="item_remove">
         <img className="item_closeIcon" src={closeIcon} alt="close icon"/>
         <p className="text_remove">Remove</p>
       </div>
@@ -63,11 +52,11 @@ const productCard = <div className="product_card">
   <div className="item_info2_wide">
     <div className="item_counter">
       <img onClick={minusItem} className="counter_icon" src={minusIcon} alt="minus icon"/>
-      <p className="item_quantity">{itemQuantity}</p>
+      <p className="item_quantity">{amount}</p>
       <img onClick={plusItem} className="counter_icon" src={plusIcon} alt="plus icon"/>
     </div>
-    <p className="price_wide">{price}</p>
-    <p className="subtotal_wide">{`$${itemPrice}`}</p>
+    <p className="price_wide">{`$${price}`}</p>
+    <p className="subtotal_wide">{`$${subtotal}`}</p>
   </div>
 </div>
 
@@ -79,12 +68,12 @@ const productCard = <div className="product_card">
         <p className="item_color">Color: {color}</p>
         <div className="item_counter">
           <img onClick={minusItem} className="counter_icon" src={minusIcon} alt="minus icon"/>
-          <p className="item_quantity">{itemQuantity}</p>
+          <p className="item_quantity">{amount}</p>
           <img onClick={plusItem} className="counter_icon" src={plusIcon} alt="plus icon"/>
         </div>
       </div>
     </div>
-    <p className="product_price">{`$${itemPrice}`}</p>
+    <p className="product_price">{`$${price}`}</p>
   </div>
 
   if(location.pathname === '/cart')

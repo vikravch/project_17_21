@@ -46,6 +46,30 @@
     width: 100%;
     flex-direction: column;
 }
+@media (min-width: 769px)
+{
+    .article-card-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .articles_image
+    {
+        width: 357px;
+        height: 325px;
+        flex-shrink: 0;
+    }
+    .article_title
+    {
+        width: 352px;
+        /* Headline 7 */
+        font-family: Poppins;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 28px; /* 140% */
+    }
+}
 
 @media (min-width: 769px) {
     .article-card-wrapper {
