@@ -1,6 +1,6 @@
 import {ShopPageState} from "./types";
 import {createSlice, SliceCaseReducers} from "@reduxjs/toolkit";
-import {getAllCategoriesAsyncAction, getAllProductsAsyncAction, getProductsAsyncAction} from "./asyncActions";
+import {getAllFilteringAsyncAction, getAllProductsAsyncAction, getProductsAsyncAction} from "./asyncActions";
 
 const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState>>(
     {
@@ -8,6 +8,7 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
         initialState: {
             products: [],
             categories: [],
+            sort: [],
             error: 'Any error'
         },
         reducers: {},
@@ -52,24 +53,25 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
                 )
 
 
-                .addCase(getAllCategoriesAsyncAction.pending,
+                .addCase(getAllFilteringAsyncAction.pending,
                     (state) => {
                         state.categories = undefined;
-                        console.log('PEND')
+                        state.prices = undefined;
+                        state.sort = undefined;
                         state.error = 'Загрузка';
                     }
                 )
 
-                .addCase(getAllCategoriesAsyncAction.rejected,
+                .addCase(getAllFilteringAsyncAction.rejected,
                     (state, action) => {
-                        console.log('REJECT')
                         state.error = action.error.message as string;
                     }
                 )
-                .addCase(getAllCategoriesAsyncAction.fulfilled,
+                .addCase(getAllFilteringAsyncAction.fulfilled,
                     (state, action) => {
-                        console.log('fulfilled')
-                        state.categories = action.payload;
+                        state.categories = action.payload.categories;
+                        state.prices = action.payload.prices;
+                        state.sort = action.payload.sorting;
                     }
                 )
         }

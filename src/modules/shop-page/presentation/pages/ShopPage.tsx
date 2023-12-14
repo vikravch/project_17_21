@@ -11,7 +11,7 @@ import Sorting from "../components/sorting/Sorting";
 import {Link, useLocation} from "react-router-dom";
 import {AppDispatch} from "../../../../general/redux/store";
 import RequestProducts from "../../domain/model/requestProducts";
-import {getAllCategoriesAsyncAction, getProductsAsyncAction} from "../redux/asyncActions";
+import {getAllFilteringAsyncAction, getProductsAsyncAction} from "../redux/asyncActions";
 import arrow from '../../../../images/shop_page/breadCrumbs.svg';
 import {closeClickFunction} from "./utils/const";
 
@@ -52,11 +52,8 @@ const ShopPage = () => {
     }, [requestObject.page])
 
     useEffect(() => {
-        dispatch(getAllCategoriesAsyncAction());
-    }, [])
-
-    useEffect(() => {
         document.addEventListener('click', closeClickFunction);
+        dispatch(getAllFilteringAsyncAction());
         return () => document.removeEventListener('click', closeClickFunction);
     })
 

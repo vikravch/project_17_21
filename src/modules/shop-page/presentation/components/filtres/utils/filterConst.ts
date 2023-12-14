@@ -1,4 +1,4 @@
-import {Price, Sort} from "./filterInterfaces";
+import {Price} from "./filterInterfaces";
 
 export const priceArray: Price[] = [
     {
@@ -38,30 +38,30 @@ export const priceArray: Price[] = [
     }
 ];
 
-export const sort: Sort[] = [
-
-    {
-        id: 0,
-        title: 'Default',
-    },
-
-    {
-        id: 1,
-        title: 'Price up',
-    },
-
-    {
-        id: 2,
-        title: 'Price down',
-    },
-
-    {
-        id: 3,
-        title: 'New first',
-    },
-
-    {
-        id: 4,
-        title: 'Rating',
-    },
-]
+// export const sort: Sort[] = [
+//
+//     {
+//         id: 0,
+//         title: 'Default',
+//     },
+//
+//     {
+//         id: 1,
+//         title: 'Price up',
+//     },
+//
+//     {
+//         id: 2,
+//         title: 'Price down',
+//     },
+//
+//     {
+//         id: 3,
+//         title: 'New first',
+//     },
+//
+//     {
+//         id: 4,
+//         title: 'Rating',
+//     },
+// ]

@@ -1,4 +1,4 @@
-export default class Category {
+export default class Sort {
     constructor(
         public readonly id: number,
         public readonly title: string
@@ -7,9 +7,9 @@ export default class Category {
         this.title = title;
     }
 
-    static fromJson (json: string): Category {
+    static fromJson (json: string) {
         const obj = JSON.parse(json);
-        return new Category(obj.id, obj.title);
+        return new Sort(obj.id, obj.title)
     }
 
 }

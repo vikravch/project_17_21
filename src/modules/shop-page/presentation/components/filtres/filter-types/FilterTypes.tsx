@@ -1,6 +1,5 @@
 import React from 'react';
 import style from "./filterTypes.module.css";
-import {priceArray} from "../utils/filterConst";
 import {Columns, ShopPageState} from "../../../redux/types";
 import {chooseSortOrFiltration, openCloseMenuHandler} from "../../../pages/utils/const";
 import {useSelector} from "react-redux";
@@ -13,7 +12,7 @@ interface Props {
 }
 const FilterTypes = ({columns, category, price}: Props) => {
 
-    const {categories, error} = useSelector<AppStore, ShopPageState>(state => state.shopPage);
+    const {categories, prices, error} = useSelector<AppStore, ShopPageState>(state => state.shopPage);
 
     return (
             <div className={`${style.typesBlock} ${columns.countDesktop === 3 ? style.close : ''}`}
@@ -36,22 +35,27 @@ const FilterTypes = ({columns, category, price}: Props) => {
                 </div>
                     : <div>{error}</div>}
 
+                { prices && prices.length !== 0 ?
                 <div className={style.filterPrice}>
                     <p>Price</p>
-                    <input type={'hidden'} name={'filterPrice'} id={'filterPr'} value={price === null ? priceArray[0].id : price}/>
+                    <input type={'hidden'} name={'filterPrice'} id={'filterPr'} value={price === null ? prices[0].id : price}/>
                     <div className={`${style.filterPriceHead} listenerHead`} id={'filterPriceHead'}
                          onClick={openCloseMenuHandler}>
                         {price === null ? 'All prices' : price}
                     </div>
                     <ul className={`${style.filterPriceList} listener`} id={'filterPrList'}>
-                        {priceArray.map(item => {
+                        {prices.map(item => {
                             return <li
                                 // className={`${price === item.title && style.checked}`}
                                        onClick={chooseSortOrFiltration}
-                                       key={item.id}>{(item.min === null && 'All prices') || '$' + item.min + (item.max === null ? '+' : '-' + item.max)}</li>
+                                       key={item.id}>
+                                {item.title}
+                                {/*{(item.min === null && 'All prices') || '$' + item.min + (item.max === null ? '+' : '-' + item.max)}*/}
+                            </li>
                         })}
                     </ul>
-                </div>
+                </div> :
+                    <div>{error}</div>}
             </div>
     );
 };

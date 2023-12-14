@@ -2,7 +2,7 @@ import {createAsyncThunk} from '@reduxjs/toolkit';
 import {useUseCases} from "../../../../general/di/service_locator";
 import RequestProducts from "../../domain/model/requestProducts";
 import Product from "../../domain/model/product";
-import Category from '../../domain/model/category';
+import {AllFilteringInterface} from "../../domain/model/interfaces";
 
 export const getAllProductsAsyncAction = createAsyncThunk<Product[]>(
     'shop-page/getAllProducts',
@@ -28,12 +28,12 @@ export const getProductsAsyncAction = createAsyncThunk<Product[], RequestProduct
     }
 );
 
-export const getAllCategoriesAsyncAction = createAsyncThunk<Category[]>(
+export const getAllFilteringAsyncAction = createAsyncThunk<AllFilteringInterface>(
     'shop-page/getAllCategories',
     async () => {
-        const {getAllCategories} = useUseCases();
+        const {getAllFiltering} = useUseCases();
         try{
-            return await getAllCategories();
+            return await getAllFiltering();
         } catch (error) {
             throw error;
         }
