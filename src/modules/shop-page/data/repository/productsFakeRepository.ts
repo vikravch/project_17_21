@@ -20,6 +20,7 @@ for (let i = 0; i < 12; i++) {
     });
 }
 
+
 export default class ProductsFakeRepository implements ProductsRepository {
     async getAllProducts(): Promise<Product[]> {
         return await Promise.resolve(testProducts)

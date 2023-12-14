@@ -3,8 +3,9 @@ import logger from 'redux-logger'
 import weatherReducer from '../../modules/weather/presentation/redux/weatherSlice';
 import shopPageReducer from '../../modules/shop-page/presentation/redux/shopPageSlice';
 import galleriesStyleReducer from '../../modules/shop-page/presentation/redux/galleriesStyleSlice';
-import flyMenu from './slices/openFlyMenuSlice'
-import changePicture from './slices/changePictureSlice'
+import flyMenu from './slices/openFlyMenuSlice';
+import changePictureReducer from '../../modules/home_page/presentation/redux/changePictureSlice';
+import getAllPicturesReducer from '../../modules/home_page/presentation/redux/getSliderImagesSlice';
 import cartSlice from "../../modules/cart/presentation/redux/cartSlice";
 
 export const store = configureStore(
@@ -14,7 +15,8 @@ export const store = configureStore(
             shopPage: shopPageReducer,
             galleriesStyle: galleriesStyleReducer,
             flyMenu: flyMenu,
-            changePicture: changePicture,
+            changePicture: changePictureReducer,
+            sliderImagesGallery: getAllPicturesReducer,
             cart: cartSlice,
         },
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
