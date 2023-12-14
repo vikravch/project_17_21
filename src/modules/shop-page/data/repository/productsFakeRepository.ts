@@ -1,11 +1,11 @@
 import ProductsRepository from "../../domain/repository/productsRepository";
 import testImage from './testImage.webp'
-import RequestProducts from "../../domain/model/requestProducts";
 import Product from "../../domain/model/product";
 import Category from "../../domain/model/category";
 import Price from "../../domain/model/price";
 import Sorting from "../../domain/model/sorting";
 import {AllFilteringInterface} from "../../domain/model/interfaces";
+import {RequestProducts} from "../../presentation/redux/types";
 
 let testProducts: Product[] = [];
 for (let i = 0; i < 12; i++) {

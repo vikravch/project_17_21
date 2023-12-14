@@ -1,8 +1,8 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {useUseCases} from "../../../../general/di/service_locator";
-import RequestProducts from "../../domain/model/requestProducts";
 import Product from "../../domain/model/product";
 import {AllFilteringInterface} from "../../domain/model/interfaces";
+import {RequestProducts} from "./types";
 
 export const getAllProductsAsyncAction = createAsyncThunk<Product[]>(
     'shop-page/getAllProducts',

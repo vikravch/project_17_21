@@ -14,3 +14,12 @@ export type Columns = {
   countDesktop: 4 | 3 | 2,
   countMobile: 2 | 1
 }
+
+export interface RequestProducts {
+  filtering: {
+    category: number | null,
+    price: number | null,
+    sorting: number | null,
+  }
+  page: number
+}

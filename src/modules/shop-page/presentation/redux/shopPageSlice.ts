@@ -8,6 +8,7 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
         initialState: {
             products: [],
             categories: [],
+            prices: [],
             sort: [],
             error: 'Any error'
         },

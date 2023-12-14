@@ -1,6 +1,6 @@
 import ProductsFakeRepository from "../../data/repository/productsFakeRepository";
-import RequestProducts from "../model/requestProducts";
 import Product from "../model/product";
+import {RequestProducts} from "../../presentation/redux/types";
 
 const GetProducts = (
     productsFakeRepository: ProductsFakeRepository

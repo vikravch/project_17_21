@@ -3,8 +3,7 @@ import style from './ProductsGallery.module.css';
 import ShopProductCard from "../product-card/ShopProductCard";
 import {useSelector} from "react-redux";
 import {AppStore} from "../../../../../general/redux/types";
-import {Columns, ShopPageState} from "../../redux/types";
-import RequestProducts from "../../../domain/model/requestProducts";
+import {Columns, RequestProducts, ShopPageState} from "../../redux/types";
 
 interface Props {
     requestObject: RequestProducts,
