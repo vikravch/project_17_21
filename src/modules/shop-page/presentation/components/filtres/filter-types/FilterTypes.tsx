@@ -1,49 +1,61 @@
 import React from 'react';
 import style from "./filterTypes.module.css";
-import {categoriesArray, priceArray} from "../utils/filterConst";
-import {Columns} from "../../../redux/types";
+import {Columns, ShopPageState} from "../../../redux/types";
 import {chooseSortOrFiltration, openCloseMenuHandler} from "../../../pages/utils/const";
+import {useSelector} from "react-redux";
+import {AppStore} from "../../../../../../general/redux/types";
 
 interface Props {
     columns: Columns;
-    category: string,
-    price: string
+    category: number | null,
+    price: number | null
 }
 const FilterTypes = ({columns, category, price}: Props) => {
+
+    const {categories, prices, error} = useSelector<AppStore, ShopPageState>(state => state.shopPage);
 
     return (
             <div className={`${style.typesBlock} ${columns.countDesktop === 3 ? style.close : ''}`}
                  id={'types'}>
+                {categories && categories.length !== 0 ?
                 <div className={style.filterCategories}>
                     <p>Categories</p>
-                    <input type={'hidden'} name={'filterCateg'} id={'filterCat'} value={category}/>
-                    <div className={`${style.filterCatHead} listenerHead`} id={'filterCatHead'}
-                         onClick={openCloseMenuHandler}>
-                        {category}
+                    <input type={'hidden'} name={'filter'} id={'filterCategory'}
+                           value={category === null ? categories[0].title : category}/>
+                    <div className={`${style.filterCatHead} listenerHead`} onClick={openCloseMenuHandler}>
+                        {category === null ? categories[0].title : category}
                     </div>
-                    <ul className={`${style.filterCatList} listener`} id={'filterCatList'}>
-                        {categoriesArray.map(item => {
-                            return <li className={`${category === item && style.checked}`} onClick={chooseSortOrFiltration}
-                                       key={item}>{item}</li>
+                    <ul className={`${style.filterCatList} listener`}>
+                        {categories.map(item => {
+                            return <li className={`${category === item.id && style.checked} filterLi`}
+                                       onClick={(event) => chooseSortOrFiltration(event)}
+                                       key={item.id}>{item.title}</li>
                         })}
                     </ul>
                 </div>
+                    : <div>{error}</div>}
 
+                { prices && prices.length !== 0 ?
                 <div className={style.filterPrice}>
                     <p>Price</p>
-                    <input type={'hidden'} name={'filterPrice'} id={'filterPr'} value={price}/>
+                    <input type={'hidden'} name={'filter'} id={'filterPrice'} value={price === null ? prices[0].id : price}/>
                     <div className={`${style.filterPriceHead} listenerHead`} id={'filterPriceHead'}
                          onClick={openCloseMenuHandler}>
-                        {price}
+                        {price === null ? 'All prices' : price}
                     </div>
                     <ul className={`${style.filterPriceList} listener`} id={'filterPrList'}>
-                        {priceArray.map(item => {
-                            return <li className={`${price === item.title && style.checked}`}
+                        {prices.map(item => {
+                            return <li
+                                className={`${price === item.id && style.checked} filterLi`}
                                        onClick={chooseSortOrFiltration}
-                                       key={item.title}>{item.max !== null && '$'}{item.title + (item.title !== priceArray[priceArray.length - 1].title ? '' : '+')}</li>
+                                       key={item.id}>
+                                {item.title}
+                                {/*{(item.min === null && 'All prices') || '$' + item.min + (item.max === null ? '+' : '-' + item.max)}*/}
+                            </li>
                         })}
                     </ul>
-                </div>
+                </div> :
+                    <div>{error}</div>}
             </div>
     );
 };

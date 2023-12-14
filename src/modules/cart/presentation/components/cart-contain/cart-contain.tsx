@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductCard from "../product-card/product-card";
+import CartProductCard from "../cart-product-card/cart-product-card";
 import './cart-contain.css'
 import {useAppSelector} from "../../../../../general/redux/hooks";
 const CartContain = () => {
@@ -18,16 +18,24 @@ const CartContain = () => {
           <p className="table_header_item">Subtotal</p>
         </div>
       </div>
-      {items.map(el =>
-        <ProductCard
-          key={el.id}
-          id={el.id}
-          name={el.name}
-          color={el.color}
-          price={el.price}
-          picture={el.picture}
-          subtotal={el.subtotal}
-          amount={el.amount}/>)}
+      {items.length === 0 ? <p className={"cart_contain"}>Your cart is empty</p> :
+        items.map(el =>
+          <CartProductCard
+            key={el.id}
+            id={el.id}
+            name={el.name}
+            color={el.color}
+            actualPrice={el.actualPrice}
+            image={el.image}
+            subtotal={el.subtotal}
+            quantity={el.quantity}
+            amount={el.amount}
+            description={el.description}
+            fullPrice={el.fullPrice}
+            isNew={el.isNew}
+            rating={el.rating}
+            sale={el.sale}/>)
+      }
     </section>
   );
 };

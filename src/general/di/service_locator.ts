@@ -13,6 +13,7 @@ import GetAllSliderImages from "../../modules/home_page/domain/use_case/getAllSl
 import {SliderImagesUseCases} from "../../modules/home_page/domain/use_case/use_cases";
 import SliderImagesFakeRepository from "../../modules/home_page/data/repository/sliderImagesFakeRepository";
 import GetProducts from "../../modules/shop-page/domain/use_case/getProducts";
+import GetAllFiltering from "../../modules/shop-page/domain/use_case/getAllFiltering";
 
 // Dependency injection - Service locator
 type LocatorRepository = {
@@ -42,5 +43,6 @@ export function useUseCases():LocatorUseCases{
     getAllProducts: GetAllProducts(locatorRepository.productsFakeRepository),
     getAllSliderImages: GetAllSliderImages(locatorRepository.sliderImagesFakeRepository),
     getProducts: GetProducts(locatorRepository.productsFakeRepository),
+    getAllFiltering: GetAllFiltering(locatorRepository.productsFakeRepository)
   }
 }

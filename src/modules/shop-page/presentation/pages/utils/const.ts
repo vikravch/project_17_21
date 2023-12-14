@@ -21,6 +21,7 @@ export const openCloseMenuHandler = (event: React.MouseEvent<HTMLElement>) => {
 }
 
 export const chooseSortOrFiltration = (event: React.MouseEvent<HTMLElement>) => {
+
     const eventTarget = event.target as HTMLElement;
     const choice = eventTarget.textContent as string;
     const listId = eventTarget.parentElement as HTMLDivElement;

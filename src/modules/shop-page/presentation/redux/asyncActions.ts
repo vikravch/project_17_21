@@ -1,7 +1,8 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {useUseCases} from "../../../../general/di/service_locator";
-import RequestProducts from "../../domain/model/requestProducts";
 import Product from "../../domain/model/product";
+import AllFiltering from "../../domain/model/allFiltering";
+import {RequestProducts} from "./types";
 
 export const getAllProductsAsyncAction = createAsyncThunk<Product[]>(
     'shop-page/getAllProducts',
@@ -23,6 +24,18 @@ export const getProductsAsyncAction = createAsyncThunk<Product[], RequestProduct
             return await getProducts(requestObject);
         } catch (error) {
             return thunkAPI.rejectWithValue(error);
+        }
+    }
+);
+
+export const getAllFilteringAsyncAction = createAsyncThunk<AllFiltering>(
+    'shop-page/getAllFiltering',
+    async () => {
+        const {getAllFiltering} = useUseCases();
+        try{
+            return await getAllFiltering();
+        } catch (error) {
+            throw error;
         }
     }
 );
