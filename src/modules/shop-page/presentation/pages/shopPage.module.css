@@ -9,7 +9,7 @@
     justify-content: center;
     min-height: 308px;
     min-width: 311px;
-    background-image: url('../../../../images/shop_page/pageHeader.svg');
+    background-image: url('../../../../images/shop_page/shopPageHeaderMobile.webp');
     background-repeat: no-repeat;
     background-color: white;
     background-position: center;
@@ -85,7 +85,7 @@
 @media screen and (min-width: 768px) {
 
     .pageHeader {
-        background-image: url("../../../../images/shop_page/pageHeader-x2.svg");
+        background-image: url("../../../../images/shop_page/shopPageHeaderDesktop.webp");
         background-size: cover;
         height: 392px;
     }
