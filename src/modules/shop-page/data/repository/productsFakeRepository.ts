@@ -30,32 +30,32 @@ let testCategories: CategoryAndSort[] = [
     },
 
     {
-        id: 2,
+        id: 1,
         title: 'Living room'
     },
 
     {
-        id: 3,
+        id: 2,
         title: 'Bedroom'
     },
 
     {
-        id: 4,
+        id: 3,
         title: 'Kitchen'
     },
 
     {
-        id: 5,
+        id: 4,
         title: 'Bathroom'
     },
 
     {
-        id: 6,
+        id: 5,
         title: 'Dinning',
     },
 
     {
-        id: 7,
+        id: 6,
         title: 'Outdoor'
     }
 ];
@@ -92,7 +92,11 @@ const testSorting: CategoryAndSort[] = [
 
     {
         id: 4,
-        title: 'Rating',
+        title: 'Rating up',
+    },
+    {
+        id: 5,
+        title: 'Rating down',
     }
 ];
 

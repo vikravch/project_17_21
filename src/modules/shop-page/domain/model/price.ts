@@ -9,8 +9,8 @@ export default class Price {
         this.min = min;
         this.max = max;
         this.title = `${
-            (this.min === null && 'All prices') || 
-            '$' + this.min + '.00' + (this.max !== null ? '-' + this.max : '+')
+            (min === null && 'All prices') || 
+            '$' + min + '.00' + (max !== null ? '-' + max : '+')
         }`
     }
 
