@@ -10,7 +10,12 @@ import FilterTitle from "../components/filtres/filter-title/FilterTitle";
 import Sorting from "../components/sorting/Sorting";
 import {Link, useLocation} from "react-router-dom";
 import {AppDispatch} from "../../../../general/redux/store";
-import {getAllFilteringAsyncAction, getProductsAsyncAction} from "../redux/asyncActions";
+import {
+    getAllCategoriesAsyncAction,
+    getAllPricesAsyncAction,
+    getAllSortingAsyncAction,
+    getProductsAsyncAction
+} from "../redux/asyncActions";
 import arrow from '../../../../images/shop_page/breadCrumbs.svg';
 import {closeClickFunction} from "./utils/const";
 import {useAppSelector} from "../../../../general/redux/hooks";
@@ -82,7 +87,9 @@ const ShopPage = () => {
 
     useEffect(() => {
         document.addEventListener('click', closeClickFunction);
-        dispatch(getAllFilteringAsyncAction());
+        dispatch(getAllCategoriesAsyncAction());
+        dispatch(getAllPricesAsyncAction());
+        dispatch(getAllSortingAsyncAction());
         return () => document.removeEventListener('click', closeClickFunction);
     }, [])
 

@@ -1,6 +1,11 @@
 import {ShopPageState} from "./types";
 import {createSlice, SliceCaseReducers} from "@reduxjs/toolkit";
-import {getAllFilteringAsyncAction, getAllProductsAsyncAction, getProductsAsyncAction} from "./asyncActions";
+import {
+    getAllCategoriesAsyncAction,
+    getAllPricesAsyncAction,
+    getAllProductsAsyncAction, getAllSortingAsyncAction,
+    getProductsAsyncAction
+} from "./asyncActions";
 
 const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState>>(
     {
@@ -16,11 +21,11 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
         extraReducers: (builder) => {
             builder
                 .addCase(
-                (getAllProductsAsyncAction.pending),
+                    (getAllProductsAsyncAction.pending),
                 (state) => {
                     state.products = undefined;
                     state.error = 'Загрузка';
-                }
+                    }
                 )
                 .addCase(
                     (getAllProductsAsyncAction.rejected),
@@ -52,27 +57,52 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
                         state.products = state.products?.concat(action.payload);
                     }
                 )
-
-
-                .addCase(getAllFilteringAsyncAction.pending,
+                .addCase(getAllCategoriesAsyncAction.pending,
                     (state) => {
                         state.categories = undefined;
-                        state.prices = undefined;
-                        state.sort = undefined;
                         state.error = 'Loading...';
                     }
                 )
-
-                .addCase(getAllFilteringAsyncAction.rejected,
+                .addCase(getAllCategoriesAsyncAction.rejected,
                     (state, action) => {
                         state.error = action.error.message as string;
                     }
                 )
-                .addCase(getAllFilteringAsyncAction.fulfilled,
+                .addCase(getAllCategoriesAsyncAction.fulfilled,
                     (state, action) => {
-                        state.categories = action.payload.categories;
-                        state.prices = action.payload.prices;
-                        state.sort = action.payload.sorting;
+                        state.categories = action.payload;
+                    }
+                )
+                .addCase(getAllPricesAsyncAction.pending,
+                    (state) => {
+                        state.prices = undefined;
+                        state.error = 'Loading...';
+                    }
+                )
+                .addCase(getAllPricesAsyncAction.rejected,
+                    (state, action) => {
+                        state.error = action.error.message as string;
+                    }
+                )
+                .addCase(getAllPricesAsyncAction.fulfilled,
+                    (state, action) => {
+                        state.categories = action.payload;
+                    }
+                )
+                .addCase(getAllSortingAsyncAction.pending,
+                    (state) => {
+                        state.sort = undefined;
+                        state.error = 'Loading...';
+                    }
+                )
+                .addCase(getAllSortingAsyncAction.rejected,
+                    (state, action) => {
+                        state.error = action.error.message as string;
+                    }
+                )
+                .addCase(getAllSortingAsyncAction.fulfilled,
+                    (state, action) => {
+                        state.sort = action.payload;
                     }
                 )
         }
