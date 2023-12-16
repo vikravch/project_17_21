@@ -1,0 +1,58 @@
+.auth-page {
+    font-family: var(--font-primary);
+    background-color: var(--darktheme-text-primary);
+    position: relative;
+    width: 1440px;
+    height: 1080px;
+}
+.left-side-of-site{
+    position: absolute;
+    height: 1080px;
+    left: 0px;
+    right: 704px;
+    top: 0px;
+}
+.image-of-left-side{
+    position: relative;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    }
+.pasteImage {
+    position: relative;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    background: var(--primary-light-theme);
+    background-blend-mode:multiply, normal; 
+    } 
+.logo-of-left-side {
+      position: absolute;
+      width: 105px;
+      height: 24px;
+      left: 315px;
+      top: 32px;
+    }
+.legant-of-left-side {
+    position: absolute;
+    width: 105px;
+    height: 24px;
+    left: 0px;
+    top: 0px;
+    font-family: var(--font-secondary);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
+    color: var(--black-text);
+    } 
+.right-side-of-site{
+    position: absolute;
+    height: 1080px;
+    left:704px;
+    right: 0px;
+    top: 0px;
+    }
