@@ -41,7 +41,6 @@ const NewArrivals = () =>
 
     return (
         <div className={'new_arrivals_section'}>
-            {/*<div className={'new_arrivals_section_inner'}>*/}
                 <div className={'new_arrivals_header'}>
                     <h5 className={'new_arrivals_title'}>New<br/>Arrivals</h5>
                     <div className={'shop_now_link  desktop_shop_now'}>
@@ -83,7 +82,6 @@ const NewArrivals = () =>
                     <SliderArrowRight/>
                 </div>
             </div>
-        // </div>
     );
 };
 

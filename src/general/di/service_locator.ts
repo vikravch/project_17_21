@@ -10,9 +10,11 @@ import {ProductsUseCases} from "../../modules/shop-page/domain/use_case/use_case
 import GetAllProducts from "../../modules/shop-page/domain/use_case/getAllProducts";
 
 import GetAllSliderImages from "../../modules/home_page/domain/use_case/getAllSliderImages";
-import {SliderImagesUseCases} from "../../modules/home_page/domain/use_case/use_cases";
+import {BannerGridImagesUseCases, SliderImagesUseCases} from "../../modules/home_page/domain/use_case/use_cases";
 import SliderImagesFakeRepository from "../../modules/home_page/data/repository/sliderImagesFakeRepository";
 import GetProducts from "../../modules/shop-page/domain/use_case/getProducts";
+import BannerGridFakeRepository from "../../modules/home_page/data/repository/bannerGridFakeRepository";
+import GetAllBannerGridImages from "../../modules/home_page/domain/use_case/getAllBannerGridImages";
 
 // Dependency injection - Service locator
 type LocatorRepository = {
@@ -20,8 +22,9 @@ type LocatorRepository = {
   cacheRepository: CacheRepository
   productsFakeRepository: ProductsRepository
   sliderImagesFakeRepository: SliderImagesFakeRepository
+  bannerGridImagesFakeRepository: BannerGridFakeRepository
 }
-type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases
+type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases & BannerGridImagesUseCases
 
 let locatorRepository: LocatorRepository
 
@@ -30,7 +33,8 @@ export const initLocatorRepository = () => {
     weatherRepository: new WeatherServerRepository(),
     cacheRepository: new CacheLocalStoreRepository(),
     productsFakeRepository: new ProductsFakeRepository(),
-    sliderImagesFakeRepository: new SliderImagesFakeRepository()
+    sliderImagesFakeRepository: new SliderImagesFakeRepository(),
+    bannerGridImagesFakeRepository: new BannerGridFakeRepository()
   }
 }
 
@@ -41,6 +45,7 @@ export function useUseCases():LocatorUseCases{
     ),
     getAllProducts: GetAllProducts(locatorRepository.productsFakeRepository),
     getAllSliderImages: GetAllSliderImages(locatorRepository.sliderImagesFakeRepository),
+    getAllBannerGridImages: GetAllBannerGridImages(locatorRepository.bannerGridImagesFakeRepository),
     getProducts: GetProducts(locatorRepository.productsFakeRepository),
   }
 }

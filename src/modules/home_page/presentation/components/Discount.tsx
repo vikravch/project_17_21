@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Discount.css"
-import imageDiscount from "../page/images/imageDiscount.png"
+import imageDiscount from "../page/images/imageDiscount.webp"
 import SliderArrowRight from "../icons/SliderArrowRight";
 import { Link } from 'react-router-dom';
 const Discount = () =>
