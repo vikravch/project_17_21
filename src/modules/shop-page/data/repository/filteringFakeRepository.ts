@@ -41,12 +41,48 @@ const testCategories: Category[] = [
 ];
 
 const testPrices: Price[] = [
-    new Price(0, null, null, `All prices`),
-    new Price(1, 0.00, 99.99, `$0.00-99.99`),
-    new Price(2, 100.00, 199.99, `$100.00-199.99`),
-    new Price(3, 200.00, 299.99, `$200.00-299.99`),
-    new Price(4, 300.00, 399.99, `$300.00-399.99`),
-    new Price(5, 400.00, null, `$400+`)
+    {
+        id: 0,
+        min: null,
+        max: null,
+        title: `All prices`
+    },
+
+    {
+        id: 1,
+        min: 0.00,
+        max: 99.99,
+        title: `$0.00-99.99`
+    },
+
+    {
+        id: 2,
+        min: 100.00,
+        max: 199.99,
+        title: `$100.00-199.99`
+    },
+
+    {
+        id: 3,
+        min: 200.00,
+        max: 299.99,
+        title: `$200.00-299.99`
+    },
+
+    {
+        id: 4,
+        min: 300.00,
+        max: 399.99,
+        title: `$300.00-399.99`
+    },
+
+    {
+        id: 5,
+        min: 400.00,
+        max: null,
+        title: '$400+'
+    }
+
 ];
 
 const testSorting: Sort[] = [
