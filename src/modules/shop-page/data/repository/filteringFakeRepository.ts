@@ -40,7 +40,7 @@ const testCategories: Category[] = [
     }
 ];
 
-const pricesArr: Price[] = [
+const testPrices: Price[] = [
     new Price(0, null, null, `All prices`),
     new Price(1, 0.00, 99.99, `$0.00-99.99`),
     new Price(2, 100.00, 199.99, `$100.00-199.99`),
@@ -48,12 +48,6 @@ const pricesArr: Price[] = [
     new Price(4, 300.00, 399.99, `$300.00-399.99`),
     new Price(5, 400.00, null, `$400+`)
 ];
-
-let testPrices: Price[];
-pricesArr.forEach((item, index) => {
-    console.log(index)
-    testPrices[index] = item;
-})
 
 const testSorting: Sort[] = [
     {

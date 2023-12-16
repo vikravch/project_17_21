@@ -86,7 +86,7 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
                 )
                 .addCase(getAllPricesAsyncAction.fulfilled,
                     (state, action) => {
-                        state.categories = action.payload;
+                        state.prices = action.payload;
                     }
                 )
                 .addCase(getAllSortingAsyncAction.pending,
