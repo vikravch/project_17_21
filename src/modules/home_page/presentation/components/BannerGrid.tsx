@@ -8,6 +8,7 @@ import {
 } from "../../../../general/utils/Constants";
 import {getAllBannerGridImagesAsyncAction} from "../redux/asyncActions";
 import {useAppDispatch, useAppSelector} from "../../../../general/redux/hooks";
+import {Link} from "react-router-dom";
 
 const BannerGrid = () => {
     const dispatch = useAppDispatch();
@@ -17,6 +18,7 @@ const BannerGrid = () => {
         dispatch(getAllBannerGridImagesAsyncAction());
     },[]);
 
+
     return (
         <div className={'banner_grid_wrapper'}>
             <div className={'banner_grid_section'}>
@@ -25,7 +27,9 @@ const BannerGrid = () => {
                     <div className={'banner_grid_texts'}>
                         <h6 className={'banner_grid_title'}>{pictures !== undefined ? pictures[0].category:"Living Room"}</h6>
                         <div className={'shop_now_link'}>
-                            <button className={'shop_now_btn'}>Shop Now</button>
+                            <Link to={`http://localhost:3000/shop/?category=${pictures !== undefined ? pictures[0].category:"Living Room"}`}>
+                                <button className={'shop_now_btn'}>Shop Now</button>
+                            </Link>
                             <ShopNowArrow color="#141718"/>
                         </div>
                     </div>
@@ -36,7 +40,9 @@ const BannerGrid = () => {
                         <div className={'banner_grid_texts_cards'}>
                             <h6 className={'banner_grid_title'}>{pictures !== undefined ? pictures[1].category:'Bedroom'}</h6>
                             <div className={'shop_now_link'}>
-                                <button className={'shop_now_btn'}>Shop Now</button>
+                                <Link to={`http://localhost:3000/shop/?category=${pictures !== undefined ? pictures[1].category:"Living Room"}`}>
+                                    <button className={'shop_now_btn'}>Shop Now</button>
+                                </Link>
                                 <ShopNowArrow color="#141718"/>
                             </div>
                         </div>
@@ -46,14 +52,15 @@ const BannerGrid = () => {
                         <div className={'banner_grid_texts_cards'}>
                             <h6 className={'banner_grid_title'}>{pictures !== undefined ? pictures[2].category:'Kitchen'}</h6>
                             <div className={'shop_now_link'}>
-                                <button className={'shop_now_btn'}>Shop Now</button>
+                                <Link to={`http://localhost:3000/shop/?category=${pictures !== undefined ? pictures[2].category:"Living Room"}`}>
+                                    <button className={'shop_now_btn'}>Shop Now</button>
+                                </Link>
                                 <ShopNowArrow color="#141718"/>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

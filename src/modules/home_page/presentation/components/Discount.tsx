@@ -11,7 +11,6 @@ const Discount = () =>
                 <img className={'image_placeholder_discount'} src={imageDiscount} alt="Discount Image"/>
                 <div className={'discount_section'}>
                     <div className={'discount_section_padding'}>
-                        <Link to="/shop" className={'shop_now_btn'}>Shop Now</Link>
                         <h5 className={'titleDiscount'}>HUNDREDS of <br/>New lower prices!</h5>
                         <p className={'textDiscount'}>It’s more affordable than ever to give every room in your home a
                             stylish makeover</p>
