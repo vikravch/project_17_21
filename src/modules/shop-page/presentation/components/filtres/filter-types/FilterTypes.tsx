@@ -1,7 +1,6 @@
 import React from 'react';
 import style from "./filterTypes.module.css";
 import {Columns, ShopPageState} from "../../../redux/types";
-import {openCloseMenuHandler} from "../../../pages/utils/const";
 import {useSelector} from "react-redux";
 import {AppStore} from "../../../../../../general/redux/types";
 
@@ -10,9 +9,10 @@ interface Props {
     category: number | null,
     price: number | null,
     setCategoryParams: (event: React.MouseEvent<HTMLElement>) => void,
-    setPriceParams: (event: { target: any; }) => void;
+    setPriceParams: (event: { target: any; }) => void,
+    openCloseMenuHandler: (event: React.MouseEvent<HTMLElement>) => void
 }
-const FilterTypes = ({columns, category, price, setCategoryParams, setPriceParams}: Props) => {
+const FilterTypes = ({columns, category, price, setCategoryParams, setPriceParams, openCloseMenuHandler}: Props) => {
 
     const {categories, prices, error} = useSelector<AppStore, ShopPageState>(state => state.shopPage);
 

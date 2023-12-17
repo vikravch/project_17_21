@@ -10,6 +10,7 @@ import FilterTitle from "../components/filtres/filter-title/FilterTitle";
 import Sorting from "../components/sorting/Sorting";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {AppDispatch} from "../../../../general/redux/store";
+import constStyle from "./utils/const.module.css";
 import {
     getAllCategoriesAsyncAction,
     getAllPricesAsyncAction,
@@ -17,7 +18,6 @@ import {
     getProductsAsyncAction
 } from "../redux/asyncActions";
 import arrow from '../../../../images/shop_page/breadCrumbs.svg';
-import {closeClickFunction} from "./utils/const";
 import {useAppSelector} from "../../../../general/redux/hooks";
 import useUpdateEffect from "../../../../general/utils/hooks/useUpdateEffect";
 
@@ -81,6 +81,19 @@ const ShopPage = () => {
         }
     }, [requestObject.page]);
 
+    const closeClickFunction = (event: MouseEvent) => {
+
+        const listener = document.querySelectorAll('.listener');
+        const listenerHead = document.querySelectorAll('.listenerHead');
+
+        listener.forEach((item, index) => {
+            if (event.target !== item && event.target !== listenerHead[index]) {
+                item.classList.remove(constStyle.open);
+            }
+        })
+
+    }
+
     const setCategoryParams = (event: React.MouseEvent<HTMLElement>) => {
         const searchParams = new URLSearchParams(location.search);
         const eventTarget = event.target as HTMLElement;
@@ -95,9 +108,7 @@ const ShopPage = () => {
                     .replaceAll(' ', '').toLowerCase() as string
             );
         }
-        let newUrl = '/' + window.location.pathname.replaceAll('/', '')
-            + '/?' + searchParams.toString();
-        navigate(newUrl);
+        navigate(`?${searchParams.toString()}`);
     }
 
     const setPriceParams = (event: { target: any; }) => {
@@ -112,9 +123,13 @@ const ShopPage = () => {
                 prices?.find(obj => String(obj.id) === choice)?.title.replace(/[$+ ]|\.00/g, '').toLowerCase() as string
             );
         }
-        let newUrl = '/' + window.location.pathname.replaceAll('/', '')
-            + '/?' + searchParams.toString();
-        navigate(newUrl);
+        navigate(`?${searchParams.toString()}`);
+    }
+
+    const openCloseMenuHandler = (event: React.MouseEvent<HTMLElement>) => {
+        const eventTarget = event.target as Element;
+        const nextSibling = eventTarget.nextElementSibling as Element;
+        nextSibling.classList.toggle(constStyle.open);
     }
 
     return (
@@ -141,9 +156,11 @@ const ShopPage = () => {
                              category={requestObject.filtering.category}
                              price={requestObject.filtering.price}
                              setCategoryParams={setCategoryParams}
-                             setPriceParams={setPriceParams}/>
+                             setPriceParams={setPriceParams}
+                             openCloseMenuHandler={openCloseMenuHandler}/>
                 <Sorting columns={columns}
-                         sorting={requestObject.filtering.sorting}/>
+                         sorting={requestObject.filtering.sorting}
+                         openCloseMenuHandler={openCloseMenuHandler}/>
             </section>
             <div className={style.categoryName}>
                 <p>All rooms</p>

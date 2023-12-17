@@ -2,17 +2,17 @@ import React from 'react';
 import ViewSelector from "../view-selector/ViewSelector";
 import style from './sorting.module.css';
 import {Columns, ShopPageState} from "../../redux/types";
-import {openCloseMenuHandler} from "../../pages/utils/const";
 import {useSelector} from "react-redux";
 import {AppStore} from "../../../../../general/redux/types";
 import {useLocation, useNavigate} from "react-router-dom";
 
 interface Props {
     columns: Columns;
-    sorting: number | null;
+    sorting: number | null,
+    openCloseMenuHandler: (event: React.MouseEvent<HTMLElement>) => void
 }
 
-const Sorting = ({columns, sorting}: Props) => {
+const Sorting = ({columns, sorting, openCloseMenuHandler}: Props) => {
 
     const {sort, error} = useSelector<AppStore, ShopPageState>(state => state.shopPage)
     const location = useLocation();
@@ -32,9 +32,6 @@ const Sorting = ({columns, sorting}: Props) => {
                     .replaceAll(' ', '').toLowerCase() as string
             );
         }
-        // let newUrl = '/' + window.location.pathname.replaceAll('/', '')
-        //     + '/?' + searchParams.toString();
-        // navigate(newUrl);
         navigate(`?${searchParams.toString()}`);
     }
 
