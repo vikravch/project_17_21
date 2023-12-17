@@ -3,7 +3,7 @@ import "./Articles.css"
 import image1 from "../../page/images/article1.png";
 import image2 from "../../page/images/article2.png";
 import image3 from "../../page/images/article3.png";
-import ArticleCard from "../../components/articles/ArticleCard";
+import ArticleCard from "../../../presentation/components/Articles/ArticleCard";
 import ShopNowArrow from "../../icons/ShopNowArrow";
 
 const Articles = () => {

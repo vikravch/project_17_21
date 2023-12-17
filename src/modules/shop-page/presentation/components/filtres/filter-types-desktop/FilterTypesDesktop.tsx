@@ -6,50 +6,14 @@ import {ShopPageState} from "../../../redux/types";
 
 interface Props {
     category: number | null,
-    price: number | null
+    price: number | null,
+    setCategoryParams: (event: React.MouseEvent<HTMLElement>) => void,
+    setPriceParams: (event: { target: any; }) => void
 }
 
-const FilterTypesDesktop = ({category, price}: Props) => {
+const FilterTypesDesktop = ({category, price, setCategoryParams, setPriceParams}: Props) => {
 
     const {categories, prices, error} = useSelector<AppStore, ShopPageState>(state => state.shopPage);
-
-    // const setCategory = (event: React.MouseEvent<HTMLElement>) => {
-    //     const eventTarget = event.target as HTMLElement;
-    //     const choice = eventTarget.dataset.sortId as string;
-    //
-    //     if (sort && +choice === sort[0].id) {
-    //         searchParams.delete('sorting');
-    //     } else {
-    //         searchParams.set(
-    //             'sorting',
-    //             sort?.find(obj => String(obj.id) === choice)?.title
-    //                 .replaceAll(' ', '').toLowerCase() as string
-    //         );
-    //     }
-    //     window.location.search = searchParams.toString();
-    //
-    //
-    //     window.location.search = searchParams.toString();
-    // }
-    //
-    // const setPrice = (event: React.MouseEvent<HTMLElement>) => {
-    //     const eventTarget = event.target as HTMLElement;
-    //     const choice = eventTarget.dataset.sortId as string;
-    //
-    //     if (sort && +choice === sort[0].id) {
-    //         searchParams.delete('sorting');
-    //     } else {
-    //         searchParams.set(
-    //             'sorting',
-    //             sort?.find(obj => String(obj.id) === choice)?.title
-    //                 .replaceAll(' ', '').toLowerCase() as string
-    //         );
-    //     }
-    //     window.location.search = searchParams.toString();
-    //
-    //
-    //     window.location.search = searchParams.toString();
-    // }
 
     return (
         <div className={style.block}>
@@ -59,7 +23,9 @@ const FilterTypesDesktop = ({category, price}: Props) => {
                 <ul>
                 {categories.map(item =>
                     <li className={`${((item.id === category) || (category === null && item.id === 0)) && style.checked}`}
-                        key={item.title}>
+                        key={'key-' + item.title}
+                        data-category-id={item.id}
+                        onClick={setCategoryParams}>
                         {item.title}
                     </li>
                 )}
@@ -74,7 +40,10 @@ const FilterTypesDesktop = ({category, price}: Props) => {
                     <label key={'label-' + item.id}>
                         <input type={'radio'} value={item.id} name={'price'}
                                key={'input-' + item.id}
-                               defaultChecked={item.id === price || (price === null && item.id === 0)} />
+                               defaultChecked={item.id === price || (price === null && item.id === 0)}
+                               data-price-id={item.id}
+                                onChange={setPriceParams}
+                        />
                         <p key={'p-' + item.id}>{item.title}</p>
                         <div key={'checkbox-' + item.id} className={style.checkboxCheckmark}></div>
                     </label>
