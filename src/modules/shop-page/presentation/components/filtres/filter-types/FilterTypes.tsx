@@ -4,7 +4,7 @@ import {Columns, ShopPageState} from "../../../redux/types";
 import {openCloseMenuHandler} from "../../../pages/utils/const";
 import {useSelector} from "react-redux";
 import {AppStore} from "../../../../../../general/redux/types";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 interface Props {
     columns: Columns;
@@ -16,6 +16,7 @@ const FilterTypes = ({columns, category, price}: Props) => {
     const {categories, prices, error} = useSelector<AppStore, ShopPageState>(state => state.shopPage);
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
+    const navigate = useNavigate();
 
     const setCategoryParams = (event: React.MouseEvent<HTMLElement>) => {
         const eventTarget = event.target as HTMLElement;
@@ -32,7 +33,7 @@ const FilterTypes = ({columns, category, price}: Props) => {
         }
         let newUrl = '/' + window.location.pathname.replaceAll('/', '')
             + '/?' + searchParams.toString();
-        window.history.replaceState(null, '', newUrl);
+        navigate(newUrl);
     }
 
     const setPriceParams = (event: React.MouseEvent<HTMLElement>) => {
@@ -48,7 +49,9 @@ const FilterTypes = ({columns, category, price}: Props) => {
         }
         let newUrl = '/' + window.location.pathname.replaceAll('/', '')
             + '/?' + searchParams.toString();
-        window.history.replaceState(null, '', newUrl);
+        navigate(newUrl);
+
+
     }
 
     return (
