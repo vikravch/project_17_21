@@ -2,9 +2,10 @@ import React from 'react';
 import ViewSelector from "../view-selector/ViewSelector";
 import style from './sorting.module.css';
 import {Columns, ShopPageState} from "../../redux/types";
-import {chooseSortOrFiltration, openCloseMenuHandler} from "../../pages/utils/const";
+import {openCloseMenuHandler} from "../../pages/utils/const";
 import {useSelector} from "react-redux";
 import {AppStore} from "../../../../../general/redux/types";
+import {useLocation} from "react-router-dom";
 
 interface Props {
     columns: Columns;
@@ -14,6 +15,27 @@ interface Props {
 const Sorting = ({columns, sorting}: Props) => {
 
     const {sort, error} = useSelector<AppStore, ShopPageState>(state => state.shopPage)
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+
+    const setSortParams = (event: React.MouseEvent<HTMLElement>) => {
+        const eventTarget = event.target as HTMLElement;
+        const choice = eventTarget.dataset.sortId as string;
+
+        if (sort && +choice === sort[0].id) {
+            searchParams.delete('sorting');
+        } else {
+            searchParams.set(
+                'sorting',
+                sort?.find(obj => String(obj.id) === choice)?.title
+                    .replaceAll(' ', '').toLowerCase() as string
+            );
+        }
+        window.location.search = searchParams.toString();
+
+
+        window.location.search = searchParams.toString();
+    }
 
     return (
         <div className={`${style.sortBlock} ${columns.countDesktop === 3 && style.sortBlockDisplay3}`}>
@@ -29,8 +51,9 @@ const Sorting = ({columns, sorting}: Props) => {
                         {sort.map(item => {
                             return  <li className={`${style.sortItem}
                                        ${(sorting === item.id || (sorting === null && item.id === 0)) && style.chosen}`}
-                                       key={item.id}
-                                       onClick={chooseSortOrFiltration}>
+                                       key={'key-' + item.id}
+                                        data-sort-id={item.id}
+                                       onClick={setSortParams}>
                                        {item.title}
                                     </li>
                         })}

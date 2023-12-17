@@ -20,25 +20,33 @@ export const openCloseMenuHandler = (event: React.MouseEvent<HTMLElement>) => {
     nextSibling.classList.toggle(style.open);
 }
 
-export const chooseSortOrFiltration = (event: React.MouseEvent<HTMLElement>) => {
-
-    const eventTarget = event.target as HTMLElement;
-    const choice = eventTarget.textContent as string;
-    const listId = eventTarget.parentElement as HTMLDivElement;
-    const listHead = listId.previousElementSibling as HTMLDivElement;
-    const input = listHead.previousElementSibling as HTMLInputElement;
-
-    input.value = choice;
-    listId.childNodes.forEach((item: ChildNode) => {
-        let element = item as HTMLDivElement;
-        if (element.classList.contains(style.chosen)) {
-            element.classList.remove(style.chosen);
-        }
-    })
-
-    listHead.textContent = choice === 'Default' ? 'Sort by' : choice;
-    eventTarget.classList.add(style.chosen);
-    listId.classList.toggle(style.open);
+// export const chooseSortOrFiltration = (event: React.MouseEvent<HTMLElement>) => {
+//     const eventTarget = event.target as HTMLElement;
+//     const choice = eventTarget.dataset.id;
+//     const sortInput = document.getElementsByName('sort') as NodeListOf<HTMLInputElement>;
+//     sortInput.forEach(input => {
+//         input.value = `${choice}`;
+//     })
 
 
-}
+
+    // const eventTarget = event.target as HTMLElement;
+    // const choice = eventTarget.textContent as string;
+    // const listId = eventTarget.parentElement as HTMLDivElement;
+    // const listHead = listId.previousElementSibling as HTMLDivElement;
+    // const input = listHead.previousElementSibling as HTMLInputElement;
+
+    // input.value = choice;
+    // listId.childNodes.forEach((item: ChildNode) => {
+    //     let element = item as HTMLDivElement;
+    //     if (element.classList.contains(style.chosen)) {
+    //         element.classList.remove(style.chosen);
+    //     }
+    // })
+    //
+    // listHead.textContent = choice === 'Default' ? 'Sort by' : choice;
+    // eventTarget.classList.add(style.chosen);
+    // listId.classList.toggle(style.open);
+
+
+// }

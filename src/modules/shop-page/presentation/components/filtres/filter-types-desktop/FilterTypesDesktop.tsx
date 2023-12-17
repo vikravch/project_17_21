@@ -13,6 +13,7 @@ const FilterTypesDesktop = ({category, price}: Props) => {
 
     const {categories, prices, error} = useSelector<AppStore, ShopPageState>(state => state.shopPage);
 
+
     return (
         <div className={style.block}>
             {categories ?
