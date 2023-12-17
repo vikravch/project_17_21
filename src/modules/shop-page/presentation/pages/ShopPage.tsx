@@ -62,7 +62,7 @@ const ShopPage = () => {
                 const item = key === 'category' ?
                     categories?.find(item => item.title.toLowerCase().replace(' ', '') === value) :
                     key === 'price' ?
-                        prices?.find(item => item.title.replace('$','').replace('.00', '') === value) :
+                        prices?.find(item => item.title.replace(/\$|\.00/g, '') === value) :
                         sort?.find(item => item.title.toLowerCase().replace(' ', '') === value);
                 updatedRequestObject.filtering[key as keyof typeof requestObject.filtering] = item?.id ?? null;
             } else {
