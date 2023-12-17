@@ -31,9 +31,10 @@ const Sorting = ({columns, sorting}: Props) => {
                     .replaceAll(' ', '').toLowerCase() as string
             );
         }
+        //испытал ахуй
         window.location.search = searchParams.toString();
 
-
+        //2жды
         window.location.search = searchParams.toString();
     }
 

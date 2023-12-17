@@ -19,11 +19,14 @@ import {
 import arrow from '../../../../images/shop_page/breadCrumbs.svg';
 import {closeClickFunction} from "./utils/const";
 import {useAppSelector} from "../../../../general/redux/hooks";
+import useUpdateEffect from "../../../../general/utils/hooks/useUpdateEffect";
+
 
 const ShopPage = () => {
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
     );
+    const [isFiltersExists, setIsFiltersExists] = useState(false);
     const {categories, sort, prices} = useAppSelector(state => state.shopPage)
     const dispatch = useDispatch<AppDispatch>();
     const location = useLocation();
@@ -37,61 +40,45 @@ const ShopPage = () => {
     });
 
     useEffect(() => {
+        Promise.all([
+            dispatch(getAllCategoriesAsyncAction()),
+            dispatch(getAllPricesAsyncAction()),
+            dispatch(getAllSortingAsyncAction())
+        ]).then(() => setIsFiltersExists(true));
+    }, []);
+
+    useEffect(() => {
+        document.addEventListener('click', closeClickFunction);
+        return () => document.removeEventListener('click', closeClickFunction);
+    }, []);
+
+    useUpdateEffect(() => {
         const searchParams = new URLSearchParams(location.search);
         let updatedRequestObject: RequestProducts = {...requestObject};
-        // for (let key in requestObject.filtering) {
-        //     if (searchParams.has(key)) {
-        //         const value = searchParams.get(key);
-        //         switch (key) {
-        //             case 'category':
-        //                 const categoryItem = categories?.find(item => item.title === value);
-        //                 updatedRequestObject.filtering.category = categoryItem?.id ?? null;
-        //                 break;
-        //             case 'price':
-        //                 const priceItem = prices?.find(item => item.title === value);
-        //                 updatedRequestObject.filtering.price = priceItem?.id ?? null;
-        //                 break;
-        //             case 'sorting':
-        //                 const sortItem = sort?.find(item => item.title === value);
-        //                 updatedRequestObject.filtering.price = sortItem?.id ?? null;
-        //                 break;
-        //         }
-        //
-        //     } else {
-        //         updatedRequestObject.filtering[key as keyof typeof requestObject.filtering] = null;
-        //     }
-        // }
         for (let key in requestObject.filtering) {
             if (searchParams.has(key)) {
                 const value = searchParams.get(key);
                 const item = key === 'category' ?
-                    categories?.find(item => item.title === value) :
-                    key === 'price' ? prices?.find(item => item.title === value) :
-                        sort?.find(item => item.title === value);
+                    categories?.find(item => item.title.toLowerCase().replace(' ', '') === value) :
+                    key === 'price' ?
+                        prices?.find(item => item.title.replace('$','').replace('.00', '') === value) :
+                        sort?.find(item => item.title.toLowerCase().replace(' ', '') === value);
                 updatedRequestObject.filtering[key as keyof typeof requestObject.filtering] = item?.id ?? null;
             } else {
                 updatedRequestObject.filtering[key as keyof typeof requestObject.filtering] = null;
             }
         }
-        console.log(updatedRequestObject);
+        console.log(updatedRequestObject)
         setRequestObject(updatedRequestObject);
         dispatch(getProductsAsyncAction(updatedRequestObject));
-    }, [location]);
+    }, [location, isFiltersExists]);
 
     useEffect(() => {
         if (requestObject.page !== 1) {
             console.log(requestObject);
             dispatch(getProductsAsyncAction(requestObject));
         }
-    }, [requestObject.page])
-
-    useEffect(() => {
-        document.addEventListener('click', closeClickFunction);
-        dispatch(getAllCategoriesAsyncAction());
-        dispatch(getAllPricesAsyncAction());
-        dispatch(getAllSortingAsyncAction());
-        return () => document.removeEventListener('click', closeClickFunction);
-    }, [])
+    }, [requestObject.page]);
 
     return (
         <div className={style.shopPage}>
