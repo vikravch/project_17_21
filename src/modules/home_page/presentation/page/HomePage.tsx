@@ -5,7 +5,7 @@ import BannerGrid from "../components/BannerGrid";
 import Values from "../components/Values";
 import Discount from "../components/Discount";
 import NewArrivals from "../components/NewArrivals";
-import Articles from "../../presentation/components/Articles/ArticleCard";
+import Articles from "../../presentation/components/articles/ArticleCard";
 import "././images/HomePage.css"
 
 
