@@ -13,6 +13,43 @@ const FilterTypesDesktop = ({category, price}: Props) => {
 
     const {categories, prices, error} = useSelector<AppStore, ShopPageState>(state => state.shopPage);
 
+    // const setCategory = (event: React.MouseEvent<HTMLElement>) => {
+    //     const eventTarget = event.target as HTMLElement;
+    //     const choice = eventTarget.dataset.sortId as string;
+    //
+    //     if (sort && +choice === sort[0].id) {
+    //         searchParams.delete('sorting');
+    //     } else {
+    //         searchParams.set(
+    //             'sorting',
+    //             sort?.find(obj => String(obj.id) === choice)?.title
+    //                 .replaceAll(' ', '').toLowerCase() as string
+    //         );
+    //     }
+    //     window.location.search = searchParams.toString();
+    //
+    //
+    //     window.location.search = searchParams.toString();
+    // }
+    //
+    // const setPrice = (event: React.MouseEvent<HTMLElement>) => {
+    //     const eventTarget = event.target as HTMLElement;
+    //     const choice = eventTarget.dataset.sortId as string;
+    //
+    //     if (sort && +choice === sort[0].id) {
+    //         searchParams.delete('sorting');
+    //     } else {
+    //         searchParams.set(
+    //             'sorting',
+    //             sort?.find(obj => String(obj.id) === choice)?.title
+    //                 .replaceAll(' ', '').toLowerCase() as string
+    //         );
+    //     }
+    //     window.location.search = searchParams.toString();
+    //
+    //
+    //     window.location.search = searchParams.toString();
+    // }
 
     return (
         <div className={style.block}>

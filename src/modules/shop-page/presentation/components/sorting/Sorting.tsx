@@ -31,10 +31,9 @@ const Sorting = ({columns, sorting}: Props) => {
                     .replaceAll(' ', '').toLowerCase() as string
             );
         }
-        window.location.search = searchParams.toString();
-
-
-        window.location.search = searchParams.toString();
+        let newUrl = '/' + window.location.pathname.replaceAll('/', '')
+            + '/?' + searchParams.toString();
+        window.history.replaceState(null, '', newUrl);
     }
 
     return (

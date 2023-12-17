@@ -30,7 +30,9 @@ const FilterTypes = ({columns, category, price}: Props) => {
                     .replaceAll(' ', '').toLowerCase() as string
             );
         }
-        window.location.search = searchParams.toString();
+        let newUrl = '/' + window.location.pathname.replaceAll('/', '')
+            + '/?' + searchParams.toString();
+        window.history.replaceState(null, '', newUrl);
     }
 
     const setPriceParams = (event: React.MouseEvent<HTMLElement>) => {
@@ -44,7 +46,9 @@ const FilterTypes = ({columns, category, price}: Props) => {
                 prices?.find(obj => String(obj.id) === choice)?.title.replace(/[$+ ]|\.00/g, '').toLowerCase() as string
             );
         }
-        window.location.search = searchParams.toString();
+        let newUrl = '/' + window.location.pathname.replaceAll('/', '')
+            + '/?' + searchParams.toString();
+        window.history.replaceState(null, '', newUrl);
     }
 
     return (
