@@ -29,9 +29,9 @@ const ShopPage = () => {
     const location = useLocation();
     const [requestObject, setRequestObject] = useState<RequestProducts>({
         filtering: {
-            category: null,
-            price: null,
-            sorting: null,
+            category: 3,
+            price: 4,
+            sorting: 1,
         },
         page: 1
     });

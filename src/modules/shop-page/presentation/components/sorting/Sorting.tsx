@@ -23,13 +23,16 @@ const Sorting = ({columns, sorting}: Props) => {
                     <div className={`${style.sortHead}
                         ${columns.countDesktop === 3 && style.sortHeaDisplay3} listenerHead`}
                          onClick={openCloseMenuHandler}>
-                        {(sorting === null || sorting === 0) ? 'Sort by' : sort?.find(obj => obj.id === 1)?.title}
+                        {(sorting === null || sorting === 0) ? 'Sort by' : sort?.find(obj => obj.id === sorting)?.title}
                     </div>
-                    <ul className={`${style.sortList} listener`} id={'sortingList'}>
+                    <ul className={`${style.sortList} listener`}>
                         {sort.map(item => {
-                            return <li className={`${style.sortItem} ${(sorting === item.id) && style.chosen}`}
+                            return  <li className={`${style.sortItem}
+                                       ${(sorting === item.id || (sorting === null && item.id === 0)) && style.chosen}`}
                                        key={item.id}
-                                       onClick={chooseSortOrFiltration}>{item.title}</li>
+                                       onClick={chooseSortOrFiltration}>
+                                       {item.title}
+                                    </li>
                         })}
                     </ul>
                 </div> :

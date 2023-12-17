@@ -80,7 +80,7 @@ const testPrices: Price[] = [
         id: 5,
         min: 400.00,
         max: null,
-        title: '$400+'
+        title: '$400.00+'
     }
 
 ];
