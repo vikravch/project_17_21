@@ -1,0 +1,26 @@
+.mobileHeader {
+    display: none;
+}
+
+.sectionOrdersDetail {
+}
+
+.orderContainer {
+    display: flex;
+    width: 707px;
+    padding: 24px 0;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--light-grey-primary);
+}
+
+.item {
+    width: 160px;
+    flex-shrink: 0;
+    color: var(--primary-dark);
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
