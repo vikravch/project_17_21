@@ -13,7 +13,7 @@
   font-weight: 600;
   line-height: 26px;
 }
-input[type="radio"] {
+.cart_input_radio {
   display: none;
 }
 .custom_radio {
@@ -26,7 +26,7 @@ input[type="radio"] {
   cursor: pointer;
   margin-right: 12px;
 }
-input[type="radio"]:checked + .custom_radio::before {
+.cart_input_radio:checked + .custom_radio::before {
   content: '';
   position: absolute;
   left: 50%;
@@ -86,7 +86,7 @@ input[type="radio"]:checked + .custom_radio::before {
 .cart_total>p {
   margin: 0;
 }
-.button_container {
+.cart_button_container {
   margin-top: 24px;
   padding: 10px 26px;
   background-color: var(--primary-dark);
@@ -95,7 +95,7 @@ input[type="radio"]:checked + .custom_radio::before {
   justify-content: center;
   align-items: center;
 }
-.button {
+.cart_button {
   font-family: var(--font-primary);
   font-size: 18px;
   font-style: normal;

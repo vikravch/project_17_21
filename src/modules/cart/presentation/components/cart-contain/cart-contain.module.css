@@ -1,4 +1,4 @@
-.container {
+.contain_container {
   padding: 0px 32px 0px;
 }
 .table_header {
@@ -43,7 +43,7 @@
   }
 }
 @media (min-width: 1120px) {
-  .container {
+  .contain_container {
     padding: 0;
     max-width: 643px;
     width: 100%;
