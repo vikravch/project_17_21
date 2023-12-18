@@ -9,10 +9,10 @@
   margin: 0;
   color: var(--bold-black);
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 26px;
+  line-height: 162.5%;
 }
 .table_header_wide {
   display: none;

@@ -8,10 +8,10 @@
 }
 .cart_summary_header {
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 26px;
+  line-height: 162.5%;
 }
 .cart_input_radio {
   display: none;
@@ -50,10 +50,10 @@
 }
 .radio_descr {
   font-family: var(--font-primary);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 22px;
+  line-height: 157%;
   display: flex;
   align-items: center;
   margin: 0;
@@ -65,10 +65,10 @@
   display: flex;
   justify-content: space-between;
   font-family: var(--font-primary);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 22px;
+  line-height: 157%;
 }
 .cart_subtotal>p {
   margin: 0;
@@ -78,10 +78,10 @@
   display: flex;
   justify-content: space-between;
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 26px;
+  line-height: 162.5%;
 }
 .cart_total>p {
   margin: 0;
@@ -97,10 +97,10 @@
 }
 .cart_button {
   font-family: var(--font-primary);
-  font-size: 18px;
+  font-size: 1.125rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 32px; /* 177.778% */
+  line-height: 177.778%;
   letter-spacing: -0.4px;
   color: #FFF;
   width: 100%;
@@ -123,34 +123,34 @@
   }
   .cart_summary_header {
     font-family: var(--font-secondary);
-    font-size: 20px;
+    font-size: 1.25rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 28px;
+    line-height: 140%;
     margin: 0 0 16px;
 
   }
   .radio_descr {
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 26px;
+    line-height: 162.5%;
   }
   .cart_subtotal {
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 26px;
+    line-height: 162.5%;
     color: var(--primary-dark);
   }
   .subtotal_price {
     font-weight: 600;
   }
   .cart_total {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-style: normal;
     font-weight: 600;
-    line-height: 32px;
+    line-height: 160%;
   }
   .coupon_container_wide {
 

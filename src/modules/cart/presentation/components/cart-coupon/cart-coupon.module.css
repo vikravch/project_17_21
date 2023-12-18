@@ -1,22 +1,20 @@
-
 .coupon_header_item {
   margin: 0;
   color: var(--primary-dark);
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 26px;
+  line-height: 162.5%;
 }
-
 .coupon_subheader_item {
   margin-top: 7px;
   margin-bottom: 0;
   font-family:var(--font-primary);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 22px;
+  line-height: 157%;
   color: var(--regular-grey);
 }
 .coupon_input {
@@ -28,10 +26,6 @@
   justify-content: space-between;
   border: 1px solid var(--regular-grey);
 }
-/*.coupon_icon_wrapper {*/
-/*  width: 24px;*/
-/*  height: 24px;*/
-/*}*/
 .coupon_code_icon {
   display: flex;
   gap: 8px;
@@ -40,10 +34,10 @@
 .code_input {
   border: none;
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 28px;
+  line-height: 175%;
   max-width: 197px;
   width: 100%;
 }
@@ -54,16 +48,15 @@
 .apply_button {
   color: var(--primary-dark);
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 28px;
+  line-height: 175%;
   letter-spacing: -0.4px;
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
-
 
 @media (min-width: 1120px) {
   .coupon_container {
@@ -80,20 +73,20 @@
   .coupon_header_item {
     margin: 0;
     font-family: var(--font-secondary);
-    font-size: 20px;
+    font-size: 1.25rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 28px;
+    line-height: 140%;
     color: var(--primary-dark);
   }
   .coupon_subheader_item {
     margin-top: 7px;
     margin-bottom: 0;
     font-family: var(--font-primary);
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 26px;
+    line-height: 162.5%;
     color: var(--regular-grey);
   }
 }
