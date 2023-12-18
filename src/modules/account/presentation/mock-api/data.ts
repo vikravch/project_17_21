@@ -1,7 +1,7 @@
-import sofa from "../../images/sofa.png"
-import trayTable from "../../images/trayTable.png"
-import bambooBasket from "../../images/bambooBasket.png"
-import pillow from "../../images/pillow.png"
+import sofa from "../../images/sofa.webp"
+import trayTable from "../../images/trayTable.webp"
+import bambooBasket from "../../images/bambooBasket.webp"
+import pillow from "../../images/pillow.webp"
 
 export type TUserProfile = {
     firstName: string;
@@ -22,8 +22,41 @@ export type TItemWishList={
     price: string;
     picture: string;
 }
+export type TItemOrder={
+    id: number
+    dateOrder: string
+    status:string
+    price: number
+}
 
-export const data:TItemWishList[]=[
+export const dataOrders: TItemOrder[]=[
+    {
+        id: 3456_768,
+        dateOrder: "October 17, 2023",
+        status:"Delivered",
+        price: 1234
+    },
+    {
+        id: 3456_768,
+        dateOrder: "October 11, 2023",
+        status:"Delivered",
+        price: 345
+    },
+    {
+        id: 3456_768,
+        dateOrder: "August 24, 2023",
+        status:"Delivered",
+        price: 2345
+    },
+    {
+        id: 3456_768,
+        dateOrder: "August 12, 2023",
+        status:"Delivered",
+        price: 845
+    },
+
+]
+export const dataWishList:TItemWishList[]=[
     {
         id:1,
         name:"Tray Table",

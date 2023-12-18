@@ -1,44 +1,31 @@
 import React from 'react';
 import styles from "../orders/orders.module.css";
+import OrderItem from "../orderItem/OrderItem";
+import {dataOrders} from "../../mock-api/data";
 
 const Orders = () => {
+
     return (
-        <div className={styles.detail}>
-            <div className={styles.header}>Orders</div>
-            <div className={styles.table}>
-                <div className={styles.tableHeader}>
-                <p className={styles.title}>Number ID</p>
-                <p className={styles.title}>Dates</p>
-                <p className={styles.title}>Status</p>
-                <p className={styles.title}>Price</p>
-            </div>
-                <div className={styles.itemBox}>
-                    <div className={styles.item}>#12345</div>
-                    <div className={styles.item}>October 17,2023</div>
-                    <div className={styles.item}>Delivered</div>
-                    <div className={styles.item}>$1234.00</div>
-                </div>
-                <div className={styles.itemBox}>
-                    <div className={styles.item}>#12345</div>
-                    <div className={styles.item}>October 17,2023</div>
-                    <div className={styles.item}>Delivered</div>
-                    <div className={styles.item}>$1234.00</div>
-                </div>
-                <div className={styles.itemBox}>
-                    <div className={styles.item}>#12345</div>
-                    <div className={styles.item}>October 17,2023</div>
-                    <div className={styles.item}>Delivered</div>
-                    <div className={styles.item}>$1234.00</div>
-                </div>
-                <div className={styles.itemBox}>
-                    <div className={styles.item}>#12345</div>
-                    <div className={styles.item}>October 17,2023</div>
-                    <div className={styles.item}>Delivered</div>
-                    <div className={styles.item}>$1234.00</div>
-                </div>
-            </div>
-        </div>
+        <section className={styles.ordersContent}>
+            <h2 className={styles.header}>Orders History</h2>
+            <table className={styles.table}>
+                <thead>
+                <tr className={styles.tableHeader}>
+                    <th className={styles.title}>Number ID</th>
+                    <th className={styles.title}>Dates</th>
+                    <th className={styles.title}>Status</th>
+                    <th className={styles.title}>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                {dataOrders.map(el =>
+                    <OrderItem key={el.id} {...el}/>
+                )}
+                </tbody>
+            </table>
+        </section>
     );
 };
 
 export default Orders;
+
