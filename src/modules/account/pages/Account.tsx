@@ -1,6 +1,5 @@
 import styles from "./account.module.css"
 import image from '../images/Image.webp';
-import chevronRight from "../images/chevronRight.webp";
 import {NavLink} from "react-router-dom";
 import Address from "../presentation/components/address/Address";
 import Orders from "../presentation/components/orders/Orders";
@@ -15,7 +14,9 @@ const Account = () => {
     return (
         <section className={styles.accountContent}>
             <header className={styles.header}>
-                <button className={styles.backButton}><img src={chevronRight} alt="chevronRight"/>Back</button>
+                <button className={styles.backButton}>
+                    <span className="chevron">&lt;</span> back
+                </button>
                 <h1 className={styles.title}>
                     My Account
                 </h1>
