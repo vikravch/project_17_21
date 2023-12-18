@@ -138,6 +138,7 @@
   font-weight: 600;
   line-height: 22px;
   color: var(--regular-grey);
+  cursor: pointer;
 }
 .item_image_descr_wide {
   display: none;

@@ -20,21 +20,7 @@ const CartContain = () => {
       </div>
       {items.length === 0 ? <p className={"cart_contain"}>Your cart is empty</p> :
         items.map(el =>
-          <CartProductCard
-            key={el.id}
-            id={el.id}
-            name={el.name}
-            color={el.color}
-            actualPrice={el.actualPrice}
-            image={el.image}
-            subtotal={el.subtotal}
-            quantity={el.quantity}
-            amount={el.amount}
-            description={el.description}
-            fullPrice={el.fullPrice}
-            isNew={el.isNew}
-            rating={el.rating}
-            sale={el.sale}/>)
+          <CartProductCard key={el.id} {...el}/>)
       }
     </section>
   );
