@@ -2,8 +2,8 @@ import React from 'react';
 import Badge from './badge/Badge';
 import style from './ShopProductCard.module.css';
 import {Columns} from "../../redux/types";
-import {useAppDispatch, useAppSelector} from "../../../../../general/redux/hooks";
-import {addItemCart, setShipping} from "../../../../cart/presentation/redux/cartSlice";
+import {useAppDispatch} from "../../../../../general/redux/hooks";
+import {addItemCart} from "../../../../cart/presentation/redux/cartSlice";
 import Product from "../../../domain/model/product";
 
 
@@ -13,7 +13,6 @@ interface Props {
 }
 
 const ShopProductCard = ({columns, product}: Props) => {
-    const {shipping} = useAppSelector(state => state.cart);
     const dispatch = useAppDispatch();
     let ratingIcons: string[] = [];
     for (let i = 0; i < product.rating; i++) {
@@ -27,7 +26,6 @@ const ShopProductCard = ({columns, product}: Props) => {
             product: product,
             quantity: 1
         }));
-        dispatch(setShipping(shipping));
     }
     return (
         <div
