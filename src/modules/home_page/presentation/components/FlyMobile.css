@@ -99,7 +99,7 @@
     height: 32px;
     border-bottom: 1px solid #E8ECEF;
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     align-items: center;
 }
 

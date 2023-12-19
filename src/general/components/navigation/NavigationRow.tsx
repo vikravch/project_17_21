@@ -17,6 +17,7 @@ import {Link} from "react-router-dom";
 const Navigation = () => {
     const dispatch = useAppDispatch();
     const flag = useAppSelector(state => state.flyMenu.showFlyMenu);
+    const cartLength = useAppSelector(state => state.cart.items.length);
 
     function handleSearchInput() {
         const input = document.querySelector('.navigation_search_bar_desktop');
@@ -44,7 +45,7 @@ const Navigation = () => {
                     <Link to={"/cart"} className={'cart_navigation_section'}>
                         <CartIcon/>
                         <div className={'cart_count_circle'}>
-                            <p className={'cart_count_text'}>2</p>
+                            <p className={'cart_count_text'}>{cartLength}</p>
                         </div>
                     </Link></div>
             </div>

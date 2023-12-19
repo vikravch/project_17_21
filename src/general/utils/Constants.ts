@@ -9,7 +9,6 @@ export const sliderIBannerCardImgPlaceholder2 = require('../../modules/home_page
 export const navItems:Item[] = [
     {title: 'Home', route: 'home'},
     {title: 'Shop', route: 'shop'},
-    {title: 'Products', route: 'products'},
     {title: 'Blog', route: 'blog'},
     {title: 'Contact Us', route: 'contact_us'}
 ];
