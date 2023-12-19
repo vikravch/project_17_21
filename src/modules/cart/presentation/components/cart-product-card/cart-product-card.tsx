@@ -5,20 +5,24 @@ import plusIcon from '../../../../../icons/plus_icon.png'
 import styles from './cart-product-card.module.css'
 import {useLocation} from "react-router";
 import {TItem} from "../../types";
-import {useAppDispatch} from "../../../../../general/redux/hooks";
-import {decreaseAmount, deleteItemCart, increaseAmount} from "../../redux/cartSlice";
+import {useAppDispatch, useAppSelector} from "../../../../../general/redux/hooks";
+import {decreaseAmount, deleteItemCart, increaseAmount, setShipping} from "../../redux/cartSlice";
 
 const CartProductCard:React.FC<TItem> = ({id, name, color, actualPrice, image, quantity, subtotal}: TItem) => {
 const location = useLocation();
 const dispatch = useAppDispatch();
+const {shipping} = useAppSelector(state => state.cart)
 const removeItem = () => {
   dispatch(deleteItemCart(id));
+  dispatch(setShipping(shipping));
 }
 const plusItem = () => {
   dispatch(increaseAmount(id));
+  dispatch(setShipping(shipping));
 }
 const minusItem = () => {
   dispatch(decreaseAmount(id));
+  dispatch(setShipping(shipping));
 }
 
 const productCard = <div className={styles.product_card}>

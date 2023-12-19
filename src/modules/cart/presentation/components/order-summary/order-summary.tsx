@@ -7,7 +7,7 @@ import {useAppSelector} from "../../../../../general/redux/hooks";
 
 const OrderSummary = () => {
 
-  const {items, totalPrice, subtotalPrice} = useAppSelector(state => state.cart);
+  const {items, totalPrice, subtotalPrice, shipping} = useAppSelector(state => state.cart);
   const [discountCode, setDiscountCode] = useState('');
   const [bonus, setBonus] = useState('');
   const [bonusToRender, setBonusToRender] = useState('')
@@ -60,7 +60,7 @@ const OrderSummary = () => {
         </div>
         <div className={styles.order_info_container}>
           <p className={styles.order_contain_info}>Shipping</p>
-          <p className={styles.order_contain_price}>Free</p>
+          <p className={styles.order_contain_price}>{shipping}</p>
         </div>
         <div className={styles.order_info_container}>
           <p className={styles.order_contain_info}>Subtotal</p>

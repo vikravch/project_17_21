@@ -1,16 +1,21 @@
 import {createSlice} from "@reduxjs/toolkit";
 import { TItem} from "../types";
+import {shippingOptions} from "../../utils";
+import {useAppDispatch} from "../../../../general/redux/hooks";
 
 export interface IState {
   items: TItem[]
   totalPrice: number
   subtotalPrice: number
+  shipping: string
 }
 export const initialState: IState = {
   items: [],
   totalPrice: 0,
-  subtotalPrice: 0
+  subtotalPrice: 0,
+  shipping: 'Free'
 }
+
 const cartSlice = createSlice(
   {
     name: 'cart',
@@ -62,8 +67,34 @@ const cartSlice = createSlice(
           state.totalPrice = state.totalPrice - state.items[index].actualPrice;
           state.subtotalPrice = state.subtotalPrice - state.items[index].actualPrice;
         }
+      },
+      setShipping: (state, action) => {
+        state.shipping = action.payload;
+        switch(action.payload) {
+          case 'Free': {
+            state.totalPrice = state.subtotalPrice;
+            break;
+          }
+          case 'Express': {
+            state.totalPrice = state.subtotalPrice;
+            state.totalPrice += shippingOptions.express;
+            break;
+          }
+          case 'Pick Up': {
+            state.totalPrice = state.subtotalPrice;
+            if(state.totalPrice > 0 && state.subtotalPrice > 0) {
+              state.totalPrice = +(state.totalPrice / 100 * shippingOptions.pick + state.totalPrice).toFixed(2);
+            } else {
+              state.totalPrice = state.subtotalPrice;
+            }
+            break;
+          }
+          default: {
+            state.totalPrice = state.subtotalPrice;
+          }
+        }
       }
     },
   });
-export const {addItemCart, deleteItemCart, increaseAmount, decreaseAmount} = cartSlice.actions;
+export const {addItemCart, deleteItemCart, increaseAmount, decreaseAmount, setShipping} = cartSlice.actions;
 export default cartSlice.reducer;
