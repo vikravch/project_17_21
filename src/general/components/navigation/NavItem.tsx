@@ -21,8 +21,12 @@ const NavItem = ({item, fly}: Props) => {
                     {/*<Link to={`/${item.route}`}>*/}
                         <select className={'fly_mobile_select'}>
                             <option value={item.title} selected={true} disabled={true}>{item.title}</option>
-                            <option>Option2</option>
-                            <option>Option3</option>
+                            <option><Link to={'http://localhost:3000/shop?category=living_room'}>Living room</Link></option>
+                            <option><Link to={'http://localhost:3000/shop?category=bedroom'}>Bedroom</Link></option>
+                            <option><Link to={'http://localhost:3000/shop?category=kitchen'}>Kitchen</Link></option>
+                            <option><Link to={'http://localhost:3000/shop?category=bathroom'}>Bathroom</Link></option>
+                            <option><Link to={'http://localhost:3000/shop?category=dining'}>Dining</Link></option>
+                            <option><Link to={'http://localhost:3000/shop?category=outdoor'}>Outdoor</Link></option>
                         </select>
                     {/*</Link>*/}
                 </li> :

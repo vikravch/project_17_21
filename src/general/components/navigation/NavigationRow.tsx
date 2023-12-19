@@ -13,9 +13,16 @@ import NavItem from "./NavItem";
 import {Link} from "react-router-dom";
 
 
+
 const Navigation = () => {
     const dispatch = useAppDispatch();
     const flag = useAppSelector(state => state.flyMenu.showFlyMenu);
+    const cartLength = useAppSelector(state => state.cart.items.length);
+
+    function handleSearchInput() {
+        const input = document.querySelector('.navigation_search_bar_desktop');
+        input?.classList.toggle('navigation_visibility');
+    }
 
     return (
         <div className={'navigation_bar_wrapper'}>
@@ -29,16 +36,18 @@ const Navigation = () => {
                 <ul className={'header_navigation'}>
                     {navItems.map(item => <NavItem key={item.route} fly={false} item={item} />)}
                 </ul>
-                <Link to={"/cart"} className={'cart'}>
+                <div className={'navigation_icons_section'}>
+                    <input type="search" placeholder={'Search'} className={'navigation_search_bar_desktop'}/>
                     <div className={'account_and_search'}>
-                        <SearchIcon/>
-                        <MyAccountIcon/>
+                        <span onClick={()=>handleSearchInput()}><SearchIcon/></span>
+                        <Link to={'/account'}><MyAccountIcon/></Link>
                     </div>
-                    <CartIcon/>
-                    <div className={'cart_count_circle'}>
-                        <p className={'cart_count_text'}>2</p>
-                    </div>
-                </Link>
+                    <Link to={"/cart"} className={'cart_navigation_section'}>
+                        <CartIcon/>
+                        <div className={'cart_count_circle'}>
+                            <p className={'cart_count_text'}>{cartLength}</p>
+                        </div>
+                    </Link></div>
             </div>
         </div>
     );

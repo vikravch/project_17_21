@@ -1,6 +1,7 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import SliderImages from "../../domain/model/sliderImages";
 import {useUseCases} from "../../../../general/di/service_locator";
+import BannerGridImages from "../../domain/model/BannerGridImages";
 
 export const getAllSliderImagesAsyncAction = createAsyncThunk<SliderImages[]>(
     'home-page/getAllSliderImages',
@@ -9,6 +10,19 @@ export const getAllSliderImagesAsyncAction = createAsyncThunk<SliderImages[]>(
         const{getAllSliderImages} = useUseCases();
         try{
             return await getAllSliderImages();
+        }catch (e){
+            throw e;
+        }
+    }
+);
+
+export const getAllBannerGridImagesAsyncAction = createAsyncThunk<BannerGridImages[]>(
+    'home-page/getAllBannerGridImages',
+    async ()=>{
+
+        const{getAllBannerGridImages} = useUseCases();
+        try{
+            return await getAllBannerGridImages();
         }catch (e){
             throw e;
         }
