@@ -1,6 +1,6 @@
 .h2
 {
-    font-size: 3em;
+    font-size: 4rem;
     margin: 0;
 }
 .images
@@ -34,7 +34,7 @@
 {
     color: #6C7275;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: 26px;
@@ -63,15 +63,15 @@
     {
         width: 311px;
     }
-    h2
+    .h2
     {
-        font-size: 28px;
+        font-size: 2rem;
     }
     .articleHead
     {
         width: 311px;
     }
-    img
+    .images
     {
         width: 311px;
     }
