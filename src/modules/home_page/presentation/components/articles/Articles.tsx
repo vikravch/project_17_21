@@ -1,6 +1,5 @@
 import React from 'react';
 import "./Articles.css"
-
 import ArticleCard from "./ArticleCard";
 import ShopNowArrow from "../../icons/ShopNowArrow";
 import { Link } from 'react-router-dom';

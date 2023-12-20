@@ -8,20 +8,29 @@ import FilterTypesDesktop from "../components/filtres/filter-types-desktop/Filte
 import {Columns, RequestProducts} from "../redux/types";
 import FilterTitle from "../components/filtres/filter-title/FilterTitle";
 import Sorting from "../components/sorting/Sorting";
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import {AppDispatch} from "../../../../general/redux/store";
-import {getAllFilteringAsyncAction, getProductsAsyncAction} from "../redux/asyncActions";
+import constStyle from "./utils/const.module.css";
+import {
+    getAllCategoriesAsyncAction,
+    getAllPricesAsyncAction,
+    getAllSortingAsyncAction,
+    getProductsAsyncAction
+} from "../redux/asyncActions";
 import arrow from '../../../../images/shop_page/breadCrumbs.svg';
-import {closeClickFunction} from "./utils/const";
 import {useAppSelector} from "../../../../general/redux/hooks";
+import useUpdateEffect from "../../../../general/utils/hooks/useUpdateEffect";
+
 
 const ShopPage = () => {
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
     );
+    const [isFiltersExists, setIsFiltersExists] = useState(false);
     const {categories, sort, prices} = useAppSelector(state => state.shopPage)
     const dispatch = useDispatch<AppDispatch>();
     const location = useLocation();
+    const navigate = useNavigate();
     const [requestObject, setRequestObject] = useState<RequestProducts>({
         filtering: {
             category: null,
@@ -32,59 +41,96 @@ const ShopPage = () => {
     });
 
     useEffect(() => {
+        Promise.all([
+            dispatch(getAllCategoriesAsyncAction()),
+            dispatch(getAllPricesAsyncAction()),
+            dispatch(getAllSortingAsyncAction())
+        ]).then(() => setIsFiltersExists(true));
+    }, []);
+
+    useEffect(() => {
+        document.addEventListener('click', closeClickFunction);
+        return () => document.removeEventListener('click', closeClickFunction);
+    }, []);
+
+    useUpdateEffect(() => {
         const searchParams = new URLSearchParams(location.search);
         let updatedRequestObject: RequestProducts = {...requestObject};
-        // for (let key in requestObject.filtering) {
-        //     if (searchParams.has(key)) {
-        //         const value = searchParams.get(key);
-        //         switch (key) {
-        //             case 'category':
-        //                 const categoryItem = categories?.find(item => item.title === value);
-        //                 updatedRequestObject.filtering.category = categoryItem?.id ?? null;
-        //                 break;
-        //             case 'price':
-        //                 const priceItem = prices?.find(item => item.title === value);
-        //                 updatedRequestObject.filtering.price = priceItem?.id ?? null;
-        //                 break;
-        //             case 'sorting':
-        //                 const sortItem = sort?.find(item => item.title === value);
-        //                 updatedRequestObject.filtering.price = sortItem?.id ?? null;
-        //                 break;
-        //         }
-        //
-        //     } else {
-        //         updatedRequestObject.filtering[key as keyof typeof requestObject.filtering] = null;
-        //     }
-        // }
         for (let key in requestObject.filtering) {
             if (searchParams.has(key)) {
                 const value = searchParams.get(key);
                 const item = key === 'category' ?
-                    categories?.find(item => item.title === value) :
-                    key === 'price' ? prices?.find(item => item.title === value) :
-                        sort?.find(item => item.title === value);
+                    categories?.find(item => item.title.toLowerCase().replace(' ', '') === value) :
+                    key === 'price' ?
+                        prices?.find(item => item.title.replace(/\$|\.00/g, '') === value) :
+                        sort?.find(item => item.title.toLowerCase().replace(' ', '') === value);
                 updatedRequestObject.filtering[key as keyof typeof requestObject.filtering] = item?.id ?? null;
             } else {
                 updatedRequestObject.filtering[key as keyof typeof requestObject.filtering] = null;
             }
         }
-        console.log(updatedRequestObject);
+        console.log(updatedRequestObject)
         setRequestObject(updatedRequestObject);
         dispatch(getProductsAsyncAction(updatedRequestObject));
-    }, [location]);
+    }, [location, isFiltersExists]);
 
     useEffect(() => {
         if (requestObject.page !== 1) {
             console.log(requestObject);
             dispatch(getProductsAsyncAction(requestObject));
         }
-    }, [requestObject.page])
+    }, [requestObject.page]);
 
-    useEffect(() => {
-        document.addEventListener('click', closeClickFunction);
-        dispatch(getAllFilteringAsyncAction());
-        return () => document.removeEventListener('click', closeClickFunction);
-    }, [])
+    const closeClickFunction = (event: MouseEvent) => {
+
+        const listener = document.querySelectorAll('.listener');
+        const listenerHead = document.querySelectorAll('.listenerHead');
+
+        listener.forEach((item, index) => {
+            if (event.target !== item && event.target !== listenerHead[index]) {
+                item.classList.remove(constStyle.open);
+            }
+        })
+
+    }
+
+    const setCategoryParams = (event: React.MouseEvent<HTMLElement>) => {
+        const searchParams = new URLSearchParams(location.search);
+        const eventTarget = event.target as HTMLElement;
+        const choice = eventTarget.dataset.categoryId as string;
+
+        if (categories && +choice === categories[0].id) {
+            searchParams.delete('category');
+        } else {
+            searchParams.set(
+                'category',
+                categories?.find(obj => String(obj.id) === choice)?.title
+                    .replaceAll(' ', '').toLowerCase() as string
+            );
+        }
+        navigate(`?${searchParams.toString()}`);
+    }
+
+    const setPriceParams = (event: { target: any; }) => {
+        const searchParams = new URLSearchParams(location.search);
+        const eventTarget = event.target as HTMLElement;
+        const choice = eventTarget.dataset.priceId as string;
+
+        if (prices && +choice === prices[0].id) {
+            searchParams.delete('price');
+        } else {
+            searchParams.set('price',
+                prices?.find(obj => String(obj.id) === choice)?.title.replace(/[$+ ]|\.00/g, '').toLowerCase() as string
+            );
+        }
+        navigate(`?${searchParams.toString()}`);
+    }
+
+    const openCloseMenuHandler = (event: React.MouseEvent<HTMLElement>) => {
+        const eventTarget = event.target as Element;
+        const nextSibling = eventTarget.nextElementSibling as Element;
+        nextSibling.classList.toggle(constStyle.open);
+    }
 
     return (
         <div className={style.shopPage}>
@@ -108,9 +154,13 @@ const ShopPage = () => {
                 </div>
                 <FilterTypes columns={columns}
                              category={requestObject.filtering.category}
-                             price={requestObject.filtering.price}/>
+                             price={requestObject.filtering.price}
+                             setCategoryParams={setCategoryParams}
+                             setPriceParams={setPriceParams}
+                             openCloseMenuHandler={openCloseMenuHandler}/>
                 <Sorting columns={columns}
-                         sorting={requestObject.filtering.sorting}/>
+                         sorting={requestObject.filtering.sorting}
+                         openCloseMenuHandler={openCloseMenuHandler}/>
             </section>
             <div className={style.categoryName}>
                 <p>All rooms</p>
@@ -118,7 +168,9 @@ const ShopPage = () => {
             <section className={columns.countDesktop === 3 ? style.display3filterTypes : ''}>
                 {columns.countDesktop === 3 &&
                     <FilterTypesDesktop category={requestObject.filtering.category}
-                                        price={requestObject.filtering.price}/>}
+                                        price={requestObject.filtering.price}
+                                        setCategoryParams={setCategoryParams}
+                                        setPriceParams={setPriceParams}/>}
                 <ProductsGallery requestObject={requestObject} setRequestObject={setRequestObject}/>
             </section>
         </div>

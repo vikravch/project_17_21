@@ -6,10 +6,12 @@ import {ShopPageState} from "../../../redux/types";
 
 interface Props {
     category: number | null,
-    price: number | null
+    price: number | null,
+    setCategoryParams: (event: React.MouseEvent<HTMLElement>) => void,
+    setPriceParams: (event: { target: any; }) => void
 }
 
-const FilterTypesDesktop = ({category, price}: Props) => {
+const FilterTypesDesktop = ({category, price, setCategoryParams, setPriceParams}: Props) => {
 
     const {categories, prices, error} = useSelector<AppStore, ShopPageState>(state => state.shopPage);
 
@@ -20,18 +22,28 @@ const FilterTypesDesktop = ({category, price}: Props) => {
                 <p>Categories</p>
                 <ul>
                 {categories.map(item =>
-                    <li className={`${((item.id === category) || (category === null && item.id === 0))  && style.checked}`} key={item.title}>{item.title}</li>
+                    <li className={`${((item.id === category) || (category === null && item.id === 0)) && style.checked}`}
+                        key={'key-' + item.title}
+                        data-category-id={item.id}
+                        onClick={setCategoryParams}>
+                        {item.title}
+                    </li>
                 )}
                 </ul>
             </div>
                 : <div>{error}</div>}
+
             { prices && prices.length !== 0 ?
             <div className={style.price}>
                 <p>Price</p>
                 {prices.map(item =>
                     <label key={'label-' + item.id}>
-                        <input type={'radio'} value={item.id} id={item.id + '-price'} name={'price'}
-                               key={'input-' + item.id} defaultChecked={price === 0} />
+                        <input type={'radio'} value={item.id} name={'price'}
+                               key={'input-' + item.id}
+                               defaultChecked={item.id === price || (price === null && item.id === 0)}
+                               data-price-id={item.id}
+                                onChange={setPriceParams}
+                        />
                         <p key={'p-' + item.id}>{item.title}</p>
                         <div key={'checkbox-' + item.id} className={style.checkboxCheckmark}></div>
                     </label>

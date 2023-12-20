@@ -7,6 +7,8 @@ import flyMenu from './slices/openFlyMenuSlice';
 import changePictureReducer from '../../modules/home_page/presentation/redux/changePictureSlice';
 import getAllPicturesReducer from '../../modules/home_page/presentation/redux/getSliderImagesSlice';
 import cartSlice from "../../modules/cart/presentation/redux/cartSlice";
+import galleriesFilterStyleSlice from "../../modules/blog/presentation/redux/galleriesFilterStyleSlice";
+import articlesIndexSlice from "../../modules/blog/presentation/redux/articlesIndexSlice";
 
 export const store = configureStore(
     {
@@ -18,6 +20,8 @@ export const store = configureStore(
             changePicture: changePictureReducer,
             sliderImagesGallery: getAllPicturesReducer,
             cart: cartSlice,
+            blogFilter: galleriesFilterStyleSlice,
+            blogArticleId: articlesIndexSlice
         },
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
         devTools: process.env.NODE_ENV !== 'production',

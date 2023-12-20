@@ -1,38 +1,39 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import articleStyle from './Article.module.css';
-import {img2, img3, img5} from "../../utils/data";
+import {articles} from "../../utils/data";
 import BlogAlso from "../BlogAlso/BlogAlso";
 import UserIcon from "../../utils/icons/UserIcon";
 import CalendarIco from "../../utils/icons/CalendarIco";
+import {useSelector} from "react-redux";
+
+
 
 
 const Article = () => {
+
+
+    const articleId = useSelector((store: any) => store.blogArticleId.articleIndex);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, );
+
     return (
         <div className={articleStyle.articleWrapper}>
             <div className={articleStyle.articleHead}>
-                <h2 className={articleStyle.h2}>'Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+                <h2 className={articleStyle.h2}>{articles[articleId].title}</h2>
                 <div className={articleStyle.authorArt}>
-                    <span className={articleStyle.authorName}><div className={articleStyle.userIco}><UserIcon/></div>Henrik Annemark</span>
-                    <span className={articleStyle.authorName}><div className={articleStyle.userIco}><CalendarIco/></div>October 16, 2023</span>
+                    <span className={articleStyle.authorName}><div className={articleStyle.userIco}><UserIcon/></div>{articles[articleId].author}</span>
+                    <span className={articleStyle.authorName}><div className={articleStyle.userIco}><CalendarIco/></div>{articles[articleId].date}</span>
                 </div>
             </div>
 
-              <img className={articleStyle.images} alt={'img'} src={img5}></img>
-            <div>
-                <p> Your bathroom serves a string of busy functions on a daily basis. See how you can make all of them work, and still have room for comfort and relaxation. </p>
-                <h3>A cleaning hub with built-in ventilation</h3>
-                <p>Use a rod and a shower curtain to create a complement to your cleaning cupboard. Unsightly equipment is stored out of sight yet accessibly close – while the air flow helps dry any dampness.</p>
-            </div>
-            <img className={articleStyle.images} alt={'img'} src={img2}></img>
-            <div>
-                <h3> Storage with a calming effect</h3>
-                <p>Having a lot to store doesn’t mean it all has to go in a cupboard. Many bathroom items are better kept out in the open – either to be close at hand or are nice to look at. Add a plant or two to set a calm mood for the entire room (and they’ll thrive in the humid air).</p>
-                <h3>Kit your clutter for easy access</h3>
-                <p>Even if you have a cabinet ready to swallow the clutter, it’s worth resisting a little. Let containers hold kits for different activities – home spa, make-up, personal hygiene – to bring out or put back at a moment’s notice.</p>
-            </div>
-            <img className={articleStyle.images} alt={'img'} src={img3}></img>
-            <h3> Make your mop disappear </h3>
-            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>
+            <img className={articleStyle.images} alt={'img'} src={articles[articleId].images[0]}></img>
+            <div dangerouslySetInnerHTML={{ __html: articles[articleId].text[0] }}></div>
+            <img className={articleStyle.images} alt={'img'} src={articles[articleId].images[1]}></img>
+            <div dangerouslySetInnerHTML={{ __html: articles[articleId].text[1] }}></div>
+            <img className={articleStyle.images} alt={'img'} src={articles[articleId].images[2]}></img>
+            <div dangerouslySetInnerHTML={{ __html: articles[articleId].text[2] }}></div>
             <div>
                 <BlogAlso/>
             </div>
