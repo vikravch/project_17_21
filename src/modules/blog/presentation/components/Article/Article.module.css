@@ -1,12 +1,12 @@
-h2
+.h2
 {
     font-size: 3em;
     margin: 0;
 }
-/*img*/
-/*{*/
-/*    width: 100%;*/
-/*}*/
+.images
+{
+    width: 100%;
+}
 .articleWrapper
 {
     display: flex;
@@ -71,8 +71,8 @@ h2
     {
         width: 311px;
     }
-    /*img*/
-    /*{*/
-    /*    width: 311px;*/
-    /*}*/
+    img
+    {
+        width: 311px;
+    }
 }
