@@ -5,7 +5,8 @@ import shopPageReducer from '../../modules/shop-page/presentation/redux/shopPage
 import galleriesStyleReducer from '../../modules/shop-page/presentation/redux/galleriesStyleSlice';
 import flyMenu from './slices/openFlyMenuSlice';
 import changePictureReducer from '../../modules/home_page/presentation/redux/changePictureSlice';
-import getAllPicturesReducer from '../../modules/home_page/presentation/redux/getSliderImagesSlice';
+import getAllSliderPicturesReducer from '../../modules/home_page/presentation/redux/getSliderImagesSlice';
+import getAllBannerGridPicturesReducer from '../../modules/home_page/presentation/redux/getBannerGridImagesSlice';
 import cartSlice from "../../modules/cart/presentation/redux/cartSlice";
 import galleriesFilterStyleSlice from "../../modules/blog/presentation/redux/galleriesFilterStyleSlice";
 import articlesIndexSlice from "../../modules/blog/presentation/redux/articlesIndexSlice";
@@ -18,7 +19,8 @@ export const store = configureStore(
             galleriesStyle: galleriesStyleReducer,
             flyMenu: flyMenu,
             changePicture: changePictureReducer,
-            sliderImagesGallery: getAllPicturesReducer,
+            sliderImagesGallery: getAllSliderPicturesReducer,
+            bannerGridImagesGallery: getAllBannerGridPicturesReducer,
             cart: cartSlice,
             blogFilter: galleriesFilterStyleSlice,
             blogArticleId: articlesIndexSlice

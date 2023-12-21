@@ -19,6 +19,7 @@ const HomePage = () => {
             <Values/>
             <Discount/>
             <BlogAlso/>
+            {/*<Articles/>*/}
         </div>
     );
 };

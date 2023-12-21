@@ -1,7 +1,7 @@
 .values_section {
     display: flex;
     align-items: center;
-    padding: 32px;
+    padding: 50px 32px;
 
 }
 .values_section_inner{
