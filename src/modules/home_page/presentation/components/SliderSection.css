@@ -52,43 +52,41 @@
 }
 
 .slider_section_slogan {
-    font-family: Poppins, serif;
-    font-size: 40px;
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 44px;
+    line-height: 2.75rem;
     letter-spacing: -0.4px;
     margin: 0;
     width: auto;
 }
 .slider_section_slogan_span{
-    color: #6C7275;
-    font-feature-settings: 'clig' off, 'liga' off;
-    /* Headline 4 */
-    font-family: Poppins, serif;
-    font-size: 40px;
+    color: var(--regular-grey);
+    font-family: var(--font-secondary);
+    font-size: 2.4rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 44px;
+    line-height: 2.75rem;
     letter-spacing: -0.4px;
 }
 
 .slider_section_gift_disclaimer {
-    color: #6C7275;
-    font-family: Inter, serif;
-    font-size: 14px;
+    color: var(--regular-grey);
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 22px;
+    line-height: 1.4rem;
 }
 
 .slider_section_gift_disclaimer > span {
     color: #343839;
-    font-family: Inter, serif;
-    font-size: 14px;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
     font-style: normal;
     font-weight: 600;
-    line-height: 22px; /* 157.143% */
+    line-height: 1.4rem;
 }
 
 /*=======Slider=======*/
@@ -98,7 +96,6 @@
     .image_slider {
         display: flex;
         flex-direction: column;
-        /*position: absolute;*/
     }
 
     .slider_img_small {
@@ -120,7 +117,7 @@
         align-items: center;
         border: 1px solid rgba(0, 0, 0, 0.04);
         border-radius: 50%;
-        background: #FFF;
+        background: var(--darktheme-text-primary);
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.04);
     }
 
@@ -144,7 +141,7 @@
     }
 
     .current_dot {
-        background-color: #FEFEFE;
+        background-color: var(--darktheme-text-secondary);
         width: 30px;
         height: 8px;
         border: 1px solid black;
@@ -154,7 +151,7 @@
     }
 
     .dot {
-        background-color: #FEFEFE;
+        background-color: var(--darktheme-text-secondary);
         width: 8px;
         height: 8px;
         border-radius: 50%;
@@ -173,21 +170,20 @@
 
     .slider_section_slogan {
         width: 50%;
-        font-family: Poppins, serif;
-        font-size: 72px;
+        font-family: var(--font-secondary);
+        font-size: 4.5rem;
         font-style: normal;
         font-weight: 500;
-        line-height: 76px; /* 105.556% */
+        line-height: 4.75rem;
         letter-spacing: -2px;
         margin: 0;
     }
     .slider_section_slogan_span{
-        color: #6C7275;
-        font-feature-settings: 'clig' off, 'liga' off;
-        font-size: 72px;
+        color: var(--regular-grey);
+        font-size: 4.5rem;
         font-style: normal;
         font-weight: 500;
-        line-height: 76px;
+        line-height: 4.75rem;
         letter-spacing: -2px;
     }
 

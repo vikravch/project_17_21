@@ -25,7 +25,7 @@ const BannerGrid = () => {
                 <div className={'banner_grid_img_placeholder'}>
                     <img src={ pictures !== undefined ? pictures[0].image:sliderBannerGrinImgPlaceholder} alt="Banner_Img_Placeholder"/>
                     <div className={'banner_grid_texts'}>
-                        <h6 className={'banner_grid_title'}>{pictures !== undefined ? pictures[0].category:"Living Room"}</h6>
+                        <h6 className={'banner_grid_title'}>{pictures !== undefined ? pictures[0].name:"Living Room"}</h6>
                         <div className={'shop_now_link'}>
                             <Link to={`http://localhost:3000/shop?category=${pictures !== undefined ? pictures[0].category:"Living Room"}`}>
                                 <button className={'shop_now_btn'}>Shop Now</button>
@@ -38,7 +38,7 @@ const BannerGrid = () => {
                     <div className={'banner_grid_cards_card1'}>
                         <img src={pictures !== undefined ? pictures[1].image:sliderBannerCardImgPlaceholder1} alt="Banner_card"/>
                         <div className={'banner_grid_texts_cards'}>
-                            <h6 className={'banner_grid_title'}>{pictures !== undefined ? pictures[1].category:'Bedroom'}</h6>
+                            <h6 className={'banner_grid_title'}>{pictures !== undefined ? pictures[1].name:'Bedroom'}</h6>
                             <div className={'shop_now_link'}>
                                 <Link to={`http://localhost:3000/shop?category=${pictures !== undefined ? pictures[1].category:"Living Room"}`}>
                                     <button className={'shop_now_btn'}>Shop Now</button>
@@ -50,7 +50,7 @@ const BannerGrid = () => {
                     <div className={'banner_grid_cards_card2'}>
                         <img src={pictures !== undefined ? pictures[2].image:sliderIBannerCardImgPlaceholder2} alt="Banner_card"/>
                         <div className={'banner_grid_texts_cards'}>
-                            <h6 className={'banner_grid_title'}>{pictures !== undefined ? pictures[2].category:'Kitchen'}</h6>
+                            <h6 className={'banner_grid_title'}>{pictures !== undefined ? pictures[2].name:'Kitchen'}</h6>
                             <div className={'shop_now_link'}>
                                 <Link to={`http://localhost:3000/shop?category=${pictures !== undefined ? pictures[2].category:"Living Room"}`}>
                                     <button className={'shop_now_btn'}>Shop Now</button>

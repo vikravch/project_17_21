@@ -22,16 +22,19 @@ export const sliderImgTestArr =[
 
 export const bannerGridImgTestArr =[
     {
+        name: 'Living room',
         image:  sliderBannerGrinImgPlaceholder,
-        category: 'Living room'
+        category: 'livingroom'
     },
     {
+        name: 'Bedroom',
         image:  sliderBannerCardImgPlaceholder1,
-        category: 'Bedroom'
+        category: 'bedroom'
     },
     {
+        name: 'Kitchen',
         image:  sliderIBannerCardImgPlaceholder2,
-        category: 'Kitchen'
+        category: 'kitchen'
     }
 ] ;
 

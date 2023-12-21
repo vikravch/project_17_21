@@ -1,13 +1,8 @@
 import React from 'react';
 import "./Articles.css"
-import image1 from "../../page/images/article1.png";
-import image2 from "../../page/images/article2.png";
-import image3 from "../../page/images/article3.png";
-
-
-import image1 from "../../page/images/article1.webp";
-import image2 from "../../page/images/article2.webp";
-import image3 from "../../page/images/article3.webp";
+// import image1 from "../../page/images/article1.webp";
+// import image2 from "../../page/images/article2.webp";
+// import image3 from "../../page/images/article3.webp";
 import ArticleCard from "./ArticleCard";
 import ShopNowArrow from "../../icons/ShopNowArrow";
 import { Link } from 'react-router-dom';

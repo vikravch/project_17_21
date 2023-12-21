@@ -25,6 +25,8 @@ code {
   --primary-green-theme: #38CB89;
   /*background-colors-light neutral-02*/
   --primary-light-theme: #F3F5F7;
+  /*background-colors-light newsletter grey*/
+  --primary-light-theme-secondary: #F2F4F6;
 
   /*typography*/
 

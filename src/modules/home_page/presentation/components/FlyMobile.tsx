@@ -43,12 +43,14 @@ const FlyMobile = () => {
                         </li>
                         <li>
                             Wishlist
-                            <div className={'fly_mobile_icons'}>
-                                <HeartIcon/>
-                                <div className={'fly_mobile_count_circle'}>
-                                    <p className={'fly_mobile_count_text'}>2</p>
+                            <Link to={'/account/wishList'} onClick={() => dispatch(openFlyMenu(false))}>
+                                <div className={'fly_mobile_icons'}>
+                                    <HeartIcon/>
+                                    <div className={'fly_mobile_count_circle'}>
+                                        <p className={'fly_mobile_count_text'}>2</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                         </li>
                     </ul>
                     <button className={'Fly_Mobile_SignIn_Btn'}>Sign In</button>

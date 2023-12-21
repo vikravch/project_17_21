@@ -42,12 +42,12 @@
 
 .product_scrolling_bar::-webkit-scrollbar-track {
     border-radius: 10px;
-    background-color: #EAEAEA;
+    background-color: var(--light-grey-secondary);
 }
 
 .product_scrolling_bar::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: #6C7275;
+    background-color: var(--regular-grey);
 }
 
 .product_scrolling_bar:hover {

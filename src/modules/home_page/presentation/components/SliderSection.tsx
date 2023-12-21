@@ -19,7 +19,7 @@ const SliderSection = () => {
     const dispatch = useAppDispatch();
     const pictureIndex = useAppSelector(state => state.changePicture.pictureIndex);
     const pictures = useAppSelector(state => state.sliderImagesGallery.sliderImages);
-    console.log(pictures);
+
 
 
     useEffect(()=>{

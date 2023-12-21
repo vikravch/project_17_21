@@ -7,7 +7,7 @@ import {bannerGridImgTestArr} from "../../../../general/utils/Constants";
 let testBannerGridImages:BannerGridImages[] = [];
 for (let i = 0; i < 3; i++) {
     testBannerGridImages.push({
-        name: `TestImage${i}`,
+        name: bannerGridImgTestArr[i].name,
         category: bannerGridImgTestArr[i].category,
         image: bannerGridImgTestArr[i].image,
         alt: `Banner grid ${bannerGridImgTestArr[i].category}  image`
