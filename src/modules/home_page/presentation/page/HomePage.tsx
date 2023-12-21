@@ -7,6 +7,7 @@ import Discount from "../components/Discount";
 import NewArrivals from "../components/NewArrivals";
 // import Articles from "../../presentation/components/articles/ArticleCard";
 import "././images/HomePage.css"
+import BlogAlso from "../../../blog/presentation/components/BlogAlso/BlogAlso";
 
 
 const HomePage = () => {
@@ -17,7 +18,7 @@ const HomePage = () => {
             <NewArrivals/>
             <Values/>
             <Discount/>
-            {/*<Articles/>*/}
+            <BlogAlso/>
         </div>
     );
 };
