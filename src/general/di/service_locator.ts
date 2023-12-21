@@ -26,9 +26,10 @@ type LocatorRepository = {
   cacheRepository: CacheRepository
   productsFakeRepository: ProductsRepository
   sliderImagesFakeRepository: SliderImagesFakeRepository
-  bannerGridImagesFakeRepository: BannerGridFakeRepository
   filteringFakeRepository: FilteringFakeRepository
+  bannerGridImagesFakeRepository: BannerGridFakeRepository
 }
+
 type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases & BannerGridImagesUseCases & FilteringUseCases
 
 
