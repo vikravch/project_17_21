@@ -38,11 +38,11 @@ const ShopPage = () => {
             sorting: null,
         },
         page: 1
-    });
+    })
 
     useEffect(() => {
         Promise.all([
-            dispatch(getAllCategoriesAsyncAction()),
+            categories!.length === 0 && dispatch(getAllCategoriesAsyncAction()),
             dispatch(getAllPricesAsyncAction()),
             dispatch(getAllSortingAsyncAction())
         ]).then(() => setIsFiltersExists(true));
@@ -69,14 +69,12 @@ const ShopPage = () => {
                 updatedRequestObject.filtering[key as keyof typeof requestObject.filtering] = null;
             }
         }
-        console.log(updatedRequestObject)
         setRequestObject(updatedRequestObject);
         dispatch(getProductsAsyncAction(updatedRequestObject));
     }, [location, isFiltersExists]);
 
     useEffect(() => {
         if (requestObject.page !== 1) {
-            console.log(requestObject);
             dispatch(getProductsAsyncAction(requestObject));
         }
     }, [requestObject.page]);
