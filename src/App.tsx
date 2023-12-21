@@ -16,7 +16,7 @@ import Article from "./modules/blog/presentation/components/Article/Article";
 import Account from "./modules/account/pages/Account";
 
 function App() {
-    const { pathname } = useLocation();
+    const {pathname} = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0); // Перемещение скролла в верхнюю часть страницы при изменении пути
     }, [pathname]);
@@ -34,7 +34,6 @@ function App() {
             <Routes>
                 <Route path="/home" element={<HomePage/>}/>
                 <Route path="/shop" element={<ShopPage/>}/>
-                <Route path="/shop/?:filter" element={<ShopPage/>}/>
                 <Route path="/cart" element={<CartPage/>}/>
                 <Route path="/cart/checkout" element={<CheckoutPage/>}/>
                 <Route path="/cart/checkout/complete" element={<CompletePage/>}/>
