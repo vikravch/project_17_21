@@ -41,10 +41,9 @@ const NewArrivals = () =>
 
     return (
         <div className={'new_arrivals_section'}>
-            {/*<div className={'new_arrivals_section_inner'}>*/}
                 <div className={'new_arrivals_header'}>
                     <h5 className={'new_arrivals_title'}>New<br/>Arrivals</h5>
-                    <div className={'shop_now_link  desktop_shop_now'}>
+                    <div className={'shop_now_link'} id={'desktop_shop_now'}>
                         <Link to="/shop" className={'shop_now_btn'}>More Products</Link>
                         <SliderArrowRight/>
                     </div>
@@ -78,12 +77,11 @@ const NewArrivals = () =>
                     ))}
                 </div>
                 <div className="scrollIndicator" style={{left: `${scrollIndicatorWidth}%`}}></div>
-                <div className={'shop_now_link mobil_shop_now'}>
+                <div className={'shop_now_link'} id={'mobil_shop_now'}>
                     <Link to="/shop" className={'shop_now_btn'}>More Products</Link>
                     <SliderArrowRight/>
                 </div>
             </div>
-        // </div>
     );
 };
 

@@ -9,9 +9,11 @@ import ProductsFakeRepository from "../../modules/shop-page/data/repository/prod
 import {ProductsUseCases} from "../../modules/shop-page/domain/use_case/use_cases";
 import GetAllProducts from "../../modules/shop-page/domain/use_case/getAllProducts";
 import GetAllSliderImages from "../../modules/home_page/domain/use_case/getAllSliderImages";
-import {SliderImagesUseCases} from "../../modules/home_page/domain/use_case/use_cases";
+import {BannerGridImagesUseCases, SliderImagesUseCases} from "../../modules/home_page/domain/use_case/use_cases";
 import SliderImagesFakeRepository from "../../modules/home_page/data/repository/sliderImagesFakeRepository";
 import GetProducts from "../../modules/shop-page/domain/use_case/getProducts";
+import BannerGridFakeRepository from "../../modules/home_page/data/repository/bannerGridFakeRepository";
+import GetAllBannerGridImages from "../../modules/home_page/domain/use_case/getAllBannerGridImages";
 import FilteringFakeRepository from "../../modules/shop-page/data/repository/filteringFakeRepository";
 import {FilteringUseCases} from '../../modules/shop-page/domain/use_case/use_cases';
 import GetAllCategories from "../../modules/shop-page/domain/use_case/getAllCategories";
@@ -24,9 +26,11 @@ type LocatorRepository = {
   cacheRepository: CacheRepository
   productsFakeRepository: ProductsRepository
   sliderImagesFakeRepository: SliderImagesFakeRepository
+  bannerGridImagesFakeRepository: BannerGridFakeRepository
   filteringFakeRepository: FilteringFakeRepository
 }
-type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases & FilteringUseCases
+type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases & BannerGridImagesUseCases & FilteringUseCases
+
 
 let locatorRepository: LocatorRepository
 
@@ -36,6 +40,7 @@ export const initLocatorRepository = () => {
     cacheRepository: new CacheLocalStoreRepository(),
     productsFakeRepository: new ProductsFakeRepository(),
     sliderImagesFakeRepository: new SliderImagesFakeRepository(),
+    bannerGridImagesFakeRepository: new BannerGridFakeRepository(),
     filteringFakeRepository: new FilteringFakeRepository()
   }
 }
@@ -47,6 +52,7 @@ export function useUseCases():LocatorUseCases{
     ),
     getAllProducts: GetAllProducts(locatorRepository.productsFakeRepository),
     getAllSliderImages: GetAllSliderImages(locatorRepository.sliderImagesFakeRepository),
+    getAllBannerGridImages: GetAllBannerGridImages(locatorRepository.bannerGridImagesFakeRepository),
     getProducts: GetProducts(locatorRepository.productsFakeRepository),
     getAllCategories: GetAllCategories(locatorRepository.filteringFakeRepository),
     getAllPrices: GetAllPrices(locatorRepository.filteringFakeRepository),
