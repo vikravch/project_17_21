@@ -20,30 +20,37 @@ function App() {
     useEffect(() => {
         window.scrollTo(0, 0); // Перемещение скролла в верхнюю часть страницы при изменении пути
     }, [pathname]);
+    const isAuthModule = (pathname: string) => {
+        return pathname.includes('/sign')
+    }
+
+    const AuthLayout = (<Routes>
+        <Route path="/signin" element={<AuthPage/>}/>
+    </Routes>);
+
+    const AppLayout = (
+        <>
+            <NavigationRow/>
+            <Routes>
+                <Route path="/home" element={<HomePage/>}/>
+                <Route path="/shop" element={<ShopPage/>}/>
+                <Route path="/shop/?:filter" element={<ShopPage/>}/>
+                <Route path="/cart" element={<CartPage/>}/>
+                <Route path="/cart/checkout" element={<CheckoutPage/>}/>
+                <Route path="/cart/checkout/complete" element={<CompletePage/>}/>
+                <Route path="/blog" element={<Blog/>}/>
+                <Route path="/blog/article" element={<Article/>}/>
+                <Route path="*" element={<HomePage/>}/>
+                <Route path="/account*" element={<Account/>}/>
+            </Routes>
+            {!pathname.includes('cart') && <NewsletterSubscribe/>}
+            <Footer/>
+        </>
+    )
+
     return (
         <div className={"wrapper"}>
-            {(isAuthModule(pathname))?
-                <Routes>
-                    <Route path="/signin" element={<AuthPage/>}/>
-                </Routes> :
-                <>
-
-            <NavigationRow/>
-                <Routes>
-                    <Route path="/home" element={<HomePage/>}/>
-                    <Route path="/shop" element={<ShopPage/>}/>
-                    <Route path="/cart" element={<CartPage/>}/>
-                    <Route path="/cart/checkout" element={<CheckoutPage/>}/>
-                    <Route path="/cart/checkout/complete" element={<CompletePage/>}/>
-                    <Route path="/blog" element={<Blog/>}/>
-                    <Route path="/blog/article" element={<Article/>}/>
-                    <Route path="*" element={<HomePage/>}/>
-                    <Route path="/account*" element={<Account/>}/>
-                </Routes>
-
-             {!pathname.includes('cart') && <NewsletterSubscribe/>}
-            <Footer/>
-            }
+            {(isAuthModule(pathname))?AuthLayout:AppLayout}
         </div>
     );
 }
