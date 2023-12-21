@@ -16,7 +16,7 @@ import Article from "./modules/blog/presentation/components/Article/Article";
 import Account from "./modules/account/pages/Account";
 
 function App() {
-    const { pathname } = useLocation();
+    const {pathname} = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0); // Перемещение скролла в верхнюю часть страницы при изменении пути
     }, [pathname]);

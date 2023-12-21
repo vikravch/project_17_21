@@ -16,7 +16,6 @@
     flex-direction: column;
     justify-content: start;
     align-items: start;
-    /*background-image: url("images/sliderGridPlaceholder.png");*/
     background-size: contain;
     flex-shrink: 0;
 }
@@ -34,8 +33,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    border-bottom: 1px solid #141718;
-    width: fit-content;
+    border-bottom: 1px solid var(--primary-dark);
 }
 
 .shop_now_btn {
@@ -46,13 +44,13 @@
 }
 
 .banner_grid_title {
-    color: #141718;
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Poppins, serif;
-    font-size: 28px;
+    color: var(--primary-dark);
+
+    font-family: var(--font-secondary);
+    font-size: 1.75rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 34px; /* 121.429% */
+    line-height: 2.1rem;
     letter-spacing: -0.6px;
     margin: 0 0 8px 0;
 }

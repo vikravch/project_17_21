@@ -6,7 +6,7 @@ import CrossIcon from "../../../../general/components/footer/icons/CrossIcon";
 import "./FlyMobile.css"
 import CartIcon from "../../../../general/components/navigation/icons/CartIcon";
 import HeartIcon from "../icons/HeartIcon";
-import {useAppDispatch} from "../../../../general/redux/hooks";
+import {useAppDispatch, useAppSelector} from "../../../../general/redux/hooks";
 import {openFlyMenu} from "../../../../general/redux/slices/openFlyMenuSlice";
 import {Link} from "react-router-dom";
 import {navItems} from "../../../../general/utils/Constants";
@@ -14,6 +14,7 @@ import NavItem from "../../../../general/components/navigation/NavItem";
 
 const FlyMobile = () => {
     const dispatch = useAppDispatch();
+    const cartLength = useAppSelector(state => state.cart.items.length);
     return (
         <div className={'fly_mobile_wrapper'}>
             <div className={'fly_mobile_section'}>
@@ -35,19 +36,21 @@ const FlyMobile = () => {
                                 <div className={'fly_mobile_icons'}>
                                     <CartIcon/>
                                     <div className={'fly_mobile_count_circle'}>
-                                        <p className={'fly_mobile_count_text'}>2</p>
+                                        <p className={'fly_mobile_count_text'}>{cartLength}</p>
                                     </div>
                                 </div>
                             </Link>
                         </li>
                         <li>
                             Wishlist
-                            <div className={'fly_mobile_icons'}>
-                                <HeartIcon/>
-                                <div className={'fly_mobile_count_circle'}>
-                                    <p className={'fly_mobile_count_text'}>2</p>
+                            <Link to={'/account/wishList'} onClick={() => dispatch(openFlyMenu(false))}>
+                                <div className={'fly_mobile_icons'}>
+                                    <HeartIcon/>
+                                    <div className={'fly_mobile_count_circle'}>
+                                        <p className={'fly_mobile_count_text'}>2</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                         </li>
                     </ul>
                     <button className={'Fly_Mobile_SignIn_Btn'}>Sign In</button>

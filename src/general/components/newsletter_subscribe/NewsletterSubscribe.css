@@ -1,7 +1,7 @@
 /*=======Newsletter=======*/
 /*======= 0 - 768 =======*/
 .newsletter_bar_wrapper {
-    background: #F2F4F6;
+    background: var(--primary-light-theme-secondary);
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -16,22 +16,21 @@
 
 .join_our_newsletter_text {
     text-align: center;
-    font-family: Poppins, serif;
-    font-size: 28px;
+    font-family: var(--font-secondary);
+    font-size: 1.75rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 34px;
+    line-height: 2.1rem;
     letter-spacing: -0.6px;
 }
 
 .sign_up_text {
     text-align: center;
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Inter, serif;
-    font-size: 16px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 22px;
+    line-height: 1.4rem;
 }
 
 .email_newsletter_submission {
@@ -51,19 +50,19 @@
 
 .newsletter_email_input {
     border: none;
-    background: #F2F4F6;
-    color: #6C7275;
+    background: var(--primary-light-theme-secondary);
+    color: var(--regular-grey);
     cursor: pointer;
 }
 
 .newsletter_signup_btn {
-    color: #6C7275;
-    background-color: #F2F4F6;
+    color: var(--regular-grey);
+    background-color: var(--primary-light-theme-secondary);
     font-family: Inter, serif;
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 28px; /* 175% */
+    line-height: 1.75rem;
     letter-spacing: -0.4px;
     border: none;
     cursor: pointer;
