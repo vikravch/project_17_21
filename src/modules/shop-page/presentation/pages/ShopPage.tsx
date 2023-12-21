@@ -38,11 +38,11 @@ const ShopPage = () => {
             sorting: null,
         },
         page: 1
-    });
+    })
 
     useEffect(() => {
         Promise.all([
-            dispatch(getAllCategoriesAsyncAction()),
+            categories!.length === 0 && dispatch(getAllCategoriesAsyncAction()),
             dispatch(getAllPricesAsyncAction()),
             dispatch(getAllSortingAsyncAction())
         ]).then(() => setIsFiltersExists(true));
