@@ -1,32 +1,29 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "./Articles.css"
+// import image1 from "../../page/images/article1.webp";
+// import image2 from "../../page/images/article2.webp";
+// import image3 from "../../page/images/article3.webp";
 import ArticleCard from "./ArticleCard";
-import image1 from "../../page/images/article1.png";
-import image2 from "../../page/images/article2.png";
-import image3 from "../../page/images/article3.png";
-import SliderArrowRight from "../../icons/SliderArrowRight";
+import ShopNowArrow from "../../icons/ShopNowArrow";
+import { Link } from 'react-router-dom';
+import {Article, getLatestArticles} from "../../../domain/repository/ArticleRepository";
 
 const Articles = () => {
+    const [latestArticles, setLatestArticles] = useState<Article[]>([]);
 
-    const textMock = "This is a placeholder text for the article content.";
-    const articles = [
-        {
-            img: image1,
-            title: '7 ways to decor your home',
-            text: textMock
-        },
-        {
-            img: image2,
-            title: 'Kitchen organization',
-            text: textMock
-        },
-        {
-            img: image3,
-            title: 'Decor your bedroom',
-            text: textMock
-        }
-    ];
 
+    useEffect(() => {
+        const fetchLatestArticles = async () => {
+            try {
+                const articles = await getLatestArticles();
+                setLatestArticles(articles);
+            } catch (error) {
+                console.error("Error fetching latest articles:", error);
+            }
+        };
+
+        fetchLatestArticles();
+    }, []);
     const handleReadMoreClick = (text: string) => {
         console.log(`Clicked on "Read more" for article: ${text}`);
         // Логика при нажатии на "Read more"
@@ -35,20 +32,26 @@ const Articles = () => {
 
     return (
         <div className={'articles_section'}>
-            <div className={'title_section'}>
-                <h6 className={'articles_title'}>Articles</h6>
-                <button className={'read_more_button'}>More Articles <SliderArrowRight /></button>
-            </div>
-            <div className={'cards_block'}>
-                {articles.map((article, index) => (
-                    <ArticleCard
-                        key={index}
-                        img={article.img}
-                        title={article.title}
-                        text={article.text}
-                        onClick={() => handleReadMoreClick(article.text)}
-                    />
-                ))}
+            <div className={'articles_section_inner'}>
+                <div className={'title_section'}>
+                    <h6 className={'articles_title'}>Articles</h6>
+                    <div className={'shop_now_link'}>
+                        <Link to="/blog/article" className={'shop_now_btn'}>More Articles</Link>
+                        <ShopNowArrow color="#141718"/>
+                    </div>
+                </div>
+                <div className={'cards_block'}>
+                    {latestArticles.map((article, index) => (
+                        <ArticleCard
+                            key={index}
+                            img={article.img}
+                            title={article.title}
+                            text={article.text}
+                            date={article.date}
+                            onClick={() => handleReadMoreClick(article.text)}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );

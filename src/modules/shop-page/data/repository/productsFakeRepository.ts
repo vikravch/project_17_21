@@ -1,7 +1,7 @@
 import ProductsRepository from "../../domain/repository/productsRepository";
 import testImage from './testImage.webp'
-import RequestProducts from "../../domain/model/requestProducts";
 import Product from "../../domain/model/product";
+import {RequestProducts} from "../../presentation/redux/types";
 
 let testProducts: Product[] = [];
 for (let i = 0; i < 12; i++) {

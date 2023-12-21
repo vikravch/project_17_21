@@ -1,3 +1,4 @@
+
 .sortBlock {
     display: flex;
     justify-content: space-between;
@@ -10,7 +11,7 @@
 
 .sortSelect {
     position: relative;
-    display: block;
+    display: block !important;
 }
 
 .sortHead {
@@ -32,19 +33,20 @@
 
 .sortList {
     position: absolute;
-    width: max-content;
+    margin-top: 30px;
+    width: 125px;
     top: 40%;
     left: 0;
     right: 0;
     z-index: 100;
     display: none;
-    padding-left: 0;
     list-style: none;
-    margin-top: 20px;
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 64px 64px -48px #0F0F0F1A;
     border: 1px solid #F3F5F7;
+
+    padding: 10px;
 
 }
 
@@ -53,33 +55,15 @@
     cursor: pointer;
     list-style: none;
     font-size: 16px;
-    padding: 10px 25px;
     color: #6C7275;
+    padding: 15px 15px;
 }
 
 .sortList  > li:hover {
     color: #141718;
     font-weight: 600;
-}
-
-.sortList > li:not(:first-child) {
-    padding-top: 20px;
-}
-
-.sortList > li:first-child {
-    background-color: #E8ECEF;
-    border-radius: 12px 12px 0 0;
-}
-
-
-.sortList > li:first-child:hover {
-    cursor: unset;
-    font-weight: 400;
-    color: #6C7275;
-}
-
-.sortList:last-child {
-    padding-bottom: 10px;
+    background-color: #F3F5F7;
+    border-radius: 8px;
 }
 
 @media screen and (min-width: 768px) {
@@ -117,17 +101,6 @@
         border-radius: 12px;
     }
 
-    .sortList > li {
-        font-size: 14px;
-    }
-
-    .sortList > li:not(:first-child) {
-        padding-top: 20px;
-    }
-
-    .sortList:last-child {
-        padding-bottom: 0;
-    }
 }
 
 .chosen {
