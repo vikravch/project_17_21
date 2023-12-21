@@ -1,4 +1,4 @@
-.container {
+.contain_container {
   padding: 0px 32px 0px;
 }
 .table_header {
@@ -9,10 +9,10 @@
   margin: 0;
   color: var(--bold-black);
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 26px;
+  line-height: 162.5%;
 }
 .table_header_wide {
   display: none;
@@ -43,7 +43,7 @@
   }
 }
 @media (min-width: 1120px) {
-  .container {
+  .contain_container {
     padding: 0;
     max-width: 643px;
     width: 100%;

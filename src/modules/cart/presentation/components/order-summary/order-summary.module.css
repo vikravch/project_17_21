@@ -12,10 +12,10 @@
 .summary_header {
   margin: 0;
   font-family: var(--font-secondary);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 28px;
+  line-height: 140%;
   color: var(--primary-dark);
 }
 .order_summary_cards {
@@ -33,18 +33,40 @@
   border: 1px solid var(--light-grey-fade);
   border-radius: 6px;
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 26px;
+  line-height: 162.5%;
   color: var(--semibold-grey-text);
   width: 100%;
+}
+.button_container {
+  margin-top: 24px;
+  padding: 10px 26px;
+  background-color: var(--primary-dark);
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .discount_button {
   margin: 0;
 }
 .promo_button {
   flex: 1;
+}
+.code_input_button {
+  font-family: var(--font-primary);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 177.778%;
+  letter-spacing: -0.4px;
+  color: #FFF;
+  width: 100%;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
 }
 .order_info_container {
   display: flex;
@@ -61,10 +83,10 @@
   margin: 0;
   width: 90px;
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 26px;
+  line-height: 162.5%;
   color: var(--primary-dark);
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -77,10 +99,10 @@
 }
 .discount_typography {
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 26px;
+  line-height: 162.5%;
   color: var(--primary-green-theme);
 }
 .discount_amount_text {
@@ -95,19 +117,19 @@
 .order_contain_info {
   margin: 0;
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 26px;
+  line-height: 162.5%;
   color: var(--primary-dark);
 }
 .order_contain_price{
   margin: 0;
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 26px;
+  line-height: 162.5%;
   color: var(--primary-dark);
 }
 .total_price {
@@ -116,10 +138,10 @@
 .order_total {
   margin: 0;
   font-family: var(--font-secondary);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 28px;
+  line-height: 140%;
   color: var(--primary-dark);
 }
 .place_order_button {
@@ -127,8 +149,8 @@
 }
 @media (min-width: 920px) {
   .summary_header {
-    font-size: 28px;
-    line-height: 34px; /* 121.429% */
+    font-size: 1.75rem;
+    line-height: 121.429%;
     margin-bottom: 16px;
   }
   .order_summary {

@@ -1,65 +1,66 @@
 import React from 'react';
-import './order-complete-info.css'
+import styles from './order-complete-info.module.css'
 import {mockOrder} from "../../mock-api/data";
+import {useAppSelector} from "../../../../../general/redux/hooks";
 const OrderCompleteInfo = () => {
-  const items = mockOrder.items
+  const {items} = useAppSelector(state => state.cart);
   const orderTotalPrice = items.reduce((acc: number, i) => {
     const price = +i.actualPrice * i.quantity
     return acc += price
   }, 0)
   return (
-    <div className="order_complete_container">
+    <div className={styles.order_complete_container}>
       <div>
-        <p className="thanks_text">Thank you! 🎉</p>
-        <p className="order_info_text">Your order has been received</p>
+        <p className={styles.thanks_text}>Thank you! 🎉</p>
+        <p className={styles.order_info_text}>Your order has been received</p>
       </div>
-      <div className="order_info_images">
+      <div className={styles.order_info_images}>
         {items.map((el) => {
-          return (<div key={el.id} className="img_wrapper">
-            <div className="product_amount">
-              <p className="el_quantity">{el.quantity}</p>
+          return (<div key={el.id} className={styles.img_wrapper}>
+            <div className={styles.product_amount}>
+              <p className={styles.el_quantity}>{el.quantity}</p>
             </div>
-            <img className="order_info_img" src={el.image} alt={el.name} />
+            <img className={styles.order_info_img} src={el.image} alt={el.name} />
           </div>)
         })}
 
       </div>
-      <div className="order_details">
-        <div className="order_item">
-          <p className="order_item_key">Order code:</p>
-          <p className="order_item_value">{mockOrder.orderNumber}</p>
+      <div className={styles.order_details}>
+        <div className={styles.order_item}>
+          <p className={styles.order_item_key}>Order code:</p>
+          <p className={styles.order_item_value}>{mockOrder.orderNumber}</p>
         </div>
-        <div className="order_item">
-          <p className="order_item_key">Date</p>
-          <p className="order_item_value">{mockOrder.date}</p>
+        <div className={styles.order_item}>
+          <p className={styles.order_item_key}>Date</p>
+          <p className={styles.order_item_value}>{mockOrder.date}</p>
         </div>
-        <div className="order_item">
-          <p className="order_item_key">Total</p>
-          <p className="order_item_value">{orderTotalPrice}</p>
+        <div className={styles.order_item}>
+          <p className={styles.order_item_key}>Total</p>
+          <p className={styles.order_item_value}>{orderTotalPrice}</p>
         </div>
-        <div className="order_item">
-          <p className="order_item_key">Payment method:</p>
-          <p className="order_item_value">{mockOrder.payment_method}</p>
-        </div>
-      </div>
-
-      <div className="order_details_wide">
-        <div className="order_list">
-          <p className="order_item_key">Order code:</p>
-          <p className="order_item_key">Date</p>
-          <p className="order_item_key">Total</p>
-          <p className="order_item_key">Payment method:</p>
-        </div>
-        <div className="order_list">
-          <p className="order_item_value">{mockOrder.orderNumber}</p>
-          <p className="order_item_value">{mockOrder.date}</p>
-          <p className="order_item_value">{orderTotalPrice}</p>
-          <p className="order_item_value">{mockOrder.payment_method}</p>
+        <div className={styles.order_item}>
+          <p className={styles.order_item_key}>Payment method:</p>
+          <p className={styles.order_item_value}>{mockOrder.payment_method}</p>
         </div>
       </div>
 
-      <div className="button_history_container">
-        <button type="button" className="button_history">Purchase history</button>
+      <div className={styles.order_details_wide}>
+        <div className={styles.order_list}>
+          <p className={styles.order_item_key}>Order code:</p>
+          <p className={styles.order_item_key}>Date</p>
+          <p className={styles.order_item_key}>Total</p>
+          <p className={styles.order_item_key}>Payment method:</p>
+        </div>
+        <div className={styles.order_list}>
+          <p className={styles.order_item_value}>{mockOrder.orderNumber}</p>
+          <p className={styles.order_item_value}>{mockOrder.date}</p>
+          <p className={styles.order_item_value}>{orderTotalPrice}</p>
+          <p className={styles.order_item_value}>{mockOrder.payment_method}</p>
+        </div>
+      </div>
+
+      <div className={styles.button_history_container}>
+        <button type="button" className={styles.button_history}>Purchase history</button>
       </div>
     </div>
   );

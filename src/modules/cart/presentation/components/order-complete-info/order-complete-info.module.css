@@ -6,14 +6,13 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-
 }
 .thanks_text {
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 26px;
+  line-height: 162.5%;
   color: var(--regular-grey);
   margin: 0 0 16px;
 }
@@ -21,10 +20,10 @@
   margin: 0;
   color: var(--regular-text);
   font-family: var(--font-secondary);
-  font-size: 34px;
+  font-size: 2.125rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 38px; /* 111.765% */
+  line-height: 111.765%;
   letter-spacing: -0.6px;
 }
 .order_info_images {
@@ -51,10 +50,10 @@
 .el_quantity {
   color: var(--darktheme-text-fade);
   font-family: var(--font-primary);
-  font-size: 10px;
+  font-size: 0.625rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 10px; /* 100% */
+  line-height: 100%;
 }
 .order_info_img {
   width: 80px;
@@ -77,19 +76,19 @@
   margin: 0;
   color: var(--regular-grey);
   font-family: var(--font-primary);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 22px; /* 157.143% */
+  line-height: 157.143%;
 }
 .order_item_value {
   margin: 0;
   color: var(--primary-dark);
   font-family: var(--font-primary);
-  font-size: 14px;
+  font-size:  0.875rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 22px; /* 157.143% */
+  line-height: 157.143%;
 }
 .button_history_container {
   padding: 12px 40px;
@@ -101,10 +100,10 @@
 }
 .button_history {
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 28px; /* 177.778% */
+  line-height: 177.778%;
   letter-spacing: -0.4px;
   color: var(--darktheme-text-primary);
   width: 100%;
@@ -130,10 +129,10 @@
   .thanks_text {
     text-align: center;
     font-family: var(--font-secondary);
-    font-size: 28px;
+    font-size: 1.75rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 34px; /* 121.429% */
+    line-height: 121.429%;
     letter-spacing: -0.6px;
   }
   .order_info_text {
@@ -141,8 +140,8 @@
     max-width: 492px;
     margin: 0 auto;
     width: 100%;
-    font-size: 40px;
-    line-height: 44px;
+    font-size: 2.5rem;
+    line-height: 110%;
   }
   .product_amount {
     width: 32px;
