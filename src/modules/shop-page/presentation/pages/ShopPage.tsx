@@ -69,14 +69,12 @@ const ShopPage = () => {
                 updatedRequestObject.filtering[key as keyof typeof requestObject.filtering] = null;
             }
         }
-        console.log(updatedRequestObject)
         setRequestObject(updatedRequestObject);
         dispatch(getProductsAsyncAction(updatedRequestObject));
     }, [location, isFiltersExists]);
 
     useEffect(() => {
         if (requestObject.page !== 1) {
-            console.log(requestObject);
             dispatch(getProductsAsyncAction(requestObject));
         }
     }, [requestObject.page]);
