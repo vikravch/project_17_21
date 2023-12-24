@@ -1,0 +1,193 @@
+/*=======Slider=======*/
+/*======= 0 - 768 =======*/
+.slider_section_wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.slider_section {
+    padding: 0 32px 40px 32px;
+}
+
+.image_slider {
+    width: 100%;
+    position: relative;
+}
+
+.slider_section_texts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+
+.slider_img_small {
+    width: 100%;
+    overflow: hidden;
+    /*position: relative;*/
+    /*flex-shrink: 0;*/
+}
+
+.slider_img_big {
+    display: none;
+    width: 100%;
+    overflow: hidden;
+    /*position: absolute;*/
+}
+
+.img_slider_btn_left, .img_slider_btn_right {
+    display: none;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.navigation_dots {
+    display: none;
+
+}
+
+.slider_section_slogan {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.75rem;
+    letter-spacing: -0.4px;
+    margin: 0;
+    width: auto;
+}
+.slider_section_slogan_span{
+    color: var(--regular-grey);
+    font-family: var(--font-secondary);
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.75rem;
+    letter-spacing: -0.4px;
+}
+
+.slider_section_gift_disclaimer {
+    color: var(--regular-grey);
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4rem;
+}
+
+.slider_section_gift_disclaimer > span {
+    color: #343839;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.4rem;
+}
+
+/*=======Slider=======*/
+/*======= 769 + =======*/
+
+@media (min-width: 769px) {
+    .image_slider {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .slider_img_small {
+        display: none;
+    }
+
+    .slider_img_big {
+        display: flex;
+        width: 100%;
+        position: relative;
+    }
+
+    .img_slider_btn_left, .img_slider_btn_right {
+        display: flex;
+        width: 52px;
+        height: 52px;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        border-radius: 50%;
+        background: var(--darktheme-text-primary);
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.04);
+    }
+
+    .img_slider_btn_left {
+        position: absolute;
+        top: calc(100%/2 + 20px);
+        left:32px;
+    }
+
+    .img_slider_btn_right {
+        position: absolute;
+        top: calc(100%/2 + 20px);
+        right:32px;
+    }
+
+    .navigation_dots {
+        display: flex;
+        position: absolute;
+        bottom: 32px;
+        right: calc(100%/2 - 42px);
+    }
+
+    .current_dot {
+        background-color: var(--darktheme-text-secondary);
+        width: 30px;
+        height: 8px;
+        border: 1px solid black;
+        border-radius: 100px;
+        cursor: pointer;
+        margin-left: 16px;
+    }
+
+    .dot {
+        background-color: var(--darktheme-text-secondary);
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-left: 16px;
+        border: 1px solid black;
+        cursor: pointer;
+    }
+
+    .slider_section_texts {
+        display: flex;
+        flex-direction: row;
+        padding-top: 32px;
+        justify-content: space-between;
+
+    }
+
+    .slider_section_slogan {
+        width: 50%;
+        font-family: var(--font-secondary);
+        font-size: 4.5rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 4.75rem;
+        letter-spacing: -2px;
+        margin: 0;
+    }
+    .slider_section_slogan_span{
+        color: var(--regular-grey);
+        font-size: 4.5rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 4.75rem;
+        letter-spacing: -2px;
+    }
+
+    .slider_section_gift_disclaimer {
+        margin-right: 50px;
+    }
+}
