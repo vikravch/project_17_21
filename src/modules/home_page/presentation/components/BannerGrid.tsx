@@ -27,7 +27,7 @@ const BannerGrid = () => {
                     <div className={'banner_grid_texts'}>
                         <h6 className={'banner_grid_title'}>{pictures !== undefined ? pictures[0].name:"Living Room"}</h6>
                         <div className={'shop_now_link'}>
-                            <Link to={`http://localhost:3000/shop?category=${pictures !== undefined ? pictures[0].category:"Living Room"}`}>
+                            <Link to={`/shop?category=${pictures !== undefined ? pictures[0].category:"Living Room"}`}>
                                 <button className={'shop_now_btn'}>Shop Now</button>
                             </Link>
                             <ShopNowArrow color="#141718"/>
@@ -40,7 +40,7 @@ const BannerGrid = () => {
                         <div className={'banner_grid_texts_cards'}>
                             <h6 className={'banner_grid_title'}>{pictures !== undefined ? pictures[1].name:'Bedroom'}</h6>
                             <div className={'shop_now_link'}>
-                                <Link to={`http://localhost:3000/shop?category=${pictures !== undefined ? pictures[1].category:"Living Room"}`}>
+                                <Link to={`/shop?category=${pictures !== undefined ? pictures[1].category:"Living Room"}`}>
                                     <button className={'shop_now_btn'}>Shop Now</button>
                                 </Link>
                                 <ShopNowArrow color="#141718"/>
@@ -52,7 +52,7 @@ const BannerGrid = () => {
                         <div className={'banner_grid_texts_cards'}>
                             <h6 className={'banner_grid_title'}>{pictures !== undefined ? pictures[2].name:'Kitchen'}</h6>
                             <div className={'shop_now_link'}>
-                                <Link to={`http://localhost:3000/shop?category=${pictures !== undefined ? pictures[2].category:"Living Room"}`}>
+                                <Link to={`/shop?category=${pictures !== undefined ? pictures[2].category:"Living Room"}`}>
                                     <button className={'shop_now_btn'}>Shop Now</button>
                                 </Link>
                                 <ShopNowArrow color="#141718"/>
