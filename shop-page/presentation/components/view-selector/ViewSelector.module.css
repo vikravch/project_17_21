@@ -1,0 +1,50 @@
+.viewSelector{
+    display: flex;
+    --border: 2px solid #E8ECEF;
+    height: 40px;
+    box-sizing: border-box;
+}
+.button{
+    box-sizing: border-box;
+    border-top: var(--border);
+    border-bottom: var(--border);
+    border-left: var(--border);
+    height: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: visible;
+    background-color: white;
+}
+.button:active{
+    background-color: #F3F5F7;
+}
+.button svg{
+    fill: #6C7275;
+}
+.active{
+    background-color: #F3F5F7;
+}
+.active svg{
+    fill: #141718;
+}
+.last{
+    border-right: var(--border);
+}
+.desktop{
+    display: none;
+}
+.button svg{
+    width: 75%;
+    height: 75%;
+}
+@media screen and (min-width: 768px){
+    .desktop{
+        display: flex;
+    }
+    .mobile{
+        display: none;
+    }
+}

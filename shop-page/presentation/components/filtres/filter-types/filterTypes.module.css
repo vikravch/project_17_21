@@ -1,0 +1,126 @@
+.typesBlock {
+    display: none;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.filterCategories > p,
+.filterPrice > p {
+    color: #6C7275;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 15px 0 10px 0;
+}
+
+.filterCatHead, .filterPriceHead {
+    border: #6C7275 solid 2px;
+    border-radius: 8px;
+    background-image: url("../../../../../../icons/shop_page/arrowDownMini.svg");
+    background-size: 9px;
+    background-position: calc(100% - 15px);
+    padding: 10px 0 10px 13px;
+    cursor: pointer;
+    font-family: Inter, serif;
+    font-weight: 600;
+    font-size: 16px;
+    background-repeat: no-repeat;
+    width: calc(100% - 16px);
+}
+
+.filterCatList, .filterPriceList {
+    display: none;
+    padding: 10px;
+    list-style: none;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background-color: white;
+    border-radius: 12px;
+
+    box-shadow: 0 64px 64px -48px #0F0F0F1A;
+    border: 1px solid #F3F5F7;
+
+
+    scrollbar-color: darkgray gray;
+    scrollbar-width: thin;
+    overscroll-behavior: contain;
+}
+
+.filterCatList > li,
+.filterPriceList > li {
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+    font-size: 16px;
+    padding: 15px;
+    color: #6C7275;
+}
+
+.filterCatList > li:hover,
+.filterPriceList > li:hover {
+    color: #141718;
+    font-weight: 600;
+    background-color: #F3F5F7;
+    border-radius: 8px;
+}
+
+.checked {
+    font-weight: 600;
+    color: black !important;
+}
+
+@media screen and (min-width: 768px) {
+    .typesBlock {
+        display: flex !important;
+        justify-content: space-between;
+        margin-bottom: 0;
+        width: calc(50% - 15px);
+        /*min-width: 350px;*/
+    }
+
+    .typesBlock {
+        min-width: 440px;
+    }
+
+    .filterCategories,
+    .filterPrice {
+        position: relative;
+        width: 47%;
+        min-width: 180px;
+    }
+
+    .filterCategories > p,
+    .filterPrice > p {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    .filterCatHead, .filterPriceHead {
+        border: #6C7275 solid 2px;
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+
+    .filterCatHead, .filterPriceHead {
+        background-image: url("../../../../../../icons/shop_page/arrowDownMini.svg");
+        background-size: 9px;
+        background-position: calc(100% - 30px);
+        background-repeat: no-repeat;
+        width: calc(100% - 16px);
+    }
+
+    .filterCatList, .filterPriceList {
+        position: absolute;
+        z-index: 100;
+        width: 262px;
+        border-radius: 12px;
+    }
+
+    .close {
+        display: none !important;
+    }
+
+}
