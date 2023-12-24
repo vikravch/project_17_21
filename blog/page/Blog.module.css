@@ -1,0 +1,134 @@
+.blogWrapper {
+    max-width: 1440px;
+    gap: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 0 40px 0;
+    overflow-x: hidden;
+}
+
+.wrapper
+{
+    width: 327px;
+    height: 433px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.wrapperBtn
+{
+    width: 357px;
+    text-align: center;
+}
+
+.btnMore
+{
+    background-color: transparent;
+    width: 163px;
+    height: 40px;
+    border: 1px solid #141718;
+    color: #141718;
+    padding: 6px 40px 6px 40px;
+    gap: 8px;
+    text-align: center;
+    border-radius: 80px;
+    font-weight: bold;
+    cursor: pointer;
+}
+a
+{
+    text-decoration: none;
+    color: black;
+}
+.blogSelector
+{
+    display: flex;
+    width: 1120px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.blocSelector
+{
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+.blocSelector span
+{
+    margin-right: 5px;
+    color: #121212;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 1rem;
+    font-style: normal;
+    line-height: 26px;
+font-weight: bold;
+}
+.blocSelector p
+{
+    cursor: pointer;
+    color: #807E7E;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+}
+.filterBlog
+{
+    display: none;
+}
+.blogCol2
+{
+    display: flex;
+    width: 45%;
+    height: 433px;
+    cursor: pointer;
+}
+.viewStyle
+{
+    height: 40px;
+}
+.activeBlock
+{
+    border-bottom: 1px solid #121212;
+}
+@media (max-width: 769px)
+{
+    .wrapper {
+        width: 357px;
+    }
+    .blogWrapper {
+        width: 357px;
+        justify-content: start;
+        gap: 30px;
+        margin-left: 10px;
+    }
+    .blogSelector
+    {
+        display: none;
+    }
+    .filterBlog
+    {
+        display: flex;
+        padding: 32px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .filterBlog select
+    {
+        display: flex;
+        width: 312px;
+        padding: 8px 8px 8px 16px;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 8px;
+        border: 2px solid #6C7275;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 26px;
+
+    }
+}
