@@ -14,6 +14,7 @@ import CompletePage from "./modules/cart/presentation/pages/complete-page";
 import HomePage from './modules/home_page/presentation/page/HomePage';
 import Article from "./modules/blog/presentation/components/Article/Article";
 import Account from "./modules/account/pages/Account";
+import Product from "./modules/product_page/presentation/components/Product";
 
 function App() {
     const {pathname} = useLocation();
@@ -41,6 +42,7 @@ function App() {
                 <Route path="/blog/article" element={<Article/>}/>
                 <Route path="*" element={<HomePage/>}/>
                 <Route path="/account*" element={<Account/>}/>
+                <Route path="/product" element={<Product/>}/>
             </Routes>
             {!pathname.includes('cart') && <NewsletterSubscribe/>}
             <Footer/>
