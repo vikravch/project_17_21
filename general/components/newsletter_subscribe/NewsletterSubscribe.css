@@ -1,0 +1,81 @@
+/*=======Newsletter=======*/
+/*======= 0 - 768 =======*/
+.newsletter_bar_wrapper {
+    background: var(--primary-light-theme-secondary);
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    gap: 32px;
+}
+.join_our_newsletter{
+    padding: 95px 32px;
+}
+
+.join_our_newsletter_text {
+    text-align: center;
+    font-family: var(--font-secondary);
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.1rem;
+    letter-spacing: -0.6px;
+}
+
+.sign_up_text {
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4rem;
+}
+
+.email_newsletter_submission {
+    display: flex;
+    height: 52px;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    align-self: stretch;
+    justify-content: space-between;
+    border-bottom: 1px solid  rgba(108, 114, 117, 0.50);
+}
+
+.icon_and_input {
+    display: flex;
+}
+
+.newsletter_email_input {
+    border: none;
+    background: var(--primary-light-theme-secondary);
+    color: var(--regular-grey);
+    cursor: pointer;
+}
+
+.newsletter_signup_btn {
+    color: var(--regular-grey);
+    background-color: var(--primary-light-theme-secondary);
+    font-family: Inter, serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.75rem;
+    letter-spacing: -0.4px;
+    border: none;
+    cursor: pointer;
+}
+
+/*=======Newsletter=======*/
+/*======= 769 - 1280 =======*/
+@media (min-width: 769px) {
+    .newsletter_bar_wrapper {
+        background-image: url("images/Paste image.png");
+        background-size: cover;
+        background-position: center;
+
+    }
+}
+
