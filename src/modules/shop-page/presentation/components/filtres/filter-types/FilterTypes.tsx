@@ -5,6 +5,7 @@ import {useSelector} from "react-redux";
 import {AppStore} from "../../../../../../general/redux/types";
 
 interface Props {
+    temp: React.LegacyRef<HTMLDivElement>,
     columns: Columns;
     category: number | null,
     price: number | null,
@@ -12,7 +13,7 @@ interface Props {
     setPriceParams: (event: { target: any; }) => void,
     openCloseMenuHandler: (event: React.MouseEvent<HTMLElement>) => void
 }
-const FilterTypes = ({columns, category, price, setCategoryParams, setPriceParams, openCloseMenuHandler}: Props) => {
+const FilterTypes = ({temp, columns, category, price, setCategoryParams, setPriceParams, openCloseMenuHandler}: Props) => {
 
     const {categories, prices, error} = useSelector<AppStore, ShopPageState>(state => state.shopPage);
 
@@ -24,6 +25,7 @@ const FilterTypes = ({columns, category, price, setCategoryParams, setPriceParam
                     <p>Categories</p>
                     <input type={'hidden'} name={'filter'} value={category === null ? categories[0].id : category}/>
                     <div className={`${style.filterCatHead} listenerHead`}
+                         ref={temp} id={"lishead"}
                          onClick={openCloseMenuHandler}>
                         {category === null ? categories[0].title : categories?.find(obj => obj.id === category)?.title}
                     </div>
