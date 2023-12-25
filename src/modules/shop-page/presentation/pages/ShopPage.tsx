@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import style from './shopPage.module.css';
 import ProductsGallery from "../components/products-gallery/ProductsGallery";
 import {useDispatch, useSelector} from "react-redux";
@@ -31,6 +31,7 @@ const ShopPage = () => {
     const dispatch = useDispatch<AppDispatch>();
     const location = useLocation();
     const navigate = useNavigate();
+    const temp = useRef() as React.LegacyRef<HTMLDivElement>;
     const [requestObject, setRequestObject] = useState<RequestProducts>({
         filtering: {
             category: null,
@@ -150,7 +151,8 @@ const ShopPage = () => {
                             <p>All rooms</p>
                         </div>}
                 </div>
-                <FilterTypes columns={columns}
+                <FilterTypes temp={temp}
+                    columns={columns}
                              category={requestObject.filtering.category}
                              price={requestObject.filtering.price}
                              setCategoryParams={setCategoryParams}
