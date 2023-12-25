@@ -28,17 +28,17 @@ export const AuthForm = () => {
     const onSubmit:SubmitHandler<ISignInForm> = (data) =>
      console.log(data);
     return (
-        <div className='auth-form'>
-            <div className="title">
-                <div className="header">
-                  <div className="content">
+        <div className='auth-form-right-side'>
+            <div className="auth-form-title">
+                <div className="auth-form-header">
+                  <div className="auth-form-content">
                    <Typography variant="h4" component="div" >
                     Sign In
                    </Typography> 
                    </div>
                    </div>                                  
                    <Typography variant="subtitle1" component="div" 
-                    gutterBottom={true} className="auth-form_subtitle" >
+                    gutterBottom={true} className="auth-form-subtitle" >
                      Don’t have an account yet?{" "}
                      <a  href="#" className="signUplink">
                   Sign up
@@ -46,38 +46,33 @@ export const AuthForm = () => {
                  </Typography>
                 
             </div>
-            <form className='auth-form_form' onSubmit={handleSubmit(onSubmit) }>
-               <div className="form">
+            <form className='auth-form-form' onSubmit={handleSubmit(onSubmit) }>
+               <div className="form-in">
                  
-                 <div className="formInput1">
-                    <div className="contentInput1">
-                      
-                        <Controller 
+                 <div className="form-input1">
+                    <div className="content-input1">
+                          <Controller 
                             control={control}
                             name="login"
-                            rules={{required: 'Обязательно для заполнения'}}
+                            rules={{required: 'The fields are required!'}}
                             render={({field}) => (
-                                    <TextField
+                              <TextField
                                 label="Your username or email address"
                                 size="small"
                                 margin="normal"
-                                className="auth-form_input"
                                 fullWidth={true}
                                 onChange={(e) => field.onChange(e)}
                                 value={field.value}
                                 error={!!errors.login?.message}
                                 helperText={errors.login?.message}
-                                />
+                              />
                             )}
-                            />
-                        
-                      
+                          />                     
                     </div>
                  </div>
-                 <div className="formInput2">
-                    <div className="contentInput2">
-                     
-                    <Controller
+                 <div className="form-input2">
+                    <div className="content-input2">
+                        <Controller
                               control={control}
                               name="password"
                               defaultValue=""
@@ -107,39 +102,19 @@ export const AuthForm = () => {
                                         }}
                                 />
                                )}
-                        />
-                        {/* <Controller 
-                            control={control}
-                            name="password"
-                            rules={passwordValidation}
-                            render={({field}) => (
-                                    <TextField
-                                label="Password"
-                                size="small"
-                                margin="normal"
-                                className="auth-form_input"
-                                fullWidth={true}
-                                onChange={(e) => field.onChange(e)}
-                                value={field.value}
-                                error={!!errors.password?.message}
-                                helperText={errors.password?.message}
-                                />
-                                )}
-                            /> */}
-                      
+                        />                      
                     </div>
-                 </div>
-              
-                 <div className="option">
-                   <div className="forgotPassword">
-                     <a   className="body1" href="#">
+                 </div>              
+                 <div className="option-form-sign-in">
+                   <div className="sign-in-forgot-password">
+                     <a className="sign-in-body" href="#">
                              Forgot password?  </a>
                    {/* <Link to="#" className="body1">
                      Forgot password?
                    </Link> */}
                    </div>
-                   <div className="checkbox">
-                      <Controller
+                      <div className="sign-in-checkbox">
+                       <Controller
                         control={control}
                         name="remember"
                         defaultValue={false}
@@ -147,35 +122,16 @@ export const AuthForm = () => {
                         <>
                             <Checkbox
                             {...field}
-                            className="radioButton"
+                            className="sign-in-radio-button"
                             />
-                            <label className="rememberMe">Remember me</label>
+                            <label className="sign-in-remember-me">Remember me</label>
                         </>
                                     )}
-                                />
-                                </div>
-                    </div>
-                   
-                    {/* <div className="option">
-                          <div className="forgotPassword">
-                          <a   className="body1" href="#">
-                             Forgot password?  </a>
-                     </div>
-                          <div className="checkbox">                                 
-                            <input
-                            //   name={'remember' }
-                            //   checked={ }
-                            //   onChange={ }
-                            className="radioButton"
-                            type="checkbox"
-                            />
-                          <label className="rememberMe">  Remember me
-                          </label>
-                         </div>
-                    </div> */}
-                </div>
-                       
-                    <Button 
+                         />
+                      </div>
+                   </div>                   
+                </div>                       
+                <Button 
                     type="submit"
                     variant="contained"
                     fullWidth={ true}
@@ -193,12 +149,9 @@ export const AuthForm = () => {
                         letterSpacing: '-0.4px',
                         color: '#FFFFFF',
                         marginTop:2
-                    
-                    }}
-                  
-                  >Sign In</Button>
-                  
-                 
+                        }}
+                      >Sign In
+                </Button>                
             </form>
         </div>
     )
