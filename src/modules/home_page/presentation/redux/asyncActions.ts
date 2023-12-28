@@ -3,6 +3,7 @@ import SliderImages from "../../domain/model/sliderImages";
 import {useUseCases} from "../../../../general/di/service_locator";
 import BannerGridImages from "../../domain/model/BannerGridImages";
 
+
 export const getAllSliderImagesAsyncAction = createAsyncThunk<SliderImages[]>(
     'home-page/getAllSliderImages',
     async ()=>{
@@ -28,3 +29,4 @@ export const getAllBannerGridImagesAsyncAction = createAsyncThunk<BannerGridImag
         }
     }
 );
+
