@@ -55,7 +55,7 @@ export const articles: IArticle[] = [
             "            "],
         images: [img4,img5,img6],
         date: 'November, 19, 2023',
-        index: 1
+        index: 35
     },
     {
         title: "3How to make a busy bathroom a place to relax",
@@ -73,7 +73,7 @@ export const articles: IArticle[] = [
             "            "],
         images: [img7,img8,img9],
         date: 'November, 19, 2023',
-        index: 2
+        index: 22
     },
     {
         title: "4How to make a busy bathroom a place to relax",
@@ -91,7 +91,7 @@ export const articles: IArticle[] = [
             "            "],
         images: [img8,img3,img4],
         date: 'November, 19, 2023',
-        index: 3
+        index: 33
     },
     {
         title: "5How to make a busy bathroom a place to relax",

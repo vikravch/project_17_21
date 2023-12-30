@@ -1,40 +1,60 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import articleStyle from './Article.module.css';
-import {articles} from "../../utils/data/data";
 import BlogAlso from "../BlogAlso/BlogAlso";
 import UserIcon from "../../utils/icons/UserIcon";
 import CalendarIco from "../../utils/icons/CalendarIco";
-import {useSelector} from "react-redux";
-
-
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "../../../../../general/redux/store";
+import {getAllArticlesBlogAsync} from "../../redux/asyncBlogActions";
+import Articles from "../../domain/model/articles";
 
 
 const Article = () => {
 
 
-    const articleId = useSelector((store: any) => store.blogArticleId.articleIndex);
+    const articleId = +useSelector((state: RootState) => state.blogArticleId.articleIndex);
+    const allBlogArticles = useSelector((state: RootState) => state.getAllBlogArticles.blogArticles);
+    const dispatch = useDispatch<AppDispatch>();
+    const test: Articles[] = [...allBlogArticles];
+    const [art, setArt] = useState<Articles>({
+        title: '',
+        author: '',
+        text: [],
+        images: [],
+        date: '',
+        index: articleId
+    });
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, );
+        dispatch(getAllArticlesBlogAsync());
+
+        let check: Articles = test.find(el => el.index === articleId)!;
+        setArt(check)
+    },);
+
 
     return (
         <div className={articleStyle.articleMain}>
             <div className={articleStyle.articleWrapper}>
                 <div className={articleStyle.articleHead}>
-                    <h2 className={articleStyle.h2}>{articles[articleId].title}</h2>
+                    <h2 className={articleStyle.h2}>{art.title}</h2>
                     <div className={articleStyle.authorArt}>
-                        <span className={articleStyle.authorName}><div className={articleStyle.userIco}><UserIcon/></div>{articles[articleId].author}</span>
-                        <span className={articleStyle.authorName}><div className={articleStyle.userIco}><CalendarIco/></div>{articles[articleId].date}</span>
+                        <span className={articleStyle.authorName}><div
+                            className={articleStyle.userIco}><UserIcon/></div>
+                            {art.author}</span>
+                        <span className={articleStyle.authorName}><div
+                            className={articleStyle.userIco}><CalendarIco/></div>
+                            {art.date}</span>
                     </div>
                 </div>
 
-                <img className={articleStyle.images} alt={'img'} src={articles[articleId].images[0]}></img>
-                <div dangerouslySetInnerHTML={{ __html: articles[articleId].text[0] }}></div>
-                <img className={articleStyle.images} alt={'img'} src={articles[articleId].images[1]}></img>
-                <div dangerouslySetInnerHTML={{ __html: articles[articleId].text[1] }}></div>
-                <img className={articleStyle.images} alt={'img'} src={articles[articleId].images[2]}></img>
-                <div dangerouslySetInnerHTML={{ __html: articles[articleId].text[2] }}></div>
+                <img className={articleStyle.images} alt={'img'} src={art.images[0]}></img>
+                <div dangerouslySetInnerHTML={{__html: art.text[0]}}></div>
+                <img className={articleStyle.images} alt={'img'} src={art.images[1]}></img>
+                <div dangerouslySetInnerHTML={{__html: art.text[1]}}></div>
+                <img className={articleStyle.images} alt={'img'} src={art.images[2]}></img>
+                <div dangerouslySetInnerHTML={{__html: art.text[2]}}></div>
                 <BlogAlso/>
             </div>
         </div>
