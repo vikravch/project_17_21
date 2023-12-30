@@ -35,9 +35,7 @@ const Article = () => {
                 <div dangerouslySetInnerHTML={{ __html: articles[articleId].text[1] }}></div>
                 <img className={articleStyle.images} alt={'img'} src={articles[articleId].images[2]}></img>
                 <div dangerouslySetInnerHTML={{ __html: articles[articleId].text[2] }}></div>
-                <div>
-                    <BlogAlso/>
-                </div>
+                <BlogAlso/>
             </div>
         </div>
 
