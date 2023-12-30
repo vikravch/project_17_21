@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './Header.module.css';
-import {img10} from "../../utils/data";
+import {img10} from "../../utils/data/data";
 
 const HeaderBlog = () => {
     return (

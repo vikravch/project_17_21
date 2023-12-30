@@ -9,16 +9,16 @@ export interface IArticle
     index: number
 }
 
-export const img1: string = require('../styles/images/ImageBlog1.jpg');
-export const img2: string = require('../styles/images/img22.jpg');
-export const img3: string = require('../styles/images/img33.png');
-export const img4: string = require('../styles/images/img4.jpg');
-export const img5: string = require('../styles/images/img5.jpeg');
-export const img6: string = require('../styles/images/img6.jpg');
-export const img7: string = require('../styles/images/img7.jpg');
-export const img8: string = require('../styles/images/img8.jpg');
-export const img9: string = require('../styles/images/img9.jpg');
-export const img10: string = require('../styles/images/headerBlog.jpg');
+export const img1: string = require('../../styles/images/ImageBlog1.jpg');
+export const img2: string = require('../../styles/images/img22.jpg');
+export const img3: string = require('../../styles/images/img33.png');
+export const img4: string = require('../../styles/images/img4.jpg');
+export const img5: string = require('../../styles/images/img5.jpeg');
+export const img6: string = require('../../styles/images/img6.jpg');
+export const img7: string = require('../../styles/images/img7.jpg');
+export const img8: string = require('../../styles/images/img8.jpg');
+export const img9: string = require('../../styles/images/img9.jpg');
+export const img10: string = require('../../styles/images/headerBlog.jpg');
 
 export const articles: IArticle[] = [
     {

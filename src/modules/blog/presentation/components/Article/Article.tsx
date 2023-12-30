@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import articleStyle from './Article.module.css';
-import {articles} from "../../utils/data";
+import {articles} from "../../utils/data/data";
 import BlogAlso from "../BlogAlso/BlogAlso";
 import UserIcon from "../../utils/icons/UserIcon";
 import CalendarIco from "../../utils/icons/CalendarIco";
