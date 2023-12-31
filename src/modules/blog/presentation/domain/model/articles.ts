@@ -5,7 +5,8 @@ export default class Articles{
         public readonly text: string[],
         public readonly images: string[],
         public readonly date: string,
-        public readonly index: number
+        public readonly index: number,
+        public readonly featured: boolean
     ) {
         this.title = title;
         this.author = author;
@@ -13,10 +14,11 @@ export default class Articles{
         this.images = images;
         this.date = date;
         this.index = index;
+        this.featured = featured;
 
     }
     static fromJson (json: string): Articles {
         const art = JSON.parse(json)
-        return new Articles(art.title, art.author, art.text, art.images, art.date, art.index);
+        return new Articles(art.title, art.author, art.text, art.images, art.date, art.index, art.featured);
     }
 }

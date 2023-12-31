@@ -12,12 +12,14 @@ import {getAllArticlesBlogAsync} from "../presentation/redux/asyncBlogActions";
 
 
 const Blog = () => {
-    const [count, setCount] = useState(9);
+    const [count, setCount] = useState(12);
     const dispatch = useDispatch<AppDispatch>();
-
+    const filter = useSelector((store: any) => store.blogFilter.ourStyle);
     const allBlogArticles = useSelector((state: RootState) => state.getAllBlogArticles.blogArticles);
+
     const array: IArticle[] = [...allBlogArticles];
     let temp: IArticle[] = count < array.length ? array.slice(0, count) : array.slice(0, array.length);
+    temp = filter === 'featured'? temp.filter(el=>el.featured): temp;
 
     useEffect(() => {
         dispatch(getAllArticlesBlogAsync());

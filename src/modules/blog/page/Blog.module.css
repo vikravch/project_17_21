@@ -53,6 +53,7 @@ a
     display: flex;
     align-items: center;
     gap: 32px;
+    color: #807E7E;
 }
 .blocSelector span
 {
@@ -67,24 +68,21 @@ font-weight: bold;
 .blocSelector p
 {
     cursor: pointer;
-    color: #807E7E;
     font-feature-settings: 'clig' off, 'liga' off;
     font-size: 1rem;
     font-style: normal;
     font-weight: 600;
     line-height: 26px;
 }
+.blogSelectorF
+{
+    color: #807E7E;
+}
 .filterBlog
 {
     display: none;
 }
-.blogCol2
-{
-    display: flex;
-    width: 45%;
-    height: 433px;
-    cursor: pointer;
-}
+
 .viewStyle
 {
     height: 40px;
@@ -92,6 +90,7 @@ font-weight: bold;
 .activeBlock
 {
     border-bottom: 1px solid #121212;
+    color: black;
 }
 @media (max-width: 769px)
 {

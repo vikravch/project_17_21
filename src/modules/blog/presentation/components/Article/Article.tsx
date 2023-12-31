@@ -22,7 +22,8 @@ const Article = () => {
         text: [],
         images: [],
         date: '',
-        index: articleId
+        index: articleId,
+        featured: false
     });
 
     useEffect(() => {

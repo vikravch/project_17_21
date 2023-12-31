@@ -14,7 +14,8 @@ for (let i = 0; i<articleTest.length; i++)
         text: articleTest[i].text,
         images: articleTest[i].images,
         date: articleTest[i].date,
-        index: articleTest[i].index
+        index: articleTest[i].index,
+        featured: articleTest[i].featured
     });
 }
 

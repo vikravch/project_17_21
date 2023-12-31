@@ -7,6 +7,8 @@ export interface IArticle
     images: string[]
     date: string
     index: number
+
+    featured: boolean
 }
 
 export const img1: string = require('../../styles/images/ImageBlog1.webp');
@@ -37,7 +39,8 @@ export const articles: IArticle[] = [
         "            "],
         images: [img1,img2,img3],
         date: 'November, 19, 2023',
-        index: 0
+        index: 0,
+        featured: false
     },
     {
         title: "2How to make a busy bathroom a place to relax",
@@ -55,7 +58,8 @@ export const articles: IArticle[] = [
             "            "],
         images: [img4,img5,img6],
         date: 'November, 19, 2023',
-        index: 35
+        index: 35,
+        featured: true
     },
     {
         title: "3How to make a busy bathroom a place to relax",
@@ -73,7 +77,8 @@ export const articles: IArticle[] = [
             "            "],
         images: [img7,img8,img9],
         date: 'November, 19, 2023',
-        index: 22
+        index: 22,
+        featured: true
     },
     {
         title: "4How to make a busy bathroom a place to relax",
@@ -91,7 +96,8 @@ export const articles: IArticle[] = [
             "            "],
         images: [img8,img3,img4],
         date: 'November, 19, 2023',
-        index: 33
+        index: 33,
+        featured: true
     },
     {
         title: "5How to make a busy bathroom a place to relax",
@@ -109,7 +115,8 @@ export const articles: IArticle[] = [
             "            "],
         images: [img4,img2,img7],
         date: 'November, 19, 2023',
-        index: 4
+        index: 4,
+        featured: false
     },
     {
         title: "6How to make a busy bathroom a place to relax",
@@ -127,7 +134,8 @@ export const articles: IArticle[] = [
             "            "],
         images: [img5,img2,img6],
         date: 'November, 19, 2023',
-        index: 5
+        index: 5,
+        featured: false
     },
     {
         title: "7How to make a busy bathroom a place to relax",
@@ -145,7 +153,8 @@ export const articles: IArticle[] = [
             "            "],
         images: [img3,img2,img5],
         date: 'November, 19, 2023',
-        index: 6
+        index: 6,
+        featured: false
     },
     {
         title: "8How to make a busy bathroom a place to relax",
@@ -163,7 +172,8 @@ export const articles: IArticle[] = [
             "            "],
         images: [img6,img2,img8],
         date: 'November, 19, 2023',
-        index: 7
+        index: 7,
+        featured: true
     },
     {
         title: "9How to make a busy bathroom a place to relax",
@@ -181,7 +191,8 @@ export const articles: IArticle[] = [
             "            "],
         images: [img9,img1,img5],
         date: 'November, 19, 2023',
-        index: 8
+        index: 8,
+        featured: false
     },
     {
         title: "10How to make a busy bathroom a place to relax",
@@ -199,7 +210,8 @@ export const articles: IArticle[] = [
             "            "],
         images: [img4,img1,img3],
         date: 'November, 19, 2023',
-        index: 9
+        index: 9,
+        featured: false
     },
     {
         title: "11How to make a busy bathroom a place to relax",
@@ -217,7 +229,8 @@ export const articles: IArticle[] = [
             "            "],
         images: [img6,img4,img3],
         date: 'November, 19, 2023',
-        index: 10
+        index: 10,
+        featured: false
     },
     {
         title: "12How to make a busy bathroom a place to relax",
@@ -235,7 +248,8 @@ export const articles: IArticle[] = [
             "            "],
         images: [img2,img9,img7],
         date: 'November, 19, 2023',
-        index: 11
+        index: 11,
+        featured: true
     },
     {
         title: "13How to make a busy bathroom a place to relax",
@@ -253,7 +267,8 @@ export const articles: IArticle[] = [
             "            "],
         images: [img7,img4,img3],
         date: 'November, 19, 2023',
-        index: 12
+        index: 12,
+        featured: false
     },
     {
         title: "14How to make a busy bathroom a place to relax",
@@ -271,7 +286,8 @@ export const articles: IArticle[] = [
             "            "],
         images: [img3,img8,img9],
         date: 'November, 19, 2023',
-        index: 13
+        index: 13,
+        featured: true
     },
     {
         title: "15How to make a busy bathroom a place to relax",
@@ -289,7 +305,8 @@ export const articles: IArticle[] = [
             "            "],
         images: [img7,img8,img9],
         date: 'November, 19, 2023',
-        index: 14
+        index: 14,
+        featured: false
     }
 
     ]
