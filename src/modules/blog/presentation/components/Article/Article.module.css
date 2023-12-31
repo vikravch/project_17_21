@@ -65,7 +65,8 @@
 {
     .articleWrapper
     {
-        width: 311px;
+        width: 100%;
+        overflow-x: hidden;
     }
     .h2
     {
@@ -73,10 +74,10 @@
     }
     .articleHead
     {
-        width: 311px;
+        width: 100%;
     }
     .images
     {
-        width: 311px;
+        width: 100%;
     }
 }

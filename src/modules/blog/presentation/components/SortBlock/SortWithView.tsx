@@ -33,8 +33,8 @@ const SortWithView = () => {
             }
             else if(columns.countDesktop===4)
             {
-                allCard[i].setAttribute('style', 'width: 240px')
-                cards[i].setAttribute('style', 'width: 240px')
+                allCard[i].setAttribute('style', 'width: 250px')
+                cards[i].setAttribute('style', 'width: 250px')
             }
         }
 
