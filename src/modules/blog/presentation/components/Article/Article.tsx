@@ -21,7 +21,7 @@ const Article = () => {
         author: '',
         text: [],
         images: [],
-        date: '',
+        date: new Date(),
         index: articleId,
         featured: false
     });
@@ -46,7 +46,7 @@ const Article = () => {
                             {art.author}</span>
                         <span className={articleStyle.authorName}><div
                             className={articleStyle.userIco}><CalendarIco/></div>
-                            {art.date}</span>
+                            {art.date.toLocaleDateString("en-US", {year: 'numeric', month: 'long', day: 'numeric'})}</span>
                     </div>
                 </div>
 

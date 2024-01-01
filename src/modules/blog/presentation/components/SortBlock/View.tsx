@@ -6,8 +6,9 @@ import {useDispatch, useSelector} from "react-redux";
 import cardStyle from "../BlogCard/BlogCard.module.css";
 import {AppStore} from "../../../../../general/redux/types";
 import {Columns} from "../../../../shop-page/presentation/redux/types";
+import Sort from "./Sort";
 
-const SortWithView = () => {
+const View = () => {
 
     const dispatch = useDispatch();
     let allCard = document.getElementsByClassName(blogStyle.wrapper);
@@ -42,15 +43,15 @@ const SortWithView = () => {
     return (
         <div>
             <div className={blogStyle.filterBlog}>
-                <select>
-                    <option>All blog</option>
-                    <option>Featured</option>
+                <select defaultValue={'all'} onChange={(event)=> event.target.value === 'all'?dispatch(selectFilter("all")): dispatch(selectFilter("featured"))}>
+                    <option value={'all'}>All blog</option>
+                    <option value={'featured'}>Featured</option>
                 </select>
             </div>
             <div className={blogStyle.blogSelector}><div className={blogStyle.blocSelector}><p onClick={() => dispatch(selectFilter("all"))} className={filter === "all"? blogStyle.activeBlock:''}>All blog</p><p className={filter === "featured"? blogStyle.activeBlock:''} onClick={() => dispatch(selectFilter("featured"))}>Featured</p></div>
-                <div className={blogStyle.blocSelector}><div ><span>Sort by</span><select></select></div><div className={blogStyle.viewStyle}><ViewSelector/></div></div></div>
+                <div className={blogStyle.blocSelector}><Sort/><div className={blogStyle.viewStyle}><ViewSelector/></div></div></div>
         </div>
     );
 };
 
-export default SortWithView;
+export default View;

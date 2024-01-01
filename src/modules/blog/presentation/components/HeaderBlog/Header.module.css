@@ -59,7 +59,15 @@
     font-size: 1.5rem;
 }
 @media (max-width: 769px) {
-    .headerBlogMain {
-        display: none;
+    .imgBlog {
+        height: 300px;
+    }
+    .image
+    {
+        width: auto;
+    }
+    .headerText
+    {
+        font-size: 1rem;
     }
 }

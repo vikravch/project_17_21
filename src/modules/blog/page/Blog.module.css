@@ -110,7 +110,8 @@ font-weight: bold;
     .filterBlog
     {
         display: flex;
-        padding: 32px;
+        width: 100%;
+        padding: 30px 15px;
         flex-direction: column;
         align-items: flex-start;
         gap: 16px;
@@ -118,7 +119,7 @@ font-weight: bold;
     .filterBlog select
     {
         display: flex;
-        width: 312px;
+        width: 100%;
         padding: 8px 8px 8px 16px;
         justify-content: space-between;
         align-items: center;

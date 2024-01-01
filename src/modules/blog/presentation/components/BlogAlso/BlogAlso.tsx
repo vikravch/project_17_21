@@ -25,7 +25,7 @@ const BlogAlso = () => {
                 <Link to={"/blog"} className={alsoStyle.moreAlso}><div>More articles</div> <div className={alsoStyle.arrow}><ArrowArt/></div></Link>
             </div>
             <div className={alsoStyle.cardsAlso}>
-                {tempMore.map((item, index) =><div key={index} className={blogStyle.wrapper}><Link className={blogStyle.wrapper} id={`${item.index}`} key={index} to={"/blog/article"} onClick={(event) => dispatch(getIndex(event.currentTarget.id))}><BlogCard key={index} imgArt={item.images[0]} title={item.title} date={item.date} ></BlogCard></Link></div>)}
+                {tempMore.map((item, index) =><div key={index} className={blogStyle.wrapper}><Link className={blogStyle.wrapper} id={`${item.index}`} key={index} to={"/blog/article"} onClick={(event) => dispatch(getIndex(event.currentTarget.id))}><BlogCard key={index} imgArt={item.images[0]} title={item.title} date={item.date.toLocaleDateString("en-US", {year: 'numeric', month: 'long', day: 'numeric'})} ></BlogCard></Link></div>)}
             </div>
         </div>
     );

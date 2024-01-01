@@ -68,6 +68,10 @@
         width: 100%;
         overflow-x: hidden;
     }
+    .authorArt span
+    {
+        font-size: 0.8rem;
+    }
     .h2
     {
         font-size: 2rem;

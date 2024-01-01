@@ -4,7 +4,7 @@ export default class Articles{
         public readonly author: string,
         public readonly text: string[],
         public readonly images: string[],
-        public readonly date: string,
+        public readonly date: Date,
         public readonly index: number,
         public readonly featured: boolean
     ) {

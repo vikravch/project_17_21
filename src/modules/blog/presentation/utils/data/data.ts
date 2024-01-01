@@ -5,7 +5,7 @@ export interface IArticle
     author: string
     text: string[]
     images: string[]
-    date: string
+    date: Date
     index: number
 
     featured: boolean
@@ -38,7 +38,7 @@ export const articles: IArticle[] = [
         "            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>\n" +
         "            "],
         images: [img1,img2,img3],
-        date: 'November, 19, 2023',
+        date: new Date('2023-10-10'),
         index: 0,
         featured: false
     },
@@ -57,13 +57,13 @@ export const articles: IArticle[] = [
             "            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>\n" +
             "            "],
         images: [img4,img5,img6],
-        date: 'November, 19, 2023',
+        date: new Date('2023-10-10'),
         index: 35,
         featured: true
     },
     {
         title: "3How to make a busy bathroom a place to relax",
-        author: 'Henrik Annemark',
+        author: 'Stephen King',
         text: [" <p> 3Your bathroom serves a string of busy functions on a daily basis. See how you can make all of them work, and still have room for comfort and relaxation. </p>\n" +
         "                <h3>A cleaning hub with built-in ventilation</h3>\n" +
         "                <p>Use a rod and a shower curtain to create a complement to your cleaning cupboard. Unsightly equipment is stored out of sight yet accessibly close – while the air flow helps dry any dampness.</p>",
@@ -76,13 +76,13 @@ export const articles: IArticle[] = [
             "            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>\n" +
             "            "],
         images: [img7,img8,img9],
-        date: 'November, 19, 2023',
+        date: new Date('2022-11-17'),
         index: 22,
         featured: true
     },
     {
         title: "4How to make a busy bathroom a place to relax",
-        author: 'Henrik Annemark',
+        author: 'Stephen King',
         text: [" <p> 4Your bathroom serves a string of busy functions on a daily basis. See how you can make all of them work, and still have room for comfort and relaxation. </p>\n" +
         "                <h3>A cleaning hub with built-in ventilation</h3>\n" +
         "                <p>Use a rod and a shower curtain to create a complement to your cleaning cupboard. Unsightly equipment is stored out of sight yet accessibly close – while the air flow helps dry any dampness.</p>",
@@ -95,13 +95,13 @@ export const articles: IArticle[] = [
             "            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>\n" +
             "            "],
         images: [img8,img3,img4],
-        date: 'November, 19, 2023',
+        date: new Date('2022-11-17'),
         index: 33,
         featured: true
     },
     {
         title: "5How to make a busy bathroom a place to relax",
-        author: 'Henrik Annemark',
+        author: 'Christian Andersen',
         text: [" <p> 5Your bathroom serves a string of busy functions on a daily basis. See how you can make all of them work, and still have room for comfort and relaxation. </p>\n" +
         "                <h3>A cleaning hub with built-in ventilation</h3>\n" +
         "                <p>Use a rod and a shower curtain to create a complement to your cleaning cupboard. Unsightly equipment is stored out of sight yet accessibly close – while the air flow helps dry any dampness.</p>",
@@ -114,13 +114,13 @@ export const articles: IArticle[] = [
             "            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>\n" +
             "            "],
         images: [img4,img2,img7],
-        date: 'November, 19, 2023',
+        date: new Date('2022-11-17'),
         index: 4,
         featured: false
     },
     {
         title: "6How to make a busy bathroom a place to relax",
-        author: 'Henrik Annemark',
+        author: 'Christian Andersen',
         text: [" <p> 6Your bathroom serves a string of busy functions on a daily basis. See how you can make all of them work, and still have room for comfort and relaxation. </p>\n" +
         "                <h3>A cleaning hub with built-in ventilation</h3>\n" +
         "                <p>Use a rod and a shower curtain to create a complement to your cleaning cupboard. Unsightly equipment is stored out of sight yet accessibly close – while the air flow helps dry any dampness.</p>",
@@ -133,13 +133,13 @@ export const articles: IArticle[] = [
             "            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>\n" +
             "            "],
         images: [img5,img2,img6],
-        date: 'November, 19, 2023',
+        date: new Date('2022-11-17'),
         index: 5,
         featured: false
     },
     {
         title: "7How to make a busy bathroom a place to relax",
-        author: 'Henrik Annemark',
+        author: 'Christian Andersen',
         text: [" <p> 7Your bathroom serves a string of busy functions on a daily basis. See how you can make all of them work, and still have room for comfort and relaxation. </p>\n" +
         "                <h3>A cleaning hub with built-in ventilation</h3>\n" +
         "                <p>Use a rod and a shower curtain to create a complement to your cleaning cupboard. Unsightly equipment is stored out of sight yet accessibly close – while the air flow helps dry any dampness.</p>",
@@ -152,13 +152,13 @@ export const articles: IArticle[] = [
             "            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>\n" +
             "            "],
         images: [img3,img2,img5],
-        date: 'November, 19, 2023',
+        date: new Date('2020-08-10'),
         index: 6,
         featured: false
     },
     {
         title: "8How to make a busy bathroom a place to relax",
-        author: 'Henrik Annemark',
+        author: 'Franz Kafka',
         text: [" <p> 8Your bathroom serves a string of busy functions on a daily basis. See how you can make all of them work, and still have room for comfort and relaxation. </p>\n" +
         "                <h3>A cleaning hub with built-in ventilation</h3>\n" +
         "                <p>Use a rod and a shower curtain to create a complement to your cleaning cupboard. Unsightly equipment is stored out of sight yet accessibly close – while the air flow helps dry any dampness.</p>",
@@ -171,13 +171,13 @@ export const articles: IArticle[] = [
             "            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>\n" +
             "            "],
         images: [img6,img2,img8],
-        date: 'November, 19, 2023',
+        date: new Date('2020-08-10'),
         index: 7,
         featured: true
     },
     {
         title: "9How to make a busy bathroom a place to relax",
-        author: 'Henrik Annemark',
+        author: 'Franz Kafka',
         text: [" <p> 9Your bathroom serves a string of busy functions on a daily basis. See how you can make all of them work, and still have room for comfort and relaxation. </p>\n" +
         "                <h3>A cleaning hub with built-in ventilation</h3>\n" +
         "                <p>Use a rod and a shower curtain to create a complement to your cleaning cupboard. Unsightly equipment is stored out of sight yet accessibly close – while the air flow helps dry any dampness.</p>",
@@ -190,13 +190,13 @@ export const articles: IArticle[] = [
             "            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>\n" +
             "            "],
         images: [img9,img1,img5],
-        date: 'November, 19, 2023',
+        date: new Date('2020-08-10'),
         index: 8,
         featured: false
     },
     {
         title: "10How to make a busy bathroom a place to relax",
-        author: 'Henrik Annemark',
+        author: 'Franz Kafka',
         text: [" <p> 10Your bathroom serves a string of busy functions on a daily basis. See how you can make all of them work, and still have room for comfort and relaxation. </p>\n" +
         "                <h3>A cleaning hub with built-in ventilation</h3>\n" +
         "                <p>Use a rod and a shower curtain to create a complement to your cleaning cupboard. Unsightly equipment is stored out of sight yet accessibly close – while the air flow helps dry any dampness.</p>",
@@ -209,13 +209,13 @@ export const articles: IArticle[] = [
             "            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>\n" +
             "            "],
         images: [img4,img1,img3],
-        date: 'November, 19, 2023',
+        date: new Date('2024-01-01'),
         index: 9,
         featured: false
     },
     {
         title: "11How to make a busy bathroom a place to relax",
-        author: 'Henrik Annemark',
+        author: 'George Orwell',
         text: [" <p> 11Your bathroom serves a string of busy functions on a daily basis. See how you can make all of them work, and still have room for comfort and relaxation. </p>\n" +
         "                <h3>A cleaning hub with built-in ventilation</h3>\n" +
         "                <p>Use a rod and a shower curtain to create a complement to your cleaning cupboard. Unsightly equipment is stored out of sight yet accessibly close – while the air flow helps dry any dampness.</p>",
@@ -228,13 +228,13 @@ export const articles: IArticle[] = [
             "            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>\n" +
             "            "],
         images: [img6,img4,img3],
-        date: 'November, 19, 2023',
+        date: new Date('2024-01-01'),
         index: 10,
         featured: false
     },
     {
         title: "12How to make a busy bathroom a place to relax",
-        author: 'Henrik Annemark',
+        author: 'George Orwell',
         text: [" <p> 12Your bathroom serves a string of busy functions on a daily basis. See how you can make all of them work, and still have room for comfort and relaxation. </p>\n" +
         "                <h3>A cleaning hub with built-in ventilation</h3>\n" +
         "                <p>Use a rod and a shower curtain to create a complement to your cleaning cupboard. Unsightly equipment is stored out of sight yet accessibly close – while the air flow helps dry any dampness.</p>",
@@ -247,13 +247,13 @@ export const articles: IArticle[] = [
             "            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>\n" +
             "            "],
         images: [img2,img9,img7],
-        date: 'November, 19, 2023',
+        date: new Date('2023-01-01'),
         index: 11,
         featured: true
     },
     {
         title: "13How to make a busy bathroom a place to relax",
-        author: 'Henrik Annemark',
+        author: 'George Orwell',
         text: [" <p> 13Your bathroom serves a string of busy functions on a daily basis. See how you can make all of them work, and still have room for comfort and relaxation. </p>\n" +
         "                <h3>A cleaning hub with built-in ventilation</h3>\n" +
         "                <p>Use a rod and a shower curtain to create a complement to your cleaning cupboard. Unsightly equipment is stored out of sight yet accessibly close – while the air flow helps dry any dampness.</p>",
@@ -266,13 +266,13 @@ export const articles: IArticle[] = [
             "            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>\n" +
             "            "],
         images: [img7,img4,img3],
-        date: 'November, 19, 2023',
+        date: new Date('2023-01-01'),
         index: 12,
         featured: false
     },
     {
         title: "14How to make a busy bathroom a place to relax",
-        author: 'Henrik Annemark',
+        author: 'Stephen King',
         text: [" <p> 14Your bathroom serves a string of busy functions on a daily basis. See how you can make all of them work, and still have room for comfort and relaxation. </p>\n" +
         "                <h3>A cleaning hub with built-in ventilation</h3>\n" +
         "                <p>Use a rod and a shower curtain to create a complement to your cleaning cupboard. Unsightly equipment is stored out of sight yet accessibly close – while the air flow helps dry any dampness.</p>",
@@ -285,13 +285,13 @@ export const articles: IArticle[] = [
             "            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>\n" +
             "            "],
         images: [img3,img8,img9],
-        date: 'November, 19, 2023',
+        date: new Date('2023-04-01'),
         index: 13,
         featured: true
     },
     {
         title: "15How to make a busy bathroom a place to relax",
-        author: 'Henrik Annemark',
+        author: 'Christian Andersen',
         text: [" <p> 15Your bathroom serves a string of busy functions on a daily basis. See how you can make all of them work, and still have room for comfort and relaxation. </p>\n" +
         "                <h3>A cleaning hub with built-in ventilation</h3>\n" +
         "                <p>Use a rod and a shower curtain to create a complement to your cleaning cupboard. Unsightly equipment is stored out of sight yet accessibly close – while the air flow helps dry any dampness.</p>",
@@ -304,7 +304,7 @@ export const articles: IArticle[] = [
             "            <p>Having your cleaning tools organized makes them easier to both use and return to. When they’re not needed, close the curtain and feel the peace of mind it brings.</p>\n" +
             "            "],
         images: [img7,img8,img9],
-        date: 'November, 19, 2023',
+        date: new Date('2023-06-01'),
         index: 14,
         featured: false
     }
