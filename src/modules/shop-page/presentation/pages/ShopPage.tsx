@@ -137,7 +137,6 @@ const ShopPage = () => {
 
     }, [])
 
-    // @ts-ignore
     return (
         <div className={style.shopPage}>
             <section className={style.pageHeader}>
@@ -172,9 +171,11 @@ const ShopPage = () => {
                     sorting={requestObject.filtering.sorting}
                     openCloseMenuHandler={openCloseMenuHandler}/>
             </section>
+            {categories && categories.length !== 0 ?
             <div className={style.categoryName}>
-                <p>All rooms</p>
-            </div>
+                <p>{requestObject.filtering.category === null ? categories[0].title : categories?.find(obj => obj.id === requestObject.filtering.category)?.title}</p>
+            </div> :
+                <></>}
             <section className={columns.countDesktop === 3 ? style.display3filterTypes : ''}>
                 {columns.countDesktop === 3 &&
                     <FilterTypesDesktop category={requestObject.filtering.category}

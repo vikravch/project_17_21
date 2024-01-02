@@ -43,7 +43,7 @@ const Sorting = ({listenerObject, columns, sorting, openCloseMenuHandler}: Props
                 <div className={style.sortSelect}>
                     <input type={'hidden'} name={'sort'} value={sorting === null ? sort[0].id : sorting}/>
                     <div className={`${style.sortHead}
-                        ${columns.countDesktop === 3 && style.sortHeaDisplay3}`}
+                        ${columns.countDesktop === 3 && style.sortHeadDisplay3}`}
                          ref={(element) => element !== null ? listenerObject.current.listenerHead[2] = element : listenerObject.current.listenerHead[2] = null}
                          onClick={openCloseMenuHandler}>
                         {(sorting === null || sorting === 0) ? 'Sort by' : sort?.find(obj => obj.id === sorting)?.title}
