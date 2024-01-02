@@ -20,6 +20,8 @@ import {
 import arrow from '../../../../images/shop_page/breadCrumbs.svg';
 import {useAppSelector} from "../../../../general/redux/hooks";
 import useUpdateEffect from "../../../../general/utils/hooks/useUpdateEffect";
+import {Listener} from "../int";
+
 
 
 const ShopPage = () => {
@@ -31,7 +33,10 @@ const ShopPage = () => {
     const dispatch = useDispatch<AppDispatch>();
     const location = useLocation();
     const navigate = useNavigate();
-    const temp = useRef() as React.LegacyRef<HTMLDivElement>;
+    const listenerObject = useRef<Listener>({
+        listenerHead: [],
+        listener: []
+    });
     const [requestObject, setRequestObject] = useState<RequestProducts>({
         filtering: {
             category: null,
@@ -82,12 +87,9 @@ const ShopPage = () => {
 
     const closeClickFunction = (event: MouseEvent) => {
 
-        const listener = document.querySelectorAll('.listener');
-        const listenerHead = document.querySelectorAll('.listenerHead');
-
-        listener.forEach((item, index) => {
-            if (event.target !== item && event.target !== listenerHead[index]) {
-                item.classList.remove(constStyle.open);
+        listenerObject.current.listener.forEach((item, index) => {
+            if (item !== null && event.target !== item && event.target !== listenerObject.current.listenerHead[index]) {
+                item?.classList.remove(constStyle.open);
             }
         })
 
@@ -131,6 +133,11 @@ const ShopPage = () => {
         nextSibling.classList.toggle(constStyle.open);
     }
 
+    useEffect(() => {
+
+    }, [])
+
+    // @ts-ignore
     return (
         <div className={style.shopPage}>
             <section className={style.pageHeader}>
@@ -151,16 +158,19 @@ const ShopPage = () => {
                             <p>All rooms</p>
                         </div>}
                 </div>
-                <FilterTypes temp={temp}
+                <FilterTypes
+                    listenerObject={listenerObject}
                     columns={columns}
-                             category={requestObject.filtering.category}
-                             price={requestObject.filtering.price}
-                             setCategoryParams={setCategoryParams}
-                             setPriceParams={setPriceParams}
-                             openCloseMenuHandler={openCloseMenuHandler}/>
-                <Sorting columns={columns}
-                         sorting={requestObject.filtering.sorting}
-                         openCloseMenuHandler={openCloseMenuHandler}/>
+                    category={requestObject.filtering.category}
+                    price={requestObject.filtering.price}
+                    setCategoryParams={setCategoryParams}
+                    setPriceParams={setPriceParams}
+                    openCloseMenuHandler={openCloseMenuHandler}/>
+                <Sorting
+                    listenerObject={listenerObject}
+                    columns={columns}
+                    sorting={requestObject.filtering.sorting}
+                    openCloseMenuHandler={openCloseMenuHandler}/>
             </section>
             <div className={style.categoryName}>
                 <p>All rooms</p>
