@@ -13,7 +13,6 @@ interface Props {
 }
 
 const ShopProductCard = ({columns, product}: Props) => {
-
     const dispatch = useAppDispatch();
     let ratingIcons: string[] = [];
     for (let i = 0; i < product.rating; i++) {

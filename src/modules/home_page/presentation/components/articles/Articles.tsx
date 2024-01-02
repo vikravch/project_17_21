@@ -1,16 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "./Articles.css"
-import image1 from "../../page/images/article1.png";
-import image2 from "../../page/images/article2.png";
-import image3 from "../../page/images/article3.png";
-
 import ArticleCard from "./ArticleCard";
 import ShopNowArrow from "../../icons/ShopNowArrow";
 import { Link } from 'react-router-dom';
-import {getLatestArticles} from "../../../domain/repository/articleRepository";
+import {Article, getLatestArticles} from "../../../domain/repository/ArticleRepository";
 
 const Articles = () => {
-    const latestArticles = getLatestArticles();
+    const [latestArticles, setLatestArticles] = useState<Article[]>([]);
+
+
+    useEffect(() => {
+        const fetchLatestArticles = async () => {
+            try {
+                const articles = await getLatestArticles();
+                setLatestArticles(articles);
+            } catch (error) {
+                console.error("Error fetching latest articles:", error);
+            }
+        };
+
+        fetchLatestArticles();
+    }, []);
     const handleReadMoreClick = (text: string) => {
         console.log(`Clicked on "Read more" for article: ${text}`);
         // Логика при нажатии на "Read more"

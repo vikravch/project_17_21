@@ -18,7 +18,6 @@ for (let i = 0; i < 4; i++) {
 
 export default class SliderImagesFakeRepository implements SliderImagesRepository{
     async getAllSliderImages(): Promise<SliderImages[]>{
-        console.log(testSliderImages)
         return await Promise.resolve(testSliderImages);
     }
 

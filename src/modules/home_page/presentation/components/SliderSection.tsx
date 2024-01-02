@@ -19,7 +19,7 @@ const SliderSection = () => {
     const dispatch = useAppDispatch();
     const pictureIndex = useAppSelector(state => state.changePicture.pictureIndex);
     const pictures = useAppSelector(state => state.sliderImagesGallery.sliderImages);
-    console.log(pictures);
+
 
 
     useEffect(()=>{
@@ -40,7 +40,7 @@ const SliderSection = () => {
                     </button>
                     <div className={'navigation_dots'}>
                         {sliderImgTestArr.map((item, index) =>
-                            index !== pictureIndex? <div key={index} className={'dot'}></div>:<div  key={index} className={'current_dot'}></div>
+                            index !== pictureIndex? <div key={index} className={'dot'} onClick={()=>dispatch(changePicture(index))}></div>:<div  key={index} className={'current_dot'}></div>
                         )}
                     </div>
                 </div>
