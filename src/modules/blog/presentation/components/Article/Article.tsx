@@ -16,54 +16,66 @@ const Article = () => {
     const allBlogArticles = useSelector((state: RootState) => state.getAllBlogArticles.blogArticles);
     const dispatch = useDispatch<AppDispatch>();
     const test: Articles[] = [...allBlogArticles];
-    const { artId } = useParams()||'0';
-    let flag: boolean = false;
+    const {artId} = useParams() || '0';
+    const [flag, setFlag] = useState<boolean>(false)
     const [art, setArt] = useState<Articles>({
-        title: '',
-        author: '',
-        text: [],
-        images: [],
+        title: 'title',
+        author: 'author',
+        text: ['','',''],
+        images: ['','',''],
         date: new Date(),
-        index: +(artId||allBlogArticles[0].index),
+        index: 0,
         featured: false
     });
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
+    function allActions()
+    {
         dispatch(getAllArticlesBlogAsync());
 
-        let check: Articles = test.find(el => el.index === +(artId||0))!;
-        setArt(check)
-flag = true;
+        let check: Articles = test.find(el => el.index === +(artId || 0))!;
+        if(check !== undefined)
+        {
+            setArt(check)
+        }
+        setFlag(true)
+    }
+    useEffect(() => {
+        window.scrollTo(0, 0);
+allActions();
     },);
 
+    function before() {
+        return <div>Loading...</div>
+    }
 
-    return (
-        <div className={articleStyle.articleMain}>
-            <div className={articleStyle.articleWrapper}>
-                <div className={articleStyle.articleHead}>
-                    <h2 className={articleStyle.h2}>{art.title}</h2>
-                    <div className={articleStyle.authorArt}>
+    function after() {
+        return (
+            <div className={articleStyle.articleMain}>
+                <div className={articleStyle.articleWrapper}>
+                    <div className={articleStyle.articleHead}>
+                        <h2 className={articleStyle.h2}>{art.title}</h2>
+                        <div className={articleStyle.authorArt}>
                         <span className={articleStyle.authorName}><div
                             className={articleStyle.userIco}><UserIcon/></div>
                             {art.author}</span>
-                        <span className={articleStyle.authorName}><div
-                            className={articleStyle.userIco}><CalendarIco/></div>
-                            {art.date.toLocaleDateString("en-US", {year: 'numeric', month: 'long', day: 'numeric'})}</span>
+                            <span className={articleStyle.authorName}><div
+                                className={articleStyle.userIco}><CalendarIco/></div>
+                                {art.date.toLocaleDateString("en-US", {year: 'numeric', month: 'long', day: 'numeric'})}</span>
+                        </div>
                     </div>
+
+                    <img className={articleStyle.images} alt={'img'} src={art.images[0]}></img>
+                    <div dangerouslySetInnerHTML={{__html: art.text[0]}}></div>
+                    <img className={articleStyle.images} alt={'img'} src={art.images[1]}></img>
+                    <div dangerouslySetInnerHTML={{__html: art.text[1]}}></div>
+                    <img className={articleStyle.images} alt={'img'} src={art.images[2]}></img>
+                    <div dangerouslySetInnerHTML={{__html: art.text[2]}}></div>
+                    <BlogAlso/>
                 </div>
+            </div>)
+    }
 
-                <img className={articleStyle.images} alt={'img'} src={art.images[0]}></img>
-                <div dangerouslySetInnerHTML={{__html: art.text[0]}}></div>
-                <img className={articleStyle.images} alt={'img'} src={art.images[1]}></img>
-                <div dangerouslySetInnerHTML={{__html: art.text[1]}}></div>
-                <img className={articleStyle.images} alt={'img'} src={art.images[2]}></img>
-                <div dangerouslySetInnerHTML={{__html: art.text[2]}}></div>
-                <BlogAlso/>
-            </div>
-        </div>
-
-    );
+    return flag ? after() : before();
 };
 
 export default Article;

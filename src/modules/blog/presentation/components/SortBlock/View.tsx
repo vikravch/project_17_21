@@ -41,14 +41,14 @@ const View = () => {
 
     })
     return (
-        <div>
+        <div className={blogStyle.blocSelectorMain}>
             <div className={blogStyle.filterBlog}>
                 <select defaultValue={'all'} onChange={(event)=> event.target.value === 'all'?dispatch(selectFilter("all")): dispatch(selectFilter("featured"))}>
                     <option value={'all'}>All blog</option>
                     <option value={'featured'}>Featured</option>
                 </select>
             </div>
-            <div className={blogStyle.blogSelector}><div className={blogStyle.blocSelector}><p onClick={() => dispatch(selectFilter("all"))} className={filter === "all"? blogStyle.activeBlock:''}>All blog</p><p className={filter === "featured"? blogStyle.activeBlock:''} onClick={() => dispatch(selectFilter("featured"))}>Featured</p></div>
+            <div className={blogStyle.blocSelectorMainSort}><div className={blogStyle.blocSelector}><p onClick={() => dispatch(selectFilter("all"))} className={filter === "all"? blogStyle.activeBlock:''}>All blog</p><p className={filter === "featured"? blogStyle.activeBlock:''} onClick={() => dispatch(selectFilter("featured"))}>Featured</p></div>
                 <div className={blogStyle.blocSelector}><Sort/><div className={blogStyle.viewStyle}><ViewSelector/></div></div></div>
         </div>
     );
