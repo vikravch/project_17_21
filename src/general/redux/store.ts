@@ -9,7 +9,6 @@ import getAllSliderPicturesReducer from '../../modules/home_page/presentation/re
 import getAllBannerGridPicturesReducer from '../../modules/home_page/presentation/redux/getBannerGridImagesSlice';
 import cartSlice from "../../modules/cart/presentation/redux/cartSlice";
 import galleriesFilterStyleSlice from "../../modules/blog/presentation/redux/galleriesFilterStyleSlice";
-import articlesIndexSlice from "../../modules/blog/presentation/redux/articlesIndexSlice";
 import articleSlace from "../../modules/home_page/presentation/redux/latestArticlesSlace";
 import getAllBlogArticlesSlice from "../../modules/blog/presentation/redux/getAllBlogArticlesSlice";
 import articleSortSlice from "../../modules/blog/presentation/redux/articleSortSlice";
@@ -26,7 +25,6 @@ export const store = configureStore(
             bannerGridImagesGallery: getAllBannerGridPicturesReducer,
             cart: cartSlice,
             blogFilter: galleriesFilterStyleSlice,
-            blogArticleId: articlesIndexSlice,
             articles: articleSlace,
             getAllBlogArticles: getAllBlogArticlesSlice,
             articleSort: articleSortSlice

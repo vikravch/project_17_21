@@ -7,22 +7,24 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../../../../general/redux/store";
 import {getAllArticlesBlogAsync} from "../../redux/asyncBlogActions";
 import Articles from "../../domain/model/articles";
+import {useParams} from "react-router";
 
 
 const Article = () => {
 
 
-    const articleId = +useSelector((state: RootState) => state.blogArticleId.articleIndex);
     const allBlogArticles = useSelector((state: RootState) => state.getAllBlogArticles.blogArticles);
     const dispatch = useDispatch<AppDispatch>();
     const test: Articles[] = [...allBlogArticles];
+    const { artId } = useParams()||'0';
+    let flag: boolean = false;
     const [art, setArt] = useState<Articles>({
         title: '',
         author: '',
         text: [],
         images: [],
         date: new Date(),
-        index: articleId,
+        index: +(artId||allBlogArticles[0].index),
         featured: false
     });
 
@@ -30,8 +32,9 @@ const Article = () => {
         window.scrollTo(0, 0);
         dispatch(getAllArticlesBlogAsync());
 
-        let check: Articles = test.find(el => el.index === articleId)!;
+        let check: Articles = test.find(el => el.index === +(artId||0))!;
         setArt(check)
+flag = true;
     },);
 
 

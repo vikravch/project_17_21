@@ -6,7 +6,6 @@ import {Link} from "react-router-dom";
 import HeaderBlog from "../presentation/components/HeaderBlog/HeaderBlog";
 import View from "../presentation/components/SortBlock/View";
 import {useDispatch, useSelector} from "react-redux";
-import {getIndex} from "../presentation/redux/articlesIndexSlice";
 import {AppDispatch, RootState} from "../../../general/redux/store";
 import {getAllArticlesBlogAsync} from "../presentation/redux/asyncBlogActions";
 
@@ -50,8 +49,8 @@ const Blog = () => {
         <View/>
         <div className={blogStyle.blogWrapper}>
             {temp.map((item, index) => <Link id={`${item.index}`}
-                                             onClick={(event) => dispatch(getIndex(event.currentTarget.id))} key={index}
-                                             className={blogStyle.wrapper} to={"/blog/article"}><BlogCard key={index}
+                                              key={index}
+                                             className={blogStyle.wrapper} to={`/blog/article/${item.index}`}><BlogCard key={index}
                                                                                                           imgArt={item.images[0]}
                                                                                                           title={item.title}
                                                                                                           date={item.date.toLocaleDateString("en-US", {
