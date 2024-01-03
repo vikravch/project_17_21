@@ -3,7 +3,6 @@ import blogStyle from "../../../page/Blog.module.css";
 import {selectFilter} from "../../redux/galleriesFilterStyleSlice";
 import ViewSelector from "../../../../shop-page/presentation/components/view-selector/ViewSelector";
 import {useDispatch, useSelector} from "react-redux";
-import cardStyle from "../BlogCard/BlogCard.module.css";
 import {AppStore} from "../../../../../general/redux/types";
 import {Columns} from "../../../../shop-page/presentation/redux/types";
 import Sort from "./Sort";
@@ -12,7 +11,6 @@ const View = () => {
 
     const dispatch = useDispatch();
     let allCard = document.getElementsByClassName(blogStyle.wrapper);
-    let cards = document.getElementsByClassName(cardStyle.wrapper);
 
     const filter = useSelector((store: any) => store.blogFilter.ourStyle);
     const columns = useSelector<AppStore, Columns>(
@@ -25,17 +23,17 @@ const View = () => {
             if (columns.countDesktop===2)
             {
                 allCard[i].setAttribute('style', 'width: 500px');
-                cards[i].setAttribute('style', 'width: 450px')
+
             }
             else if(columns.countDesktop===3)
             {
                 allCard[i].setAttribute('style', 'width: 357px')
-                cards[i].setAttribute('style', 'width: 327px')
+
             }
             else if(columns.countDesktop===4)
             {
-                allCard[i].setAttribute('style', 'width: 250px')
-                cards[i].setAttribute('style', 'width: 250px')
+                allCard[i].setAttribute('style', 'width: 300px')
+
             }
         }
 

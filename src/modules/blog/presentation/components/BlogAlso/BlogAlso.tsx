@@ -1,7 +1,6 @@
 import React from 'react';
 import alsoStyle from './BlogAlso.module.css';
 import {IArticle} from "../../utils/data/data";
-import blogStyle from "../../../page/Blog.module.css";
 import {Link} from "react-router-dom";
 import BlogCard from "../BlogCard/BlogCard";
 import ArrowArt from "../../utils/icons/ArrowArt";
@@ -27,8 +26,8 @@ const BlogAlso = () => {
                 </Link>
             </div>
             <div className={alsoStyle.cardsAlso}>
-                {tempMore.map((item, index) => <div key={index} className={blogStyle.wrapper}><Link
-                    className={blogStyle.wrapper} id={`${item.index}`} key={index}
+                {tempMore.map((item, index) =><Link
+                    className={alsoStyle.wrapperCard} id={`${item.index}`} key={index}
                     to={`/blog/article/${item.index}`}><BlogCard key={index}
                                                                  imgArt={item.images[0]}
                                                                  title={item.title}
@@ -37,7 +36,7 @@ const BlogAlso = () => {
                                                                      month: 'long',
                                                                      day: 'numeric'
                                                                  })}></BlogCard></Link>
-                </div>)}
+                )}
             </div>
         </div>
     );

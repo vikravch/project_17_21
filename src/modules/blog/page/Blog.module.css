@@ -13,7 +13,7 @@
     width: 327px;
     height: 433px;
     cursor: pointer;
-    padding: 5px;
+    padding: 20px;
 }
 
 .wrapperBtn
@@ -106,16 +106,29 @@ font-weight: bold;
     border-bottom: 1px solid #121212;
     color: black;
 }
-@media (max-width: 769px)
+@media (max-width: 1000px)
 {
+    .viewStyle
+    {
+        display: none;
+    }
+}
+
+@media (max-width: 767px)
+{
+    .blocSelectorMain
+    {
+        justify-content: center;
+    }
     .wrapper {
-        width: 357px;
+        width: 100%;
+        padding: 0;
+
     }
     .blogWrapper {
-        width: 357px;
-        justify-content: start;
+        width: 100%;
         gap: 30px;
-        margin-left: 10px;
+
     }
     .blogSelector
     {
@@ -128,7 +141,7 @@ font-weight: bold;
     .filterBlog
     {
         display: flex;
-        width: 357px;
+        width: 100%;
         padding: 30px 15px;
         flex-direction: column;
         align-items: flex-start;
@@ -139,7 +152,7 @@ font-weight: bold;
         display: flex;
         width: 100%;
         padding: 8px 8px 8px 16px;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         border-radius: 8px;
         border: 2px solid #6C7275;
