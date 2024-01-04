@@ -46,6 +46,7 @@
 
 .icon_and_input {
     display: flex;
+    justify-content: space-between;
 }
 
 .newsletter_email_input {
@@ -53,6 +54,9 @@
     background: var(--primary-light-theme-secondary);
     color: var(--regular-grey);
     cursor: pointer;
+    margin-right: 120px;
+    height: 50%;
+
 }
 
 .newsletter_signup_btn {

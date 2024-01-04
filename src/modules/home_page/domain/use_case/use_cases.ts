@@ -1,5 +1,5 @@
 import SliderImages from "../model/sliderImages";
-import BannerGridImages from "../model/BannerGridImages";
+import BannerGridImages from "../model/bannerGridImages";
 
 
 export type SliderImagesUseCases = {
