@@ -1,4 +1,4 @@
-import BannerGridImages from "../model/BannerGridImages";
+import BannerGridImages from "../model/bannerGridImages";
 
 
 export default interface BannerGridImagesRepository {

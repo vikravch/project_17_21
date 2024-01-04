@@ -45,7 +45,6 @@ const getBannerGridImagesSlice = createSlice<BannerGridImagesState, SliceCaseRed
             )
             .addCase((getAllBannerGridImagesAsyncAction.fulfilled),
                 (state, action) => {
-                    console.log(action.payload)
                     state.bannerGridImages = action.payload;
                     state.error = 'No error';
                 }
