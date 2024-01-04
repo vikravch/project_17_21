@@ -1,0 +1,59 @@
+.info
+{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+}
+.rating
+{
+    width: 40px;
+    clear: both;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+}
+
+.rating_group
+{
+    margin-right: 10px;
+}
+
+h1
+{
+    font-size: 40px;
+    width: 40px;
+}
+
+.price
+{
+    clear: both;
+    display: flex;
+    flex-direction: row;
+    row-gap: 12px;
+
+
+}
+
+.price1
+{
+    margin-right: 12px;
+    font-size: 28px;
+    color: #121212;
+
+}
+
+.price2
+{
+    font-size: 20px;
+    color: #6C7275;
+    text-decoration: line-through;
+}
+
+.short_info
+{
+    color: #6C7275;
+    float: left;
+    text-align: left;
+}
+

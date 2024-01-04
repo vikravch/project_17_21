@@ -9,7 +9,11 @@ import ProductsFakeRepository from "../../modules/shop-page/data/repository/prod
 import {ProductsUseCases} from "../../modules/shop-page/domain/use_case/use_cases";
 import GetAllProducts from "../../modules/shop-page/domain/use_case/getAllProducts";
 import GetAllSliderImages from "../../modules/home_page/domain/use_case/getAllSliderImages";
-import {BannerGridImagesUseCases, SliderImagesUseCases} from "../../modules/home_page/domain/use_case/use_cases";
+import {
+  ArticleUseCases,
+  BannerGridImagesUseCases,
+  SliderImagesUseCases
+} from "../../modules/home_page/domain/use_case/use_cases";
 import SliderImagesFakeRepository from "../../modules/home_page/data/repository/sliderImagesFakeRepository";
 import GetProducts from "../../modules/shop-page/domain/use_case/getProducts";
 import BannerGridFakeRepository from "../../modules/home_page/data/repository/bannerGridFakeRepository";
@@ -19,6 +23,9 @@ import {FilteringUseCases} from '../../modules/shop-page/domain/use_case/use_cas
 import GetAllCategories from "../../modules/shop-page/domain/use_case/getAllCategories";
 import GetAllPrices from "../../modules/shop-page/domain/use_case/getAllPrices";
 import GetAllSorting from "../../modules/shop-page/domain/use_case/getAllSorting";
+import GetLatestArticles from "../../modules/home_page/domain/use_case/getLatestArticles";
+import ArticlesFakeRepository from "../../modules/home_page/data/repository/articlesFakeRepository";
+
 
 // Dependency injection - Service locator
 type LocatorRepository = {
@@ -28,9 +35,11 @@ type LocatorRepository = {
   sliderImagesFakeRepository: SliderImagesFakeRepository
   filteringFakeRepository: FilteringFakeRepository
   bannerGridImagesFakeRepository: BannerGridFakeRepository
+  articlesFakeRepository: ArticlesFakeRepository
 }
 
-type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases & BannerGridImagesUseCases & FilteringUseCases
+type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases
+    & BannerGridImagesUseCases & FilteringUseCases & ArticleUseCases
 
 
 let locatorRepository: LocatorRepository
@@ -42,7 +51,8 @@ export const initLocatorRepository = () => {
     productsFakeRepository: new ProductsFakeRepository(),
     sliderImagesFakeRepository: new SliderImagesFakeRepository(),
     bannerGridImagesFakeRepository: new BannerGridFakeRepository(),
-    filteringFakeRepository: new FilteringFakeRepository()
+    filteringFakeRepository: new FilteringFakeRepository(),
+    articlesFakeRepository: new ArticlesFakeRepository()
   }
 }
 
@@ -58,5 +68,7 @@ export function useUseCases():LocatorUseCases{
     getAllCategories: GetAllCategories(locatorRepository.filteringFakeRepository),
     getAllPrices: GetAllPrices(locatorRepository.filteringFakeRepository),
     getAllSorting: GetAllSorting(locatorRepository.filteringFakeRepository),
+    getLatestArticles: GetLatestArticles(locatorRepository.articlesFakeRepository)
+
   }
 }
