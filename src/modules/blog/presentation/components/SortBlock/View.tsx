@@ -1,43 +1,16 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import blogStyle from "../../../page/Blog.module.css";
 import {selectFilter} from "../../redux/galleriesFilterStyleSlice";
 import ViewSelector from "../../../../shop-page/presentation/components/view-selector/ViewSelector";
 import {useDispatch, useSelector} from "react-redux";
-import {AppStore} from "../../../../../general/redux/types";
-import {Columns} from "../../../../shop-page/presentation/redux/types";
 import Sort from "./Sort";
 
 const View = () => {
 
     const dispatch = useDispatch();
-    let allCard = document.getElementsByClassName(blogStyle.wrapper);
-
     const filter = useSelector((store: any) => store.blogFilter.ourStyle);
-    const columns = useSelector<AppStore, Columns>(
-        state => state.galleriesStyle
-    );
-    useEffect(()=>
-    {
-        for(let i=0;i<allCard.length;i++)
-        {
-            if (columns.countDesktop===2)
-            {
-                allCard[i].setAttribute('style', 'width: 500px');
 
-            }
-            else if(columns.countDesktop===3)
-            {
-                allCard[i].setAttribute('style', 'width: 357px')
 
-            }
-            else if(columns.countDesktop===4)
-            {
-                allCard[i].setAttribute('style', 'width: 300px')
-
-            }
-        }
-
-    })
     return (
         <div className={blogStyle.blocSelectorMain}>
             <div className={blogStyle.filterBlog}>

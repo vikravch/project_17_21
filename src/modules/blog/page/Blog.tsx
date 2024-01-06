@@ -8,6 +8,8 @@ import View from "../presentation/components/SortBlock/View";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../../general/redux/store";
 import {getAllArticlesBlogAsync} from "../presentation/redux/asyncBlogActions";
+import {AppStore} from "../../../general/redux/types";
+import {Columns} from "../../shop-page/presentation/redux/types";
 
 
 const Blog = () => {
@@ -16,7 +18,7 @@ const Blog = () => {
     const filter = useSelector((store: any) => store.blogFilter.ourStyle);
     const allBlogArticles = useSelector((state: RootState) => state.getAllBlogArticles.blogArticles);
     const sort = useSelector((state: RootState) => state.articleSort.sortType);
-
+    const columns = useSelector<AppStore, Columns>(state => state.galleriesStyle);
     const array: IArticle[] = [...allBlogArticles];
     let temp: IArticle[] = count < array.length ? array.slice(0, count) : array.slice(0, array.length);
     temp = filter === 'featured' ? temp.filter(el => el.featured) : temp;
@@ -40,6 +42,19 @@ const Blog = () => {
             temp = temp.sort((a, b) => a.date.getTime() - b.date.getTime());
             break;
     }
+
+    let styleB = '';
+    switch (columns.countDesktop) {
+        case 2:
+            styleB = blogStyle.col2;
+            break;
+        case 3:
+            styleB = blogStyle.col3;
+            break;
+        case 4:
+            styleB = blogStyle.col4;
+            break;
+    }
     useEffect(() => {
         dispatch(getAllArticlesBlogAsync());
     },);
@@ -48,16 +63,20 @@ const Blog = () => {
         <HeaderBlog/>
         <View/>
         <div className={blogStyle.blogWrapper}>
-            {temp.map((item, index) => <Link id={`${item.index}`}
-                                              key={index}
-                                             className={blogStyle.wrapper} to={`/blog/article/${item.index}`}><BlogCard key={index}
-                                                                                                          imgArt={item.images[0]}
-                                                                                                          title={item.title}
-                                                                                                          date={item.date.toLocaleDateString("en-US", {
-                                                                                                              year: 'numeric',
-                                                                                                              month: 'long',
-                                                                                                              day: 'numeric'
-                                                                                                          })}></BlogCard></Link>)}
+            {temp.map((item, index) =>
+                <div className={styleB} >
+                            <Link id={`${item.index}`}
+                                  key={index}
+                                  to={`/blog/article/${item.index}`}><BlogCard key={index}
+                                                                               imgArt={item.images[0]}
+                                                                               title={item.title}
+                                                                               date={item.date.toLocaleDateString("en-US", {
+                                                                                   year: 'numeric',
+                                                                                   month: 'long',
+                                                                                   day: 'numeric'
+                                                                               })}></BlogCard></Link>
+
+                </div>)}
         </div>
         <div className={blogStyle.wrapperBtn}>
             <button className={blogStyle.btnMore} onClick={() => setCount(count + 12)}>Show more</button>

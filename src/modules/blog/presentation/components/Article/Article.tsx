@@ -37,6 +37,7 @@ const Article = () => {
         {
             setArt(check)
         }
+        
         setFlag(true)
     }
     useEffect(() => {

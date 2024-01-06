@@ -5,13 +5,13 @@
 }
 
 .articleImg {
-    height: 325px;
+    height: 70%;
     margin-bottom: 15px;
     overflow: hidden;
 }
 
 .wrapper img {
-    height: 325px;
+  height: 150%;
     width: auto;
     margin-bottom: 15px;
 }

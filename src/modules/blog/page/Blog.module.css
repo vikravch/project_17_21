@@ -10,10 +10,29 @@
 
 .wrapper
 {
-    width: 327px;
-    height: 433px;
     cursor: pointer;
     padding: 20px;
+}
+.col2
+{
+    cursor: pointer;
+    padding: 20px;
+    width: calc((100%/2) - 50px);
+    height: 400px;
+}
+.col3
+{
+    cursor: pointer;
+    padding: 20px;
+    width: calc((100%/3) - 50px);
+    height: 400px;
+}
+.col4
+{
+    cursor: pointer;
+    padding: 20px;
+    width: calc((100%/4) - 50px);
+    height: 400px;
 }
 
 .wrapperBtn
@@ -106,16 +125,22 @@ font-weight: bold;
     border-bottom: 1px solid #121212;
     color: black;
 }
-@media (max-width: 1000px)
-{
-    .viewStyle
-    {
-        display: none;
-    }
-}
 
 @media (max-width: 767px)
 {
+    .col2
+    {
+        width: 100%;
+    }
+    .col3
+    {
+        width: 100%;
+    }
+    .col4
+    {
+        width: 100%;
+    }
+
     .blocSelectorMain
     {
         justify-content: center;
