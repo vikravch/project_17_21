@@ -12,6 +12,7 @@ import galleriesFilterStyleSlice from "../../modules/blog/presentation/redux/gal
 import articlesIndexSlice from "../../modules/blog/presentation/redux/articlesIndexSlice";
 import showSearchInputReducer from "./slices/showSearchInputSlice";
 import articleSlace from "../../modules/home_page/presentation/redux/latestArticlesSlace";
+import sendEmailReducer from "../components/newsletter_subscribe/presentation/redux/sendEmailSlice";
 
 export const store = configureStore(
     {
@@ -23,6 +24,7 @@ export const store = configureStore(
             changePicture: changePictureReducer,
             sliderImagesGallery: getAllSliderPicturesReducer,
             bannerGridImagesGallery: getAllBannerGridPicturesReducer,
+            sendEmail: sendEmailReducer,
             cart: cartSlice,
             blogFilter: galleriesFilterStyleSlice,
             blogArticleId: articlesIndexSlice,

@@ -76,7 +76,7 @@
 /*======= 769 - 1280 =======*/
 @media (min-width: 769px) {
     .newsletter_bar_wrapper {
-        background-image: url("images/Paste image.png");
+        background-image: url("../../images/Paste image.png");
         background-size: cover;
         background-position: center;
 

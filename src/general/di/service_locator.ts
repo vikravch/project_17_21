@@ -26,6 +26,8 @@ import GetAllSorting from "../../modules/shop-page/domain/use_case/getAllSorting
 import GetLatestArticles from "../../modules/home_page/domain/use_case/getLatestArticles";
 import ArticlesFakeRepository from "../../modules/home_page/data/repository/articlesFakeRepository";
 
+import {SendEmailUseCases} from "../components/newsletter_subscribe/domain/use_case/use_cases";
+import SendEmail from "../components/newsletter_subscribe/domain/use_case/sendEmail";
 
 // Dependency injection - Service locator
 type LocatorRepository = {
@@ -38,8 +40,8 @@ type LocatorRepository = {
   articlesFakeRepository: ArticlesFakeRepository
 }
 
-type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases
-    & BannerGridImagesUseCases & FilteringUseCases & ArticleUseCases
+type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases & BannerGridImagesUseCases & FilteringUseCases & ArticleUseCases & SendEmailUseCases
+
 
 
 let locatorRepository: LocatorRepository
@@ -63,6 +65,7 @@ export function useUseCases():LocatorUseCases{
     ),
     getAllProducts: GetAllProducts(locatorRepository.productsFakeRepository),
     getAllSliderImages: GetAllSliderImages(locatorRepository.sliderImagesFakeRepository),
+    sendEmail: SendEmail(locatorRepository.sliderImagesFakeRepository),
     getAllBannerGridImages: GetAllBannerGridImages(locatorRepository.bannerGridImagesFakeRepository),
     getProducts: GetProducts(locatorRepository.productsFakeRepository),
     getAllCategories: GetAllCategories(locatorRepository.filteringFakeRepository),

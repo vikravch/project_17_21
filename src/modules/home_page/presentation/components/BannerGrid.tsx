@@ -23,7 +23,7 @@ const BannerGrid = () => {
         <div className={'banner_grid_wrapper'}>
             <div className={'banner_grid_section'}>
                 <div className={'banner_grid_img_placeholder'}>
-                    <img src={ pictures !== undefined ? pictures[0].image:sliderBannerGrinImgPlaceholder} alt="Banner_Img_Placeholder"/>
+                    <img src={ pictures !== undefined ? pictures[0].image:sliderBannerGrinImgPlaceholder} alt={pictures !== undefined ? pictures[0].alt: "Initial state image"}/>
                     <div className={'banner_grid_texts'}>
                         <h6 className={'banner_grid_title'}>{pictures !== undefined ? pictures[0].name:"Living Room"}</h6>
                         <div className={'shop_now_link'}>
@@ -36,7 +36,7 @@ const BannerGrid = () => {
                 </div>
                 <div className={'banner_grid_cards'}>
                     <div className={'banner_grid_cards_card1'}>
-                        <img src={pictures !== undefined ? pictures[1].image:sliderBannerCardImgPlaceholder1} alt="Banner_card"/>
+                        <img src={pictures !== undefined ? pictures[1].image:sliderBannerCardImgPlaceholder1} alt={pictures !== undefined ? pictures[1].alt: "Initial state image"}/>
                         <div className={'banner_grid_texts_cards'}>
                             <h6 className={'banner_grid_title'}>{pictures !== undefined ? pictures[1].name:'Bedroom'}</h6>
                             <div className={'shop_now_link'}>
@@ -48,7 +48,7 @@ const BannerGrid = () => {
                         </div>
                     </div>
                     <div className={'banner_grid_cards_card2'}>
-                        <img src={pictures !== undefined ? pictures[2].image:sliderIBannerCardImgPlaceholder2} alt="Banner_card"/>
+                        <img src={pictures !== undefined ? pictures[2].image:sliderIBannerCardImgPlaceholder2} alt={pictures !== undefined ? pictures[2].alt: "Initial state image"}/>
                         <div className={'banner_grid_texts_cards'}>
                             <h6 className={'banner_grid_title'}>{pictures !== undefined ? pictures[2].name:'Kitchen'}</h6>
                             <div className={'shop_now_link'}>
