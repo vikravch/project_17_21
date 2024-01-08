@@ -12,7 +12,6 @@ import galleriesFilterStyleSlice from "../../modules/blog/presentation/redux/gal
 import articleSlace from "../../modules/home_page/presentation/redux/latestArticlesSlace";
 import getAllBlogArticlesSlice from "../../modules/blog/presentation/redux/getAllBlogArticlesSlice";
 import articleSortSlice from "../../modules/blog/presentation/redux/articleSortSlice";
-import articlesIndexSlice from "../../modules/blog/presentation/redux/articlesIndexSlice";
 import showSearchInputReducer from "./slices/showSearchInputSlice";
 
 export const store = configureStore(
@@ -29,7 +28,6 @@ export const store = configureStore(
             blogFilter: galleriesFilterStyleSlice,
             getAllBlogArticles: getAllBlogArticlesSlice,
             articleSort: articleSortSlice,
-            blogArticleId: articlesIndexSlice,
             showSearchInput: showSearchInputReducer,
             articles: articleSlace
         },
