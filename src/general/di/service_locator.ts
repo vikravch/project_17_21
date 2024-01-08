@@ -25,6 +25,10 @@ import GetAllPrices from "../../modules/shop-page/domain/use_case/getAllPrices";
 import GetAllSorting from "../../modules/shop-page/domain/use_case/getAllSorting";
 import GetLatestArticles from "../../modules/home_page/domain/use_case/getLatestArticles";
 import ArticlesFakeRepository from "../../modules/home_page/data/repository/articlesFakeRepository";
+import ArticlesBlogRepository from "../../modules/blog/presentation/domain/repository/articlesBlogRepository";
+import ArticlesBlogFakeRepository from "../../modules/blog/presentation/utils/data/articlesBlogFakeRepository";
+import GetAllBlogArticles from "../../modules/blog/presentation/domain/use_case/getAllArticles";
+import {ArticleBlogUseCases} from "../../modules/blog/presentation/domain/use_case/use_cases";
 
 
 // Dependency injection - Service locator
@@ -36,10 +40,11 @@ type LocatorRepository = {
   filteringFakeRepository: FilteringFakeRepository
   bannerGridImagesFakeRepository: BannerGridFakeRepository
   articlesFakeRepository: ArticlesFakeRepository
+  articleBlogFakeRepository: ArticlesBlogRepository
 }
 
 type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases
-    & BannerGridImagesUseCases & FilteringUseCases & ArticleUseCases
+    & BannerGridImagesUseCases & FilteringUseCases & ArticleUseCases & ArticleBlogUseCases
 
 
 let locatorRepository: LocatorRepository
@@ -52,7 +57,8 @@ export const initLocatorRepository = () => {
     sliderImagesFakeRepository: new SliderImagesFakeRepository(),
     bannerGridImagesFakeRepository: new BannerGridFakeRepository(),
     filteringFakeRepository: new FilteringFakeRepository(),
-    articlesFakeRepository: new ArticlesFakeRepository()
+    articlesFakeRepository: new ArticlesFakeRepository(),
+    articleBlogFakeRepository: new ArticlesBlogFakeRepository()
   }
 }
 
@@ -68,7 +74,9 @@ export function useUseCases():LocatorUseCases{
     getAllCategories: GetAllCategories(locatorRepository.filteringFakeRepository),
     getAllPrices: GetAllPrices(locatorRepository.filteringFakeRepository),
     getAllSorting: GetAllSorting(locatorRepository.filteringFakeRepository),
-    getLatestArticles: GetLatestArticles(locatorRepository.articlesFakeRepository)
+    getLatestArticles: GetLatestArticles(locatorRepository.articlesFakeRepository),
+    getAllBlogArticles: GetAllBlogArticles(locatorRepository.articleBlogFakeRepository)
+
 
   }
 }
