@@ -1,4 +1,4 @@
-import BannerGridImages from "../../domain/model/BannerGridImages";
+import BannerGridImages from "../../domain/model/bannerGridImages";
 import BannerGridImagesRepository from "../../domain/repository/BannerGridImagesRepository";
 import {bannerGridImgTestArr} from "../../../../general/utils/Constants";
 

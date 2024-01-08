@@ -95,9 +95,7 @@
     color: var(--regular-grey);
 }
 
-.navigation_search_bar_desktop{
-    display: none;
-}
+
 .navigation_icons_section{
     display: flex;
     justify-content: end;

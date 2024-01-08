@@ -7,17 +7,16 @@ import '../../../modules/home_page/presentation/components/FlyMobile.css'
 
 
 
-
 interface Props {
     item: Item
     fly: boolean
 }
 
+
 const NavItem = ({item, fly}: Props) => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const categories = useAppSelector(state => state.shopPage.categories);
-
 
 
 
