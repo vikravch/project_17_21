@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import './App.css';
 import {Route, Routes, useLocation} from "react-router";
 import NavigationRow from "./general/components/navigation/NavigationRow";
-import NewsletterSubscribe from "./general/components/newsletter_subscribe/NewsletterSubscribe";
+import NewsletterSubscribe from "./general/components/newsletter_subscribe/presentation/components/NewsletterSubscribe";
 import Footer from "./general/components/footer/Footer";
 import ShopPage from "./modules/shop-page/presentation/pages/ShopPage";
 import Blog from "./modules/blog/page/Blog";

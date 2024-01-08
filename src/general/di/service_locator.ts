@@ -30,6 +30,8 @@ import ArticlesBlogFakeRepository from "../../modules/blog/presentation/utils/da
 import GetAllBlogArticles from "../../modules/blog/presentation/domain/use_case/getAllArticles";
 import {ArticleBlogUseCases} from "../../modules/blog/presentation/domain/use_case/use_cases";
 
+import {SendEmailUseCases} from "../components/newsletter_subscribe/domain/use_case/use_cases";
+import SendEmail from "../components/newsletter_subscribe/domain/use_case/sendEmail";
 
 // Dependency injection - Service locator
 type LocatorRepository = {
@@ -43,9 +45,7 @@ type LocatorRepository = {
   articleBlogFakeRepository: ArticlesBlogRepository
 }
 
-type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases
-    & BannerGridImagesUseCases & FilteringUseCases & ArticleUseCases & ArticleBlogUseCases
-
+type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases & BannerGridImagesUseCases & FilteringUseCases & ArticleUseCases & ArticleBlogUseCases & SendEmailUseCases
 
 let locatorRepository: LocatorRepository
 
@@ -69,6 +69,7 @@ export function useUseCases():LocatorUseCases{
     ),
     getAllProducts: GetAllProducts(locatorRepository.productsFakeRepository),
     getAllSliderImages: GetAllSliderImages(locatorRepository.sliderImagesFakeRepository),
+    sendEmail: SendEmail(locatorRepository.sliderImagesFakeRepository),
     getAllBannerGridImages: GetAllBannerGridImages(locatorRepository.bannerGridImagesFakeRepository),
     getProducts: GetProducts(locatorRepository.productsFakeRepository),
     getAllCategories: GetAllCategories(locatorRepository.filteringFakeRepository),

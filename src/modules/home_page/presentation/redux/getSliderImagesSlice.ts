@@ -12,7 +12,8 @@ const getSliderImagesSlice = createSlice<SliderImagesState, SliceCaseReducers<Sl
             {
                 name: `TestImage1`,
                 image: sliderImgTestArr[1],
-                alt: 'Commercial image'}
+                alt: 'Commercial image'
+            }
         ],
         error: "Any error"
     },
