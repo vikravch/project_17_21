@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "../address/address.module.css";
+import styles from "./adress.module.css";
 import edit from "../../../../account/images/edit.webp";
 
 
@@ -9,7 +9,7 @@ const Address = () => {
             <h2 className={styles.addressTitle}>Address</h2>
             <div className={styles.boxAddress}>
                 <div className={styles.contentBox}>
-                    <header className={styles.content}>
+                    <header className={styles.headerContent}>
                         <h3 className={styles.cardTitle}>Billing Address</h3>
                         <button><img src={edit} alt="icon-edit"/>Edit</button>
                     </header>
@@ -20,7 +20,7 @@ const Address = () => {
                     </address>
                 </div>
                 <div className={styles.contentBox}>
-                    <header className={styles.content}>
+                    <header className={styles.headerContent}>
                         <h3 className={styles.cardTitle}>Shipping Address</h3>
                         <button><img src={edit} alt="icon-edit"/>Edit</button>
                     </header>

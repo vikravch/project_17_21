@@ -6,14 +6,14 @@ import NewsletterSubscribe from "./general/components/newsletter_subscribe/Newsl
 import Footer from "./general/components/footer/Footer";
 import ShopPage from "./modules/shop-page/presentation/pages/ShopPage";
 import Blog from "./modules/blog/page/Blog";
-import { AuthPage } from './modules/sign-in/auth-page';
+import {AuthPage} from './modules/sign-in/auth-page';
 import CartPage from "./modules/cart/presentation/pages/cart-page";
 import CheckoutPage from "./modules/cart/presentation/pages/checkout-page";
 import CompletePage from "./modules/cart/presentation/pages/complete-page";
-
+import Account from "./modules/account/pages/Account";
 import HomePage from './modules/home_page/presentation/page/HomePage';
 import Article from "./modules/blog/presentation/components/Article/Article";
-import Account from "./modules/account/pages/Account";
+
 
 function App() {
     const {pathname} = useLocation();
@@ -49,7 +49,7 @@ function App() {
 
     return (
         <div className={"wrapper"}>
-            {(isAuthModule(pathname))?AuthLayout:AppLayout}
+            {(isAuthModule(pathname)) ? AuthLayout : AppLayout}
         </div>
     );
 }
