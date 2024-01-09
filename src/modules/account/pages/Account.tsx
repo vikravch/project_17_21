@@ -8,7 +8,7 @@ import WishList from "../presentation/components/wishList/WishList";
 import LogOut from "../presentation/components/logOut/LogOut";
 import AccountDetailsForm from "../presentation/components/accountDetailsForm/AccountDetailsForm";
 import {Route, Routes} from "react-router";
-import React, {useState} from "react";
+
 
 const Account = () => {
     return (
