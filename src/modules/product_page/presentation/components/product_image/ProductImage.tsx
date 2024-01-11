@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './ProductImage.module.css'
 import {Img, slideElements} from "../temp/constants";
+import {ProductProps} from "../Product";
 
 
-const ProductImage = () => {
+const ProductImage = (props : ProductProps) => {
     return (
         <div className={styles.slide_elements}>
             <div className={styles.top_elemen}>

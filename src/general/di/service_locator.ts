@@ -19,6 +19,9 @@ import {FilteringUseCases} from '../../modules/shop-page/domain/use_case/use_cas
 import GetAllCategories from "../../modules/shop-page/domain/use_case/getAllCategories";
 import GetAllPrices from "../../modules/shop-page/domain/use_case/getAllPrices";
 import GetAllSorting from "../../modules/shop-page/domain/use_case/getAllSorting";
+import Product_infoFakeRepository from "../../modules/product_page/data/repository/product_infoFakeRepository";
+import GetProduct from "../../modules/product_page/domain/use_case/getProduct";
+import {ProductUseCases} from "../../modules/product_page/domain/use_case/use_cases";
 
 // Dependency injection - Service locator
 type LocatorRepository = {
@@ -28,9 +31,13 @@ type LocatorRepository = {
   sliderImagesFakeRepository: SliderImagesFakeRepository
   filteringFakeRepository: FilteringFakeRepository
   bannerGridImagesFakeRepository: BannerGridFakeRepository
+
+  productInfoFakeRepository: Product_infoFakeRepository
+
+
 }
 
-type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases & BannerGridImagesUseCases & FilteringUseCases
+type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases & BannerGridImagesUseCases & FilteringUseCases & ProductUseCases
 
 
 let locatorRepository: LocatorRepository
@@ -42,7 +49,8 @@ export const initLocatorRepository = () => {
     productsFakeRepository: new ProductsFakeRepository(),
     sliderImagesFakeRepository: new SliderImagesFakeRepository(),
     bannerGridImagesFakeRepository: new BannerGridFakeRepository(),
-    filteringFakeRepository: new FilteringFakeRepository()
+    filteringFakeRepository: new FilteringFakeRepository(),
+    productInfoFakeRepository: new Product_infoFakeRepository()
   }
 }
 
@@ -58,5 +66,6 @@ export function useUseCases():LocatorUseCases{
     getAllCategories: GetAllCategories(locatorRepository.filteringFakeRepository),
     getAllPrices: GetAllPrices(locatorRepository.filteringFakeRepository),
     getAllSorting: GetAllSorting(locatorRepository.filteringFakeRepository),
+    getProduct: GetProduct(locatorRepository.productInfoFakeRepository),
   }
 }

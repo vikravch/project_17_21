@@ -41,6 +41,17 @@
     display: inline-flex;
 }
 
+.final_cart:hover
+{
+    transform: scale(1.1);
+    background-color: #222334;
+}
+
+.final_cart:active
+{
+    transform: scale(0.98);
+}
+
 .count
 {
     color: #121212;

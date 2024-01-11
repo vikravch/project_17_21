@@ -10,6 +10,7 @@ import getAllBannerGridPicturesReducer from '../../modules/home_page/presentatio
 import cartSlice from "../../modules/cart/presentation/redux/cartSlice";
 import galleriesFilterStyleSlice from "../../modules/blog/presentation/redux/galleriesFilterStyleSlice";
 import articlesIndexSlice from "../../modules/blog/presentation/redux/articlesIndexSlice";
+import productSlice from "../../modules/product_page/presentation/redux/productSlice";
 
 export const store = configureStore(
     {
@@ -23,7 +24,8 @@ export const store = configureStore(
             bannerGridImagesGallery: getAllBannerGridPicturesReducer,
             cart: cartSlice,
             blogFilter: galleriesFilterStyleSlice,
-            blogArticleId: articlesIndexSlice
+            blogArticleId: articlesIndexSlice,
+            productPage: productSlice
         },
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
         devTools: process.env.NODE_ENV !== 'production',
