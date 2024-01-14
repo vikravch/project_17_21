@@ -1,21 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import alsoStyle from './BlogAlso.module.css';
 import {IArticle} from "../../utils/data/data";
 import {Link} from "react-router-dom";
 import BlogCard from "../BlogCard/BlogCard";
 import ArrowArt from "../../utils/icons/ArrowArt";
-import {useSelector} from "react-redux";
-import {RootState} from "../../../../../general/redux/store";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "../../../../../general/redux/store";
+import {getAllArticlesBlogAsync} from "../../redux/asyncBlogActions";
 
 const BlogAlso = () => {
 
 
 
     const allBlogArticles = useSelector((state: RootState) => state.getAllBlogArticles.blogArticles);
-
+    const dispatch = useDispatch<AppDispatch>();
     const arrayMore: IArticle[] = [...allBlogArticles];
-    arrayMore.sort(() => Math.random() - 0.5);
+    arrayMore.sort((a, b) => b.date.getTime() - a.date.getTime());
     let tempMore: IArticle[] = arrayMore.slice(0, 3);
+
+    useEffect(() => {
+        dispatch(getAllArticlesBlogAsync());
+    },);
     return (
         <div className={alsoStyle.wrapperAlso}>
             <div className={alsoStyle.headerAlso}>
