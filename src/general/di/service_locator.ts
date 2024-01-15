@@ -9,7 +9,11 @@ import ProductsFakeRepository from "../../modules/shop-page/data/repository/prod
 import {ProductsUseCases} from "../../modules/shop-page/domain/use_case/use_cases";
 import GetAllProducts from "../../modules/shop-page/domain/use_case/getAllProducts";
 import GetAllSliderImages from "../../modules/home_page/domain/use_case/getAllSliderImages";
-import {BannerGridImagesUseCases, SliderImagesUseCases} from "../../modules/home_page/domain/use_case/use_cases";
+import {
+  ArticleUseCases,
+  BannerGridImagesUseCases,
+  SliderImagesUseCases
+} from "../../modules/home_page/domain/use_case/use_cases";
 import SliderImagesFakeRepository from "../../modules/home_page/data/repository/sliderImagesFakeRepository";
 import GetProducts from "../../modules/shop-page/domain/use_case/getProducts";
 import BannerGridFakeRepository from "../../modules/home_page/data/repository/bannerGridFakeRepository";
@@ -19,10 +23,21 @@ import {FilteringUseCases} from '../../modules/shop-page/domain/use_case/use_cas
 import GetAllCategories from "../../modules/shop-page/domain/use_case/getAllCategories";
 import GetAllPrices from "../../modules/shop-page/domain/use_case/getAllPrices";
 import GetAllSorting from "../../modules/shop-page/domain/use_case/getAllSorting";
+
 import Product_infoFakeRepository from "../../modules/product_page/data/repository/product_infoFakeRepository";
 import GetProduct from "../../modules/product_page/domain/use_case/getProduct";
 import {ProductUseCases} from "../../modules/product_page/domain/use_case/use_cases";
 import GetProductImages from "../../modules/product_page/domain/use_case/getProductImages";
+
+import GetLatestArticles from "../../modules/home_page/domain/use_case/getLatestArticles";
+import ArticlesFakeRepository from "../../modules/home_page/data/repository/articlesFakeRepository";
+import ArticlesBlogRepository from "../../modules/blog/presentation/domain/repository/articlesBlogRepository";
+import ArticlesBlogFakeRepository from "../../modules/blog/presentation/utils/data/articlesBlogFakeRepository";
+import GetAllBlogArticles from "../../modules/blog/presentation/domain/use_case/getAllArticles";
+import {ArticleBlogUseCases} from "../../modules/blog/presentation/domain/use_case/use_cases";
+
+import {SendEmailUseCases} from "../components/newsletter_subscribe/domain/use_case/use_cases";
+import SendEmail from "../components/newsletter_subscribe/domain/use_case/sendEmail";
 
 // Dependency injection - Service locator
 type LocatorRepository = {
@@ -32,14 +47,12 @@ type LocatorRepository = {
   sliderImagesFakeRepository: SliderImagesFakeRepository
   filteringFakeRepository: FilteringFakeRepository
   bannerGridImagesFakeRepository: BannerGridFakeRepository
-
   productInfoFakeRepository: Product_infoFakeRepository
-
-
+  articlesFakeRepository: ArticlesFakeRepository
+  articleBlogFakeRepository: ArticlesBlogRepository
 }
 
-type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases & BannerGridImagesUseCases & FilteringUseCases & ProductUseCases
-
+type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases & BannerGridImagesUseCases & FilteringUseCases & ProductUseCases & ArticleUseCases & ArticleBlogUseCases & SendEmailUseCases
 
 let locatorRepository: LocatorRepository
 
@@ -51,7 +64,9 @@ export const initLocatorRepository = () => {
     sliderImagesFakeRepository: new SliderImagesFakeRepository(),
     bannerGridImagesFakeRepository: new BannerGridFakeRepository(),
     filteringFakeRepository: new FilteringFakeRepository(),
-    productInfoFakeRepository: new Product_infoFakeRepository()
+    productInfoFakeRepository: new Product_infoFakeRepository(),
+    articlesFakeRepository: new ArticlesFakeRepository(),
+    articleBlogFakeRepository: new ArticlesBlogFakeRepository()
   }
 }
 
@@ -62,12 +77,15 @@ export function useUseCases():LocatorUseCases{
     ),
     getAllProducts: GetAllProducts(locatorRepository.productsFakeRepository),
     getAllSliderImages: GetAllSliderImages(locatorRepository.sliderImagesFakeRepository),
+    sendEmail: SendEmail(locatorRepository.sliderImagesFakeRepository),
     getAllBannerGridImages: GetAllBannerGridImages(locatorRepository.bannerGridImagesFakeRepository),
     getProducts: GetProducts(locatorRepository.productsFakeRepository),
     getAllCategories: GetAllCategories(locatorRepository.filteringFakeRepository),
     getAllPrices: GetAllPrices(locatorRepository.filteringFakeRepository),
     getAllSorting: GetAllSorting(locatorRepository.filteringFakeRepository),
     getProduct: GetProduct(locatorRepository.productInfoFakeRepository),
-    getProductImages: GetProductImages(locatorRepository.productInfoFakeRepository)
+    getProductImages: GetProductImages(locatorRepository.productInfoFakeRepository),
+    getLatestArticles: GetLatestArticles(locatorRepository.articlesFakeRepository),
+    getAllBlogArticles: GetAllBlogArticles(locatorRepository.articleBlogFakeRepository)
   }
 }

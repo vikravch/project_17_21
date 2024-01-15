@@ -12,7 +12,8 @@ const getSliderImagesSlice = createSlice<SliderImagesState, SliceCaseReducers<Sl
             {
                 name: `TestImage1`,
                 image: sliderImgTestArr[1],
-                alt: 'Commercial image'}
+                alt: 'Commercial image'
+            }
         ],
         error: "Any error"
     },
@@ -32,7 +33,6 @@ const getSliderImagesSlice = createSlice<SliderImagesState, SliceCaseReducers<Sl
             )
             .addCase((getAllSliderImagesAsyncAction.fulfilled),
                 (state, action) => {
-                    console.log(action.payload)
                     state.sliderImages = action.payload;
                     state.error = 'No error';
                 }

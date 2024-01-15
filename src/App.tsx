@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import './App.css';
 import {Route, Routes, useLocation} from "react-router";
 import NavigationRow from "./general/components/navigation/NavigationRow";
-import NewsletterSubscribe from "./general/components/newsletter_subscribe/NewsletterSubscribe";
+import NewsletterSubscribe from "./general/components/newsletter_subscribe/presentation/components/NewsletterSubscribe";
 import Footer from "./general/components/footer/Footer";
 import ShopPage from "./modules/shop-page/presentation/pages/ShopPage";
 import Blog from "./modules/blog/page/Blog";
@@ -40,7 +40,7 @@ function App() {
                 <Route path="/cart/checkout" element={<CheckoutPage/>}/>
                 <Route path="/cart/checkout/complete" element={<CompletePage/>}/>
                 <Route path="/blog" element={<Blog/>}/>
-                <Route path="/blog/article" element={<Article/>}/>
+                <Route path="/blog/article/:artId" element={<Article/>}/>
                 <Route path="*" element={<HomePage/>}/>
                 <Route path="/account*" element={<Account/>}/>
                 <Route path="/product?/:id"
