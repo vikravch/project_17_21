@@ -22,6 +22,7 @@ import GetAllSorting from "../../modules/shop-page/domain/use_case/getAllSorting
 import Product_infoFakeRepository from "../../modules/product_page/data/repository/product_infoFakeRepository";
 import GetProduct from "../../modules/product_page/domain/use_case/getProduct";
 import {ProductUseCases} from "../../modules/product_page/domain/use_case/use_cases";
+import GetProductImages from "../../modules/product_page/domain/use_case/getProductImages";
 
 // Dependency injection - Service locator
 type LocatorRepository = {
@@ -67,5 +68,6 @@ export function useUseCases():LocatorUseCases{
     getAllPrices: GetAllPrices(locatorRepository.filteringFakeRepository),
     getAllSorting: GetAllSorting(locatorRepository.filteringFakeRepository),
     getProduct: GetProduct(locatorRepository.productInfoFakeRepository),
+    getProductImages: GetProductImages(locatorRepository.productInfoFakeRepository)
   }
 }
