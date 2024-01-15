@@ -43,7 +43,7 @@ function App() {
                 <Route path="/blog/article" element={<Article/>}/>
                 <Route path="*" element={<HomePage/>}/>
                 <Route path="/account*" element={<Account/>}/>
-                <Route path="/product?:id"
+                <Route path="/product?/:id"
                        element={<Product/>}
 
                 >

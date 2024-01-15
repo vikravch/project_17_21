@@ -7,6 +7,7 @@ import Meta from "./meta/Meta";
 import {ProductProps} from "../Product";
 import {useAppDispatch, useAppSelector} from "../../../../../general/redux/hooks";
 import getProduct from "../../../domain/use_case/getProduct";
+import {getProductAsyncAction} from "../../redux/asyncAction";
 
 
 const ProductInfo = (props : ProductProps) => {
@@ -15,7 +16,9 @@ const ProductInfo = (props : ProductProps) => {
     const productInfo = useAppSelector(state => state.productPage.product);
 
     useEffect(()=>{
-        dispatch(getProduct(props.productId))
+        if (props.productId != null) {
+            dispatch(getProductAsyncAction(props.productId));
+        }
     },[])
 
     return (<div>
@@ -24,7 +27,7 @@ const ProductInfo = (props : ProductProps) => {
               actualPrice={productInfo?.actualPrice} fullPrice={productInfo?.fullPrice}/>
         <Timer/>
         <hr/>
-        <ProductLoop/>
+        <ProductLoop measurements={productInfo?.measurements}/>
         <Cart/>
         <Meta/>
     </div>);

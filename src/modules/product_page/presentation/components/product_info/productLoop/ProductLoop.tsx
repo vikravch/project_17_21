@@ -1,12 +1,17 @@
 import React from 'react';
 import styles from './ProductLoop.module.css';
 import {Img, tables} from "../../temp/constants";
-const ProductLoop = () => {
+
+interface Measurements {
+    measurements: string | undefined
+}
+
+const ProductLoop = ({measurements}: Measurements) => {
     return (
         <div className={styles.product_loop}>
             <div className={styles.measurements_info}>
                 <p className={styles.measurements}>Measurements</p>
-                <p className={styles.measurements_data}>17 1/2x20 5/8</p>
+                <p className={styles.measurements_data}>{measurements}</p>
             </div>
             <div className={styles.swatches}>
                 <div className={styles.color}>

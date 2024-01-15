@@ -19,5 +19,11 @@ export default class Product_Page extends Product
         this.measurements = measurements;
 
     }
+
+    static fromJson(json:string){
+        const obj = JSON.parse(json);
+        return new Product_Page(obj.productId, obj.productName, obj.image, obj.actualPrice, obj.price, obj.discount, obj.description, obj.isNew, obj.rating, obj.color, obj.amount,obj.measurements);
+    }
+
 }
 

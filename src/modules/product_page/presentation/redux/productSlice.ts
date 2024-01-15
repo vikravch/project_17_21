@@ -1,11 +1,12 @@
 import {createSlice, SliceCaseReducers} from "@reduxjs/toolkit";
-import {getProductAsyncAction} from "./asyncAction";
+import {getProductAsyncAction, getProductImagesAsyncAction} from "./asyncAction";
 import {ProductState} from "./types";
 
 const productSlice = createSlice<ProductState,SliceCaseReducers<ProductState>>({
     name: 'product_info',
     initialState: {
         product: undefined,
+        productImages: undefined,
         error: ''
     },
     reducers: {},
@@ -25,6 +26,22 @@ const productSlice = createSlice<ProductState,SliceCaseReducers<ProductState>>({
             (getProductAsyncAction.fulfilled),
             (state, action) => {
                 state.product = action.payload;
+            }
+        ).addCase(
+            (getProductImagesAsyncAction.pending),
+            (state)=>{
+                state.productImages = undefined;
+                state.error = 'Загрузка';
+            }
+        ).addCase(
+            (getProductImagesAsyncAction.rejected),
+            (state,action)=>{
+                state.error = action.error.message as string;
+            }
+        ).addCase(
+            (getProductImagesAsyncAction.fulfilled),
+            (state,action)=>{
+                state.productImages = action.payload;
             }
         )
     }

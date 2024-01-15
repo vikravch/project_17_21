@@ -1,12 +1,12 @@
 import ProductRepository from "../repository/product_repository";
-import Product_Page from "../model/product_Page";
+import Product_images from "../model/product_images";
 
 
-const GetProduct = (
+const GetProductImages = (
     productRepository: ProductRepository,
-) => async (productCode: string): Promise<Product_Page> => {
+) => async (productCode: string) : Promise<Product_images> => {
     try {
-        const res = await productRepository.getProduct(productCode)
+        const res = await productRepository.getProductImages(productCode);
         if(res === null){
             throw Error('Product is not found, please try again');
         }
@@ -14,6 +14,6 @@ const GetProduct = (
     } catch (e) {
         throw e;
     }
-};
+}
 
-export default GetProduct;
+export default GetProductImages;
