@@ -8,6 +8,14 @@ import changePictureReducer from '../../modules/home_page/presentation/redux/cha
 import getAllSliderPicturesReducer from '../../modules/home_page/presentation/redux/getSliderImagesSlice';
 import getAllBannerGridPicturesReducer from '../../modules/home_page/presentation/redux/getBannerGridImagesSlice';
 import cartSlice from "../../modules/cart/presentation/redux/cartSlice";
+import galleriesFilterStyleSlice from "../../modules/blog/presentation/redux/galleriesFilterStyleSlice";
+import articlesIndexSlice from "../../modules/blog/presentation/redux/articlesIndexSlice";
+import productSlice from "../../modules/product_page/presentation/redux/productSlice";
+import articleSlace from "../../modules/home_page/presentation/redux/latestArticlesSlace";
+import sendEmailReducer from "../components/newsletter_subscribe/presentation/redux/sendEmailSlice";
+import getAllBlogArticlesSlice from "../../modules/blog/presentation/redux/getAllBlogArticlesSlice";
+import articleSortSlice from "../../modules/blog/presentation/redux/articleSortSlice";
+import showSearchInputReducer from "./slices/showSearchInputSlice";
 
 export const store = configureStore(
     {
@@ -19,7 +27,14 @@ export const store = configureStore(
             changePicture: changePictureReducer,
             sliderImagesGallery: getAllSliderPicturesReducer,
             bannerGridImagesGallery: getAllBannerGridPicturesReducer,
+            sendEmail: sendEmailReducer,
             cart: cartSlice,
+            blogFilter: galleriesFilterStyleSlice,
+            productPage: productSlice,
+            getAllBlogArticles: getAllBlogArticlesSlice,
+            articleSort: articleSortSlice,
+            showSearchInput: showSearchInputReducer,
+            articles: articleSlace
         },
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
         devTools: process.env.NODE_ENV !== 'production',

@@ -1,0 +1,13 @@
+.slide_elements
+{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.bottom_elements
+{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}

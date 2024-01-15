@@ -12,6 +12,7 @@ for (let i = 0; i < 4; i++) {
         alt: 'Commercial image'
     });
 }
+// let testEmail:string = 'adc123@gmail.com';
 
 
 
@@ -21,5 +22,8 @@ export default class SliderImagesFakeRepository implements SliderImagesRepositor
         return await Promise.resolve(testSliderImages);
     }
 
+    async sendEmail(email:string): Promise<string>{
+        return await Promise.resolve(email);
+    }
 
 }

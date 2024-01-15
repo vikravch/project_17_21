@@ -1,64 +1,83 @@
-.wrapperAlso
-{
+.wrapperAlso {
     display: flex;
-    padding:80px 0 80px 0;
+    padding: 80px 0 80px 0;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 48px;
+    align-items: center;
+    width: 100%;
 }
-.headerAlso
+.wrapperCard
 {
+    width: calc(100%/3 - 20px);
+    height: 433px;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.headerAlso {
     display: flex;
-    width: 1120px;
+    width: 100%;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
 }
-.alsoMain
-{
+
+.alsoMain {
     color: #000;
 
     font-feature-settings: 'clig' off, 'liga' off;
-    font-size: 28px;
+    font-size: 2rem;
     font-style: normal;
     font-weight: 500;
     line-height: 34px;
     letter-spacing: -0.6px;
 }
-.moreAlso
-{
+
+.moreAlso {
     display: flex;
     justify-content: start;
     align-items: center;
     color: #121212;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 500;
     line-height: 28px;
     letter-spacing: -0.4px;
 }
-.cardsAlso
-{
+
+.cardsAlso {
+    width: 100%;
     display: flex;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-evenly;
     gap: 25px;
     margin: 0;
 }
-.arrow
-{
-display: flex;
+
+.arrow {
+    display: flex;
     align-items: end;
     margin-left: 3px;
 }
-@media (max-width: 769px)
+
+@media (max-width: 769px) {
+    .wrapperAlso {
+        overflow-x: hidden;
+        width: 100%;
+    }
+.wrapperCard
 {
-    .headerAlso
+    width: 357px;
+    padding: 0;
+}
+    .headerAlso {
+        width: 100%;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .cardsAlso
     {
         flex-direction: column;
         align-items: start;
     }
-    .cardsAlso
-    {
-        flex-direction: column;
-}
 }
