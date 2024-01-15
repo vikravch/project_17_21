@@ -6,11 +6,11 @@ import NewsletterSubscribe from "./general/components/newsletter_subscribe/prese
 import Footer from "./general/components/footer/Footer";
 import ShopPage from "./modules/shop-page/presentation/pages/ShopPage";
 import Blog from "./modules/blog/page/Blog";
-import { AuthPage } from './modules/sign-in/auth-page';
+import {AuthPage} from './modules/sign-in/auth-page';
 import CartPage from "./modules/cart/presentation/pages/cart-page";
 import CheckoutPage from "./modules/cart/presentation/pages/checkout-page";
 import CompletePage from "./modules/cart/presentation/pages/complete-page";
-
+import Account from "./modules/account/pages/Account";
 import HomePage from './modules/home_page/presentation/page/HomePage';
 import Article from "./modules/blog/presentation/components/Article/Article";
 import Account from "./modules/account/pages/Account";
@@ -43,12 +43,7 @@ function App() {
                 <Route path="/blog/article/:artId" element={<Article/>}/>
                 <Route path="*" element={<HomePage/>}/>
                 <Route path="/account*" element={<Account/>}/>
-                <Route path="/product?/:id"
-                       element={<Product/>}
-
-                >
-
-                </Route>
+                <Route path="/product/:id" element={<Product/>}/>
             </Routes>
             {!pathname.includes('cart') && <NewsletterSubscribe/>}
             <Footer/>
@@ -57,7 +52,7 @@ function App() {
 
     return (
         <div className={"wrapper"}>
-            {(isAuthModule(pathname))?AuthLayout:AppLayout}
+            {(isAuthModule(pathname)) ? AuthLayout : AppLayout}
         </div>
     );
 }
