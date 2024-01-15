@@ -16,6 +16,7 @@ import Article from "./modules/blog/presentation/components/Article/Article";
 import Account from "./modules/account/pages/Account";
 import Product from "./modules/product_page/presentation/components/Product";
 
+
 function App() {
     const {pathname} = useLocation();
     useEffect(() => {
@@ -42,7 +43,12 @@ function App() {
                 <Route path="/blog/article/:artId" element={<Article/>}/>
                 <Route path="*" element={<HomePage/>}/>
                 <Route path="/account*" element={<Account/>}/>
-                <Route path="/product" element={<Product/>}/>
+                <Route path="/product?/:id"
+                       element={<Product/>}
+
+                >
+
+                </Route>
             </Routes>
             {!pathname.includes('cart') && <NewsletterSubscribe/>}
             <Footer/>
