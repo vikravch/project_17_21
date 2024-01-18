@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "../accountDetailsForm/accountDetailsForm.module.css";
+import styles from "./accountDetailsForm.module.css";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {FormDataAccount} from "../../mock-api/data";
 
@@ -20,8 +20,8 @@ const AccountDetailsForm = () => {
         console.log(data)
     }
     return (
-        <section className={styles.accountDetailsForm}>
-            <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <section className={styles.containerForm}>
+            <form className={styles.formAccountDetails} onSubmit={handleSubmit(onSubmit)}>
                 <h2 className={styles.titleForm}>Account Details</h2>
                 <fieldset className={styles.inputContainer}>
                     <label>FIRST NAME*</label>
@@ -53,6 +53,8 @@ const AccountDetailsForm = () => {
                            id="email"
                     />
                 </fieldset>
+            </form>
+            <form className={styles.formAccountDetails}>
                 <h2 className={styles.titleForm}>Password</h2>
                 <fieldset className={styles.inputContainer}>
                     <label>OLD PASSWORD</label>
@@ -88,7 +90,7 @@ const AccountDetailsForm = () => {
                            id="confirmPassword"/>
                     {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
                 </fieldset>
-                <button type={"submit"}>Save changes</button>
+                <button className={styles.buttonSaveChanges} type={"submit"}>Save changes</button>
             </form>
         </section>
     );

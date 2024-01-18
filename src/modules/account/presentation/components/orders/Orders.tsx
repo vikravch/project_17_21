@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "../orders/orders.module.css";
+import styles from "./oredrs.module.css";
 import OrderItem from "../orderItem/OrderItem";
 import {dataOrders} from "../../mock-api/data";
 

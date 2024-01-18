@@ -23,6 +23,12 @@ import {FilteringUseCases} from '../../modules/shop-page/domain/use_case/use_cas
 import GetAllCategories from "../../modules/shop-page/domain/use_case/getAllCategories";
 import GetAllPrices from "../../modules/shop-page/domain/use_case/getAllPrices";
 import GetAllSorting from "../../modules/shop-page/domain/use_case/getAllSorting";
+
+import Product_infoFakeRepository from "../../modules/product_page/data/repository/product_infoFakeRepository";
+import GetProduct from "../../modules/product_page/domain/use_case/getProduct";
+import {ProductUseCases} from "../../modules/product_page/domain/use_case/use_cases";
+import GetProductImages from "../../modules/product_page/domain/use_case/getProductImages";
+
 import GetLatestArticles from "../../modules/home_page/domain/use_case/getLatestArticles";
 import ArticlesFakeRepository from "../../modules/home_page/data/repository/articlesFakeRepository";
 import ArticlesBlogRepository from "../../modules/blog/presentation/domain/repository/articlesBlogRepository";
@@ -41,11 +47,12 @@ type LocatorRepository = {
   sliderImagesFakeRepository: SliderImagesFakeRepository
   filteringFakeRepository: FilteringFakeRepository
   bannerGridImagesFakeRepository: BannerGridFakeRepository
+  productInfoFakeRepository: Product_infoFakeRepository
   articlesFakeRepository: ArticlesFakeRepository
   articleBlogFakeRepository: ArticlesBlogRepository
 }
 
-type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases & BannerGridImagesUseCases & FilteringUseCases & ArticleUseCases & ArticleBlogUseCases & SendEmailUseCases
+type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases & BannerGridImagesUseCases & FilteringUseCases & ProductUseCases & ArticleUseCases & ArticleBlogUseCases & SendEmailUseCases
 
 let locatorRepository: LocatorRepository
 
@@ -57,6 +64,7 @@ export const initLocatorRepository = () => {
     sliderImagesFakeRepository: new SliderImagesFakeRepository(),
     bannerGridImagesFakeRepository: new BannerGridFakeRepository(),
     filteringFakeRepository: new FilteringFakeRepository(),
+    productInfoFakeRepository: new Product_infoFakeRepository(),
     articlesFakeRepository: new ArticlesFakeRepository(),
     articleBlogFakeRepository: new ArticlesBlogFakeRepository()
   }
@@ -75,9 +83,9 @@ export function useUseCases():LocatorUseCases{
     getAllCategories: GetAllCategories(locatorRepository.filteringFakeRepository),
     getAllPrices: GetAllPrices(locatorRepository.filteringFakeRepository),
     getAllSorting: GetAllSorting(locatorRepository.filteringFakeRepository),
+    getProduct: GetProduct(locatorRepository.productInfoFakeRepository),
+    getProductImages: GetProductImages(locatorRepository.productInfoFakeRepository),
     getLatestArticles: GetLatestArticles(locatorRepository.articlesFakeRepository),
     getAllBlogArticles: GetAllBlogArticles(locatorRepository.articleBlogFakeRepository)
-
-
   }
 }
