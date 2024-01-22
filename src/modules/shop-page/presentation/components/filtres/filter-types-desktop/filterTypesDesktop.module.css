@@ -99,8 +99,8 @@
     .checkboxCheckmark::after {
         content: '';
         position: absolute;
-        left: 8px;
-        top: 3px;
+        left: 7px;
+        top: 2px;
         width: 6px;
         height: 11px;
         border: solid white;
