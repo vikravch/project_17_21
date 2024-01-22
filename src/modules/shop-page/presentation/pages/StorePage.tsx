@@ -1,4 +1,4 @@
-import React, {MutableRefObject, useEffect, useState} from 'react';
+import React, {MutableRefObject} from 'react';
 import style from './shopPage.module.css';
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import arrow from "../../../../images/shop_page/breadCrumbs.svg";
@@ -7,19 +7,11 @@ import FilterTypes from "../components/filtres/filter-types/FilterTypes";
 import Sorting from "../components/sorting/Sorting";
 import FilterTypesDesktop from "../components/filtres/filter-types-desktop/FilterTypesDesktop";
 import ProductsGallery from "../components/products-gallery/ProductsGallery";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {AppStore} from "../../../../general/redux/types";
 import {Columns, RequestProducts} from "../redux/types";
 import {Listener} from "../int";
-import {AppDispatch} from "../../../../general/redux/store";
-import {
-    getAllCategoriesAsyncAction,
-    getAllPricesAsyncAction,
-    getAllSortingAsyncAction,
-    getProductsAsyncAction
-} from "../redux/asyncActions";
 import {useAppSelector} from "../../../../general/redux/hooks";
-import useUpdateEffect from "../../../../general/utils/hooks/useUpdateEffect";
 
 interface Props {
     listenerObject: MutableRefObject<Listener>,
@@ -33,45 +25,9 @@ const StorePage = ({listenerObject, requestObject, setRequestObject, openCloseMe
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
     );
-    const [isFiltersExists, setIsFiltersExists] = useState(false);
     const {categories, sort, prices} = useAppSelector(state => state.shopPage)
-    const dispatch = useDispatch<AppDispatch>();
-    const location = useLocation();
     const navigate = useNavigate();
-
-    useEffect(() => {
-        Promise.all([
-            categories!.length === 0 && dispatch(getAllCategoriesAsyncAction()),
-            dispatch(getAllPricesAsyncAction()),
-            dispatch(getAllSortingAsyncAction())
-        ]).then(() => setIsFiltersExists(true));
-    }, []);
-
-    useUpdateEffect(() => {
-        const searchParams = new URLSearchParams(location.search);
-        let updatedRequestObject: RequestProducts = {...requestObject};
-        for (let key in requestObject.filtering) {
-            if (searchParams.has(key)) {
-                const value = searchParams.get(key);
-                const item = key === 'category' ?
-                    categories?.find(item => item.title.toLowerCase().replace(' ', '') === value) :
-                    key === 'price' ?
-                        prices?.find(item => item.title.replace(/\$|\.00/g, '') === value) :
-                        sort?.find(item => item.title.toLowerCase().replace(' ', '') === value);
-                updatedRequestObject.filtering[key as keyof typeof requestObject.filtering] = item?.id ?? null;
-            } else {
-                updatedRequestObject.filtering[key as keyof typeof requestObject.filtering] = null;
-            }
-        }
-        setRequestObject(updatedRequestObject);
-        dispatch(getProductsAsyncAction(updatedRequestObject));
-    }, [location, isFiltersExists]);
-
-    useEffect(() => {
-        if (requestObject.page !== 1) {
-            dispatch(getProductsAsyncAction(requestObject));
-        }
-    }, [requestObject.page]);
+    const location = useLocation();
 
     const setCategoryParams = (event: React.MouseEvent<HTMLElement>) => {
         const searchParams = new URLSearchParams(location.search);
