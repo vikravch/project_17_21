@@ -25,7 +25,7 @@ const StorePage = ({listenerObject, requestObject, setRequestObject, openCloseMe
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
     );
-    const {categories, sort, prices} = useAppSelector(state => state.shopPage)
+    const {categories, prices} = useAppSelector(state => state.shopPage)
     const navigate = useNavigate();
     const location = useLocation();
 
