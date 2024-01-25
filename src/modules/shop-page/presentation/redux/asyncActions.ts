@@ -1,7 +1,7 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {useUseCases} from "../../../../general/di/service_locator";
 import Product from "../../domain/model/product";
-import {RequestProducts} from "./types";
+import {RequestProducts, RequestSearchProducts, RequestShopProducts} from "./types";
 import Category from "../../domain/model/category";
 import Sort from "../../domain/model/sort";
 import Price from "../../domain/model/price";
@@ -18,7 +18,7 @@ export const getAllProductsAsyncAction = createAsyncThunk<Product[]>(
     }
 );
 
-export const getProductsAsyncAction = createAsyncThunk<Product[], RequestProducts>(
+export const getProductsAsyncAction = createAsyncThunk<Product[], RequestShopProducts | RequestSearchProducts>(
     'shop-page/getProducts',
     async (requestObject: RequestProducts, thunkAPI) => {
         const {getProducts} = useUseCases();
