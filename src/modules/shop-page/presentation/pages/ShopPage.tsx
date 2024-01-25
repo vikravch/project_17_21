@@ -1,77 +1,55 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import style from './shopPage.module.css';
-import {useLocation, useNavigate} from "react-router-dom";
 import FilterTitle from "../components/filtres/filter-title/FilterTitle";
 import FilterTypes from "../components/filtres/filter-types/FilterTypes";
 import Sorting from "../components/sorting/Sorting";
 import FilterTypesDesktop from "../components/filtres/filter-types-desktop/FilterTypesDesktop";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {AppStore} from "../../../../general/redux/types";
-import {ChildrenProps, Columns, RequestShopProducts} from "../redux/types";
+import {ChildrenProps, Columns, RequestProducts, RequestShopProducts} from "../redux/types";
 import {useAppSelector} from "../../../../general/redux/hooks";
-import useUpdateEffect from "../../../../general/utils/hooks/useUpdateEffect";
-import {
-    getAllCategoriesAsyncAction,
-    getAllPricesAsyncAction,
-    getAllSortingAsyncAction,
-    getProductsAsyncAction
-} from "../redux/asyncActions";
-import {AppDispatch} from "../../../../general/redux/store";
+import {getAllCategoriesAsyncAction, getAllPricesAsyncAction, getAllSortingAsyncAction} from "../redux/asyncActions";
 import ProductsGallery from "../components/products-gallery/ProductsGallery";
+import {useShopWrapperLogic} from "./utils/useShopWrapperLogic";
+import {useNavigate} from "react-router-dom";
 
 const ShopPage: React.FC<ChildrenProps> = ({listenerObject,openCloseMenuHandler}) => {
-
-    const [isFiltersExists, setIsFiltersExists] = useState(false);
-    const columns = useSelector<AppStore, Columns>(
-        state => state.galleriesStyle
-    );
-    const {categories, sort, prices} = useAppSelector(state => state.shopPage)
+    const columns = useSelector<AppStore, Columns>(state => state.galleriesStyle);
     const navigate = useNavigate();
-    const location = useLocation();
-    const dispatch = useDispatch<AppDispatch>();
-    const searchParams = new URLSearchParams(location.search);
-
-    const [requestObject, setRequestObject] = useState<RequestShopProducts>({
-        filtering: {
-            category: null,
-            price: null,
-            sorting: null,
+    const { categories, sort, prices } = useAppSelector(state => state.shopPage);
+    const { requestObject, setRequestObject, searchParams } = useShopWrapperLogic<RequestShopProducts>({
+        initialRequestObject: {
+            filtering: {
+                category: null,
+                price: null,
+                sorting: null,
+            },
+            page: 1,
         },
-        page: 1
-    })
-
-    useEffect(() => {
-        if (requestObject.page !== 1) {
-            dispatch(getProductsAsyncAction(requestObject));
-        }
-    }, [requestObject.page]);
-
-    useEffect(() => {
-        Promise.all([
-            categories!.length === 0 && dispatch(getAllCategoriesAsyncAction()),
-            prices!.length === 0 && dispatch(getAllPricesAsyncAction()),
-            sort!.length === 0 && dispatch(getAllSortingAsyncAction())
-        ]).then(() => setIsFiltersExists(true));
-    }, []);
-
-    useUpdateEffect(() => {
-        let updatedRequestObject: RequestShopProducts = {...requestObject};
-        for (let key in requestObject.filtering) {
-            if (searchParams.has(key)) {
-                const value = searchParams.get(key);
-                const item = key === 'category' ?
-                    categories?.find(item => item.title.toLowerCase().replace(' ', '') === value) :
-                    key === 'price' ?
-                        prices?.find(item => item.title.replace(/\$|\.00/g, '') === value) :
-                        sort?.find(item => item.title.toLowerCase().replace(' ', '') === value);
-                updatedRequestObject.filtering[key as keyof typeof requestObject.filtering] = item?.id ?? null;
-            } else {
-                updatedRequestObject.filtering[key as keyof typeof requestObject.filtering] = null;
+        apiActions: [
+            getAllCategoriesAsyncAction,
+            getAllPricesAsyncAction,
+            getAllSortingAsyncAction,
+        ],
+        updateRequestObject: (currentState, searchParams) => {
+            let updatedRequestObject: RequestProducts = { ...currentState };
+            for (let key in currentState.filtering) {
+                if (searchParams.has(key)) {
+                    const value = searchParams.get(key);
+                    const item =
+                        key === 'category'
+                            ? categories?.find(item => item.title.toLowerCase().replace(' ', '') === value)
+                            : key === 'price'
+                                ? prices?.find(item => item.title.replace(/\$|\.00/g, '') === value)
+                                : sort?.find(item => item.title.toLowerCase().replace(' ', '') === value);
+                    updatedRequestObject.filtering[key as keyof typeof currentState.filtering] = item?.id ?? null;
+                } else {
+                    updatedRequestObject.filtering[key as keyof typeof currentState.filtering] = null;
+                }
             }
-        }
-        setRequestObject(updatedRequestObject);
-        dispatch(getProductsAsyncAction(updatedRequestObject));
-    }, [location, isFiltersExists]);
+            return updatedRequestObject;
+        },
+    });
 
     const setCategoryParams = (event: React.MouseEvent<HTMLElement>) => {
         const eventTarget = event.target as HTMLElement;
