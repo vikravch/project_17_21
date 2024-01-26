@@ -32,7 +32,7 @@ const SearchPage: React.FC<ChildrenProps> = ({ listenerObject, openCloseMenuHand
         <>
             <section className={style.filterSortBlock}>
                 <h2>
-                    Your search: <span>{requestObject.filtering.search}</span>
+                    Your search: <span className={style.searchRequest}>{requestObject.filtering.search}</span>
                 </h2>
                 <Sorting
                     listenerObject={listenerObject!}
