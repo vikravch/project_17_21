@@ -28,7 +28,7 @@ const ProductInfo = (props : ProductProps) => {
         <Timer/>
         <hr/>
         <ProductLoop measurements={productInfo?.measurements}/>
-        <Cart/>
+        <Cart product={productInfo || undefined}/>
         <Meta/>
     </div>);
 };

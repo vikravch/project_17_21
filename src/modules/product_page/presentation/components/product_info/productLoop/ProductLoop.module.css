@@ -62,7 +62,23 @@
     background: linear-gradient(0deg, white 0%, white 100%)
 }
 
+.table_uniq
+{
+
+}
+
 .picked_table
 {
     border: solid black 2px;
+}
+
+.table_uniq:hover,.picked_table:hover
+{
+    transform: scale(1.1);
+
+}
+
+.table_uniq:active,.picked_table:active
+{
+    transform: scale(0.8);
 }

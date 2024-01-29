@@ -23,7 +23,7 @@ const ProductImage = (props : ProductProps) => {
                 <img src={productImages?.mainImage}/>
             </div>
             <div className={styles.bottom_elements}>
-                {productImages?.restImages.map(e => <img src={e}/>)}
+                {productImages?.restImages.map((e,index) => <img key={index} src={e}/>)}
             </div>
         </div>
     );

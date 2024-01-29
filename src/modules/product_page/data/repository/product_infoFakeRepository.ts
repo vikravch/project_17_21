@@ -42,7 +42,25 @@ const testImages: Product_images =
     {
         mainImage: table,
         restImages: [first,second,third],
-        colorImages: [dark,white,red,beige]
+        colorImages: [
+            {
+                img: dark,
+                color: "dark"
+            },
+            {
+                img: white,
+                color: 'white'
+            },
+            {
+                img: red,
+                color: 'red'
+            },
+
+            {
+                img: beige,
+                color: 'beige'
+            }
+        ]
     }
 
 export default class Product_infoFakeRepository implements ProductRepository {
