@@ -1,4 +1,4 @@
-import BannerGridImages from "../model/BannerGridImages";
+import BannerGridImages from "../model/bannerGridImages";
 import BannerGridFakeRepository from "../../data/repository/bannerGridFakeRepository";
 
 

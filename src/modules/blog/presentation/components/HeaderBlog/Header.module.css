@@ -1,0 +1,77 @@
+.headerBlogMain {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    position: relative;
+}
+
+.imgBlog {
+    display: flex;
+    width: 100%;
+    height: 392px;
+    justify-content: center;
+    align-items: center;
+    background: no-repeat;
+    overflow: hidden;
+    padding: 0 32px;
+}
+.image
+{
+    width: 100%;
+}
+.textBlog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    position: absolute;
+
+}
+
+.ourBlogText {
+    color: #000;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 58px;
+    letter-spacing: -1px;
+
+}
+
+.bread {
+    display: flex;
+    font-size: 1.3rem;
+
+}
+
+.breadHome {
+    color: #605F5F;
+}
+
+.breadBlog {
+    margin-left: 15px;
+}
+.headerText
+{
+    font-size: 1.5rem;
+}
+@media (max-width: 769px)
+{
+    .headerBlogMain {
+        padding: 0 20px;
+    }
+    .imgBlog {
+        height: 300px;
+    }
+    .image
+    {
+        width: auto;
+    }
+    .headerText
+    {
+        font-size: 1rem;
+    }
+}

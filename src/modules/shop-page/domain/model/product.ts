@@ -12,7 +12,7 @@ export default class Product{
         public readonly isNew: boolean,
         public readonly rating: number,
         public readonly color: string,
-        public readonly amount: number,
+        public readonly amount: number ,
     ) {
         this.id = id;
         this.name = name;

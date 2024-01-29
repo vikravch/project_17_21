@@ -3,24 +3,21 @@ import "./Articles.css"
 import ArticleCard from "./ArticleCard";
 import ShopNowArrow from "../../icons/ShopNowArrow";
 import { Link } from 'react-router-dom';
-import {Article, getLatestArticles} from "../../../domain/repository/ArticleRepository";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "../../../../../general/redux/store";
+import {getLatestArticlesAsyncAction} from "../../redux/articalAsyncActions";
+
+
+
 
 const Articles = () => {
-    const [latestArticles, setLatestArticles] = useState<Article[]>([]);
-
+    const dispatch = useDispatch<AppDispatch>();
+    const latestArticles = useSelector((state: RootState) => state.articles.latestArticles);
 
     useEffect(() => {
-        const fetchLatestArticles = async () => {
-            try {
-                const articles = await getLatestArticles();
-                setLatestArticles(articles);
-            } catch (error) {
-                console.error("Error fetching latest articles:", error);
-            }
-        };
+        dispatch(getLatestArticlesAsyncAction());
+    }, [dispatch]);
 
-        fetchLatestArticles();
-    }, []);
     const handleReadMoreClick = (text: string) => {
         console.log(`Clicked on "Read more" for article: ${text}`);
         // Логика при нажатии на "Read more"
