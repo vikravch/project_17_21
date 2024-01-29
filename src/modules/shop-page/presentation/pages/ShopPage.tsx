@@ -1,100 +1,57 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React from 'react';
 import style from './shopPage.module.css';
-import ProductsGallery from "../components/products-gallery/ProductsGallery";
-import {useDispatch, useSelector} from "react-redux";
-import {AppStore} from "../../../../general/redux/types";
-import FilterTypes from "../components/filtres/filter-types/FilterTypes";
-import FilterTypesDesktop from "../components/filtres/filter-types-desktop/FilterTypesDesktop";
-import {Columns, RequestProducts} from "../redux/types";
 import FilterTitle from "../components/filtres/filter-title/FilterTitle";
+import FilterTypes from "../components/filtres/filter-types/FilterTypes";
 import Sorting from "../components/sorting/Sorting";
-import {Link, useLocation, useNavigate} from "react-router-dom";
-import {AppDispatch} from "../../../../general/redux/store";
-import constStyle from "./utils/const.module.css";
-import {
-    getAllCategoriesAsyncAction,
-    getAllPricesAsyncAction,
-    getAllSortingAsyncAction,
-    getProductsAsyncAction
-} from "../redux/asyncActions";
-import arrow from '../../../../images/shop_page/breadCrumbs.svg';
+import FilterTypesDesktop from "../components/filtres/filter-types-desktop/FilterTypesDesktop";
+import {useSelector} from "react-redux";
+import {AppStore} from "../../../../general/redux/types";
+import {ChildrenProps, Columns, RequestProducts, RequestShopProducts} from "../redux/types";
 import {useAppSelector} from "../../../../general/redux/hooks";
-import useUpdateEffect from "../../../../general/utils/hooks/useUpdateEffect";
+import {getAllCategoriesAsyncAction, getAllPricesAsyncAction, getAllSortingAsyncAction} from "../redux/asyncActions";
+import ProductsGallery from "../components/products-gallery/ProductsGallery";
+import {useShopWrapperLogic} from "./utils/useShopWrapperLogic";
+import {useNavigate} from "react-router-dom";
 
-
-const ShopPage = () => {
-    const columns = useSelector<AppStore, Columns>(
-        state => state.galleriesStyle
-    );
-    const [isFiltersExists, setIsFiltersExists] = useState(false);
-    const {categories, sort, prices} = useAppSelector(state => state.shopPage)
-    const dispatch = useDispatch<AppDispatch>();
-    const location = useLocation();
+const ShopPage: React.FC<ChildrenProps> = ({listenerObject,openCloseMenuHandler}) => {
+    const columns = useSelector<AppStore, Columns>(state => state.galleriesStyle);
     const navigate = useNavigate();
-    const temp = useRef() as React.LegacyRef<HTMLDivElement>;
-    const [requestObject, setRequestObject] = useState<RequestProducts>({
-        filtering: {
-            category: null,
-            price: null,
-            sorting: null,
+    const { categories, sort, prices } = useAppSelector(state => state.shopPage);
+    const { requestObject, setRequestObject, searchParams } = useShopWrapperLogic<RequestShopProducts>({
+        initialRequestObject: {
+            filtering: {
+                category: null,
+                price: null,
+                sorting: null,
+            },
+            page: 1,
         },
-        page: 1
-    })
-
-    useEffect(() => {
-        Promise.all([
-            categories!.length === 0 && dispatch(getAllCategoriesAsyncAction()),
-            dispatch(getAllPricesAsyncAction()),
-            dispatch(getAllSortingAsyncAction())
-        ]).then(() => setIsFiltersExists(true));
-    }, []);
-
-    useEffect(() => {
-        document.addEventListener('click', closeClickFunction);
-        return () => document.removeEventListener('click', closeClickFunction);
-    }, []);
-
-    useUpdateEffect(() => {
-        const searchParams = new URLSearchParams(location.search);
-        let updatedRequestObject: RequestProducts = {...requestObject};
-        for (let key in requestObject.filtering) {
-            if (searchParams.has(key)) {
-                const value = searchParams.get(key);
-                const item = key === 'category' ?
-                    categories?.find(item => item.title.toLowerCase().replace(' ', '') === value) :
-                    key === 'price' ?
-                        prices?.find(item => item.title.replace(/\$|\.00/g, '') === value) :
-                        sort?.find(item => item.title.toLowerCase().replace(' ', '') === value);
-                updatedRequestObject.filtering[key as keyof typeof requestObject.filtering] = item?.id ?? null;
-            } else {
-                updatedRequestObject.filtering[key as keyof typeof requestObject.filtering] = null;
+        apiActions: [
+            getAllCategoriesAsyncAction,
+            getAllPricesAsyncAction,
+            getAllSortingAsyncAction,
+        ],
+        updateRequestObject: (currentState, searchParams) => {
+            let updatedRequestObject: RequestProducts = { ...currentState };
+            for (let key in currentState.filtering) {
+                if (searchParams.has(key)) {
+                    const value = searchParams.get(key);
+                    const item =
+                        key === 'category'
+                            ? categories?.find(item => item.title.toLowerCase().replace(' ', '') === value)
+                            : key === 'price'
+                                ? prices?.find(item => item.title.replace(/\$|\.00/g, '') === value)
+                                : sort?.find(item => item.title.toLowerCase().replace(' ', '') === value);
+                    updatedRequestObject.filtering[key as keyof typeof currentState.filtering] = item?.id ?? null;
+                } else {
+                    updatedRequestObject.filtering[key as keyof typeof currentState.filtering] = null;
+                }
             }
-        }
-        setRequestObject(updatedRequestObject);
-        dispatch(getProductsAsyncAction(updatedRequestObject));
-    }, [location, isFiltersExists]);
-
-    useEffect(() => {
-        if (requestObject.page !== 1) {
-            dispatch(getProductsAsyncAction(requestObject));
-        }
-    }, [requestObject.page]);
-
-    const closeClickFunction = (event: MouseEvent) => {
-
-        const listener = document.querySelectorAll('.listener');
-        const listenerHead = document.querySelectorAll('.listenerHead');
-
-        listener.forEach((item, index) => {
-            if (event.target !== item && event.target !== listenerHead[index]) {
-                item.classList.remove(constStyle.open);
-            }
-        })
-
-    }
+            return updatedRequestObject;
+        },
+    });
 
     const setCategoryParams = (event: React.MouseEvent<HTMLElement>) => {
-        const searchParams = new URLSearchParams(location.search);
         const eventTarget = event.target as HTMLElement;
         const choice = eventTarget.dataset.categoryId as string;
 
@@ -111,7 +68,6 @@ const ShopPage = () => {
     }
 
     const setPriceParams = (event: { target: any; }) => {
-        const searchParams = new URLSearchParams(location.search);
         const eventTarget = event.target as HTMLElement;
         const choice = eventTarget.dataset.priceId as string;
 
@@ -125,23 +81,8 @@ const ShopPage = () => {
         navigate(`?${searchParams.toString()}`);
     }
 
-    const openCloseMenuHandler = (event: React.MouseEvent<HTMLElement>) => {
-        const eventTarget = event.target as Element;
-        const nextSibling = eventTarget.nextElementSibling as Element;
-        nextSibling.classList.toggle(constStyle.open);
-    }
-
     return (
-        <div className={style.shopPage}>
-            <section className={style.pageHeader}>
-                <div>
-                    <Link to={'/home'}>Home</Link>
-                    <img src={arrow} alt={'arrow'}/>
-                    <p>Shop</p>
-                </div>
-                <h1>Shop Page</h1>
-                <p>Let’s design the place you always imagined.</p>
-            </section>
+        <>
             <section className={style.filterSortBlock}>
                 <div
                     className={`${style.filterAndNameDisplay3} ${columns.countDesktop !== 3 && style.filterAndNameHide}`}>
@@ -151,30 +92,38 @@ const ShopPage = () => {
                             <p>All rooms</p>
                         </div>}
                 </div>
-                <FilterTypes temp={temp}
+                <FilterTypes
+                    listenerObject={listenerObject!}
                     columns={columns}
-                             category={requestObject.filtering.category}
-                             price={requestObject.filtering.price}
-                             setCategoryParams={setCategoryParams}
-                             setPriceParams={setPriceParams}
-                             openCloseMenuHandler={openCloseMenuHandler}/>
-                <Sorting columns={columns}
-                         sorting={requestObject.filtering.sorting}
-                         openCloseMenuHandler={openCloseMenuHandler}/>
+                    category={requestObject!.filtering.category}
+                    price={requestObject!.filtering.price}
+                    setCategoryParams={setCategoryParams}
+                    setPriceParams={setPriceParams}
+                    openCloseMenuHandler={openCloseMenuHandler!}/>
+                <Sorting
+                    listenerObject={listenerObject!}
+                    columns={columns}
+                    sorting={requestObject!.filtering.sorting}
+                    openCloseMenuHandler={openCloseMenuHandler!}/>
             </section>
-            <div className={style.categoryName}>
-                <p>All rooms</p>
-            </div>
+            {
+                categories && categories.length !== 0 ?
+                    <div className={style.categoryName}>
+                        <p>{requestObject!.filtering.category === null ? categories[0].title : categories?.find(obj => obj.id === requestObject!.filtering.category)?.title}</p>
+                    </div> :
+                    <></>
+            }
             <section className={columns.countDesktop === 3 ? style.display3filterTypes : ''}>
                 {columns.countDesktop === 3 &&
-                    <FilterTypesDesktop category={requestObject.filtering.category}
-                                        price={requestObject.filtering.price}
+                    <FilterTypesDesktop category={requestObject!.filtering.category}
+                                        price={requestObject!.filtering.price}
                                         setCategoryParams={setCategoryParams}
                                         setPriceParams={setPriceParams}/>}
-                <ProductsGallery requestObject={requestObject} setRequestObject={setRequestObject}/>
+                <ProductsGallery setRequestObject={setRequestObject}/>
             </section>
-        </div>
-    );
+        </>
+    )
+        ;
 };
 
 export default ShopPage;

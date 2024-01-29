@@ -6,24 +6,26 @@
 
 .filterCategories > p,
 .filterPrice > p {
-    color: #6C7275;
+    color: var(--regular-grey);
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.625rem;
     font-weight: 600;
     margin: 15px 0 10px 0;
 }
 
 .filterCatHead, .filterPriceHead {
-    border: #6C7275 solid 2px;
+    border: var(--regular-grey) solid 2px;
     border-radius: 8px;
     background-image: url("../../../../../../icons/shop_page/arrowDownMini.svg");
     background-size: 9px;
     background-position: calc(100% - 15px);
     padding: 10px 0 10px 13px;
     cursor: pointer;
-    font-family: Inter, serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.625rem;
+    color: var(--primary-dark);
     background-repeat: no-repeat;
     width: 100%;
 }
@@ -32,17 +34,12 @@
     display: none;
     padding: 10px;
     list-style: none;
-
     overflow-x: hidden;
     overflow-y: auto;
-
     background-color: white;
     border-radius: 12px;
-
-    box-shadow: 0 64px 64px -48px #0F0F0F1A;
-    border: 1px solid #F3F5F7;
-
-
+    box-shadow: 0 64px 64px -48px rgba(15, 15, 15, 0.10);
+    border: 1px solid var( --primary-light-theme);
     scrollbar-color: darkgray gray;
     scrollbar-width: thin;
     overscroll-behavior: contain;
@@ -53,22 +50,23 @@
     position: relative;
     cursor: pointer;
     list-style: none;
-    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.625rem;
     padding: 15px;
-    color: #6C7275;
+    color: var(--regular-grey);
 }
 
 .filterCatList > li:hover,
 .filterPriceList > li:hover {
-    color: #141718;
+    color: var(--primary-dark);
     font-weight: 600;
-    background-color: #F3F5F7;
+    background-color: var(--primary-light-theme);
     border-radius: 8px;
 }
 
 .checked {
     font-weight: 600;
-    color: black !important;
+    color: var(--primary-dark) !important;
 }
 
 @media screen and (min-width: 768px) {
@@ -92,7 +90,7 @@
 
     .filterCategories > p,
     .filterPrice > p {
-        font-size: 16px;
+        font-size: 1rem;
         margin: 10px 0;
     }
 

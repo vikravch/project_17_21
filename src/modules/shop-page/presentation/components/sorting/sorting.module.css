@@ -5,8 +5,8 @@
     align-items: center;
     min-width: 311px;
     height: 56px;
-    border-bottom: 1px solid #E8ECEF;
-    border-top: 1px solid #E8ECEF;
+    border-bottom: 1px solid var(--light-grey-primary);
+    border-top: 1px solid var(--light-grey-primary);
 }
 
 .sortSelect {
@@ -23,29 +23,28 @@
 
 .sortHead {
     cursor: pointer;
-    /*min-width: 110px;*/
     width: max-content;
-    font-family: Inter, serif;
+    font-family: var(--font-primary);
     font-weight: 600;
-    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.625rem;
     background-repeat: no-repeat;
 }
 
 .sortList {
     position: absolute;
     margin-top: 30px;
-    width: 145px;
+    width: 150px;
     top: 40%;
     left: 0;
     right: 0;
     z-index: 100;
     display: none;
     list-style: none;
-    background-color: white;
+    background-color: #FFFFFF;
     border-radius: 12px;
-    box-shadow: 0 64px 64px -48px #0F0F0F1A;
-    border: 1px solid #F3F5F7;
-
+    box-shadow: 0 64px 64px -48px rgba(15, 15, 15, 0.10);
+    border: 1px solid var(--primary-light-theme);
     padding: 10px;
 
 }
@@ -54,16 +53,22 @@
     position: relative;
     cursor: pointer;
     list-style: none;
-    font-size: 16px;
-    color: #6C7275;
+    font-size: 1rem;
+    line-height: 1.625rem;
+    color: var( --regular-grey);
     padding: 15px 15px;
 }
 
 .sortList  > li:hover {
-    color: #141718;
+    color: var(--primary-dark);
     font-weight: 600;
-    background-color: #F3F5F7;
+    background-color: var( --primary-light-theme);
     border-radius: 8px;
+}
+
+.chosen {
+    font-weight: 600;
+    color: var( --primary-dark) !important;
 }
 
 @media screen and (min-width: 768px) {
@@ -86,26 +91,20 @@
     .sortHead {
         background-size: 10px;
         padding-right: 20px;
-        font-size: 16px;
         margin: 10px 0;
     }
 
-    .sortHeaDisplay3 {
+    .sortHeadDisplay3 {
         background-size: 10px;
         padding-right: 20px;
         margin: 0  27px 0 0;
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .sortList {
         border-radius: 12px;
     }
 
-}
-
-.chosen {
-    font-weight: 600;
-    color: black !important;
 }
 
 @media screen and (min-width: 817px) {
@@ -122,6 +121,6 @@
         background-size: 10px;
         padding-right: 20px;
         margin: 0  27px 0 0;
-        font-size: 16px;
+        font-size: 1rem;
     }
 }

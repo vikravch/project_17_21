@@ -3,27 +3,22 @@ import style from './ProductsGallery.module.css';
 import ShopProductCard from "../product-card/ShopProductCard";
 import {useSelector} from "react-redux";
 import {AppStore} from "../../../../../general/redux/types";
-import {Columns, RequestProducts, ShopPageState} from "../../redux/types";
+import {Columns, RequestSearchProducts, RequestShopProducts, ShopPageState} from "../../redux/types";
 
-interface Props {
-    requestObject: RequestProducts,
-    setRequestObject: React.Dispatch<React.SetStateAction<RequestProducts>>
+type Props = {
+    setRequestObject:  React.Dispatch<React.SetStateAction<RequestSearchProducts>> | React.Dispatch<React.SetStateAction<RequestShopProducts>>
 }
 
-const ProductsGallery = ({requestObject, setRequestObject}: Props) => {
-
+const ProductsGallery = ({setRequestObject}: Props) => {
     //styles
     const columns = useSelector<AppStore, Columns>(
         state => state.galleriesStyle
     );
     const [gridStyles, setGridStyles] = useState({});
-    //products
-    const countProducts = 12;
 
     const {products, error} = useSelector<AppStore, ShopPageState>(
         state => state.shopPage
     );
-
 
     useEffect(() => {
         const handleResize = () => {
@@ -43,8 +38,7 @@ const ProductsGallery = ({requestObject, setRequestObject}: Props) => {
             <div className={style.productGallery} style={gridStyles}>
                 {
                     products ?
-                        products.slice(0, requestObject.page * countProducts) //mb remove countProducts!
-                            .map((product, index) => (
+                        products.map((product, index) => (
                                 <ShopProductCard product={product}
                                                  columns={columns}
                                                  key={`product_${index}_${product.name}`}
@@ -54,7 +48,7 @@ const ProductsGallery = ({requestObject, setRequestObject}: Props) => {
                 }
             </div>
             <button className={style.showMore} onClick={() => {
-                setRequestObject(prevState => ({...prevState, page: ++requestObject.page}))
+                setRequestObject((prevState: any) => ({...prevState, page: ++prevState.page}))
             }}>Show more
             </button>
         </div>

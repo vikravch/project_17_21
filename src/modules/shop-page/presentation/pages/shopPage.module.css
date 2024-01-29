@@ -1,5 +1,6 @@
 .shopPage {
     margin: 0 32px;
+    font-family: var(--font-primary);
 }
 
 .pageHeader {
@@ -11,7 +12,7 @@
     min-width: 311px;
     background-image: url('../../../../images/shop_page/shopPageHeaderMobile.webp');
     background-repeat: no-repeat;
-    background-color: white;
+    background-color: #FFFFFF;
     background-position: center;
     background-size: 100%;
 }
@@ -21,25 +22,20 @@
     justify-content: space-between;
     align-items: center;
     width: 107px;
-    font-size: 14px;
+    line-height: 1.5rem;
+    font-size: 0.875rem;
     font-weight: 500;
 }
 
 .pageHeader > div > a {
     text-decoration: none;
-    color: #605F5F;
+    color: var(--semibold-grey-text);
 }
 
-.pageHeader > div > a:visited {
-    color: #605F5F;
-}
-
-.pageHeader > div > a:hover {
-    color: #605F5F;
-}
-
+.pageHeader > div > a:visited,
+.pageHeader > div > a:hover,
 .pageHeader > div > a:focus {
-    color: #605F5F;
+    color: var(--semibold-grey-text);
 }
 
 .pageHeader > div > img {
@@ -51,21 +47,20 @@
 }
 
 .pageHeader > h1 {
-    font-family: Poppins, serif;
+    font-family: var(--font-secondary);
     font-weight: 500;
-    font-size: 40px;
+    font-size: 2.5rem;
+    line-height: 2.75rem;
+    letter-spacing: -0.025rem;
     margin: 10px 0;
 }
 
 .pageHeader > p {
     text-align: center;
-    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.625rem;
     margin: 0 10px;
 }
-
-/*.open {*/
-/*    display: block !important;*/
-/*}*/
 
 .categoryNameDesktop3 {
     display: none;
@@ -79,7 +74,13 @@
 
 .categoryName > p {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.625rem;
+}
+
+.searchRequest{
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 @media screen and (min-width: 768px) {
@@ -91,12 +92,15 @@
     }
 
     .pageHeader > h1 {
-        font-size: 54px;
+        font-size: 3.375rem;
+        line-height: 3.625rem;
+        letter-spacing: -0.0625rem;
         margin: 15px 0;
     }
 
     .pageHeader > p {
-        font-size: 20px;
+        font-size: 1.25rem;
+        line-height: 2rem;
     }
 
     .filterSortBlock {
@@ -123,9 +127,9 @@
     }
 
     .categoryNameDesktop3 > p {
-        font-size: 20px;
+        font-size: 1.25rem;
+        line-height: 2rem;
         font-weight: 600;
-        color: #000000;
         margin: 0;
     }
 
