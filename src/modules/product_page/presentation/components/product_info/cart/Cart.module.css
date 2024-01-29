@@ -72,8 +72,24 @@
 .clicked_wish
 {
     gap: 8px;
+    display: inline-flex;
+    font-size: 18px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 8px;
+}
 
-    position: relative;
+.clicked_wish:hover
+{
+    background-color: #d8e3ff;
+    transform: scale(1.1);
+}
+
+.clicked_wish:active
+{
+    transform: scale(0.9);
 }
 
 .error
