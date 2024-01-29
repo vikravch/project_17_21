@@ -15,6 +15,7 @@ import sendEmailReducer from "../components/newsletter_subscribe/presentation/re
 import getAllBlogArticlesSlice from "../../modules/blog/presentation/redux/getAllBlogArticlesSlice";
 import articleSortSlice from "../../modules/blog/presentation/redux/articleSortSlice";
 import showSearchInputReducer from "./slices/showSearchInputSlice";
+import productColorSlice from "../../modules/product_page/presentation/redux/productColorSlice";
 
 export const store = configureStore(
     {
@@ -30,6 +31,7 @@ export const store = configureStore(
             cart: cartSlice,
             blogFilter: galleriesFilterStyleSlice,
             productPage: productSlice,
+            colorPage: productColorSlice,
             getAllBlogArticles: getAllBlogArticlesSlice,
             articleSort: articleSortSlice,
             showSearchInput: showSearchInputReducer,

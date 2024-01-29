@@ -22,7 +22,7 @@ const Info = ({ratingInfo, productName, description, actualPrice, fullPrice}: pr
         <div className={styles.info}>
             <div className={styles.rating}>
                 <div className={styles.rating_group}>
-                    {rating.map(e => <img src={Img[1].img}/>)}
+                    {rating.map((e, index) => <img key={index} src={Img[1].img}/>)}
                 </div>
                 <p className={styles.count_reviews}>11 Reviews </p>
             </div>
