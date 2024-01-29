@@ -1,14 +1,40 @@
+.auth-page {
+    font-family: var(--font-primary);
+    background-color: var(--darktheme-text-primary);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+}
+.left-side-of-site {
+    display: flex;
+    flex: 1;
+    width: 50%;
+    height: 100%;
+    flex-wrap: wrap;
+
+  }
+  .right-side-of-site {
+    display: flex;
+    /* margin:  auto; */
+    justify-content: center;
+    align-content: center;
+    flex: 1;
+    width: 50%;
+    height: 100%;
+    flex-wrap: wrap;
+  }
 .auth-form-right-side{
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     padding: 0px;
     gap: 32px;
-    position: absolute;
-    width: 456px;
-    height: 376px;
-    right: 160px;
-    top: 220px;
+    width: 100%;
+    height: 100%;
+    right: 100%;
+    top: 100%;
     background: var(--darktheme-text-secondary);
     }
     .auth-form-title{
@@ -17,7 +43,7 @@
     align-items: flex-start;
     padding: 0px;
     gap: 24px;
-    width: 456px;
+    width: clamp(300px, 50%, 456px);               
     height: 94px;
     flex: none;    
     order: 0;
@@ -29,7 +55,7 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
-    width: 456px;
+    width: clamp(300px, 50%, 456px); 
     height: 44px;
     flex: none;
     order: 0;
@@ -42,7 +68,7 @@
     align-items: flex-start;
     padding: 0px;
     gap: 16px;
-    width: 456px;
+    width: clamp(300px, 50%, 456px); 
     height: 44px;
     flex: none;
     order: 0;
@@ -58,7 +84,7 @@
     color: var(--primary-dark);
     }
     .auth-form-subtitle{
-    width: 456px;
+    width: clamp(300px, 50%, 456px); 
     height: 26px;
     font-family: var(--font-primary);
     font-style: normal;
@@ -81,7 +107,7 @@
     align-items: flex-start;
     padding: 0px;
     gap: 24px;
-    width: 456px;
+    width: clamp(300px, 50%, 456px); 
     height: 170px;
     flex: none;
     order: 1;
@@ -94,7 +120,7 @@
     align-items: flex-start;
     padding: 0px;
     gap: 32px;
-    width: 456px;
+    width: clamp(300px, 50%, 456px); 
     height: 170px;
     flex: none;
     order: 0;
@@ -108,9 +134,9 @@
     align-items: flex-start;
     padding: 0px 0px 8px;
     gap: 10px;
-    width: 456px;
+    width: clamp(300px, 50%, 456px); 
     height: 40px;
-    border-bottom: 1px solid #E8ECEF;
+    border-bottom: 1px solid var(--light-grey-primary);
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -122,9 +148,9 @@
     align-items: center;
     padding: 0px 0px 8px;
     gap: 16px;
-    width: 456px;
+    width: clamp(300px, 50%, 456px); 
     height: 40px;
-    border-bottom: 1px solid #E8ECEF;
+    border-bottom: 1px solid var(--light-grey-primary);
     flex: none;
     order: 0;
     align-self: stretch;
@@ -137,9 +163,9 @@
     align-items: flex-start;
     padding: 0px 0px 8px;
     gap: 10px;
-    width: 456px;
+    width: clamp(300px, 50%, 456px); 
     height: 40px;
-    border-bottom: 1px solid #E8ECEF;
+    border-bottom: 1px solid var(--light-grey-primary);
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -151,9 +177,9 @@
     align-items: center;
     padding: 0px 0px 8px;
     gap: 16px;
-    width: 456px;
+    width: clamp(300px, 50%, 456px); 
     height: 40px;
-    border-bottom: 1px solid #E8ECEF;
+    border-bottom: 1px solid var(--light-grey-primary);
     flex: none;
     order: 0;
     align-self: stretch;
@@ -161,7 +187,7 @@
     }
     .option-form-sign-in{
     position: relative;
-    width: 456px;
+    width: clamp(300px, 50%, 456px); 
     height: 26px;
     flex: none;
     order: 2;
@@ -170,7 +196,7 @@
     }
     .sign-in-forgot-password{
     position: absolute;
-    width: 139px;
+    width: clamp(80px, 50%, 139px);
     height: 26px;
     right: 0px;
     top: calc(50% - 26px/2);
@@ -185,7 +211,7 @@
     }
     .sing-in-checkbox{
     position: absolute;
-    width: 110px;
+    width: clamp(40px, 50%, 110px); 
     height: 26px;
     left: 0px;
     top: 0px;
@@ -198,7 +224,7 @@
    
     top: 1px;
     background: var(--darktheme-text-fade);
-    border: 1.5px solid #6C7275;
+    border: 1.5px solid var(--regular-grey);
     border-radius: 4px; 
     }
     .sign-in-remember-me{
@@ -214,7 +240,75 @@
     line-height: 26px;
     color: var(--regular-grey); 
     }
-    
-    
-    
-    
+    @media (min-width: 1440px) {
+      .left-side-of-site{
+        width: 30%;
+      }
+     .imgChair{
+      width: 95%;
+     }
+      .pasteImage {
+        width: 98%;
+      }
+      .right-side-of-site {
+        margin: 0 auto;
+        padding-left: 100px;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 1439px) {
+      .auth-page{
+        display: flex;
+        flex-direction: column;
+      }
+      .left-side-of-site {
+        width: 50%;
+      }
+      .imgChair{
+        width: 95%;
+       }
+        .pasteImage {
+          width: 98%;
+        }
+      .right-side-of-site {
+        width: 50%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding-left: 50px;
+      }
+      
+    }
+    @media (min-width: 374px) and (max-width: 767px) {
+      .auth-page{
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+      }
+      .left-side-of-site{
+        width:100%;
+        
+      }
+      .imgChair{
+      width: 100%;
+     }
+      .pasteImage {
+        width: 98%;
+      }
+      .right-side-of-site {
+        width: 30%;
+        max-width: 320px;
+        margin: 20px, 10px;
+        padding: 10px;
+      }
+      .auth-form-right-side {
+        width: 100%;
+      }
+      .sing-in-checkbox{
+      position: absolute;
+      width: 110px; 
+    height: 26px;
+    left: -100px;
+    top: 0px;
+        }
+      
+     
+    } 

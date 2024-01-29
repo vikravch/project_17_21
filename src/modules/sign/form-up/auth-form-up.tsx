@@ -8,8 +8,12 @@ import { loginValidation , passwordValidation } from './validationup';
 import Checkbox from '@mui/material/Checkbox';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
+import { RightSide } from '../right-side/right-side';
 // import { Link } from 'react-router-dom';
-import './auth-formUp.css';
+import './auth-form-up.css';
+// import BtnUp   from './auth-form-btn-yn.module.css'
+// import YnUp from './auth-form-btn-yn.module.css'
+
 
 
 interface ISignInForm {
@@ -20,7 +24,7 @@ interface ISignInForm {
   remember: boolean;
 }
 
-export const AuthFormUp = () => {
+export const AuthUp: React.FC  = () => {
   const { handleSubmit, control } = useForm<ISignInForm>();
   const { errors } = useFormState({
     control
@@ -31,8 +35,13 @@ export const AuthFormUp = () => {
     console.log(data);
   };
   return (
-      <div className='auth-form-up'>
-          <div className="auth-form-up-title">
+    <div className="auth-page">
+            <div className="left-side-of-site">
+               <RightSide/>
+            </div>
+            <div className="right-side-of-site">
+               <div className='auth-form-up'>
+               <div className="auth-form-up-title">
               <div className="auth-form-up-header">
                 <div className="auth-form-up-content">
                  <Typography variant="h4" component="div" >
@@ -43,7 +52,7 @@ export const AuthFormUp = () => {
                  <Typography variant="subtitle1" component="div" 
                   gutterBottom={true} className="auth-form-up-subtitle" >
                    Already have an account? {" "}
-                   <a  href="#" className="signUplink">
+                   <a  href="/signin" className="signUplink">
                 Sign in
                  </a>{" "}
                </Typography>
@@ -67,17 +76,19 @@ export const AuthFormUp = () => {
                               value={field.value}
                               error={!!errors.yourName?.message}
                               helperText={errors.yourName?.message}
-                              sx={{
-                                  left: '0px',
-                                  fontFamily: 'Inter',
-                                  fontStyle: 'normal',
-                                  fontWeight: 400,
-                                  fontSize: '16px',
-                                  lineHeight: '26px',
-                                  color: '#6C7275',
-                                  border: '1px solid white',  
-                                 
-                                }}
+                              // className={YnUp.Yn1}
+                              sx={{ 
+                                // yn
+                                left: '0px',
+                                fontFamily: 'Inter',
+                                fontStyle: 'normal',
+                                fontWeight: 400,
+                                fontSize: '16px',
+                                lineHeight: '26px',
+                                color: '#6C7275',
+                                border: '1px solid white', 
+                              }}                    
+                                
                               />
                           )}
                       />
@@ -190,26 +201,29 @@ export const AuthFormUp = () => {
                   variant="contained"
                   fullWidth={ true}
                   disableElevation={true}
-                  className="button"
-                  sx={{
-                      background: '#141718',
-                      borderRadius: '8px',
-                      fontFamily: 'Inter',
-                      fontStyle: 'normal',
-                      fontWeight: 500,
-                      fontSize: '16px',
-                      lineHeight: '28px',
-                      textAlign: 'center',
-                      letterSpacing: '-0.4px',
-                      color: '#FFFFFF',
-                      marginTop:2
-                  }}
+                  // className={BtnUp.BtnUp1}
+                  sx={{ 
+                    background: '#141718',
+                    borderRadius: '8px',
+                    fontFamily: 'Inter',
+                    fontStyle: 'normal',
+                    fontWeight: 500,
+                    fontSize: '16px',
+                    lineHeight: '28px',
+                    textAlign: 'center',
+                    letterSpacing: '-0.4px',
+                    color: '#FFFFFF',
+                    marginTop:2
+                  }}            
                 
                 >Sign Up</Button>
 
                
           </form>
       </div>
+      </div>
+      </div>
   )
 }
 
+export * from './auth-form-up';
