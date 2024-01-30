@@ -36,7 +36,7 @@ function App() {
 
     const AppLayout = (
         <>
-            <NavigationRow/>
+            <NavigationRow />
             <Routes>
                 <Route path="/home" element={<HomePage/>}/>
                 <Route path="/shop" element={<ShopWrapper title={'Shop'}><ShopPage/></ShopWrapper>}/>

@@ -10,17 +10,17 @@ import {useAppDispatch, useAppSelector} from "../../redux/hooks";
 import {openFlyMenu} from "../../redux/slices/openFlyMenuSlice";
 import {navItems} from "../../utils/Constants";
 import NavItem from "./NavItem";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {getAllCategoriesAsyncAction} from "../../../modules/shop-page/presentation/redux/asyncActions";
 import {showSearchInput} from "../../redux/slices/showSearchInputSlice";
 
 
-
 const Navigation = () => {
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const showFlyMenuFlag = useAppSelector(state => state.flyMenu.showFlyMenu);
     const itemsInCart = useAppSelector(state => state.cart.items);
-    let currentQuantity:number = 0;
+    let currentQuantity: number = 0;
     for (let i = 0; i < itemsInCart.length; i++) {
         currentQuantity += itemsInCart[i].quantity;
     }
@@ -36,9 +36,14 @@ const Navigation = () => {
         dispatch(showSearchInput(!showSearchInputFlag));
     }
 
+    function formSearchRequest(e: HTMLInputElement) {
+        console.log(e.value);
+        navigate(`/search?search=${e.value}`)
+    }
+
     return (
         <div className={'navigation_bar_wrapper'}>
-            {showFlyMenuFlag ? <FlyMobile/> : <></>}
+            {showFlyMenuFlag ? <FlyMobile currentQuantity={currentQuantity}/> : <></>}
             <div className={'navigation_width'}>
                 <div className={'menu_btn'}>
                     <i className={'menu_btn_icon'} onClick={() => dispatch(openFlyMenu(true))}><FlyMenuBtnIcon/></i>
@@ -49,8 +54,12 @@ const Navigation = () => {
                     {navItems.map(item => <NavItem key={item.route} fly={false} item={item}/>)}
                 </ul>
                 <div className={'navigation_icons_section'}>
-                    {showSearchInputFlag ? <input type="search" placeholder={'Search'}
-                                                 className={'navigation_search_bar_desktop'}/> : <></>}
+                    {showSearchInputFlag ? <input type={"search"} placeholder={'Search'}
+                                                  className={'navigation_search_bar_desktop'}
+                                                  onKeyUp={e => {
+                                                      if (e.key == 'Enter' || e.keyCode == 13)
+                                                          formSearchRequest(e.target as HTMLInputElement)
+                                                  }}/> : <></>}
                     <div className={'account_and_search'}>
                         <span onClick={() => handleSearchInput()}><SearchIcon/></span>
                         <Link to={'/account'}><MyAccountIcon/></Link>
