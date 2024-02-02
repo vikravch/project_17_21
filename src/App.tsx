@@ -41,7 +41,7 @@ function App() {
                 <Route path="/blog" element={<Blog/>}/>
                 <Route path="/blog/article/:artId" element={<Article/>}/>
                 <Route path="*" element={<HomePage/>}/>
-                <Route path="/account*" element={<Account/>}/>
+                <Route path="/account/*" element={<Account/>}/>
                 <Route path="/product" element={<Product/>}/>
             </Routes>
             {!pathname.includes('cart') && <NewsletterSubscribe/>}

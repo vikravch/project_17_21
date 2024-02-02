@@ -2,7 +2,7 @@
     padding: 0 32px 80px 32px;
 }
 
-.header {
+.headerAccount {
     padding: 16px 0 40px 0;
 }
 
@@ -66,17 +66,15 @@
     line-height: 32px;
 }
 
-.buttonDropMenu {
+.dropMenu {
     display: flex;
-    max-width: 280px;
+    min-width: 280px;
     padding: 8px 8px 8px 16px;
     justify-content: space-between;
     align-items: center;
     border-radius: 8px;
     border: 2px solid var(--regular-grey);
-}
 
-.buttonName {
     font-family: var(--font-primary);
     font-size: 16px;
     font-style: normal;
@@ -84,10 +82,14 @@
     line-height: 26px;
 }
 
-.imageArrowDown {
-    width: 24px;
-    height: 24px;
+.optionName {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
 }
+
 
 @media (min-width: 768px) {
     .accountMainContainer {
@@ -109,7 +111,7 @@
         padding: 0 160px 80px 160px;
     }
 
-    .header {
+    .headerAccount {
         padding: 80px 0 80px 0;
     }
 
@@ -129,7 +131,7 @@
         margin-right: 79px;
     }
 
-    .buttonDropMenu {
+    .dropMenu {
         display: none;
     }
 

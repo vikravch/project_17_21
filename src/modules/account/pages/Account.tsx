@@ -1,19 +1,25 @@
 import styles from "./accountPage.module.css"
 import image from '../images/Image.webp';
 import arrowDown from '../images/arrowDown.webp'
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import Address from "../presentation/components/address/Address";
 import Orders from "../presentation/components/orders/Orders";
 import WishList from "../presentation/components/wishList/WishList";
 import LogOut from "../presentation/components/logOut/LogOut";
 import AccountDetailsForm from "../presentation/components/accountDetailsForm/AccountDetailsForm";
 import {Route, Routes} from "react-router";
+import React from "react";
 
 
 const Account = () => {
+  const navigate = useNavigate();
+    const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        navigate(event.target.value);
+    };
+
     return (
         <section className={styles.accountContent}>
-            <header className={styles.header}>
+            <header className={styles.headerAccount}>
                 <button className={styles.backButton}>
                     <span className="chevron">&lt;</span> back
                 </button>
@@ -27,10 +33,13 @@ const Account = () => {
                         <img src={image} alt="Sofia Havertz"/>
                         <figcaption className={styles.accountName}>Sofia Havertz</figcaption>
                     </figure>
-                    <div className={styles.buttonDropMenu}>
-                        <p className={styles.buttonNameblack}>Account</p>
-                        <img className={styles.imageArrowDown} src={arrowDown} alt={arrowDown}/>
-                    </div>
+                    <select className={styles.dropMenu} onChange={handleSelectChange}>
+                        <option value="/account" className={styles.optionName}>Account</option>
+                        <option value="address" className={styles.optionName}>Address</option>
+                        <option value="orders" className={styles.optionName}>Orders</option>
+                        <option value="wishList" className={styles.optionName}>WishList</option>
+                        <option value="logout" className={styles.optionName}>Logout</option>
+                    </select>
                     <nav className={styles.sideMenu}>
                         <NavLink to="/account" className={styles.navLink}>Account</NavLink>
                         <NavLink to="address" className={styles.sideMenuEl}>Address</NavLink>
