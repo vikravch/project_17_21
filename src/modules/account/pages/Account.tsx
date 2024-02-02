@@ -1,6 +1,5 @@
 import styles from "./accountPage.module.css"
 import image from '../images/Image.webp';
-import arrowDown from '../images/arrowDown.webp'
 import {NavLink, useNavigate} from "react-router-dom";
 import Address from "../presentation/components/address/Address";
 import Orders from "../presentation/components/orders/Orders";
