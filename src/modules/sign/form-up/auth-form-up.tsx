@@ -4,16 +4,13 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { useForm, Controller, SubmitHandler, useFormState } from 'react-hook-form';
-import { loginValidation , passwordValidation } from './validationup';
+import { loginValidation , passwordValidation , yourNameValidation, userValidation} from './validationup';
 import Checkbox from '@mui/material/Checkbox';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
-import { RightSide } from '../right-side/right-side';
 // import { Link } from 'react-router-dom';
+import chair from '../../../images/pasteImage.webp';
 import './auth-form-up.css';
-// import BtnUp   from './auth-form-btn-yn.module.css'
-// import YnUp from './auth-form-btn-yn.module.css'
-
 
 
 interface ISignInForm {
@@ -35,37 +32,40 @@ export const AuthUp: React.FC  = () => {
     console.log(data);
   };
   return (
-    <div className="auth-page">
-            <div className="left-side-of-site">
-               <RightSide/>
+    <div className="auth-page-up">
+            <div className="left-side-of-site-up">
+            <div className="pasteImageUp">
+               <img className='imgChairUp' src={chair} alt="photo chair" />
+            </div> 
+            <div className="legant-of-left-side-up">
+              <p>3legant.</p>
+            </div> 
             </div>
-            <div className="right-side-of-site">
-               <div className='auth-form-up'>
-               <div className="auth-form-up-title">
-              <div className="auth-form-up-header">
-                <div className="auth-form-up-content">
-                 <Typography variant="h4" component="div" >
-                  Sign up
-                 </Typography> 
-                 </div>
+            <div className="right-side-of-site-up">
+               <div className='auth-form-right-side-up'>
+                 <div className="auth-form-title-up">
+                    <Typography variant="h4" component="div" >
+                    Sign up
+                    </Typography> 
+                    <Typography variant="subtitle2" 
+                      component="div" 
+                      gutterBottom={true} 
+                      className="auth-form-subtitle-up" >
+                      Already have an account? {" "}
+                       <a  href="/signin" className="signInlink">
+                       Sign in
+                       </a>{" "}
+                    </Typography>
                  </div>                                  
-                 <Typography variant="subtitle1" component="div" 
-                  gutterBottom={true} className="auth-form-up-subtitle" >
-                   Already have an account? {" "}
-                   <a  href="/signin" className="signUplink">
-                Sign in
-                 </a>{" "}
-               </Typography>
+                
               
-          </div>
+          
           <form className='auth-form-form-up' onSubmit={handleSubmit(onSubmit) }>
              <div className="form-up">
-             <div className="formInputUp1">
-                  <div className="contentInputUp1">
-                      <Controller 
+                    <Controller 
                           control={control}
                           name="yourName"
-                          rules={{required: 'The fields are required!'}}
+                          rules={yourNameValidation}
                           render={({field}) => (
                                   <TextField
                               label="Your name"
@@ -76,9 +76,7 @@ export const AuthUp: React.FC  = () => {
                               value={field.value}
                               error={!!errors.yourName?.message}
                               helperText={errors.yourName?.message}
-                              // className={YnUp.Yn1}
                               sx={{ 
-                                // yn
                                 left: '0px',
                                 fontFamily: 'Inter',
                                 fontStyle: 'normal',
@@ -88,20 +86,13 @@ export const AuthUp: React.FC  = () => {
                                 color: '#6C7275',
                                 border: '1px solid white', 
                               }}                    
-                                
-                              />
+                        />
                           )}
                       />
-                  
-                                        
-                  </div>
-               </div>
-               <div className="formInputUp2">
-                  <div className="contentInputUp2">
                       <Controller 
                           control={control}
                           name="userName"
-                          rules={{required: 'The fields are required!'}}
+                          rules={userValidation}
                           render={({field}) => (
                                   <TextField
                               label="Username"
@@ -115,14 +106,10 @@ export const AuthUp: React.FC  = () => {
                               />
                           )}
                       />                  
-                  </div>
-               </div>
-               <div className="formInputUp3">
-                  <div className="contentInputUp3">
                         <Controller 
                           control={control}
                           name="login"
-                          rules={{required: 'The fields are required!'}}
+                          rules={loginValidation}
                           render={({field}) => (
                                   <TextField
                               label="Email address"
@@ -135,11 +122,7 @@ export const AuthUp: React.FC  = () => {
                               helperText={errors.login?.message}
                                   />
                           )}
-                        />
-                  </div>
-               </div>
-                 <div className="formInputUp4">
-                   <div className="contentInputUp4">
+                        />                  
                      <Controller
                             control={control}
                             name="password"
@@ -167,12 +150,9 @@ export const AuthUp: React.FC  = () => {
                                          </InputAdornment>
                                       ),
                                       }}
-                              />
+                       />
                              )}
-                      />
-                    </div>
-                  </div>
-              
+                      />        
                    <div className="option-form-sign-up">
                       <Controller
                           control={control}
@@ -180,7 +160,7 @@ export const AuthUp: React.FC  = () => {
                           defaultValue={false}
                           render={({ field }) => (
                               <Checkbox
-                              className="sign-up-radioButton"
+                              className="sign-up-radio-button"
                               {...field}
                               checked={field.value}
                               />
@@ -189,19 +169,13 @@ export const AuthUp: React.FC  = () => {
                            <label className="sign-up-agree">
                             I agree with <a className='sign-up-linkP' href='#'> Privacy Policy</a> and <a className='linkpp' href='#'>Terms of Use</a>
                           </label>
-                   </div>
-                
-                 
-                  
-              </div>
-       
+                   </div>                  
               
-                  <Button 
+                <Button 
                   type="submit"
                   variant="contained"
                   fullWidth={ true}
                   disableElevation={true}
-                  // className={BtnUp.BtnUp1}
                   sx={{ 
                     background: '#141718',
                     borderRadius: '8px',
@@ -215,10 +189,10 @@ export const AuthUp: React.FC  = () => {
                     color: '#FFFFFF',
                     marginTop:2
                   }}            
-                
-                >Sign Up</Button>
+                >Sign Up
+                </Button>
 
-               
+            </div>   
           </form>
       </div>
       </div>
