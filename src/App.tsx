@@ -25,7 +25,7 @@ function App() {
         window.scrollTo(0, 0); // Перемещение скролла в верхнюю часть страницы при изменении пути
     }, [pathname]);
     const isAuthModule = (pathname: string) => {
-        return pathname.includes('/sign')
+        return pathname.includes('/sign') ||  pathname.includes('/forgot')
     }
 
     const AuthLayout = (<Routes>

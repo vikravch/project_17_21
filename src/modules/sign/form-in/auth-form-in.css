@@ -64,9 +64,9 @@
     align-items: flex-start;
     padding: 0px;
     gap: 24px;
-    width: 32vw;               
+    width: 32vw;
     height: 9vh;
-    flex: none;    
+    flex: none;
     order: 0;
     align-self: stretch;
     flex-grow: 0;
@@ -81,7 +81,7 @@
     color: var(--primary-dark);
     }
     .auth-form-subtitle{
-    width: 32vw; 
+    width: 32vw;
     height: 26px;
     font-family: var(--font-primary);
     font-style: normal;
@@ -92,11 +92,11 @@
     flex: none;
     order: 1;
     align-self: stretch;
-    flex-grow: 0;  
-    text-align: left  
+    flex-grow: 0;
+    text-align: left
     }
     .signUplink{
-    color: var(--primary-green-theme);  
+    color: var(--primary-green-theme);
     }
     .auth-form-form{
     display: flex;
@@ -104,7 +104,7 @@
     align-items: flex-start;
     padding: 0px;
     gap: 14px;
-    width: 32vw; 
+    width: 32vw;
     height: 16vh;
     flex: none;
     order: 1;
@@ -117,7 +117,7 @@
     align-items: flex-start;
     padding: 0px;
     gap: 14px;
-    width: 32vw; 
+    width: 32vw;
     height: 16vh;
     flex: none;
     order: 0;
@@ -128,7 +128,7 @@
 .option-form-sign-in{
     display: flex;
     flex-direction: row;
-    width: 32vw; 
+    width: 32vw;
     height: 2vh;
     flex: none;
     order: 0;
@@ -142,7 +142,7 @@
     top: 1px;
     background: var(--darktheme-text-fade);
     border: 1.5px solid var(--regular-grey);
-    border-radius: 4px; 
+    border-radius: 4px;
     }
     .sign-in-remember-me{
     width: 8vw;
@@ -152,7 +152,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 26px;
-    color: var(--regular-grey); 
+    color: var(--regular-grey);
     }
     .sign-in-body{
       margin-left: 12vw;
@@ -178,11 +178,11 @@
         }
         .legant-of-left-side {
         left: 40vw;
-        }      
+        }
         .imgChair{
           width: 50vw;
-        } 
-      
+        }
+
     }
 @media (min-width: 768px) and (max-width: 1439px) {
 .auth-page{
@@ -199,18 +199,18 @@ height: 100vh;
 }
 .legant-of-left-side {
 left: 25vw;
-}      
+}
 .imgChair{
   width: 50vw;
-} 
+}
 .auth-form-right-side{
   width: 45vw;
   height: 48vh;
-} 
+}
 .auth-form-title{
   width: 45vw;
 }
-.auth-form-form{ 
+.auth-form-form{
   width: 45vw;
 }
 .form-in {
@@ -229,34 +229,33 @@ left: 25vw;
     @media (min-width: 373px) and (max-width: 767px) {
       .auth-page{
         width: 100vw;
-        height: 100vh;
+        height: auto;
         display: flex;
         flex-direction: column;
         text-align: center;
 }
-      left-side-of-site {
+      .left-side-of-site {
         width: 100vw;
-        height: 50vh;
       }
       .right-side-of-site {
         width: 100vw;
-        height: 50vh;
+        height: auto;
       }
       .legant-of-left-side {
         left: 48vw;
-      }      
+      }
 .imgChair{
   width: 100vw;
-} 
+}
 .auth-form-right-side{
   width: 90vw;
   height: 48vh;
-} 
+}
 .auth-form-title{
   margin-top: 20px;
   width: 85vw;
 }
-.auth-form-form{ 
+.auth-form-form{
   width: 85vw;
 }
 .form-in {
@@ -274,4 +273,4 @@ left: 25vw;
 .auth-form-subtitle{
   width: 84vw;
 }
-} 
+}
