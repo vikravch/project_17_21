@@ -24,3 +24,9 @@
 
 }
 
+@media (max-width: 1231px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+}

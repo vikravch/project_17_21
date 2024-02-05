@@ -58,8 +58,12 @@
 .tables
 {
     display: flex;
-    gap: 16px;
-    background: linear-gradient(0deg, white 0%, white 100%)
+    flex-direction: row;
+    width: 100%;
+    gap: 2.5rem;
+    background: linear-gradient(0deg, white 0%, white 100%);
+
+
 }
 
 .table_uniq

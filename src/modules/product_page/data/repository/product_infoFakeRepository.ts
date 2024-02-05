@@ -29,7 +29,7 @@ const testProduct: Product_Page =
         name: 'Table',
         actualPrice: 100,
         fullPrice: 75,
-        image:'',
+        image: table,
         isNew: true,
         rating: 5,
         sale: 25,

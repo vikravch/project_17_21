@@ -60,7 +60,6 @@ const Cart = ({product}: product) => {
                     <button className={styles.clicked_wish}><img src={Img[3].img}/> Wishlist</button>
                 </div>
                 <button className={styles.final_cart} onClick={addHandler}>Add to cart</button>
-                <span hidden={error.length < 0}>{error}</span>
             </div>
             <hr/>
         </>

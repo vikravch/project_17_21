@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import styles from './ProductImage.module.css'
-import {Img, slideElements} from "../temp/constants";
 import {ProductProps} from "../Product";
 import {useAppDispatch, useAppSelector} from "../../../../../general/redux/hooks";
 import {getProductImagesAsyncAction} from "../../redux/asyncAction";
