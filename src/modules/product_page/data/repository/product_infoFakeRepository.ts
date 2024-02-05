@@ -2,15 +2,15 @@
 import ProductRepository from "../../domain/repository/product_repository";
 import Product_Page from "../../domain/model/product_Page";
 import Product_images from "../../domain/model/product_images";
-import table from '../../presentation/components/images/Paste image.png'
-import first from '../../presentation/components/images/First.png'
-import second from '../../presentation/components/images/second.png'
-import third from '../../presentation/components/images/third.png'
+import table from '../../presentation/components/images/Paste-image.webp'
+import first from '../../presentation/components/images/First.webp'
+import second from '../../presentation/components/images/second.webp'
+import third from '../../presentation/components/images/third.webp'
 
-import dark from '../../presentation/components/images/table01.png';
-import white from '../../presentation/components/images/table02.png';
-import red from '../../presentation/components/images/table03.png';
-import beige from '../../presentation/components/images/table04.png';
+import dark from '../../presentation/components/images/table01.webp';
+import white from '../../presentation/components/images/table02.webp';
+import red from '../../presentation/components/images/table03.webp';
+import beige from '../../presentation/components/images/table04.webp';
 
 
 export enum Color {

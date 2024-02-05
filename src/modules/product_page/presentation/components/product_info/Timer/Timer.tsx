@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './Timer.module.css'
 
 const Timer = () => {
+
+    useEffect(()=>{
+        let interval;
+    })
     return (
         <div>
             <div>

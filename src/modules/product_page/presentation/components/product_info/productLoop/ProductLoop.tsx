@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './ProductLoop.module.css';
 import {Img} from "../../temp/constants";
 import {useAppDispatch, useAppSelector} from "../../../../../../general/redux/hooks";
