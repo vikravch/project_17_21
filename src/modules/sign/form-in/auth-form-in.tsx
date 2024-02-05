@@ -3,17 +3,12 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import {
-  useForm,
-  Controller,
-  SubmitHandler,
-  useFormState,
-} from "react-hook-form";
+import {useForm, Controller, SubmitHandler, useFormState,} from "react-hook-form";
 import { loginValidation, passwordValidation } from "./validation";
 import Checkbox from "@mui/material/Checkbox";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
-import { RightSide } from "../right-side/right-side";
+import chair from '../../../images/pasteImage.webp';
 // import { Link } from 'react-router-dom';
 import "./auth-form-in.css";
 // import Button123 from './auth-form-btn.module.css'
@@ -35,24 +30,25 @@ export const AuthIn: React.FC = () => {
   return (
     <div className="auth-page">
       <div className="left-side-of-site">
-        <RightSide />
-      </div>
+         <div className="pasteImage">
+            <img className='imgChair' src={chair} alt="photo chair" />
+         </div> 
+         <div className="legant-of-left-side">
+            <p>3legant.</p>
+         </div> 
+        </div>
       <div className="right-side-of-site">
         <div className="auth-form-right-side">
           <div className="auth-form-title">
-            <div className="auth-form-header">
-              <div className="auth-form-content">
                 <Typography variant="h4" component="div">
                   Sign In
                 </Typography>
-              </div>
-            </div>
-            <Typography
+                <Typography
               variant="subtitle1"
               component="div"
               gutterBottom={true}
               className="auth-form-subtitle"
-            >
+                >
               Don’t have an account yet?{" "}
               <a href="/signup" className="signUplink">
                 Sign up
@@ -61,12 +57,10 @@ export const AuthIn: React.FC = () => {
           </div>
           <form className="auth-form-form" onSubmit={handleSubmit(onSubmit)}>
             <div className="form-in">
-              <div className="form-input1">
-                <div className="content-input1">
                   <Controller
                     control={control}
                     name="login"
-                    rules={{ required: "The fields are required!" }}
+                    rules={loginValidation}
                     render={({ field }) => (
                       <TextField
                         label="Your username or email address"
@@ -80,10 +74,6 @@ export const AuthIn: React.FC = () => {
                       />
                     )}
                   />
-                </div>
-              </div>
-              <div className="form-input2">
-                <div className="content-input2">
                   <Controller
                     control={control}
                     name="password"
@@ -120,18 +110,7 @@ export const AuthIn: React.FC = () => {
                       />
                     )}
                   />
-                </div>
-              </div>
-              <div className="option-form-sign-in">
-                <div className="sign-in-forgot-password">
-                  <a className="sign-in-body" href="/forgot">
-                    Forgot password?{" "}
-                  </a>
-                  {/* <Link to="#" className="body1">
-                     Forgot password?
-                   </Link> */}
-                </div>
-                <div className="sign-in-checkbox">
+                <div className="option-form-sign-in">
                   <Controller
                     control={control}
                     name="remember"
@@ -145,15 +124,20 @@ export const AuthIn: React.FC = () => {
                       </>
                     )}
                   />
-                </div>
+                  <a className="sign-in-body" href="/forgot">
+                    Forgot password?{" "}
+                  </a>
+                  {/* <Link to="#" className="body1">
+                     Forgot password?
+                   </Link> */}
+                
               </div>
-            </div>
+            
             <Button
               type="submit"
               variant="contained"
               fullWidth={true}
               disableElevation={true}
-              // className={Button123.Button12}
               sx={{
                 background: "#141718",
                 borderRadius: "8px",
@@ -170,6 +154,7 @@ export const AuthIn: React.FC = () => {
             >
               Sign In
             </Button>
+          </div>
           </form>
         </div>
       </div>

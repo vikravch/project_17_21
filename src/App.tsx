@@ -31,7 +31,7 @@ function App() {
     const AuthLayout = (<Routes>
         <Route path="/signin" element={<AuthIn/>}/>
         <Route path="/signup" element={<AuthUp/>}/>
-        <Route path="/formail" element={<ForgotPassword/>}/>
+        <Route path="/forgot" element={<ForgotPassword/>}/>
     </Routes>);
 
     const AppLayout = (
