@@ -11,3 +11,14 @@
     flex-direction: row;
     gap: 24px;
 }
+
+@media (max-width: 1231px) {
+    .bottom_elements
+    {
+        display: none;
+    }
+    .slide_elements
+    {
+        width: 375px;
+    }
+}

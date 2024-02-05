@@ -30,8 +30,8 @@ const Info = ({ratingInfo, productName, description, actualPrice, fullPrice}: pr
             <p className={styles.short_info}>
                 {description}</p>
             <div className={styles.price}>
-                <p className={styles.price1}>${actualPrice}</p>
-                <p className={styles.price2}>${fullPrice}</p>
+                <p className={styles.price1}>${fullPrice}</p>
+                <p className={styles.price2}>${actualPrice}</p>
             </div>
             <hr/>
         </div>
