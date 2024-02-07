@@ -10,7 +10,6 @@ import {ProductsUseCases} from "../../modules/shop-page/domain/use_case/use_case
 import GetAllProducts from "../../modules/shop-page/domain/use_case/getAllProducts";
 import GetAllSliderImages from "../../modules/home_page/domain/use_case/getAllSliderImages";
 import {
-  ArticleUseCases,
   BannerGridImagesUseCases,
   SliderImagesUseCases
 } from "../../modules/home_page/domain/use_case/use_cases";
@@ -28,9 +27,6 @@ import Product_infoFakeRepository from "../../modules/product_page/data/reposito
 import GetProduct from "../../modules/product_page/domain/use_case/getProduct";
 import {ProductUseCases} from "../../modules/product_page/domain/use_case/use_cases";
 import GetProductImages from "../../modules/product_page/domain/use_case/getProductImages";
-
-import GetLatestArticles from "../../modules/home_page/domain/use_case/getLatestArticles";
-import ArticlesFakeRepository from "../../modules/home_page/data/repository/articlesFakeRepository";
 import ArticlesBlogRepository from "../../modules/blog/presentation/domain/repository/articlesBlogRepository";
 import ArticlesBlogFakeRepository from "../../modules/blog/presentation/utils/data/articlesBlogFakeRepository";
 import GetAllBlogArticles from "../../modules/blog/presentation/domain/use_case/getAllArticles";
@@ -48,11 +44,10 @@ type LocatorRepository = {
   filteringFakeRepository: FilteringFakeRepository
   bannerGridImagesFakeRepository: BannerGridFakeRepository
   productInfoFakeRepository: Product_infoFakeRepository
-  articlesFakeRepository: ArticlesFakeRepository
   articleBlogFakeRepository: ArticlesBlogRepository
 }
 
-type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases & BannerGridImagesUseCases & FilteringUseCases & ProductUseCases & ArticleUseCases & ArticleBlogUseCases & SendEmailUseCases
+type LocatorUseCases = WeatherUseCases & ProductsUseCases & SliderImagesUseCases & BannerGridImagesUseCases & FilteringUseCases & ProductUseCases & ArticleBlogUseCases & SendEmailUseCases
 
 let locatorRepository: LocatorRepository
 
@@ -65,7 +60,6 @@ export const initLocatorRepository = () => {
     bannerGridImagesFakeRepository: new BannerGridFakeRepository(),
     filteringFakeRepository: new FilteringFakeRepository(),
     productInfoFakeRepository: new Product_infoFakeRepository(),
-    articlesFakeRepository: new ArticlesFakeRepository(),
     articleBlogFakeRepository: new ArticlesBlogFakeRepository()
   }
 }
@@ -85,7 +79,6 @@ export function useUseCases():LocatorUseCases{
     getAllSorting: GetAllSorting(locatorRepository.filteringFakeRepository),
     getProduct: GetProduct(locatorRepository.productInfoFakeRepository),
     getProductImages: GetProductImages(locatorRepository.productInfoFakeRepository),
-    getLatestArticles: GetLatestArticles(locatorRepository.articlesFakeRepository),
     getAllBlogArticles: GetAllBlogArticles(locatorRepository.articleBlogFakeRepository)
   }
 }
