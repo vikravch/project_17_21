@@ -4,7 +4,7 @@ import Product from "../../../shop-page/domain/model/product";
 export default class Product_Page extends Product
 {
 
-    constructor(id: string, name: string, image: string,actualPrice: number | null,fullPrice: number,sale: number,description: string,isNew: boolean, rating: number,color: string,amount: number, public readonly measurements: string ) {
+    constructor(id: string, name: string, image: string,actualPrice: number | null,fullPrice: number,sale: number,description: string,isNew: boolean, rating: number,color: string,amount: number, public readonly measurements: string , public readonly saleDate: Date) {
         super(id,
             name,
             image,
@@ -17,12 +17,13 @@ export default class Product_Page extends Product
             color,
             amount);
         this.measurements = measurements;
+        this.saleDate = saleDate;
 
     }
 
     static fromJson(json:string){
         const obj = JSON.parse(json);
-        return new Product_Page(obj.productId, obj.productName, obj.image, obj.actualPrice, obj.price, obj.discount, obj.description, obj.isNew, obj.rating, obj.color, obj.amount,obj.measurements);
+        return new Product_Page(obj.productId, obj.productName, obj.image, obj.actualPrice, obj.price, obj.discount, obj.description, obj.isNew, obj.rating, obj.color, obj.amount,obj.measurements, obj.saleDate);
     }
 
 }

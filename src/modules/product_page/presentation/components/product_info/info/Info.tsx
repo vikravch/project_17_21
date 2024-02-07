@@ -7,7 +7,8 @@ interface productInfo {
     productName: string | undefined,
     description: string | undefined,
     actualPrice: number | undefined | null,
-    fullPrice: number | undefined
+    fullPrice: number | undefined,
+
 }
 
 
