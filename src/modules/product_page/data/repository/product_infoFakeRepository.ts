@@ -41,8 +41,7 @@ const testProduct: Product_Page =
 
 const testImages: Product_images =
     {
-        mainImage: table,
-        restImages: [first,second,third],
+        imagesContainer: [table,first,second,third],
         colorImages: [
             {
                 img: dark,
