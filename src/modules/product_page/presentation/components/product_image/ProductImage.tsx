@@ -1,12 +1,10 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect,  useState} from 'react';
 import styles from './ProductImage.module.css'
 import {ProductProps} from "../Product";
 import {useAppDispatch, useAppSelector} from "../../../../../general/redux/hooks";
 import {getProductImagesAsyncAction} from "../../redux/asyncAction";
 
-import {BsArrowLeft, BsArrowRight} from "react-icons/bs";
 import {SlArrowLeft, SlArrowRight} from "react-icons/sl";
-import {firstInputPolyfill} from "web-vitals/dist/modules/lib/polyfills/firstInputPolyfill";
 
 
 const ProductImage = (props: ProductProps) => {
