@@ -24,6 +24,10 @@ const ProductImage = (props: ProductProps) => {
         }
     }, [])
 
+    useEffect(()=>{
+        setImages(productImages);
+    },[productImages])
+
     const clickHandler = (direction: string | undefined) => {
         switch (direction) {
             case 'left':
