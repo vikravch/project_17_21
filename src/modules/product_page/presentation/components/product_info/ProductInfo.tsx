@@ -25,7 +25,7 @@ const ProductInfo = (props : ProductProps) => {
         <Info ratingInfo={productInfo !== undefined  ? productInfo.rating : undefined} key={productInfo !== undefined  ? productInfo.id : undefined}
               productName={productInfo?.name} description={productInfo?.description}
               actualPrice={productInfo?.actualPrice} fullPrice={productInfo?.fullPrice}/>
-        <Timer/>
+        <Timer timerDate={productInfo?.saleDate}/>
         <hr/>
         <ProductLoop measurements={productInfo?.measurements}/>
         <Cart product={productInfo || undefined}/>

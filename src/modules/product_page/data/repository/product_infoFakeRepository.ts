@@ -34,14 +34,14 @@ const testProduct: Product_Page =
         rating: 5,
         sale: 25,
         description: 'The greatest table you ever see in your life, buy it now or now, there is no any other choice, you should buy it!',
-        measurements: '17 1/2x20 5/8'
+        measurements: '17 1/2x20 5/8',
+        saleDate: new Date('02/09/2024 12:30:45')
     };
 
 
 const testImages: Product_images =
     {
-        mainImage: table,
-        restImages: [first,second,third],
+        imagesContainer: [table,first,second,third],
         colorImages: [
             {
                 img: dark,
