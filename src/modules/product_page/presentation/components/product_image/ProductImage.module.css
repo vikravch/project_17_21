@@ -45,8 +45,9 @@
 }
 
 .mainImage {
-    min-width: 530px;
-    min-height: 730px;
+    min-width: 330px;
+    min-height: 525px;
+
     margin: 0 auto;
 
 }
@@ -57,7 +58,7 @@
 }
 
 .bottom_elements {
-    width: auto;
+    width: 169px;
     height: 169px;
     display: flex;
     flex-direction: row;

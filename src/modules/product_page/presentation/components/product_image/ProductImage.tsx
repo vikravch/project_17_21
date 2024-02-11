@@ -58,9 +58,9 @@ const ProductImage = (props: ProductProps) => {
                 </div>
             </div>
             <div className={styles.bottom_elements}>
-                {images?.map((e, index) => {
+                {images?.map((e,index) => {
                     if (index === currentIndex)
-                        return < div hidden={true}></div>;
+                        return undefined;
                     return <img src={e} alt='restImages'/>
                 })}
             </div>
