@@ -19,7 +19,7 @@ interface EditAddressFormProps{
     type: 'billing' | 'shipping';
 }
 
-const EditAddressForm: React.FC<EditAddressFormProps> = ({ name, address, onSave, onCancel, type }) => {
+const EditAddressForm: React.FC<EditAddressFormProps> = ({address, onSave, onCancel, type }) => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({
         defaultValues: {
             firstName: address.name.split(' ')[0],
