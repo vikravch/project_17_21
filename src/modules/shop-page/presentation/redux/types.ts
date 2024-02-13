@@ -6,6 +6,7 @@ import React, {MutableRefObject} from "react";
 import {Listener} from "../int";
 
 export type ShopPageState = {
+    expectedCountOfProducts: number,
     products?: Product[],
     categories?: Category[],
     prices?: Price[],
@@ -35,6 +36,11 @@ export type RequestSearchProducts = {
 }
 
 export type RequestProducts = RequestSearchProducts | RequestShopProducts
+
+export type ResponseProducts = {
+    products: Product[],
+    count: number
+}
 
 export type ChildrenProps = {
     listenerObject?: MutableRefObject<Listener>,

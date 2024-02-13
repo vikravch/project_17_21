@@ -1,4 +1,4 @@
-const millisecondsInMonth = 30 * 24 * 60 * 60 * 1000;
+import {productsServer} from "../../data/remote/api";
 
 export default class Product{
     constructor(
@@ -36,8 +36,8 @@ export default class Product{
         if (actualPrice)
             actualPrice = parseFloat(actualPrice.toFixed(2));
         const currentData = new Date();
-        const isNew = currentData.getTime() - new Date(obj.date).getTime() < millisecondsInMonth;
-        return new Product(obj.productId, obj.productName, obj.image, actualPrice, obj.price, obj.discount, obj.description, isNew, obj.rating, obj.color, obj.amount);
+        const isNew = currentData.getTime() - new Date(obj.date).getTime() < 30 * 24 * 60 * 60 * 1000;
+        return new Product(obj.productId, obj.productName, productsServer + obj.image, actualPrice, obj.price, obj.discount, obj.description, isNew, obj.rating, obj.color, obj.amount);
     }
 }
 

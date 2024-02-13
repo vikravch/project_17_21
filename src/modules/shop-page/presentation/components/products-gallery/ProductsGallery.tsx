@@ -6,7 +6,7 @@ import {AppStore} from "../../../../../general/redux/types";
 import {Columns, RequestSearchProducts, RequestShopProducts, ShopPageState} from "../../redux/types";
 
 type Props = {
-    setRequestObject:  React.Dispatch<React.SetStateAction<RequestSearchProducts>> | React.Dispatch<React.SetStateAction<RequestShopProducts>>
+    setRequestObject: React.Dispatch<React.SetStateAction<RequestSearchProducts>> | React.Dispatch<React.SetStateAction<RequestShopProducts>>
 }
 
 const ProductsGallery = ({setRequestObject}: Props) => {
@@ -16,7 +16,7 @@ const ProductsGallery = ({setRequestObject}: Props) => {
     );
     const [gridStyles, setGridStyles] = useState({});
 
-    const {products, error} = useSelector<AppStore, ShopPageState>(
+    const {products, error, expectedCountOfProducts} = useSelector<AppStore, ShopPageState>(
         state => state.shopPage
     );
 
@@ -39,18 +39,19 @@ const ProductsGallery = ({setRequestObject}: Props) => {
                 {
                     products ?
                         products.map((product, index) => (
-                                <ShopProductCard product={product}
-                                                 columns={columns}
-                                                 key={`product_${index}_${product.name}`}
-                                />
-                            )) :
+                            <ShopProductCard product={product}
+                                             columns={columns}
+                                             key={`product_${index}_${product.name}`}
+                            />
+                        )) :
                         <p>{error}</p>
                 }
             </div>
-            <button className={style.showMore} onClick={() => {
-                setRequestObject((prevState: any) => ({...prevState, page: ++prevState.page}))
-            }}>Show more
-            </button>
+            {products && expectedCountOfProducts > products.length &&
+                <button className={style.showMore} onClick={() => {
+                    setRequestObject((prevState: any) => ({...prevState, page: ++prevState.page}))
+                }}>Show more
+                </button>}
         </div>
     );
 };

@@ -11,6 +11,7 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
     {
         name: 'shopPage',
         initialState: {
+            expectedCountOfProducts: 0,
             products: [],
             categories: [],
             prices: [],
@@ -40,7 +41,8 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
                 .addCase(
                     (getAllProductsAsyncAction.fulfilled),
                     (state, action) => {
-                        state.products = action.payload;
+                        state.expectedCountOfProducts = action.payload.count;
+                        state.products = state.products?.concat(action.payload.products);
                     }
                 )
                 .addCase(
@@ -58,7 +60,8 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
                 .addCase(
                     (getProductsAsyncAction.fulfilled),
                     (state, action) => {
-                        state.products = state.products?.concat(action.payload);
+                        state.expectedCountOfProducts = action.payload.count;
+                        state.products = state.products?.concat(action.payload.products);
                     }
                 )
                 .addCase(getAllCategoriesAsyncAction.pending,

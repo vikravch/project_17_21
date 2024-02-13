@@ -1,10 +1,11 @@
 import ProductsRepository from "../../domain/repository/productsRepository";
 import testImage from './testImage.webp'
 import Product from "../../domain/model/product";
-import {RequestProducts} from "../../presentation/redux/types";
+import {RequestProducts, ResponseProducts} from "../../presentation/redux/types";
 
 let testProducts: Product[] = [];
-for (let i = 0; i < 12; i++) {
+const count = 12;
+for (let i = 0; i < count; i++) {
     testProducts.push({
         id: '' + i,
         name: 'TestProduct',
@@ -21,10 +22,10 @@ for (let i = 0; i < 12; i++) {
 }
 
 export default class ProductsFakeRepository implements ProductsRepository {
-    async getAllProducts(): Promise<Product[]> {
-        return await Promise.resolve(testProducts)
+    async getAllProducts(): Promise<ResponseProducts> {
+        return await Promise.resolve({products: testProducts, count: count})
     }
-    async getProducts(requestObject: RequestProducts): Promise<Product[]> {
-        return await Promise.resolve(testProducts)
+    async getProducts(requestObject: RequestProducts): Promise<ResponseProducts> {
+        return await Promise.resolve({products: testProducts, count: count})
     }
 }
