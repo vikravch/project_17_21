@@ -2,15 +2,15 @@
 import ProductRepository from "../../domain/repository/product_repository";
 import Product_Page from "../../domain/model/product_Page";
 import Product_images from "../../domain/model/product_images";
-import table from '../../presentation/components/images/Paste image.png'
-import first from '../../presentation/components/images/First.png'
-import second from '../../presentation/components/images/second.png'
-import third from '../../presentation/components/images/third.png'
+import table from '../../presentation/components/images/Paste-image.webp'
+import first from '../../presentation/components/images/First.webp'
+import second from '../../presentation/components/images/second.webp'
+import third from '../../presentation/components/images/third.webp'
 
-import dark from '../../presentation/components/images/table01.png';
-import white from '../../presentation/components/images/table02.png';
-import red from '../../presentation/components/images/table03.png';
-import beige from '../../presentation/components/images/table04.png';
+import dark from '../../presentation/components/images/table01.webp';
+import white from '../../presentation/components/images/table02.webp';
+import red from '../../presentation/components/images/table03.webp';
+import beige from '../../presentation/components/images/table04.webp';
 
 
 export enum Color {
@@ -29,19 +29,19 @@ const testProduct: Product_Page =
         name: 'Table',
         actualPrice: 100,
         fullPrice: 75,
-        image:'',
+        image: table,
         isNew: true,
         rating: 5,
         sale: 25,
         description: 'The greatest table you ever see in your life, buy it now or now, there is no any other choice, you should buy it!',
-        measurements: '17 1/2x20 5/8'
+        measurements: '17 1/2x20 5/8',
+        saleDate: new Date('02/09/2024 12:30:45')
     };
 
 
 const testImages: Product_images =
     {
-        mainImage: table,
-        restImages: [first,second,third],
+        imagesContainer: [table,first,second,third],
         colorImages: [
             {
                 img: dark,

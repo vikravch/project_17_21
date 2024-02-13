@@ -12,9 +12,12 @@ import {Link} from "react-router-dom";
 import {navItems} from "../../../../general/utils/Constants";
 import NavItem from "../../../../general/components/navigation/NavItem";
 
-const FlyMobile = () => {
+interface Props{
+    currentQuantity:number
+}
+
+const FlyMobile = ({currentQuantity}:Props) => {
     const dispatch = useAppDispatch();
-    const cartLength = useAppSelector(state => state.cart.items.length);
     return (
         <div className={'fly_mobile_wrapper'}>
             <div className={'fly_mobile_section'}>
@@ -36,7 +39,7 @@ const FlyMobile = () => {
                                 <div className={'fly_mobile_icons'}>
                                     <CartIcon/>
                                     <div className={'fly_mobile_count_circle'}>
-                                        <p className={'fly_mobile_count_text'}>{cartLength}</p>
+                                        <p className={'fly_mobile_count_text'}>{currentQuantity}</p>
                                     </div>
                                 </div>
                             </Link>

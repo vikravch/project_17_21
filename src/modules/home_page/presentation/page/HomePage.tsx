@@ -5,8 +5,8 @@ import BannerGrid from "../components/BannerGrid";
 import Values from "../components/Values";
 import Discount from "../components/Discount";
 import NewArrivals from "../components/NewArrivals";
-import Articles from "../../presentation/components/articles/Articles";
-import "././images/HomePage.css"
+import "./HomePage.css"
+import BlogAlso from "../../../blog/presentation/components/BlogAlso/BlogAlso";
 
 
 
@@ -18,7 +18,7 @@ const HomePage = () => {
             <NewArrivals/>
             <Values/>
             <Discount/>
-            <Articles/>
+            <BlogAlso/>
         </div>
     );
 };

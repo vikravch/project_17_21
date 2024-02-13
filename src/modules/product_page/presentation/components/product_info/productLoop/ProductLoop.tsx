@@ -10,9 +10,10 @@ interface Measurements {
 
 const ProductLoop = ({measurements}: Measurements) => {
 
-    const [pickedColor,setPickedColor] = useState();
+    const [pickedColor,setPickedColor] = useState('dark');
     const colors = useAppSelector(state => state.productPage.productImages?.colorImages);
     const dispatch = useAppDispatch();
+
     const colorHandle = (e : any) =>{
         setPickedColor(e.target.alt);
     }
@@ -21,7 +22,7 @@ const ProductLoop = ({measurements}: Measurements) => {
         dispatch(setColor(pickedColor));
     },[pickedColor])
 
-    // @ts-ignore
+    
     return (
         <div className={styles.product_loop}>
             <div className={styles.measurements_info}>
@@ -36,7 +37,7 @@ const ProductLoop = ({measurements}: Measurements) => {
                 <p className={styles.color_name}>{pickedColor}</p>
                 <div className={styles.tables}>
                     {colors?.map((e,index )=> pickedColor === e.color ? <img key={index} className={styles.picked_table} src={e.img}/> :
-                            <img key={index} className={styles.table_uniq} alt={e.color}  onClick={colorHandle}  src={e.img}/>)}
+                            <img  key={index} className={styles.table_uniq} alt={e.color}  onClick={colorHandle}   src={e.img}/>)}
                 </div>
             </div>
 

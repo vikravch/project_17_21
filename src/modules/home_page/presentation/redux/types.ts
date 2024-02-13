@@ -12,11 +12,3 @@ export type BannerGridImagesState = {
     error: string
 }
 
-export interface Article {
-    id: number;
-    img: string;
-    title: string;
-    text: string;
-    date: Date;
-}
-
