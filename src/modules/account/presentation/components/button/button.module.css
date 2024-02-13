@@ -1,0 +1,17 @@
+.button {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 12px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    background: var(--primary-dark);
+    color: var(--darktheme-text-primary);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.4px;
+}

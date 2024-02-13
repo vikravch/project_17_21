@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from "./accountDetailsForm.module.css";
 import {SubmitHandler, useForm} from "react-hook-form";
-
 import {useAppDispatch} from "../../../../../general/redux/hooks";
 import {updateUser} from "../../../redux/accountSlice";
 import {FormDataAccount} from "../../../redux/types";
+import Button from "../button/Button";
 
 
 const AccountDetailsForm = () => {
@@ -95,14 +95,13 @@ const AccountDetailsForm = () => {
                         <label>REPEAT NEW PASSWORD</label>
                         <input placeholder="Repeat new password"
                                {...register('confirmPassword', {
-                                   validate: value =>
-                                       value === newPassword || 'The passwords do not match'
+                                   validate: newPassword ? value => value === newPassword || 'The passwords do not match' : undefined
                                })}
                                type="password"
                                id="confirmPassword"/>
                         {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
                     </fieldset>
-                    <button className={styles.buttonSaveChanges} type={"submit"}>Save changes</button>
+                    <Button type={"submit"}>Save changes</Button>
                 </div>
             </form>
         </section>

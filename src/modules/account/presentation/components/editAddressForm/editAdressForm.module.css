@@ -1,24 +1,3 @@
-.formAccountDetails {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    margin-bottom: 40px;
-    font-family: Inter, serif;
-}
-
-.titleForm {
-    color: var(--black-text);
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 32px;
-}
-
-fieldset {
-    border: none;
-}
-
 .inputContainer {
     color: var(--regular-grey);
     display: flex;
@@ -26,9 +5,9 @@ fieldset {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+    margin: 20px 0;
 }
-
-.formAccountDetails input {
+.formEditAddress input {
     display: flex;
     height: 40px;
     padding: 0 16px;
@@ -48,24 +27,9 @@ fieldset {
     text-transform: uppercase;
 }
 
-.formAccountDetails p {
+.formEditAddress p {
     font-size: 12px;
     font-style: italic;
     font-weight: 400;
     line-height: 20px;
-}
-
-
-@media (min-width: 1120px) {
-    .containerForm {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 40px;
-    }
-
-    .inputContainer {
-        width: 707px;
-    }
-
 }

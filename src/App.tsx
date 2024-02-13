@@ -19,7 +19,8 @@ import Orders from "./modules/account/presentation/components/orders/Orders";
 import WishList from "./modules/account/presentation/components/wishList/WishList";
 import LogOut from "./modules/account/presentation/components/logOut/LogOut";
 import AccountDetailsForm from "./modules/account/presentation/components/accountDetailsForm/AccountDetailsForm";
-import AccountPage from "./modules/account/presentation/pages/accountPage";
+import AccountPage from "./modules/account/presentation/pages/AccountPage";
+
 
 function App() {
     const {pathname} = useLocation();

@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 import {removeFromWishList} from "../../../redux/accountSlice";
 import {addItemCart} from "../../../../cart/presentation/redux/cartSlice";
 import {TItemWishList} from "../../../redux/types";
+import Button from "../button/Button";
 
 
 
@@ -15,6 +16,7 @@ const ProductCard = ({id, name, color, actualPrice, image, fullPrice, sale, desc
     };
 
     const addToCart = () => {
+        const subtotal = parseFloat((actualPrice * quantity).toFixed(2));
         const productForCart = {
             id,
             name,
@@ -27,8 +29,8 @@ const ProductCard = ({id, name, color, actualPrice, image, fullPrice, sale, desc
             rating,
             color,
             amount: 1,
-            quantity:'',
-            subtotal: actualPrice * quantity
+            quantity: 1,
+            subtotal
         };
 
         dispatch(addItemCart({
@@ -55,7 +57,7 @@ const ProductCard = ({id, name, color, actualPrice, image, fullPrice, sale, desc
             <div className={styles.price}>
                 <p>{actualPrice}</p>
             </div>
-            <button onClick={addToCart} className={styles.button}>Add to cart</button>
+            <Button type={"button"} onClick={addToCart} >Add to cart</Button>
         </article>
     );
 };

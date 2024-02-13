@@ -1,13 +1,11 @@
-import styles from "./account.module.css"
+import styles from "./accountPage.module.css"
 import {NavLink, Outlet, useNavigate} from "react-router-dom";
 import React from "react";
-import {useAppSelector} from "../../../../../general/redux/hooks";
+import {useAppSelector} from "../../../../general/redux/hooks";
 
 
-interface IProps {
-    location: string
-}
-const Account = ({location}: IProps) => {
+
+const AccountPage = () => {
   const navigate = useNavigate();
   const user = useAppSelector(state=>state.account.user)
 
@@ -52,4 +50,4 @@ const Account = ({location}: IProps) => {
     );
 };
 
-export default Account;
+export default AccountPage;

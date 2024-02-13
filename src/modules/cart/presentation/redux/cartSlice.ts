@@ -54,7 +54,9 @@ const cartSlice = createSlice(
           state.subtotalPrice = state.subtotalPrice + action.payload.product.actualPrice
           state.totalPrice = calculateTotalPrice(state.shipping, state.totalPrice, state.subtotalPrice);
         }
+
       },
+
       deleteItemCart: (state, action) => {
         const elementToDelete = state.items.find(el => el.id === action.payload);
         if(elementToDelete) {
