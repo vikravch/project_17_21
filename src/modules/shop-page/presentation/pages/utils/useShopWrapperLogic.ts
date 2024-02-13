@@ -6,14 +6,19 @@ import {AppDispatch} from "../../../../../general/redux/store";
 import {getProductsAsyncAction} from "../../redux/asyncActions";
 import {AsyncThunkAction} from "@reduxjs/toolkit";
 import useUpdateEffect from "../../../../../general/utils/hooks/useUpdateEffect";
+import {cleanProducts} from "../../redux/shopPageSlice";
 
-interface Props<T> {
+interface Props<T extends RequestProducts> {
     initialRequestObject: T;
     apiActions: (() => AsyncThunkAction<any, any, any>)[];
     updateRequestObject: (currentState: T, searchParams: URLSearchParams) => T;
 }
 
-function useShopWrapperLogic<T> ({ initialRequestObject, apiActions, updateRequestObject }: Props<T>)  {
+function useShopWrapperLogic<T extends RequestProducts>({
+                                                            initialRequestObject,
+                                                            apiActions,
+                                                            updateRequestObject
+                                                        }: Props<T>) {
     const dispatch = useDispatch<AppDispatch>();
     const [isFiltersExists, setIsFiltersExists] = useState(false);
     const location = useLocation();
@@ -27,10 +32,17 @@ function useShopWrapperLogic<T> ({ initialRequestObject, apiActions, updateReque
     useUpdateEffect(() => {
         const updatedRequestObject = updateRequestObject(requestObject, searchParams);
         setRequestObject(updatedRequestObject);
+        dispatch(cleanProducts(null));
         dispatch(getProductsAsyncAction(updatedRequestObject as RequestProducts));
     }, [location, isFiltersExists]);
 
-    return { requestObject, setRequestObject, searchParams, location };
+    useUpdateEffect(() => {
+        if (requestObject.page !== 1) {
+            dispatch(getProductsAsyncAction(requestObject as RequestProducts));
+        }
+    }, [requestObject])
+
+    return {requestObject, setRequestObject, searchParams, location};
 }
 
-export { useShopWrapperLogic };
+export {useShopWrapperLogic};

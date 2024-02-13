@@ -17,7 +17,11 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
             sort: [],
             error: 'Any error'
         },
-        reducers: {},
+        reducers: {
+            cleanProducts: (state) => {
+                state.products = [];
+            },
+        },
         extraReducers: (builder) => {
             builder
                 .addCase(
@@ -110,3 +114,4 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
 );
 
 export default shopPageSlice.reducer;
+export const { cleanProducts } = shopPageSlice.actions;

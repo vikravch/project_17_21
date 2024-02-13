@@ -23,7 +23,7 @@ export type RequestShopProducts = {
         price: number | null,
         sorting: number | null,
     }
-    page: number
+    page: number | null
 }
 
 export type RequestSearchProducts = {

@@ -28,9 +28,15 @@ export default class Product{
     }
     static fromJson (json: string): Product {
         const obj = JSON.parse(json)
-        const actualPrice = obj.discount === 0 ? null :  obj.price - (obj.price * obj.discount / 100);
+        return Product.fromServerObject(obj);
+    }
+
+    static fromServerObject (obj: any): Product {
+        let actualPrice = obj.discount === 0 ? null :  obj.price - (obj.price * obj.discount / 100);
+        if (actualPrice)
+            actualPrice = parseFloat(actualPrice.toFixed(2));
         const currentData = new Date();
-        const isNew = currentData.getTime() - obj.date.getTime() < millisecondsInMonth;
+        const isNew = currentData.getTime() - new Date(obj.date).getTime() < millisecondsInMonth;
         return new Product(obj.productId, obj.productName, obj.image, actualPrice, obj.price, obj.discount, obj.description, isNew, obj.rating, obj.color, obj.amount);
     }
 }

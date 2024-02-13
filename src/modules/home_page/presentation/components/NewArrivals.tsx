@@ -17,8 +17,8 @@ const NewArrivals = () =>
 
     useEffect(() => {
         const fetchNewProducts = async () => {
-            const allProducts: Product[] = await GetAllProducts(new ProductsFakeRepository())();
-            const newProducts: Product[] = allProducts.filter((product: Product) => product.isNew);
+            // const allProducts: Product[] = await GetAllProducts(new ProductsFakeRepository())();
+            // const newProducts: Product[] = allProducts.filter((product: Product) => product.isNew);
             setNewProducts(newProducts);
         };
 

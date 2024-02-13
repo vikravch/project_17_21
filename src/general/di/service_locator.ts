@@ -19,12 +19,14 @@ import {FilteringUseCases} from '../../modules/shop-page/domain/use_case/use_cas
 import GetAllCategories from "../../modules/shop-page/domain/use_case/getAllCategories";
 import GetAllPrices from "../../modules/shop-page/domain/use_case/getAllPrices";
 import GetAllSorting from "../../modules/shop-page/domain/use_case/getAllSorting";
+import ProductsExpressRepository from "../../modules/shop-page/data/repository/productsExpressRepository";
 
 // Dependency injection - Service locator
 type LocatorRepository = {
   weatherRepository: WeatherRepository
   cacheRepository: CacheRepository
   productsFakeRepository: ProductsRepository
+  productsExpressRepository: ProductsRepository
   sliderImagesFakeRepository: SliderImagesFakeRepository
   filteringFakeRepository: FilteringFakeRepository
   bannerGridImagesFakeRepository: BannerGridFakeRepository
@@ -40,6 +42,7 @@ export const initLocatorRepository = () => {
     weatherRepository: new WeatherServerRepository(),
     cacheRepository: new CacheLocalStoreRepository(),
     productsFakeRepository: new ProductsFakeRepository(),
+    productsExpressRepository: new ProductsExpressRepository(),
     sliderImagesFakeRepository: new SliderImagesFakeRepository(),
     bannerGridImagesFakeRepository: new BannerGridFakeRepository(),
     filteringFakeRepository: new FilteringFakeRepository()
@@ -51,10 +54,15 @@ export function useUseCases():LocatorUseCases{
     getWeather: GetWeather(
         locatorRepository.weatherRepository, locatorRepository.cacheRepository
     ),
-    getAllProducts: GetAllProducts(locatorRepository.productsFakeRepository),
+    getProducts: GetProducts(
+        locatorRepository.productsFakeRepository, locatorRepository.productsExpressRepository
+    ),
+    getAllProducts: GetAllProducts(
+        locatorRepository.productsFakeRepository, locatorRepository.productsExpressRepository
+    ),
     getAllSliderImages: GetAllSliderImages(locatorRepository.sliderImagesFakeRepository),
     getAllBannerGridImages: GetAllBannerGridImages(locatorRepository.bannerGridImagesFakeRepository),
-    getProducts: GetProducts(locatorRepository.productsFakeRepository),
+
     getAllCategories: GetAllCategories(locatorRepository.filteringFakeRepository),
     getAllPrices: GetAllPrices(locatorRepository.filteringFakeRepository),
     getAllSorting: GetAllSorting(locatorRepository.filteringFakeRepository),

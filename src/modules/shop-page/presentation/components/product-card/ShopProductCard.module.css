@@ -1,5 +1,6 @@
 .imageBlock{
     position: relative;
+    min-height: 200px;
 }
 .imageBlock img{
     width: 100%;

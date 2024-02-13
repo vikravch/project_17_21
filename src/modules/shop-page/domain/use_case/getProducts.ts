@@ -1,15 +1,22 @@
 import ProductsFakeRepository from "../../data/repository/productsFakeRepository";
 import Product from "../model/product";
 import {RequestProducts} from "../../presentation/redux/types";
+import ProductsRepository from "../repository/productsRepository";
 
 const GetProducts = (
-    productsFakeRepository: ProductsFakeRepository
+    productsFakeRepository: ProductsFakeRepository,
+    productsExpressRepository: ProductsRepository
 ) => async (requestObject: RequestProducts): Promise<Product[]> => {
     try {
-        const products = await productsFakeRepository.getProducts(requestObject);
+        let products = await productsExpressRepository.getProducts(requestObject);
+        console.log(products);
+        if (products === null || products[0].name === undefined) {
+            products = await productsFakeRepository.getProducts(requestObject);
+        }
         return products || [];
     } catch (e) {
-        throw e;
+        console.log(e);
+        return await productsFakeRepository.getProducts(requestObject)
     }
 }
 
