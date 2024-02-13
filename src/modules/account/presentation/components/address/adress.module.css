@@ -1,0 +1,73 @@
+.addressContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    font-family: Inter, serif;
+}
+
+.addressTitle {
+    color: var(--black-text);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+.boxAddress {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 23px;
+}
+
+.contentBox {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--regular-grey);
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.headerContent button {
+    color: var(--regular-grey);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+    border: none;
+    background: none;
+}
+
+.contentAddress {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+@media (min-width: 1120px) {
+    .addressContent {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 19px;
+        width: 707px;
+    }
+
+    .boxAddress {
+        display: flex;
+        flex-direction: row;
+    }
+}

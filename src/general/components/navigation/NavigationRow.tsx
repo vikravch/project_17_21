@@ -12,13 +12,19 @@ import {navItems} from "../../utils/Constants";
 import NavItem from "./NavItem";
 import {Link} from "react-router-dom";
 import {getAllCategoriesAsyncAction} from "../../../modules/shop-page/presentation/redux/asyncActions";
+import {showSearchInput} from "../../redux/slices/showSearchInputSlice";
+
 
 
 const Navigation = () => {
     const dispatch = useAppDispatch();
-    const flag = useAppSelector(state => state.flyMenu.showFlyMenu);
-    const cartLength = useAppSelector(state => state.cart.items.length);
-    console.log(window.location.pathname != "/shop");
+    const showFlyMenuFlag = useAppSelector(state => state.flyMenu.showFlyMenu);
+    const itemsInCart = useAppSelector(state => state.cart.items);
+    let currentQuantity:number = 0;
+    for (let i = 0; i < itemsInCart.length; i++) {
+        currentQuantity += itemsInCart[i].quantity;
+    }
+    const showSearchInputFlag = useAppSelector(state => state.showSearchInput.showSearchInput);
 
 
     useEffect(() => {
@@ -27,13 +33,12 @@ const Navigation = () => {
     }, []);
 
     function handleSearchInput() {
-        const input = document.querySelector('.navigation_search_bar_desktop');
-        input?.classList.toggle('navigation_visibility');
+        dispatch(showSearchInput(!showSearchInputFlag));
     }
 
     return (
         <div className={'navigation_bar_wrapper'}>
-            {flag ? <FlyMobile/> : <></>}
+            {showFlyMenuFlag ? <FlyMobile/> : <></>}
             <div className={'navigation_width'}>
                 <div className={'menu_btn'}>
                     <i className={'menu_btn_icon'} onClick={() => dispatch(openFlyMenu(true))}><FlyMenuBtnIcon/></i>
@@ -44,7 +49,8 @@ const Navigation = () => {
                     {navItems.map(item => <NavItem key={item.route} fly={false} item={item}/>)}
                 </ul>
                 <div className={'navigation_icons_section'}>
-                    <input type="search" placeholder={'Search'} className={'navigation_search_bar_desktop'}/>
+                    {showSearchInputFlag ? <input type="search" placeholder={'Search'}
+                                                 className={'navigation_search_bar_desktop'}/> : <></>}
                     <div className={'account_and_search'}>
                         <span onClick={() => handleSearchInput()}><SearchIcon/></span>
                         <Link to={'/account'}><MyAccountIcon/></Link>
@@ -52,7 +58,7 @@ const Navigation = () => {
                     <Link to={"/cart"} className={'cart_navigation_section'}>
                         <CartIcon/>
                         <div className={'cart_count_circle'}>
-                            <p className={'cart_count_text'}>{cartLength}</p>
+                            <p className={'cart_count_text'}>{currentQuantity}</p>
                         </div>
                     </Link></div>
             </div>

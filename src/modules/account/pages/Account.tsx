@@ -1,5 +1,6 @@
-import styles from "./account.module.css"
+import styles from "./accountPage.module.css"
 import image from '../images/Image.webp';
+import arrowDown from '../images/arrowDown.webp'
 import {NavLink} from "react-router-dom";
 import Address from "../presentation/components/address/Address";
 import Orders from "../presentation/components/orders/Orders";
@@ -7,10 +8,9 @@ import WishList from "../presentation/components/wishList/WishList";
 import LogOut from "../presentation/components/logOut/LogOut";
 import AccountDetailsForm from "../presentation/components/accountDetailsForm/AccountDetailsForm";
 import {Route, Routes} from "react-router";
-import React from "react";
+
 
 const Account = () => {
-
     return (
         <section className={styles.accountContent}>
             <header className={styles.header}>
@@ -25,8 +25,12 @@ const Account = () => {
                 <nav className={styles.profileSection}>
                     <figure className={styles.avatar}>
                         <img src={image} alt="Sofia Havertz"/>
-                        <figcaption>Sofia Havertz</figcaption>
+                        <figcaption className={styles.accountName}>Sofia Havertz</figcaption>
                     </figure>
+                    <div className={styles.buttonDropMenu}>
+                        <p className={styles.buttonNameblack}>Account</p>
+                        <img className={styles.imageArrowDown} src={arrowDown} alt={arrowDown}/>
+                    </div>
                     <nav className={styles.sideMenu}>
                         <NavLink to="/account" className={styles.navLink}>Account</NavLink>
                         <NavLink to="address" className={styles.sideMenuEl}>Address</NavLink>

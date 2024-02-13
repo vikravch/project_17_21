@@ -5,10 +5,15 @@ import Product from "../../../shop-page/domain/model/product";
 import ProductsFakeRepository from "../../../shop-page/data/repository/productsFakeRepository";
 import GetAllProducts from "../../../shop-page/domain/use_case/getAllProducts";
 import SliderArrowRight from "../icons/SliderArrowRight";
+import {addItemCart} from "../../../cart/presentation/redux/cartSlice";
+import {useDispatch} from "react-redux";
+
 
 
 const NewArrivals = () =>
 {
+
+    const dispatch = useDispatch();
     const [newProducts, setNewProducts] = useState<Product[]>([]);
     // let ratingIcons: string[] = [];
 
@@ -32,12 +37,15 @@ const NewArrivals = () =>
             setScrollIndicatorWidth(newWidth);
         }
     };
-    // for (let i = 0; i < {product.rating}; i++) {
-    //     ratingIcons.push('★');
-    // }
-    // for (let i = 4; i >= product.rating; i--) {
-    //     ratingIcons.push('☆');
-    // }
+
+    const addToCart = (product: Product) => {
+        dispatch(addItemCart({
+            product: product,
+            quantity: 1
+        }));
+
+    };
+
 
     return (
         <div className={'new_arrivals_section'}>
@@ -57,10 +65,8 @@ const NewArrivals = () =>
                                     <p className="badge_new">NEW</p>
                                     <p className="badge_sale">-{product.sale}%</p>
                                 </div>
-                                <div className="add_to_cart">
-                                    <Link className={'link_add_to_cart'} to={"/cart"}>
-                                        <span className={'text_add_to_cart'}>Add to cart</span>
-                                    </Link>
+                                <div className="add_to_cart" onClick={() => addToCart(product)}>
+                                    <span className={'text_add_to_cart'}>Add to cart</span>
                                 </div>
                             </div>
                             <div className={'text_and_price'}>

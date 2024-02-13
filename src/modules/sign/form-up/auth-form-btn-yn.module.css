@@ -1,0 +1,23 @@
+.BtnUp1{
+background-color: var(--primary-dark);
+border-radius: 8px;
+font-family: var (--font-primary);
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 28px;
+text-align: center;
+letter-spacing: -0.4px;
+color: var(--darktheme-text-primary);
+margin-top: 2px;            
+}
+.Yn1{
+left: 0px;
+font-family: var(--font-primary);
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 26px;
+color:  var(--regular-grey);
+border: 1px solid var(--darktheme-text-primary);
+}

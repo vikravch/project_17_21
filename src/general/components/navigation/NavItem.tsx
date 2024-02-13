@@ -7,11 +7,11 @@ import '../../../modules/home_page/presentation/components/FlyMobile.css'
 
 
 
-
 interface Props {
     item: Item
     fly: boolean
 }
+
 
 const NavItem = ({item, fly}: Props) => {
     const dispatch = useAppDispatch();
@@ -20,12 +20,9 @@ const NavItem = ({item, fly}: Props) => {
 
 
 
-    const handleCategorySelector = () => {
-        const select = document.querySelector('.fly_mobile_select') as HTMLSelectElement;
-        const opt = select.options[select.selectedIndex];
-        const currValue = opt.value;
+    const handleCategorySelector = (value:string) => {
         dispatch(openFlyMenu(false));
-        navigate(`/shop?category=${currValue}`);
+        navigate(`/shop?category=${value}`);
     }
 
     return (!fly ?
@@ -35,8 +32,8 @@ const NavItem = ({item, fly}: Props) => {
                 </Link>
             </li> : (item.route == 'shop') ?
                 <li className={'qwert'} >
-                        <select className={'fly_mobile_select'} onChange={()=>handleCategorySelector()}>
-                            <option selected={true} disabled={true}>{item.title}</option>
+                        <select className={'fly_mobile_select'} defaultValue={'shop'} onChange={e => handleCategorySelector(e.target.value)} >
+                            <option value={'shop'}>{item.title}</option>
                             {categories == undefined? <></>: categories.map((cat, index) => <option key={index} value={cat.title.toLowerCase().replaceAll(' ', "")} >{cat.title}</option>)}
                         </select>
                 </li> :

@@ -15,17 +15,20 @@
     gap: 40px;
     padding: 16px 10px 80px 10px;
     max-width: 1121px;
+    width: 100%;
 }
 .articleMain
 {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .articleHead
 {
     display: flex;
-    width: 1121px;
+    max-width: 1121px;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
@@ -65,7 +68,12 @@
 {
     .articleWrapper
     {
-        width: 311px;
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .authorArt span
+    {
+        font-size: 0.7rem;
     }
     .h2
     {
@@ -73,10 +81,10 @@
     }
     .articleHead
     {
-        width: 311px;
+        width: 100%;
     }
     .images
     {
-        width: 311px;
+        width: 100%;
     }
 }
