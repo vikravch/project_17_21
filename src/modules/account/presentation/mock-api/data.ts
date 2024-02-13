@@ -2,30 +2,20 @@ import sofa from "../../images/sofa.webp"
 import trayTable from "../../images/trayTable.webp"
 import bambooBasket from "../../images/bambooBasket.webp"
 import pillow from "../../images/pillow.webp"
+import {TBillingAddress, TItemOrder, TItemWishList, TShippingAddress} from "../../redux/types";
 
-export type FormDataAccount = {
-    firstName?: string;
-    lastName?: string;
-    displayName?: string;
-    email?: string;
-    oldPassword?: string;
-    newPassword?: string;
-    confirmPassword?: string;
-};
+export const dataBillingAddress:TBillingAddress = {
+            name: 'Sofia Havertz',
+            phone: '+1 23445 6777',
+            address: '345 Long Island, NewYork, United States'
+}
 
-export type TItemWishList = {
-    id: number
-    name: string
-    color: string
-    price: string;
-    picture: string;
+export const dataShippingAddress: TShippingAddress = {
+        name: 'Sofia Havertz',
+        phone: '+1 23445 6777',
+        address: '345 Long Island, NewYork, United States'
 }
-export type TItemOrder = {
-    id: number
-    dateOrder: string
-    status: string
-    price: number
-}
+
 
 export const dataOrders: TItemOrder[] = [
     {
@@ -56,34 +46,65 @@ export const dataOrders: TItemOrder[] = [
 ]
 export const dataWishList: TItemWishList[] = [
     {
-        id: 1,
+        id: "1",
         name: "Tray Table",
         color: "Black",
-        price: "$19.19",
-        picture: trayTable
+        actualPrice: 9.99,
+        image: trayTable,
+        quantity: 1,
+        fullPrice: 9.99,
+        sale: 0,
+        isNew: false,
+        rating: 0,
+        description: '',
+        amount: 0
     },
     {
-        id: 2,
+        id: "2",
         name: "Sofa",
         color: "Beige",
-        price: "$345",
-        picture: sofa
+        actualPrice: 345,
+        image: sofa,
+        quantity: 1,
+        fullPrice: 345,
+        sale: 0,
+        isNew: false,
+        rating: 0,
+        description: '',
+        amount: 0
     },
+
     {
-        id: 3,
+        id: "3",
         name: "Bamboo Basket",
         color: "Beige",
-        price: "$8.80",
-        picture: bambooBasket
+        actualPrice: 8.8,
+        image: bambooBasket,
+        quantity: 1,
+        fullPrice: 8.8,
+        sale: 0,
+        isNew: false,
+        rating: 0,
+        description: '',
+        amount: 0
     },
     {
-        id: 4,
+        id: "4",
         name: "Pillow",
         color: "Beige",
-        price: "$8.80",
-        picture: pillow
-    }
+        actualPrice: 8.8,
+        image: pillow,
+        quantity: 1,
+        fullPrice: 8.8,
+        sale: 0,
+        isNew: false,
+        rating: 0,
+        description: '',
+        amount: 0
+    },
+
 ]
+
 
 
 

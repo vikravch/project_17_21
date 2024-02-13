@@ -1,9 +1,12 @@
 import React from 'react';
 import styles from "./oredrs.module.css";
 import OrderItem from "../orderItem/OrderItem";
-import {dataOrders} from "../../mock-api/data";
+import {useAppSelector} from "../../../../../general/redux/hooks";
+import {TItemOrder} from "../../../redux/types";
 
 const Orders = () => {
+
+    const {orders} = useAppSelector(state=>state.account)
 
     return (
         <section className={styles.ordersContent}>
@@ -18,7 +21,7 @@ const Orders = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {dataOrders.map(el =>
+                {orders.map((el:TItemOrder) =>
                     <OrderItem key={el.id} {...el}/>
                 )}
                 </tbody>

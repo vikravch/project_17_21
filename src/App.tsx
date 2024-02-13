@@ -13,8 +13,13 @@ import CompletePage from "./modules/cart/presentation/pages/complete-page";
 
 import HomePage from './modules/home_page/presentation/page/HomePage';
 import Article from "./modules/blog/presentation/components/Article/Article";
-import Account from "./modules/account/pages/Account";
 import Product from "./modules/product_page/presentation/components/Product";
+import Address from "./modules/account/presentation/components/address/Address";
+import Orders from "./modules/account/presentation/components/orders/Orders";
+import WishList from "./modules/account/presentation/components/wishList/WishList";
+import LogOut from "./modules/account/presentation/components/logOut/LogOut";
+import AccountDetailsForm from "./modules/account/presentation/components/accountDetailsForm/AccountDetailsForm";
+import AccountPage from "./modules/account/presentation/pages/accountPage";
 
 function App() {
     const {pathname} = useLocation();
@@ -41,8 +46,14 @@ function App() {
                 <Route path="/blog" element={<Blog/>}/>
                 <Route path="/blog/article/:artId" element={<Article/>}/>
                 <Route path="*" element={<HomePage/>}/>
-                <Route path="/account/*" element={<Account/>}/>
                 <Route path="/product" element={<Product/>}/>
+                <Route path="/account" element={<AccountPage/>}>
+                    <Route index element={<AccountDetailsForm/>}/>
+                    <Route path="address" element={<Address/>}/>
+                    <Route path="orders" element={<Orders/>}/>
+                    <Route path="wishList" element={<WishList/>}/>
+                    <Route path="logout" element={<LogOut/>}/>
+                </Route>
             </Routes>
             {!pathname.includes('cart') && <NewsletterSubscribe/>}
             <Footer/>

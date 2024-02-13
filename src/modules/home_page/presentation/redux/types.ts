@@ -1,4 +1,4 @@
-import SliderImages from "../../domain/model/sliderImages";
+import     SliderImages from "../../domain/model/sliderImages";
 import BannerGridImages from "../../domain/model/bannerGridImages";
 
 

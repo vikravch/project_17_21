@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from "./orderItem.module.css";
-import {TItemOrder} from "../../mock-api/data";
+import {TItemOrder} from "../../../redux/types";
+
 
 
 const OrderItem = ({id, dateOrder, status, price}: TItemOrder) => {

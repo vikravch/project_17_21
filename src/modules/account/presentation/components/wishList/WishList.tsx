@@ -1,9 +1,14 @@
 import React from 'react';
 import styles from "./wishList.module.css"
-import {dataWishList} from "../../mock-api/data";
 import ProductCard from "../productCard/ProductCard";
+import {useAppSelector} from "../../../../../general/redux/hooks";
+import {TItemWishList} from "../../../redux/types";
+
+
 
 const WishList = () => {
+    const {wishList} = useAppSelector(state=>state.account);
+
     return (
         <section className={styles.contentWishList}>
             <h2 className={styles.header}>Your WishList</h2>
@@ -14,7 +19,7 @@ const WishList = () => {
             </div>
             <div className={styles.mobileHeader}>Product</div>
             <ul>
-                {dataWishList.map(el =>
+                {wishList.map((el:TItemWishList) =>
                     <li key={el.id}>
                         <ProductCard {...el}/>
                     </li>

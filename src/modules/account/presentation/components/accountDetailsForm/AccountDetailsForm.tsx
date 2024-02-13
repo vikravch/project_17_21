@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from "./accountDetailsForm.module.css";
 import {SubmitHandler, useForm} from "react-hook-form";
-import {FormDataAccount} from "../../mock-api/data";
+
+import {useAppDispatch} from "../../../../../general/redux/hooks";
+import {updateUser} from "../../../redux/accountSlice";
+import {FormDataAccount} from "../../../redux/types";
 
 
 const AccountDetailsForm = () => {
+
     const {
         register,
         handleSubmit,
@@ -14,10 +18,18 @@ const AccountDetailsForm = () => {
         mode: 'onTouched',
     });
     const newPassword = watch('newPassword');
+    const dispatch = useAppDispatch();
 
 
     const onSubmit: SubmitHandler<FormDataAccount> = data => {
-        console.log(data)
+        const updatePayload: any = {
+            displayName: data.displayName,
+        };
+
+        if (data.firstName) updatePayload.firstName = data.firstName;
+        if (data.lastName) updatePayload.lastName = data.lastName;
+
+        dispatch(updateUser(updatePayload));
     }
     return (
         <section className={styles.containerForm}>
@@ -53,44 +65,45 @@ const AccountDetailsForm = () => {
                            id="email"
                     />
                 </fieldset>
-            </form>
-            <form className={styles.formAccountDetails}>
-                <h2 className={styles.titleForm}>Password</h2>
-                <fieldset className={styles.inputContainer}>
-                    <label>OLD PASSWORD</label>
-                    <input placeholder="Old password"
-                           {...register('oldPassword', {
-                               required: newPassword ? 'Old password is required when setting a new password' : false
-                           })}
-                           type="password"
-                           id="oldPassword"
-                    />
-                    {errors.oldPassword && <p>{errors.oldPassword.message}</p>}
-                </fieldset>
-                <fieldset className={styles.inputContainer}>
-                    <label>NEW PASSWORD</label>
-                    <input placeholder="New password"
-                           {...register('newPassword', {
-                               minLength: {
-                                   value: 8,
-                                   message: 'Password must have at least 8 characters'
-                               }
-                           })}
-                           type="password"
-                           id="newPassword"/>
-                </fieldset>
-                <fieldset className={styles.inputContainer}>
-                    <label>REPEAT NEW PASSWORD</label>
-                    <input placeholder="Repeat new password"
-                           {...register('confirmPassword', {
-                               validate: value =>
-                                   value === newPassword || 'The passwords do not match'
-                           })}
-                           type="password"
-                           id="confirmPassword"/>
-                    {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
-                </fieldset>
-                <button className={styles.buttonSaveChanges} type={"submit"}>Save changes</button>
+
+                <div className={styles.formAccountDetails}>
+                    <h2 className={styles.titleForm}>Password</h2>
+                    <fieldset className={styles.inputContainer}>
+                        <label>OLD PASSWORD</label>
+                        <input placeholder="Old password"
+                               {...register('oldPassword', {
+                                   required: newPassword ? 'Old password is required when setting a new password' : false
+                               })}
+                               type="password"
+                               id="oldPassword"
+                        />
+                        {errors.oldPassword && <p>{errors.oldPassword.message}</p>}
+                    </fieldset>
+                    <fieldset className={styles.inputContainer}>
+                        <label>NEW PASSWORD</label>
+                        <input placeholder="New password"
+                               {...register('newPassword', {
+                                   minLength: {
+                                       value: 8,
+                                       message: 'Password must have at least 8 characters'
+                                   }
+                               })}
+                               type="password"
+                               id="newPassword"/>
+                    </fieldset>
+                    <fieldset className={styles.inputContainer}>
+                        <label>REPEAT NEW PASSWORD</label>
+                        <input placeholder="Repeat new password"
+                               {...register('confirmPassword', {
+                                   validate: value =>
+                                       value === newPassword || 'The passwords do not match'
+                               })}
+                               type="password"
+                               id="confirmPassword"/>
+                        {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
+                    </fieldset>
+                    <button className={styles.buttonSaveChanges} type={"submit"}>Save changes</button>
+                </div>
             </form>
         </section>
     );
