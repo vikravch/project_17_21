@@ -8,8 +8,7 @@ const GetProducts = (
 ) => async (requestObject: RequestProducts): Promise<ResponseProducts> => {
     try {
         let responseProducts = await productsExpressRepository.getProducts(requestObject);
-        console.log(responseProducts);
-        if (responseProducts === null || responseProducts.products === null || responseProducts.products[0].name === undefined) {
+        if (responseProducts === null || responseProducts.products === null) {
             throw new Error("Server sent a trash");
         }
         return responseProducts;

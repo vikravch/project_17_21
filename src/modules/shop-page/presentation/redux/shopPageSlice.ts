@@ -61,7 +61,10 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
                     (getProductsAsyncAction.fulfilled),
                     (state, action) => {
                         state.expectedCountOfProducts = action.payload.count;
-                        state.products = state.products?.concat(action.payload.products);
+                        if (action.payload.products.length > 0)
+                            state.products = state.products?.concat(action.payload.products);
+                        else
+                            state.error = "We did not find any products matching your request"
                     }
                 )
                 .addCase(getAllCategoriesAsyncAction.pending,

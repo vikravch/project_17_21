@@ -37,8 +37,8 @@ const ProductsGallery = ({setRequestObject}: Props) => {
         <div className={style.wrapper + " " + style['desktop' + columns.countDesktop]}>
             <div className={style.productGallery} style={gridStyles}>
                 {
-                    products ?
-                        products.map((product, index) => (
+                    products?.length !== 0 ?
+                        products!.map((product, index) => (
                             <ShopProductCard product={product}
                                              columns={columns}
                                              key={`product_${index}_${product.name}`}
