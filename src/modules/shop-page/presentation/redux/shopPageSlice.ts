@@ -11,13 +11,18 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
     {
         name: 'shopPage',
         initialState: {
+            expectedCountOfProducts: 0,
             products: [],
             categories: [],
             prices: [],
             sort: [],
             error: 'Any error'
         },
-        reducers: {},
+        reducers: {
+            cleanProducts: (state) => {
+                state.products = [];
+            },
+        },
         extraReducers: (builder) => {
             builder
                 .addCase(
@@ -36,7 +41,8 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
                 .addCase(
                     (getAllProductsAsyncAction.fulfilled),
                     (state, action) => {
-                        state.products = action.payload;
+                        state.expectedCountOfProducts = action.payload.count;
+                        state.products = state.products?.concat(action.payload.products);
                     }
                 )
                 .addCase(
@@ -54,7 +60,11 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
                 .addCase(
                     (getProductsAsyncAction.fulfilled),
                     (state, action) => {
-                        state.products = state.products?.concat(action.payload);
+                        state.expectedCountOfProducts = action.payload.count;
+                        if (action.payload.products.length > 0)
+                            state.products = state.products?.concat(action.payload.products);
+                        else
+                            state.error = "We did not find any products matching your request"
                     }
                 )
                 .addCase(getAllCategoriesAsyncAction.pending,
@@ -110,3 +120,4 @@ const shopPageSlice = createSlice<ShopPageState, SliceCaseReducers<ShopPageState
 );
 
 export default shopPageSlice.reducer;
+export const { cleanProducts } = shopPageSlice.actions;

@@ -48,8 +48,8 @@ const ShopProductCard = ({columns, product}: Props) => {
                     <h5 className={style.name}>{product.name}</h5>
                 </div>
                 <div>
-                    <span className={style.actualPrice}>${product.actualPrice}</span>
-                    {product.sale && <span className={style.fullPrice}>${product.fullPrice}</span>}
+                    <span className={style.actualPrice}>${product.actualPrice === null ? product.fullPrice : product.actualPrice}</span>
+                    {product.sale !== 0 && <span className={style.fullPrice}>${product.fullPrice}</span>}
                     <div className={style.description}>{product.description}</div>
                     <button onClick={addToCart} className={style.addToCart} aria-label={'Add to card'}>Add to cart
                     </button>

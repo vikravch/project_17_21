@@ -47,6 +47,7 @@ const ShopPage: React.FC<ChildrenProps> = ({listenerObject,openCloseMenuHandler}
                     updatedRequestObject.filtering[key as keyof typeof currentState.filtering] = null;
                 }
             }
+            updatedRequestObject.page = 1;
             return updatedRequestObject;
         },
     });

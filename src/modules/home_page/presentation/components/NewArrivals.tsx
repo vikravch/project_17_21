@@ -7,6 +7,8 @@ import GetAllProducts from "../../../shop-page/domain/use_case/getAllProducts";
 import SliderArrowRight from "../icons/SliderArrowRight";
 import {addItemCart} from "../../../cart/presentation/redux/cartSlice";
 import {useDispatch} from "react-redux";
+import ProductsExpressRepository from "../../../shop-page/data/repository/productsExpressRepository";
+import {ResponseProducts} from "../../../shop-page/presentation/redux/types";
 
 
 
@@ -22,8 +24,8 @@ const NewArrivals = () =>
 
     useEffect(() => {
         const fetchNewProducts = async () => {
-            const allProducts: Product[] = await GetAllProducts(new ProductsFakeRepository())();
-            const newProducts: Product[] = allProducts.filter((product: Product) => product.isNew);
+            const responseProducts: ResponseProducts = await GetAllProducts(new ProductsFakeRepository(), new ProductsExpressRepository())();
+            const newProducts: Product[] = responseProducts.products.filter((product: Product) => product.isNew);
             setNewProducts(newProducts);
         };
 

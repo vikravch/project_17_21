@@ -1,12 +1,11 @@
-import Product from "../model/product";
-import {RequestProducts} from "../../presentation/redux/types";
+import {RequestProducts, ResponseProducts} from "../../presentation/redux/types";
 import Category from "../model/category";
 import Price from "../model/price";
 import Sort from "../model/sort";
 
 export type ProductsUseCases = {
-    getAllProducts: () => Promise<Product[]>,
-    getProducts: (requestObject: RequestProducts) => Promise<Product[]>
+    getAllProducts: () => Promise<ResponseProducts>,
+    getProducts: (requestObject: RequestProducts) => Promise<ResponseProducts>
 }
 
 export type FilteringUseCases = {

@@ -1,15 +1,20 @@
 import ProductsFakeRepository from "../../data/repository/productsFakeRepository";
-import Product from "../model/product";
-import {RequestProducts} from "../../presentation/redux/types";
+import {RequestProducts, ResponseProducts} from "../../presentation/redux/types";
+import ProductsRepository from "../repository/productsRepository";
 
 const GetProducts = (
-    productsFakeRepository: ProductsFakeRepository
-) => async (requestObject: RequestProducts): Promise<Product[]> => {
+    productsFakeRepository: ProductsFakeRepository,
+    productsExpressRepository: ProductsRepository
+) => async (requestObject: RequestProducts): Promise<ResponseProducts> => {
     try {
-        const products = await productsFakeRepository.getProducts(requestObject);
-        return products || [];
+        let responseProducts = await productsExpressRepository.getProducts(requestObject);
+        if (responseProducts === null || responseProducts.products === null) {
+            throw new Error("Server sent a trash");
+        }
+        return responseProducts;
     } catch (e) {
-        throw e;
+        console.log(e);
+        return await productsFakeRepository.getProducts(requestObject);
     }
 }
 
